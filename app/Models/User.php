@@ -59,4 +59,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(CattleRegistration::class);
     }
+
+    public function companyPolicy()
+    {
+        return $this->hasMany(CompanyPolicy::class);
+    }
 }

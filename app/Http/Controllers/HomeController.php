@@ -28,6 +28,8 @@ class HomeController extends Controller
             return redirect()->route("farmer_profile.index");
         } elseif (auth()->user()->role == 's') {
             return redirect()->route("profile.index");
+        } elseif (auth()->user()->role == 'c') {
+            return "Company Route";
         } else {
             abort(404);
         }

@@ -238,10 +238,10 @@
                     </div>
                 </h6>
                 <div class="dropdown-divider"></div>
-{{--                <a class="dropdown-item" href="#!">--}}
-{{--                    <div class="dropdown-item-icon"><i data-feather="settings"></i></div>--}}
-{{--                    Account--}}
-{{--                </a>--}}
+                {{--                <a class="dropdown-item" href="#!">--}}
+                {{--                    <div class="dropdown-item-icon"><i data-feather="settings"></i></div>--}}
+                {{--                    Account--}}
+                {{--                </a>--}}
                 <a class="dropdown-item" href="{{ route('log_out') }}">
                     <div class="dropdown-item-icon"><i data-feather="log-out"></i></div>
                     Logout
@@ -261,6 +261,9 @@
                 <x-sidebar.sidebar></x-sidebar.sidebar>
             @elseif(auth()->user()->role == "f")
                 <x-sidebar.farmer></x-sidebar.farmer>
+            @elseif(auth()->user()->role == "c")
+                <x-sidebar.company></x-sidebar.company>
+
             @endif
 
             {{-- ------------------------------------------------- Full Sidenav menu -------------------------------------------------  --}}

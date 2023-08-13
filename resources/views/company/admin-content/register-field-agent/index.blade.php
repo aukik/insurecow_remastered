@@ -15,7 +15,7 @@
                                 <div class="page-header-icon">
                                     <i data-feather="user"></i>
                                 </div>
-                                Register Company/NGO/Bank - Super Admin
+                                Register Field Agent / Farmer - Company
                             </h1>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                 <div class="col-xl-12">
                     <!-- Account details card-->
                     <div class="card mb-4">
-                        <div class="card-header">Register Company/NGO/Bank</div>
+                        <div class="card-header">Register Field Agent / Farmer - Company</div>
                         <div class="card-body">
 
                             {{-- ---------------------------------------- Register Company/NGO/Bank  ---------------------------------------- --}}
@@ -43,7 +43,7 @@
                             @endif
 
 
-                            <form action="{{ route('sp_register_company_store') }}" method="post"
+                            <form action="{{ route('farmer_register.store') }}" method="post"
                                   enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <!-- Form Group (username)-->
@@ -55,7 +55,7 @@
                                     <!-- Form Group (last name)-->
                                     <div class="col-md-12">
                                         <label class="small mb-1" for="inputLastName"
-                                        >Company Name</label
+                                        >Full Name</label
                                         >
                                         <input
                                             class="form-control"
@@ -148,6 +148,24 @@
                                     </div>
                                 </div>
 
+                                <div class="row gx-3 mb-3">
+                                    <!-- Form Group (first name)-->
+
+                                    <!-- Form Group (last name)-->
+                                    <div class="col-md-12">
+                                        <label class="small mb-1" for="inputLastName"
+                                        >Agent Employee ID</label
+                                        >
+                                        <input
+                                            class="form-control"
+                                            id="inputLastName"
+                                            type="text"
+                                            placeholder="Enter Agent Employee ID"
+                                            value=""
+                                            name="agent_employee_id"
+                                        />
+                                    </div>
+                                </div>
 
                                 <div class="row gx-3 mb-3">
                                     <!-- Form Group (first name)-->
@@ -155,13 +173,11 @@
                                     <!-- Form Group (last name)-->
                                     <div class="col-md-12">
                                         <label class="small mb-1" for="inputLastName"
-                                        >Registered For</label>
+                                        >Register As</label>
 
                                         <select class="form-control" id="exampleFormControlSelect2" name="role">
-                                            <option value="c">Company</option>
-                                            <option value="b">Bank</option>
-                                            <option value="n">NGO</option>
-                                            <option value="m">MFI</option>
+                                            <option value="fa">Field Agent</option>
+                                            <option value="f">Farmer</option>
                                         </select>
 
 
@@ -172,7 +188,7 @@
                                     <!-- Form Group (organization name)-->
                                     <div class="col-md-12">
                                         <label class="small mb-1" for="inputOrgName"
-                                        >Organization Image</label
+                                        >Person Image</label
                                         >
                                         <input type="file" class="form-control" name="company_logo">
                                     </div>
