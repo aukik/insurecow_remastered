@@ -41,7 +41,7 @@
                                     <tr>
                                         <th>Serial</th>
                                         <th>Cattle Name</th>
-                                        <th>Owner Image</th>
+{{--                                        <th>Owner Image</th>--}}
                                         <th>Weight</th>
                                         <th>Color</th>
                                         <th>Cow With Owner</th>
@@ -56,7 +56,7 @@
                                         <tr>
                                             <td>{{ $id += 1 }}</td>
                                             <td>{{ $cattle->cattle_name }}</td>
-                                            <td><img src="{{ asset('storage/'.auth()->user()->profile()->orderBy('id','desc')->first()->image) }}" alt="" style="width: 100px"></td>
+{{--                                            <td><img src="{{ asset('storage/'.auth()->user()->profile()->orderBy('id','desc')->first()->image) }}" alt="" style="width: 100px"></td>--}}
                                             <td>{{ $cattle->weight }}</td>
                                             <td>{{ $cattle->cattle_color }}</td>
                                             <td><img src="{{ asset('storage/'.$cattle->cow_with_owner) }}" alt="" style="width: 100px"></td>
