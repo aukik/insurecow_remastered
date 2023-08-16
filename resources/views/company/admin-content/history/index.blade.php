@@ -15,7 +15,7 @@
                                 <div class="page-header-icon">
                                     <i data-feather="user"></i>
                                 </div>
-                                User History - Super Admin
+                                User History - Company
                             </h1>
                         </div>
                     </div>

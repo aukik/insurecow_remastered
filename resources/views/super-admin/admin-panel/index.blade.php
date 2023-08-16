@@ -7,6 +7,8 @@
     <meta name="description" content=""/>
     <meta name="author" content=""/>
     <title>Insurecow - Admin Panel</title>
+{{--    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>--}}
+
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet"/>
     <link
         href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
@@ -18,6 +20,7 @@
             crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"
             crossorigin="anonymous"></script>
+
 </head>
 <body class="nav-fixed">
 <nav
@@ -325,19 +328,6 @@
 {{-------------------------------- hiding tinymce domain notification ----------------------------- --}}
 
 
-<script>
-    $(document).ready(function () {
-        // $('#example').DataTable();
-
-        var table = $('#example').DataTable({
-            rowReorder: {
-                selector: 'td:nth-child(2)'
-            },
-            responsive: true
-        });
-    });
-</script>
-
 <script
     src="https://cdn.tiny.cloud/1/qagffr3pkuv17a8on1afax661irst1hbr4e6tbv888sz91jc/tinymce/5/tinymce.min.js"></script>
 
@@ -357,5 +347,27 @@
 </script>
 
 <script src="{{ asset('js/datatables/datatables-simple-demo.js') }}"></script>
+
+
+{{--<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>--}}
+{{--<script src="https://cdn.datatables.net/rowreorder/1.2.8/js/dataTables.rowReorder.min.js"></script>--}}
+{{--<script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>--}}
+
+
+
+{{--<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>--}}
+
+{{--<script>--}}
+{{--    $(document).ready(function () {--}}
+{{--        // $('#example').DataTable();--}}
+
+{{--        var table = $('#datatablesSimple').DataTable({--}}
+{{--            rowReorder: {--}}
+{{--                selector: 'td:nth-child(2)'--}}
+{{--            },--}}
+{{--            responsive: true--}}
+{{--        });--}}
+{{--    });--}}
+{{--</script>--}}
 </body>
 </html>
