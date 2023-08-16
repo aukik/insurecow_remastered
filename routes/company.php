@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Company\CompanyController;
 use App\Http\Controllers\Company\CompanyPolicyController;
+use App\Http\Controllers\Company\PackageController;
 use App\Http\Controllers\Company\RegisterFieldAgentController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +32,12 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
     Route::resource('policy', CompanyPolicyController::class);
 
 //    -------------------------- Policy Creation -----------------------------
+
+//    -------------------------- Package Creation -----------------------------
+
+    Route::resource('package', PackageController::class);
+
+//    -------------------------- Package Creation -----------------------------
 
 });
 
