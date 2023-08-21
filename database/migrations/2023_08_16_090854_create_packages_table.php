@@ -16,11 +16,14 @@ class CreatePackagesTable extends Migration
         Schema::create('packages', function (Blueprint $table) {
             $table->id();
             $table->string('package_name');
-            $table->string('insurance_period');
+            $table->integer('insurance_period');
             $table->string('coverage');
             $table->integer('lowest_amount');
             $table->integer('highest_amount');
             $table->string('quotation');
+            $table->integer('total_amount');
+            $table->string('package_status')->default('active');
+            $table->string('user_id');
             $table->timestamps();
         });
     }

@@ -64,4 +64,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(CompanyPolicy::class);
     }
+
+    public function companyPackage()
+    {
+        return $this->hasMany(Package::class);
+    }
+
+
 }

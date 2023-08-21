@@ -39,6 +39,12 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
 
 //    -------------------------- Package Creation -----------------------------
 
+//    -------------------------- Package Status -----------------------------
+
+    Route::get('package_status/{id}', [CompanyController::class,'package_status'])->name('package_status');
+
+//    -------------------------- Package Status -----------------------------
+
 });
 
 

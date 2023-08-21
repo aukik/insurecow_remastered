@@ -16,7 +16,7 @@
         @if(auth()->user()->farmerProfile()->count() != 0)
 
             <a class="nav-link" href="#">
-                <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>
+                <div class="nav-link-icon"><i data-feather="filter"></i></div>
                 Dashboard
             </a>
 
@@ -28,6 +28,11 @@
             <a class="nav-link" href="{{ route('cattle.list') }}">
                 <div class="nav-link-icon"><i data-feather="filter"></i></div>
                 View Registered Cattle's
+            </a>
+
+            <a class="nav-link" href="#">
+                <div class="nav-link-icon"><i data-feather="filter"></i></div>
+                Apply For Insurance
             </a>
 
             <a class="nav-link" href="">

@@ -64,27 +64,21 @@
                                 </div>
 
                                 <div class="row gx-3 mb-3">
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <label class="small mb-1" for="inputLastName"
                                         >Insurance Period</label
                                         >
                                         <input
                                             class="form-control"
                                             id="inputLastName"
-                                            type="text"
+                                            type="number"
                                             placeholder="Enter Insurance Period"
                                             value=""
                                             name="insurance_period"
                                         />
                                     </div>
-                                </div>
 
-
-                                <div class="row gx-3 mb-3">
-                                    <!-- Form Group (first name)-->
-
-                                    <!-- Form Group (last name)-->
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <label class="small mb-1" for="inputLastName"
                                         >Coverage</label>
 
@@ -95,31 +89,30 @@
                                     </div>
                                 </div>
 
+
                                 <div class="row gx-3 mb-3">
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <label class="small mb-1" for="inputLastName"
                                         >Lowest Amount</label
                                         >
                                         <input
                                             class="form-control"
                                             id="inputLastName"
-                                            type="text"
+                                            type="number"
                                             placeholder="Enter Lowest Amount"
                                             value=""
                                             name="lowest_amount"
                                         />
                                     </div>
-                                </div>
 
-                                <div class="row gx-3 mb-3">
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <label class="small mb-1" for="inputLastName"
                                         >Highest Amount</label
                                         >
                                         <input
                                             class="form-control"
                                             id="inputLastName"
-                                            type="text"
+                                            type="number"
                                             placeholder="Enter Highest Amount"
                                             value=""
                                             name="highest_amount"
@@ -135,6 +128,23 @@
                                         >
                                         <textarea class="form-control" rows="40" name="quotation"></textarea>
 
+                                    </div>
+                                </div>
+
+
+                                <div class="row gx-3 mb-3">
+                                    <div class="col-md-12">
+                                        <label class="small mb-1" for="inputLastName"
+                                        >Enter Total Amount [ Based on the quotation ]</label
+                                        >
+                                        <input
+                                            class="form-control"
+                                            id="inputLastName"
+                                            type="number"
+                                            placeholder="Enter Highest Amount"
+                                            value=""
+                                            name="total_amount"
+                                        />
                                     </div>
                                 </div>
 

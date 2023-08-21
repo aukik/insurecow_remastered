@@ -61,16 +61,20 @@
         </a>
 
 
-        <a class="nav-link" href="">
+        <a class="nav-link" href="{{ route('package.create') }}">
             <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>
             Package List
         </a>
 
-        <a class="nav-link" href="">
+        <a class="nav-link" href="{{ route('package.index') }}">
             <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>
             View All Packages
         </a>
 
+        <a class="nav-link" href="">
+            <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>
+            Insurance Requests
+        </a>
 
         {{-- ---------------------------------- Single Side Navbar ---------------------------------- --}}
 

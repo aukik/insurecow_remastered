@@ -29,8 +29,6 @@ Route::middleware('auth')->group(function () {
 // -------------------------------------------------------------------- Logout --------------------------------------------------------------------
 
 
-
-
 // -------------------------------------------------------------------- Farmer --------------------------------------------------------------------
 
 
@@ -61,6 +59,12 @@ Route::middleware(['auth', 'farmer'])->prefix('farmer')->group(function () {
     Route::get('cattle_list', [FarmerController::class, 'view_registered_cattle'])->name('cattle.list');
 
 //    -------------------------- view registered cattle -----------------------------
+
+//    ----------------------- Insurance Packages by companies -----------------------
+
+    Route::get('insurance_packages',[FarmerController::class, 'company_insurance_packages'])->name('insurance.packages');
+
+//    ----------------------- Insurance Packages by companies -----------------------
 
 
 });
