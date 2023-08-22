@@ -35,6 +35,9 @@ class CreateCattleRegistrationsTable extends Migration
             $table->string("current_price");
             $table->string('unique_id');
             $table->string('user_id');
+
+            $table->string('insured_by')->default(0);
+            $table->string('insurance_status')->default(0);
             $table->timestamps();
         });
     }

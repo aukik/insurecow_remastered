@@ -78,7 +78,7 @@
                             {{-- ---------------------------------------- Package Search ---------------------------------------- --}}
 
 
-                            <form action="" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('insurance.packages.post') }}" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <!-- Form Group (username)-->
 
@@ -94,25 +94,24 @@
                                         <input
                                             class="form-control"
                                             id="inputLastName"
-                                            type="text"
-                                            placeholder="Enter website url"
+                                            type="number"
+                                            placeholder="Insurance Period"
                                             value=""
-                                            name="website"
+                                            name="insurance_period"
                                         />
                                     </div>
 
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputLastName"
-                                        >Insurance Amount</label
+                                        >Search Insurance For</label
                                         >
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder="Enter website url"
-                                            value=""
-                                            name="website"
-                                        />
+
+                                        <select class="form-control" id="exampleFormControlSelect2" name="cattle_info">
+                                            @foreach($cattle_list as $cattle)
+                                                <option value="{{ $cattle->id }}">{{ $cattle->cattle_name }}</option>
+                                            @endforeach
+                                        </select>
+
                                     </div>
                                 </div>
 
@@ -135,7 +134,5 @@
     </main>
 
 
-    <script>
-        document.querySelector(".datatable-input").placeholder = "dddd";
-    </script>
+
 @endsection

@@ -100,6 +100,8 @@ class CattleRegistrationController extends Controller
         }
 
         auth()->user()->cattleRegister()->create($inputs);
+        session()->flash("register","Cattle Registered Successfully");
+        return back();
     }
 
     /**

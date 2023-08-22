@@ -63,6 +63,7 @@ Route::middleware(['auth', 'farmer'])->prefix('farmer')->group(function () {
 //    ----------------------- Insurance Packages by companies -----------------------
 
     Route::get('insurance_packages',[FarmerController::class, 'company_insurance_packages'])->name('insurance.packages');
+    Route::post('insurance_packages',[FarmerController::class, 'company_insurance_packages_post'])->name('insurance.packages.post');
 
 //    ----------------------- Insurance Packages by companies -----------------------
 
