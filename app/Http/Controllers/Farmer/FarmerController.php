@@ -36,6 +36,13 @@ class FarmerController extends Controller
     {
 //        $packages = Package::all();
 
+
+        $inputs = \request()->validate([
+            'cattle_info' => 'required',
+            'insurance_period' => 'required',
+        ]);
+
+
         $cattle_info = auth()->user()->cattleRegister()->where('insured_by', 0)->where('insurance_status', 0)->where('id', \request('cattle_info'))->first();
 
 
@@ -43,8 +50,8 @@ class FarmerController extends Controller
             $packages = Package::where('lowest_Amount', '<=', $cattle_info->current_price)->where('highest_Amount', '>=', $cattle_info->current_price)->where('insurance_period', '=', \request('insurance_period'))->get();
 
             return view('farmer.admin-content.insurance_packages.result', compact('packages'));
-
-
+        } else {
+            return "Not Applicable for the operation";
         }
 
 

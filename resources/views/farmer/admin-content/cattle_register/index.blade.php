@@ -50,14 +50,17 @@
                                         >Cattle Name</label
                                         >
                                         <input
-                                            class="form-control"
+                                            class="form-control "
                                             id="inputLastName"
                                             type="text"
                                             placeholder=""
                                             value="{{ old('cattle_name') }}"
                                             name="cattle_name"
-
                                         />
+
+                                        @error('cattle_name')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <div class="col-md-6">
@@ -72,6 +75,10 @@
                                             value="{{ old('cattle_breed') }}"
                                             name="cattle_breed"
                                         />
+
+                                        @error('cattle_breed')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -90,6 +97,10 @@
                                             value="{{ old('age') }}"
                                             name="age"
                                         />
+
+                                        @error('age')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <div class="col-md-6">
@@ -104,6 +115,10 @@
                                             value="{{ old('cattle_color') }}"
                                             name="cattle_color"
                                         />
+
+                                        @error('cattle_color')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
 
@@ -124,6 +139,10 @@
                                             value="{{ old('weight') }}"
                                             name="weight"
                                         />
+
+                                        @error('weight')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
 
@@ -136,9 +155,13 @@
                                             id="inputLastName"
                                             type="text"
                                             placeholder=""
-                                            value="{{ old('cattle_type') }}"
+                                            value="{{ old('weight') }}"
                                             name="cattle_type"
                                         />
+
+                                        @error('weight')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -149,6 +172,10 @@
                                         >NID Front</label
                                         >
                                         <input type="file" class="form-control" name="nid_front">
+
+                                        @error('nid_front')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <!-- Form Group (organization name)-->
@@ -157,6 +184,10 @@
                                         >NID Back</label
                                         >
                                         <input type="file" class="form-control" name="nid_back">
+
+                                        @error('nid_back')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <!-- Form Group (organization name)-->
@@ -165,6 +196,12 @@
                                         >Chairman Certification</label
                                         >
                                         <input type="file" class="form-control" name="chairman_certificate">
+
+                                        @error('chairman_certificate')
+                                        <div class="alert alert-danger" style="margin-top: 10px">Chairman certification
+                                            required
+                                        </div>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -175,6 +212,10 @@
                                         >Muzzle Of Cow</label
                                         >
                                         <input type="file" class="form-control" name="muzzle_of_cow">
+
+                                        @error('muzzle_of_cow')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <!-- Form Group (organization name)-->
@@ -183,6 +224,10 @@
                                         >Left Side</label
                                         >
                                         <input type="file" class="form-control" name="left_side">
+
+                                        @error('left_side')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <!-- Form Group (organization name)-->
@@ -191,6 +236,10 @@
                                         >Right Side</label
                                         >
                                         <input type="file" class="form-control" name="right_side">
+
+                                        @error('right_side')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -202,6 +251,10 @@
                                         >Special Marks</label
                                         >
                                         <input type="file" class="form-control" name="special_marks">
+
+                                        @error('special_marks')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <!-- Form Group (organization name)-->
@@ -210,6 +263,10 @@
                                         >Cow With Owner</label
                                         >
                                         <input type="file" class="form-control" name="cow_with_owner">
+
+                                        @error('cow_with_owner')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <div class="col-md-4">
@@ -224,6 +281,10 @@
                                             value="{{ old('current_price') }}"
                                             name="current_price"
                                         />
+
+                                        @error('current_price')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                 </div>

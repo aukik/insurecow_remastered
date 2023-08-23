@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\Farmer\CattleRegistrationController;
 use App\Http\Controllers\Farmer\FarmerController;
 use App\Http\Controllers\Farmer\FarmerProfileController;
@@ -62,8 +63,8 @@ Route::middleware(['auth', 'farmer'])->prefix('farmer')->group(function () {
 
 //    ----------------------- Insurance Packages by companies -----------------------
 
-    Route::get('insurance_packages',[FarmerController::class, 'company_insurance_packages'])->name('insurance.packages');
-    Route::post('insurance_packages',[FarmerController::class, 'company_insurance_packages_post'])->name('insurance.packages.post');
+    Route::get('insurance_packages', [FarmerController::class, 'company_insurance_packages'])->name('insurance.packages');
+    Route::post('insurance_packages', [FarmerController::class, 'company_insurance_packages_post'])->name('insurance.packages.post');
 
 //    ----------------------- Insurance Packages by companies -----------------------
 
@@ -71,5 +72,19 @@ Route::middleware(['auth', 'farmer'])->prefix('farmer')->group(function () {
 });
 
 // -------------------------------------------------------------------- Farmer --------------------------------------------------------------------
+
+// -------------------------------------------------------------------- Change Password --------------------------------------------------------------------
+
+Route::middleware('auth')->group(function () {
+//    -------------------------- Change Password view -----------------------------
+
+    Route::get('change_password', [ChangePasswordController::class, 'viewPasswordPage'])->name('view.password');
+    Route::post('change_password', [ChangePasswordController::class, 'updatePassword'])->name('view.password.post');
+
+//    -------------------------- Change Password view -----------------------------
+
+});
+
+// -------------------------------------------------------------------- Change Password --------------------------------------------------------------------
 
 
