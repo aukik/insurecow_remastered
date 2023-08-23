@@ -43,7 +43,7 @@
                                         <th>Serial</th>
                                         <th>Package Name</th>
                                         <th>Company Name</th>
-                                        <th>Company Logo</th>
+{{--                                        <th>Company Logo</th>--}}
                                         <th>Insurance Period</th>
                                         <th>Amount</th>
                                         <th>Package Status</th>
@@ -58,9 +58,9 @@
                                             <td>{{ $id += 1 }}</td>
                                             <td>{{ $package->package_name }}</td>
                                             <td>{{ \App\Models\User::whereId($package->user_id)->first()->name ?? null }}</td>
-                                            <td><img
-                                                    src="{{ asset('storage/'.\App\Models\FarmerProfile::whereId($package->user_id)->first()->image) }}"
-                                                    alt="" style="width: 120px"></td>
+{{--                                            <td><img--}}
+{{--                                                    src="{{ asset('storage/'.\App\Models\FarmerProfile::whereId($package->user_id)->first()->image) }}"--}}
+{{--                                                    alt="" style="width: 120px"></td>--}}
                                             <td>{{ $package->insurance_period }}</td>
                                             <td>{{ $package->total_amount }}</td>
                                             <td>{{ $package->package_status }}</td>
