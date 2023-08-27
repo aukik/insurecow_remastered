@@ -53,6 +53,8 @@ class CattleRegistrationController extends Controller
             'cattle_type' => 'required',
             'current_price' => 'required',
 
+            'sum_insured' => 'required',
+
             'nid_front' => 'required|mimes:jpeg,jpg,png',
             'nid_back' => 'required|mimes:jpeg,jpg,png',
             'chairman_certificate' => 'required|mimes:jpeg,jpg,png',

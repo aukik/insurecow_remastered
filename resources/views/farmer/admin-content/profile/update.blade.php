@@ -362,23 +362,23 @@
                                 <!-- Form Row-->
                                 <div class="row gx-3 mb-3">
 
-                                    <div class="col-md-6">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >Sum Insured</label
-                                        >
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder=""
+{{--                                    <div class="col-md-6">--}}
+{{--                                        <label class="small mb-1" for="inputLastName"--}}
+{{--                                        >Sum Insured</label--}}
+{{--                                        >--}}
+{{--                                        <input--}}
+{{--                                            class="form-control"--}}
+{{--                                            id="inputLastName"--}}
+{{--                                            type="text"--}}
+{{--                                            placeholder=""--}}
 
-                                            value="{{ $profile->sum_insured }}"
+{{--                                            value="{{ $profile->sum_insured }}"--}}
 
-                                            name="sum_insured"
-                                        />
-                                    </div>
+{{--                                            name="sum_insured"--}}
+{{--                                        />--}}
+{{--                                    </div>--}}
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <label class="small mb-1" for="inputLastName"
                                         >Nationality</label
                                         >

@@ -46,12 +46,14 @@
                                     <tr>
                                         <th>Package Name</th>
                                         <th>Insurance Period</th>
+                                        <th>Policy</th>
                                         <th>Coverage</th>
-                                        <th>Lowest Range Amount</th>
-                                        <th>Highest Range Amount</th>
-                                        <th>Total Amount</th>
+                                        <th>Discount</th>
+                                        <th>Rate</th>
+                                        <th>Vat</th>
                                         <th>Package Status</th>
                                         <th>Actions</th>
+                                        <th>Edit</th>
                                     </tr>
                                     </thead>
 
@@ -63,17 +65,45 @@
                                         <tr>
                                             <td>{{ $package->package_name }}</td>
                                             <td>{{ $package->insurance_period }}</td>
-                                            <td>{{ $package->coverage }}</td>
-                                            <td>{{ $package->lowest_amount }}</td>
-                                            <td>{{ $package->highest_amount }}</td>
-                                            <td>{{ $package->total_amount }}</td>
+                                            <td><a href="{{ asset('storage/'.$package->policy)  }}">Policy File</a></td>
+                                            <td>
+                                                @foreach (json_decode($package->coverage) as $item)
+                                                    @if ($item === 'ac')
+                                                        Accidental Coverage
+                                                    @elseif($item === 'fl')
+                                                        Flood Coverage
+                                                    @elseif($item === 'er')
+                                                        Earthquake Coverage
+                                                    @endif
+
+                                                    @if (!$loop->last)
+                                                        ,
+                                                    @endif
+                                                @endforeach
+                                            </td>
+                                            {{--                                            <td>{{ json_decode($package->coverage) }}</td>--}}
+                                            <td>{{ $package->discount }}%</td>
+                                            <td>{{ $package->rate }}%</td>
+                                            <td>{{ $package->vat }}%</td>
                                             <td>{{ $package->package_status }}</td>
                                             <td>
 
-                                                <a href="{{ route('package_status', 1) }}">
-                                                    <button class="btn @if($package->package_status == 'active' ) btn-primary @else btn-danger @endif ">Status Mode</button>
+                                                <a href="{{ route('package_status', $package->id) }}">
+                                                    <button
+                                                        class="btn @if($package->package_status == 'active' ) btn-primary @else btn-danger @endif ">
+                                                        Status Mode
+                                                    </button>
                                                 </a>
 
+                                            </td>
+
+                                            <td>
+                                                <a href="{{ route('package.edit', $package->id) }}">
+                                                    <button
+                                                        class="btn btn-primary">
+                                                        Edit Package
+                                                    </button>
+                                                </a>
                                             </td>
 
                                         </tr>

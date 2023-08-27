@@ -62,7 +62,7 @@ class FarmerProfileController extends Controller
             'loan_amount' => 'required',
             'num_of_livestock' => 'required',
             'type_of_livestock' => 'required',
-            'sum_insured' => 'required',
+//            'sum_insured' => 'required',
             'nationality' => 'required',
             'image' => 'required|mimes:jpeg,jpg,png',
         ]);
@@ -127,7 +127,7 @@ class FarmerProfileController extends Controller
             'loan_amount' => 'required',
             'num_of_livestock' => 'required',
             'type_of_livestock' => 'required',
-            'sum_insured' => 'required',
+//            'sum_insured' => 'required',
             'nationality' => 'required',
             'image' => 'mimes:jpeg,jpg,png',
         ]);

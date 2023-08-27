@@ -32,6 +32,8 @@ class CreateCattleRegistrationsTable extends Migration
             $table->string("special_marks");
             $table->string("cow_with_owner");
 
+            $table->string("sum_insured");
+
             $table->string("current_price");
             $table->string('unique_id');
             $table->string('user_id');

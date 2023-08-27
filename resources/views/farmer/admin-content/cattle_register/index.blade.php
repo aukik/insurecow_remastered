@@ -36,6 +36,11 @@
 
                             {{-- ---------------------------------------- Farmer Cow Registration ---------------------------------------- --}}
 
+                            @if(session('register'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ session('register') }}
+                                </div>
+                            @endif
 
                             <form action="{{ route('cattle_register.store') }}" method="post"
                                   enctype="multipart/form-data">
@@ -127,7 +132,7 @@
                                 <!-- Form Row-->
                                 <div class="row gx-3 mb-3">
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <label class="small mb-1" for="inputLastName"
                                         >Cattle Weight</label
                                         >
@@ -146,7 +151,7 @@
                                     </div>
 
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <label class="small mb-1" for="inputLastName"
                                         >Cattle Type</label
                                         >
@@ -155,11 +160,29 @@
                                             id="inputLastName"
                                             type="text"
                                             placeholder=""
-                                            value="{{ old('weight') }}"
+                                            value="{{ old('cattle_type') }}"
                                             name="cattle_type"
                                         />
 
                                         @error('weight')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label class="small mb-1" for="inputLastName"
+                                        >Sum Insured</label
+                                        >
+                                        <input
+                                            class="form-control"
+                                            id="inputLastName"
+                                            type="number"
+                                            placeholder=""
+                                            value="{{ old('sum_insured') }}"
+                                            name="sum_insured"
+                                        />
+
+                                        @error('sum_insured')
                                         <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
                                         @enderror
                                     </div>

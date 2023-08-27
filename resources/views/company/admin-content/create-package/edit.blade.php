@@ -15,7 +15,7 @@
                                 <div class="page-header-icon">
                                     <i data-feather="user"></i>
                                 </div>
-                                Create Package - Company
+                                Update Package - Company
                             </h1>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                 <div class="col-xl-12">
                     <!-- Account details card-->
                     <div class="card mb-4">
-                        <div class="card-header">Register Field Agent / Farmer - Company</div>
+                        <div class="card-header">Update Package - Company</div>
                         <div class="card-body">
 
                             {{-- ---------------------------------------- Register Company/NGO/Bank  ---------------------------------------- --}}
@@ -43,12 +43,13 @@
                             @endif
 
 
-                            <form action="{{ route('package.store') }}" method="post"
+                            <form action="{{ route('package.update', $package->id) }}" method="post"
                                   enctype="multipart/form-data">
                                 {{ csrf_field() }}
+                                @method('put')
 
                                 <div class="row gx-3 mb-3">
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <label class="small mb-1" for="inputLastName"
                                         >Package Name</label
                                         >
@@ -57,21 +58,30 @@
                                             id="inputLastName"
                                             type="text"
                                             placeholder="Enter Package Name"
-                                            value=""
+                                            value="{{ $package->package_name }}"
                                             name="package_name"
                                         />
                                     </div>
 
-                                    <div class="col-md-6">
+
+                                </div>
+
+                                <div class="row gx-3 mb-3">
+
+
+                                    <div class="col-md-12">
                                         <label class="small mb-1" for="inputLastName"
-                                        >Specific Policy for Package</label
+                                        >Specific Policy for Package [ Upload if it needs to update ]</label
                                         >
+
+                                        &nbsp; <a href="{{ asset('storage/'.$package->policy)  }}" style="color : red">View
+                                            Uploaded Policy</a>
+
                                         <input
                                             class="form-control"
                                             id="inputLastName"
                                             type="file"
                                             placeholder="Enter Package Name"
-                                            value=""
                                             name="policy"
                                         />
                                     </div>
@@ -87,7 +97,7 @@
                                             id="inputLastName"
                                             type="number"
                                             placeholder="Enter Insurance Period"
-                                            value=""
+                                            value="{{ $package->insurance_period  }}"
                                             name="insurance_period"
                                         />
                                     </div>
@@ -104,9 +114,18 @@
 
                                         <select class="form-control" id="exampleFormControlSelect2" name="coverage[]"
                                                 multiple>
-                                            <option value="ac">Accidental/Diseases Mortality</option>
-                                            <option value="fl">Flood cyclonic coverage</option>
-                                            <option value="er">Earthquake coverage</option>
+                                            <option value="ac"
+                                                    @if (in_array('ac', json_decode($package->coverage))) selected @endif>
+                                                Accidental/Diseases Mortality
+                                            </option>
+                                            <option value="fl"
+                                                    @if (in_array('fl', json_decode($package->coverage))) selected @endif>
+                                                Flood cyclonic coverage
+                                            </option>
+                                            <option value="er"
+                                                    @if (in_array('er', json_decode($package->coverage))) selected @endif>
+                                                Earthquake coverage
+                                            </option>
                                         </select>
                                     </div>
                                 </div>
@@ -122,7 +141,7 @@
                                             id="inputLastName"
                                             type="number"
                                             placeholder="Enter discount rate"
-                                            value=""
+                                            value="{{ $package->discount  }}"
                                             name="discount"
                                         />
                                     </div>
@@ -136,7 +155,7 @@
                                             id="inputLastName"
                                             type="number"
                                             placeholder="Enter Rate Percentage"
-                                            value=""
+                                            value="{{ $package->rate  }}"
                                             name="rate"
                                         />
                                     </div>
@@ -150,7 +169,7 @@
                                             id="inputLastName"
                                             type="number"
                                             placeholder="Enter Vat Percentage"
-                                            value=""
+                                            value="{{ $package->vat  }}"
                                             name="vat"
                                         />
                                     </div>
@@ -162,17 +181,15 @@
                                         <label class="small mb-1" for="inputLastName"
                                         >Quotation / Description About The Package</label
                                         >
-                                        <textarea class="form-control" rows="40" name="quotation"></textarea>
+                                        <textarea class="form-control" rows="40"
+                                                  name="quotation">{!!  $package->quotation  !!}</textarea>
 
                                     </div>
                                 </div>
 
 
-
-
-
                                 <button class="btn btn-primary" type="submit">
-                                    Save changes
+                                    Update changes
                                 </button>
                             </form>
 

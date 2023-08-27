@@ -63,7 +63,7 @@
 
         <a class="nav-link" href="{{ route('package.create') }}">
             <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>
-            Package List
+            Add Package
         </a>
 
         <a class="nav-link" href="{{ route('package.index') }}">

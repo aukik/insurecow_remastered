@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Company;
 use App\Http\Controllers\Controller;
 use App\Models\Package;
 use Illuminate\Http\Request;
+use Psy\Util\Json;
 
 class PackageController extends Controller
 {
@@ -44,11 +45,18 @@ class PackageController extends Controller
             'package_name' => 'required',
             'insurance_period' => 'required|integer',
             'coverage' => 'required',
-            'lowest_amount' => 'required|integer',
-            'highest_amount' => 'required|integer',
             'quotation' => 'required',
-            'total_amount' => 'required|integer',
+            'policy' => 'required|mimes:pdf',
+            'discount' => 'required|integer',
+            'rate' => 'required|integer',
+            'vat' => 'required|integer',
         ]);
+
+        $inputs['coverage'] = Json::encode($request->coverage);
+
+        if (request('policy')) {
+            $inputs['policy'] = \request('policy')->store('policy');
+        }
 
         session()->flash("success","Package Added Successfully");
 
@@ -76,7 +84,8 @@ class PackageController extends Controller
      */
     public function edit(Package $package)
     {
-        //
+        return view("company.admin-content.create-package.edit", compact('package'));
+
     }
 
     /**
@@ -88,7 +97,38 @@ class PackageController extends Controller
      */
     public function update(Request $request, Package $package)
     {
-        //
+        $inputs = \request()->validate([
+            'package_name' => 'required',
+            'insurance_period' => 'required|integer',
+            'coverage' => 'required',
+            'quotation' => 'required',
+            'policy' => 'mimes:pdf',
+            'discount' => 'required|integer',
+            'rate' => 'required|integer',
+            'vat' => 'required|integer',
+        ]);
+
+        $inputs['coverage'] = Json::encode($request->coverage);
+
+        if (request('policy')) {
+            $inputs['policy'] = \request('policy')->store('policy');
+        }else{
+            $inputs['policy'] = $package->policy;
+        }
+
+        session()->flash("success","Package Added Successfully");
+
+//        auth()->user()->companyPackage()->create($inputs);
+
+        if($package->user_id == auth()->user()->id){
+            $package->update($inputs);
+        }else{
+            abort(404);
+        }
+
+        session()->flash("update","Package Updated Successfully");
+
+        return back();
     }
 
     /**

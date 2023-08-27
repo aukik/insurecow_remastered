@@ -17,11 +17,17 @@ class CreatePackagesTable extends Migration
             $table->id();
             $table->string('package_name');
             $table->integer('insurance_period');
+
             $table->string('coverage');
-            $table->integer('lowest_amount');
-            $table->integer('highest_amount');
+//            $table->integer('lowest_amount');
+//            $table->integer('highest_amount');
+//            $table->integer('total_amount');
+
             $table->string('quotation');
-            $table->integer('total_amount');
+            $table->string('policy');
+            $table->integer('discount');
+            $table->integer('rate');
+            $table->integer('vat');
             $table->string('package_status')->default('active');
             $table->string('user_id');
             $table->timestamps();
