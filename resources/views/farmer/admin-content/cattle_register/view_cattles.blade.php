@@ -45,6 +45,7 @@
                                         <th>Weight</th>
                                         <th>Color</th>
                                         <th>Cow With Owner</th>
+                                        <th>Price</th>
                                         <th>Insurance Status</th>
                                         <th>Action</th>
 
@@ -62,7 +63,8 @@
                                             <td>{{ $cattle->weight }}</td>
                                             <td>{{ $cattle->cattle_color }}</td>
                                             <td><img src="{{ asset('storage/'.$cattle->cow_with_owner) }}" alt=""
-                                                     style="width: 100px"></td>
+                                            style="width: 100px"></td>
+                                            <td>{{ $cattle->sum_insured }}</td>
                                             <td>{{ $cattle->insurance_status == 0 ? 'Not Insured' : 'Insured'  }}</td>
 
                                             <td>
