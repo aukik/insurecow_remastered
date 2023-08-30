@@ -27,9 +27,9 @@
             <!-- Account page navigation-->
             <div class="row">
 
-                @if(session('package_status'))
+                @if(session('success'))
                     <div class="alert alert-success" role="alert">
-                        {{ session('package_status') }}
+                        {{ session('success') }}
                     </div>
                 @endif
 

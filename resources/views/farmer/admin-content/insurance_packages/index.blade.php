@@ -96,9 +96,10 @@
                                             class="form-control @error('insurance_period') is-invalid @enderror"
                                             id="inputLastName"
                                             type="number"
-                                            placeholder="Insurance Period"
+                                            placeholder="Example : 0.5 = 6months, 1 = 1 year, 1.5= 1 year 6 months"
                                             value=""
                                             name="insurance_period"
+                                            step="0.01"
                                         />
 
                                         @error('insurance_period')

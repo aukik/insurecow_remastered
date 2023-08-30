@@ -16,7 +16,7 @@ class CreatePackagesTable extends Migration
         Schema::create('packages', function (Blueprint $table) {
             $table->id();
             $table->string('package_name');
-            $table->integer('insurance_period');
+            $table->decimal('insurance_period',2,1);
 
             $table->string('coverage');
 //            $table->integer('lowest_amount');

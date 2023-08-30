@@ -90,7 +90,7 @@
                                             <td>{{ \App\Models\User::calculateTotalCost($cattle_info->sum_insured,$package->rate,$package->discount,$package->vat)  }}</td>
                                             <td>{{ $package->package_status }}</td>
                                             <td>
-                                                <a href="" class="btn btn-primary" >BUY</a>
+                                                <a href="" class="btn btn-primary" >View Package</a>
                                             </td>
                                         </tr>
                                     @endforeach

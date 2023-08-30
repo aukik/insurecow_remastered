@@ -80,7 +80,7 @@
                                 <div class="row gx-3 mb-3">
                                     <div class="col-md-12">
                                         <label class="small mb-1" for="inputLastName"
-                                        >Insurance Period</label
+                                        >Insurance Period [Example : 0.5 = 6months, 1 = 1 year, 1.5= 1 year 6 months]</label
                                         >
                                         <input
                                             class="form-control"
@@ -88,6 +88,7 @@
                                             type="number"
                                             placeholder="Enter Insurance Period"
                                             value=""
+                                            step="0.1"
                                             name="insurance_period"
                                         />
                                     </div>

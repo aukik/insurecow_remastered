@@ -43,7 +43,7 @@ class PackageController extends Controller
 
         $inputs = \request()->validate([
             'package_name' => 'required',
-            'insurance_period' => 'required|integer',
+            'insurance_period' => 'required|numeric',
             'coverage' => 'required',
             'quotation' => 'required',
             'policy' => 'required|mimes:pdf',
@@ -99,7 +99,7 @@ class PackageController extends Controller
     {
         $inputs = \request()->validate([
             'package_name' => 'required',
-            'insurance_period' => 'required|integer',
+            'insurance_period' => 'required|numeric',
             'coverage' => 'required',
             'quotation' => 'required',
             'policy' => 'mimes:pdf',
@@ -126,7 +126,7 @@ class PackageController extends Controller
             abort(404);
         }
 
-        session()->flash("update","Package Updated Successfully");
+        session()->flash("success","Package Updated Successfully");
 
         return back();
     }
