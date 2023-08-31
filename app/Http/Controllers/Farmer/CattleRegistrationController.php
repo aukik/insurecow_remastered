@@ -54,6 +54,8 @@ class CattleRegistrationController extends Controller
             'current_price' => 'required',
 
             'sum_insured' => 'required',
+            'bank_name_insured' => 'required',
+            'bank_account_no' => 'required',
 
             'nid_front' => 'required|mimes:jpeg,jpg,png',
             'nid_back' => 'required|mimes:jpeg,jpg,png',
@@ -64,9 +66,14 @@ class CattleRegistrationController extends Controller
             'right_side' => 'required|mimes:jpeg,jpg,png',
             'special_marks' => 'required|mimes:jpeg,jpg,png',
             'cow_with_owner' => 'required|mimes:jpeg,jpg,png',
+            'loan_investment' => 'required|mimes:jpeg,jpg,png,pdf,txt',
         ]);
 
         $inputs['unique_id'] = $id;
+
+        if (request('loan_investment')) {
+            $inputs['loan_investment'] = \request('loan_investment')->store('images');
+        }
 
         if (request('muzzle_of_cow')) {
             $inputs['muzzle_of_cow'] = \request('muzzle_of_cow')->store('images');

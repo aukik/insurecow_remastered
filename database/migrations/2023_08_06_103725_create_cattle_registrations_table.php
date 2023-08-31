@@ -33,13 +33,19 @@ class CreateCattleRegistrationsTable extends Migration
             $table->string("cow_with_owner");
 
             $table->string("sum_insured");
-
             $table->string("current_price");
+
             $table->string('unique_id');
             $table->string('user_id');
 
             $table->string('insured_by')->default(0);
+            $table->string('is_claimed')->default(0);
             $table->string('insurance_status')->default(0);
+
+            $table->string("loan_investment");  //file
+            $table->string("bank_name_insured");
+            $table->string("bank_account_no");
+
             $table->timestamps();
         });
     }
