@@ -53,7 +53,7 @@ class FarmerController extends Controller
             $packages = Package::where('insurance_period', '=', \request('insurance_period'))->get();
 
 
-            return view('farmer.admin-content.insurance_packages.result', compact('packages', 'cattle_info','user'));
+            return view('farmer.admin-content.insurance_packages.result', compact('packages', 'cattle_info'));
         } else {
             return "Not Applicable for the operation";
         }
