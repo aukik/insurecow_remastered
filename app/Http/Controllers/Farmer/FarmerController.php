@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Farmer;
 use App\Http\Controllers\Controller;
 use App\Models\CattleRegistration;
 use App\Models\Package;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class FarmerController extends Controller
@@ -51,7 +52,8 @@ class FarmerController extends Controller
         if (!$cattle_info == null) {
             $packages = Package::where('insurance_period', '=', \request('insurance_period'))->get();
 
-            return view('farmer.admin-content.insurance_packages.result', compact('packages', 'cattle_info'));
+
+            return view('farmer.admin-content.insurance_packages.result', compact('packages', 'cattle_info','user'));
         } else {
             return "Not Applicable for the operation";
         }
@@ -60,6 +62,32 @@ class FarmerController extends Controller
     }
 
 //    --------------- Insurance Packages search by company offers ---------------
+
+
+//    --------------- View insurance Package by company offers ---------------
+    public function company_insurance_packages_single($package_id, $cattle_info)
+    {
+
+        $cattle_info = auth()->user()->cattleRegister()->where('insured_by', 0)->where('insurance_status', 0)->where('id', $cattle_info)->first();
+
+
+        if (!$cattle_info == null){
+            if ($cattle_info->id == auth()->user()->id) {
+                $package = Package::findOrFail($package_id);
+                $company = User::where('id',$package->user_id)->first();
+                return view("farmer.admin-content.insurance_packages.single-result", compact('cattle_info', 'package','company'));
+            } else {
+                return "Invalid request";
+            }
+        }else{
+            return "Invalid Information";
+        }
+
+
+
+    }
+
+//    --------------- View insurance Package by company offers ---------------
 
 
 }

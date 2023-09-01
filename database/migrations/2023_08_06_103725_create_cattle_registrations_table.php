@@ -44,11 +44,10 @@ class CreateCattleRegistrationsTable extends Migration
 
             $table->string('insured_by')->default(0);
             $table->string('insurance_status')->default(0);
-            $table->string('insurance_date')->nullable();
+            $table->date('insurance_date')->nullable();
             $table->string('insurance_expire_date')->nullable();
 
             $table->string('is_claimed')->default(0);
-
 
             $table->timestamps();
         });

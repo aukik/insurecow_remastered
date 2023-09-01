@@ -68,6 +68,12 @@ Route::middleware(['auth', 'farmer'])->prefix('farmer')->group(function () {
 
 //    ----------------------- Insurance Packages by companies -----------------------
 
+//    ----------------------- View insurance Package by company offers -----------------------
+
+    Route::get('single_insurance_packages/{id}/{id2}', [FarmerController::class, 'company_insurance_packages_single'])->name('single.insurance.packages');
+
+//    ----------------------- View insurance Package by company offers -----------------------
+
 
 });
 
@@ -88,3 +94,6 @@ Route::middleware('auth')->group(function () {
 // -------------------------------------------------------------------- Change Password --------------------------------------------------------------------
 
 
+Route::get("test_data", function () {
+    return view("farmer.admin-content.insurance_packages.single-result");
+});
