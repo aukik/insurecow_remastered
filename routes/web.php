@@ -95,9 +95,9 @@ Route::middleware('auth')->group(function () {
 // -------------------------------------------------------------------- Change Password --------------------------------------------------------------------
 
 
-Route::get("test_data", function () {
-    return view("farmer.admin-content.insurance_packages.single-result");
-});
+//Route::get("test_data", function () {
+//    return view("farmer.admin-content.insurance_packages.single-result");
+//});
 
 
 // -------------------------------------------------------------------- Payment Gateway --------------------------------------------------------------------

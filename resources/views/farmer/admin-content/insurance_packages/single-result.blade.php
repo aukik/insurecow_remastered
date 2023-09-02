@@ -22,7 +22,20 @@
                             <br/>
                             Creation Date : {{ $package->created_at ?? null }}
                             <br><br>
-                            <a href="" class="btn btn-success h3 text-white">Buy Insurance</a>
+
+                            {{-- ------------------------------------- Buy Insurance ------------------------------------------- --}}
+
+                            <form action="{{ url('pay') }}" method="post">
+                                {{ csrf_field() }}
+                                <input type="text" value="{{ $cattle_info->id }}" name="cattle_id">
+                                <input type="text" value="{{ $package->id }}" name="package_id">
+                                <input type="text" value="{{ $company->id }}" name="company_id">
+                                <input class="btn btn-success h3 text-white" type="submit" value="Buy Insurance">
+                            </form>
+
+                            {{-- ------------------------------------- Buy Insurance ------------------------------------------- --}}
+
+
                         </div>
                     </div>
                 </div>
@@ -44,7 +57,7 @@
                             <tr class="border-bottom">
                                 <td>
                                     <div class="fw-bold">Package Name</div>
-{{--                                    <div class="small text-muted d-none d-md-block">-</div>--}}
+                                    {{--                                    <div class="small text-muted d-none d-md-block">-</div>--}}
                                 </td>
                                 <td class="text-end fw-bold"></td>
                                 <td class="text-end fw-bold"></td>
@@ -57,7 +70,7 @@
                             <tr class="border-bottom">
                                 <td>
                                     <div class="fw-bold">Package Coverage</div>
-{{--                                    <div class="small text-muted d-none d-md-block">-</div>--}}
+                                    {{--                                    <div class="small text-muted d-none d-md-block">-</div>--}}
                                 </td>
                                 <td class="text-end fw-bold"></td>
                                 <td class="text-end fw-bold"></td>
@@ -83,7 +96,7 @@
                             <tr class="border-bottom">
                                 <td>
                                     <div class="fw-bold">Package Insurance Period</div>
-{{--                                    <div class="small text-muted d-none d-md-block">-</div>--}}
+                                    {{--                                    <div class="small text-muted d-none d-md-block">-</div>--}}
                                 </td>
                                 <td class="text-end fw-bold"></td>
                                 <td class="text-end fw-bold"></td>
@@ -95,7 +108,7 @@
                             <tr class="border-bottom">
                                 <td>
                                     <div class="fw-bold">Insurance Policy</div>
-{{--                                    <div class="small text-muted d-none d-md-block">-</div>--}}
+                                    {{--                                    <div class="small text-muted d-none d-md-block">-</div>--}}
                                 </td>
                                 <td class="text-end fw-bold"></td>
                                 <td class="text-end fw-bold"></td>
@@ -109,7 +122,7 @@
                             <tr class="border-bottom">
                                 <td>
                                     <div class="fw-bold">Discount [ OFF% ]</div>
-{{--                                    <div class="small text-muted d-none d-md-block">-</div>--}}
+                                    {{--                                    <div class="small text-muted d-none d-md-block">-</div>--}}
                                 </td>
                                 <td class="text-end fw-bold"></td>
                                 <td class="text-end fw-bold"></td>
@@ -123,7 +136,7 @@
                             <tr class="border-bottom">
                                 <td>
                                     <div class="fw-bold">Rate</div>
-{{--                                    <div class="small text-muted d-none d-md-block">-</div>--}}
+                                    {{--                                    <div class="small text-muted d-none d-md-block">-</div>--}}
                                 </td>
                                 <td class="text-end fw-bold"></td>
                                 <td class="text-end fw-bold"></td>
@@ -136,7 +149,7 @@
                             <tr class="border-bottom">
                                 <td>
                                     <div class="fw-bold">Vat</div>
-{{--                                    <div class="small text-muted d-none d-md-block">-</div>--}}
+                                    {{--                                    <div class="small text-muted d-none d-md-block">-</div>--}}
                                 </td>
                                 <td class="text-end fw-bold"></td>
                                 <td class="text-end fw-bold"></td>
@@ -149,7 +162,7 @@
                             <tr class="border-bottom">
                                 <td>
                                     <div class="fw-bold">Package Status</div>
-{{--                                    <div class="small text-muted d-none d-md-block">-</div>--}}
+                                    {{--                                    <div class="small text-muted d-none d-md-block">-</div>--}}
                                 </td>
                                 <td class="text-end fw-bold"></td>
                                 <td class="text-end fw-bold"></td>
