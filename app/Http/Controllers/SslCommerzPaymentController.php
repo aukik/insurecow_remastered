@@ -163,9 +163,10 @@ class SslCommerzPaymentController extends Controller
     {
         echo "Transaction is Successful";
 
-        $tran_id = $request->input('tran_id');
-        $amount = $request->input('amount');
-        $currency = $request->input('currency');
+//        $tran_id = $request->input('tran_id');
+        $tran_id = uniqid();;
+        $amount = $request->input('amount') ?? "1000";
+        $currency = $request->input('currency') ?? 'BDT';
 
         $sslc = new SslCommerzNotification();
 
