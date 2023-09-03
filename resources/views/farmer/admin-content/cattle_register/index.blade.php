@@ -377,8 +377,8 @@
 
                                 </div>
 
-                                <p class="muzzle_checking_text" style="color: red">Muzzle Checking in progress</p>
-                                <br><br>
+                                {{--                                <p class="muzzle_checking_text" style="color: red">Muzzle Checking in progress</p>--}}
+                                {{--                                <br><br>--}}
 
                                 <button class="btn btn-primary cattle_register_button" type="submit">
                                     Register cattle
@@ -398,51 +398,51 @@
     {{--  --------------------------------------- script --------------------------------------- --}}
 
 
-    <style>
-        .cattle_register_button {
-            display: none;
-        }
+    {{--    <style>--}}
+    {{--        .cattle_register_button {--}}
+    {{--            display: none;--}}
+    {{--        }--}}
 
-        .muzzle_checking_text {
-            display: none;
-        }
-    </style>
+    {{--        .muzzle_checking_text {--}}
+    {{--            display: none;--}}
+    {{--        }--}}
+    {{--    </style>--}}
 
-    <script>
-        let register_cattle_button = document.querySelector(".cattle_register_button");
-        let muzzle_checking_text = document.querySelector(".muzzle_checking_text");
-
-
-        const formData = new FormData();
-
-        function fetchFileData() {
-            const fileInput = document.getElementById("fileInput");
-            const file = fileInput.files[0];
-
-            muzzle_checking_text.style.display = "inline";
-
-            console.log(file);
+    {{--    <script>--}}
+    {{--        let register_cattle_button = document.querySelector(".cattle_register_button");--}}
+    {{--        let muzzle_checking_text = document.querySelector(".muzzle_checking_text");--}}
 
 
-            formData.set("image", file);
-            formData.set("options", "claim");
+    {{--        const formData = new FormData();--}}
 
-            axios
-                .post("http://13.127.204.155/cattle_identification", formData)
-                .then((el) => {
+    {{--        function fetchFileData() {--}}
+    {{--            const fileInput = document.getElementById("fileInput");--}}
+    {{--            const file = fileInput.files[0];--}}
 
-                    if (el.data.output == 'Failed') {
-                        muzzle_checking_text.innerText = "Muzzle already exists or progress validation failed";
-                    } else if (el.data.output == 'Success') {
-                        muzzle_checking_text.style.color = "green";
-                        muzzle_checking_text.innerText = "Muzzle validation successfully completed";
-                        register_cattle_button.style.display = "block";
-                    }
-                });
-        }
+    {{--            muzzle_checking_text.style.display = "inline";--}}
+
+    {{--            console.log(file);--}}
 
 
-    </script>
+    {{--            formData.set("image", file);--}}
+    {{--            formData.set("options", "claims");--}}
+
+    {{--            axios--}}
+    {{--                .post("http://13.127.204.155/cattle_identification", formData)--}}
+    {{--                .then((el) => {--}}
+
+    {{--                    if (el.data.output == 'Failed') {--}}
+    {{--                        muzzle_checking_text.innerText = "Muzzle already exists or progress validation failed";--}}
+    {{--                    } else if (el.data.output == 'Success') {--}}
+    {{--                        muzzle_checking_text.style.color = "green";--}}
+    {{--                        muzzle_checking_text.innerText = "Muzzle validation successfully completed";--}}
+    {{--                        register_cattle_button.style.display = "block";--}}
+    {{--                    }--}}
+    {{--                });--}}
+    {{--        }--}}
+
+
+    {{--    </script>--}}
 
     {{--  --------------------------------------- script --------------------------------------- --}}
 
