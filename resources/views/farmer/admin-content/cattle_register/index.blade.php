@@ -232,14 +232,15 @@
                                     <!-- Form Group (organization name)-->
                                     <div class="col-md-4">
                                         <label class="small mb-1" for="inputOrgName"
-                                        >Muzzle Of Cow</label
+                                        >Loan / Investment documents</label
                                         >
-                                        <input type="file" class="form-control" name="muzzle_of_cow">
+                                        <input type="file" class="form-control" name="loan_investment">
 
-                                        @error('muzzle_of_cow')
+                                        @error('loan_investment')
                                         <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
                                         @enderror
                                     </div>
+
 
                                     <!-- Form Group (organization name)-->
                                     <div class="col-md-4">
@@ -292,38 +293,50 @@
                                         @enderror
                                     </div>
 
-{{--                                    <div class="col-md-4">--}}
-{{--                                        <label class="small mb-1" for="inputLastName"--}}
-{{--                                        >Current Price</label--}}
-{{--                                        >--}}
-{{--                                        <input--}}
-{{--                                            class="form-control"--}}
-{{--                                            id="inputLastName"--}}
-{{--                                            type="number"--}}
-{{--                                            placeholder=""--}}
-{{--                                            value="{{ old('current_price') }}"--}}
-{{--                                            name="current_price"--}}
-{{--                                        />--}}
+                                    {{--                                    <div class="col-md-4">--}}
+                                    {{--                                        <label class="small mb-1" for="inputLastName"--}}
+                                    {{--                                        >Current Price</label--}}
+                                    {{--                                        >--}}
+                                    {{--                                        <input--}}
+                                    {{--                                            class="form-control"--}}
+                                    {{--                                            id="inputLastName"--}}
+                                    {{--                                            type="number"--}}
+                                    {{--                                            placeholder=""--}}
+                                    {{--                                            value="{{ old('current_price') }}"--}}
+                                    {{--                                            name="current_price"--}}
+                                    {{--                                        />--}}
 
-{{--                                        @error('current_price')--}}
-{{--                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>--}}
-{{--                                        @enderror--}}
-{{--                                    </div>--}}
+                                    {{--                                        @error('current_price')--}}
+                                    {{--                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>--}}
+                                    {{--                                        @enderror--}}
+                                    {{--                                    </div>--}}
 
                                 </div>
 
+
                                 <div class="row gx-3 mb-3">
-                                    <!-- Form Group (organization name)-->
+
+
+                                    {{--  -------------********************************* Muzzle part -------------********************************* --}}
+
                                     <div class="col-md-4">
                                         <label class="small mb-1" for="inputOrgName"
-                                        >Loan / Investment documents</label
+                                        >Muzzle Of Cow</label
                                         >
-                                        <input type="file" class="form-control" name="loan_investment">
+                                        <input type="file" class="form-control" name="muzzle_of_cow"
+                                               onchange="fetchFileData()" id="fileInput">
 
-                                        @error('loan_investment')
+                                        @error('muzzle_of_cow')
                                         <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
                                         @enderror
                                     </div>
+
+
+                                    {{--  -------------********************************* Muzzle part -------------********************************* --}}
+
+
+
+                                    <!-- Form Group (organization name)-->
 
 
                                     <div class="col-md-4">
@@ -364,10 +377,13 @@
 
                                 </div>
 
+                                <p class="muzzle_checking_text" style="color: red">Muzzle Checking in progress</p>
+                                <br><br>
 
-                                <button class="btn btn-primary" type="submit">
+                                <button class="btn btn-primary cattle_register_button" type="submit">
                                     Register cattle
                                 </button>
+
                             </form>
 
                             {{-- ---------------------------------------- Farmer Cow Registration ---------------------------------------- --}}
@@ -378,4 +394,56 @@
             </div>
         </div>
     </main>
+
+    {{--  --------------------------------------- script --------------------------------------- --}}
+
+
+    <style>
+        .cattle_register_button {
+            display: none;
+        }
+
+        .muzzle_checking_text {
+            display: none;
+        }
+    </style>
+
+    <script>
+        let register_cattle_button = document.querySelector(".cattle_register_button");
+        let muzzle_checking_text = document.querySelector(".muzzle_checking_text");
+
+
+        const formData = new FormData();
+
+        function fetchFileData() {
+            const fileInput = document.getElementById("fileInput");
+            const file = fileInput.files[0];
+
+            muzzle_checking_text.style.display = "inline";
+
+            console.log(file);
+
+
+            formData.set("image", file);
+            formData.set("options", "claim");
+
+            axios
+                .post("http://13.127.204.155/cattle_identification", formData)
+                .then((el) => {
+
+                    if (el.data.output == 'Failed') {
+                        muzzle_checking_text.innerText = "Muzzle already exists or progress validation failed";
+                    } else if (el.data.output == 'Success') {
+                        muzzle_checking_text.style.color = "green";
+                        muzzle_checking_text.innerText = "Muzzle validation successfully completed";
+                        register_cattle_button.style.display = "block";
+                    }
+                });
+        }
+
+
+    </script>
+
+    {{--  --------------------------------------- script --------------------------------------- --}}
+
 @endsection
