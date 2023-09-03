@@ -27,9 +27,11 @@
 
                             <form action="{{ url('pay') }}" method="post">
                                 {{ csrf_field() }}
-                                <input type="text" value="{{ $cattle_info->id }}" name="cattle_id">
-                                <input type="text" value="{{ $package->id }}" name="package_id">
-                                <input type="text" value="{{ $company->id }}" name="company_id">
+                                <input type="hidden" value="{{ $cattle_info->id }}" name="cattle_id">
+                                <input type="hidden" value="{{ $package->id }}" name="package_id">
+                                <input type="hidden" value="{{ $company->id }}" name="company_id">
+                                <input type="hidden" step=".01" value="{{ $package->insurance_period }}"
+                                       name="package_insurance_period">
                                 <input class="btn btn-success h3 text-white" type="submit" value="Buy Insurance">
                             </form>
 

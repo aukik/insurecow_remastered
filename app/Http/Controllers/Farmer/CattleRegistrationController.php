@@ -51,7 +51,7 @@ class CattleRegistrationController extends Controller
             'cattle_color' => 'required',
             'weight' => 'required',
             'cattle_type' => 'required',
-            'current_price' => 'required',
+//            'current_price' => 'required',
 
             'sum_insured' => 'required',
             'bank_name_insured' => 'required',

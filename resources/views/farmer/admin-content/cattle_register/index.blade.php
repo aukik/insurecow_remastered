@@ -281,7 +281,7 @@
                                     </div>
 
                                     <!-- Form Group (organization name)-->
-                                    <div class="col-md-4">
+                                    <div class="col-md-8">
                                         <label class="small mb-1" for="inputOrgName"
                                         >Cow With Owner</label
                                         >
@@ -292,23 +292,23 @@
                                         @enderror
                                     </div>
 
-                                    <div class="col-md-4">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >Current Price</label
-                                        >
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="number"
-                                            placeholder=""
-                                            value="{{ old('current_price') }}"
-                                            name="current_price"
-                                        />
+{{--                                    <div class="col-md-4">--}}
+{{--                                        <label class="small mb-1" for="inputLastName"--}}
+{{--                                        >Current Price</label--}}
+{{--                                        >--}}
+{{--                                        <input--}}
+{{--                                            class="form-control"--}}
+{{--                                            id="inputLastName"--}}
+{{--                                            type="number"--}}
+{{--                                            placeholder=""--}}
+{{--                                            value="{{ old('current_price') }}"--}}
+{{--                                            name="current_price"--}}
+{{--                                        />--}}
 
-                                        @error('current_price')
-                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
-                                        @enderror
-                                    </div>
+{{--                                        @error('current_price')--}}
+{{--                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>--}}
+{{--                                        @enderror--}}
+{{--                                    </div>--}}
 
                                 </div>
 

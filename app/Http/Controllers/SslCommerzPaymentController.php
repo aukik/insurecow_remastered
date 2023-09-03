@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Package;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Library\SslCommerz\SslCommerzNotification;
 use Illuminate\Support\Facades\DB;
@@ -21,9 +23,15 @@ class SslCommerzPaymentController extends Controller
 
     public function index(Request $request)
     {
-        # Here you have to receive all the order data to initate the payment.
-        # Let's say, your oder transaction informations are saving in a table called "orders"
-        # In "orders" table, order unique identity is "transaction_id". "status" field contain status of the transaction, "amount" is the order amount to be paid and "currency" is for storing Site Currency which will be checked with paid currency.
+
+        $inputs = \request()->validate([
+            'cattle_id' => 'required',
+            'package_id' => 'required',
+            'company_id' => 'required',
+            'package_insurance_period' => 'required',
+        ]);
+
+        $cattle_info = auth()->user()->cattleRegister()->where('id', \request('cattle_id'))->first();
 
         $post_data = array();
         $post_data['total_amount'] = '1000'; # You cant not pay less than 10
@@ -63,19 +71,41 @@ class SslCommerzPaymentController extends Controller
         $post_data['value_c'] = "ref003";
         $post_data['value_d'] = "ref004";
 
-        #Before  going to initiate the payment order status need to insert or update as Pending.
-        $update_product = DB::table('orders')
-            ->where('transaction_id', $post_data['tran_id'])
-            ->updateOrInsert([
-                'name' => $post_data['cus_name'],
-                'email' => $post_data['cus_email'],
-                'phone' => $post_data['cus_phone'],
-                'amount' => $post_data['total_amount'],
-                'status' => 'Pending',
-                'address' => $post_data['cus_add1'],
-                'transaction_id' => $post_data['tran_id'],
-                'currency' => $post_data['currency']
-            ]);
+
+        if (!$cattle_info == null) {
+//            return $cattle_info;
+
+            $expired_date = User::addYearsAndMonths($inputs['package_insurance_period']);
+
+            $package = Package::where('insurance_period', '=', \request('package_id'))->first();
+
+            $amount = User::calculateTotalCost($cattle_info->sum_insured, $package->rate, $package->discount, $package->vat);
+
+            $post_data['total_amount'] = $amount;
+
+
+
+            #Before  going to initiate the payment order status need to insert or update as Pending.
+            $update_product = DB::table('orders')
+                ->where('transaction_id', $post_data['tran_id'])
+                ->updateOrInsert([
+                    'name' => $post_data['cus_name'],
+                    'email' => $post_data['cus_email'],
+                    'phone' => $post_data['cus_phone'],
+                    'amount' => $amount,
+                    'status' => 'Pending',
+                    'address' => $post_data['cus_add1'],
+                    'transaction_id' => $post_data['tran_id'],
+                    'currency' => $post_data['currency'],
+                    'cattle_id' => $inputs['cattle_id'],
+                    'package_id' => $inputs['package_id'],
+                    'company_id' => $inputs['company_id'],
+                    'package_expiration_date' => $expired_date,
+                ]);
+        } else {
+            return "Invalid operation";
+        }
+
 
         $sslc = new SslCommerzNotification();
         # initiate(Transaction Data , false: Redirect to SSLCOMMERZ gateway/ true: Show all the Payement gateway here )

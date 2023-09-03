@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -85,6 +86,22 @@ class User extends Authenticatable
             return $total_main + $total_off;
         }
         return 0;
+    }
+
+
+    public static function addYearsAndMonths($input)
+    {
+        // Split the input into years and months based on the decimal point
+        list($years, $months) = explode('.', $input);
+
+        // Create a Carbon instance with the current date
+        $date = Carbon::now();
+
+        // Add the years and months to the date
+        $date->addYears($years);
+        $date->addMonths($months);
+
+        return $date;
     }
 
 
