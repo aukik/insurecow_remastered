@@ -71,23 +71,33 @@ class FarmerController extends Controller
         $cattle_info = auth()->user()->cattleRegister()->where('insured_by', 0)->where('insurance_status', 0)->where('id', $cattle_info)->first();
 
 
-        if (!$cattle_info == null){
-            if ($cattle_info->id == auth()->user()->id) {
+        if (!$cattle_info == null) {
+            if ($cattle_info->user_id == auth()->user()->id) {
                 $package = Package::findOrFail($package_id);
-                $company = User::where('id',$package->user_id)->first();
-                return view("farmer.admin-content.insurance_packages.single-result", compact('cattle_info', 'package','company'));
+                $company = User::where('id', $package->user_id)->first();
+                return view("farmer.admin-content.insurance_packages.single-result", compact('cattle_info', 'package', 'company'));
             } else {
                 return "Invalid request";
             }
-        }else{
+        } else {
             return "Invalid Information";
         }
-
 
 
     }
 
 //    --------------- View insurance Package by company offers ---------------
+
+//    --------------- Insurance History ---------------
+
+
+    public function insurance_history()
+    {
+        return auth()->user()->insuranceHistory()->get();
+    }
+
+
+//    --------------- Insurance History ---------------
 
 
 }

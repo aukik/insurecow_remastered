@@ -71,14 +71,16 @@ class User extends Authenticatable
         return $this->hasMany(Package::class);
     }
 
+    public function insuranceHistory()
+    {
+        return $this->hasMany(Order::class);
+    }
+
     public static function calculateTotalCost($cost, $rate, $discount, $vat)
     {
         if ($cost == null || $rate == null || $discount == null || $vat == null) {
             return 0;
         } else {
-//            $total = ($cost * $rate / 100);
-//            $total_main = ($total * $discount / 100) + ($cost * $vat / 100);
-//            return $total_main;
 
             $total_ctl = ($cost * $rate / 100);
             $total_off = ($total_ctl * $discount / 100);

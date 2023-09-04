@@ -27,6 +27,8 @@ class CreateOrdersTable extends Migration
             $table->string("cattle_id")->nullable();
             $table->string("package_id")->nullable();
             $table->string("company_id")->nullable();
+            $table->string("user_id")->nullable();
+
             $table->date("package_expiration_date")->nullable();
 
             $table->timestamps();

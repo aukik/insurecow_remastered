@@ -82,8 +82,13 @@ Route::middleware(['auth', 'farmer'])->prefix('farmer')->group(function () {
     Route::get("claim_insurance_test/{id}", [ClaimController::class, 'index'])->name('claim.index');
     Route::post("claim_insurance_test", [ClaimController::class, 'store'])->name('claim.store');
 
-
 //    ----------------------- Claim Insurance -----------------------
+
+//    ----------------------- Insurance History -----------------------
+
+    Route::get("insurance_history", [FarmerController::class, 'insurance_history'])->name('insurance.history.index');
+
+//    ----------------------- Insurance History -----------------------
 
 });
 

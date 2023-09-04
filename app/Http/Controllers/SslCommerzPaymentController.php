@@ -100,6 +100,7 @@ class SslCommerzPaymentController extends Controller
                     'cattle_id' => $inputs['cattle_id'],
                     'package_id' => $inputs['package_id'],
                     'company_id' => $inputs['company_id'],
+                    'user_id' => auth()->user()->id,
                     'package_expiration_date' => $expired_date,
                 ]);
         } else {

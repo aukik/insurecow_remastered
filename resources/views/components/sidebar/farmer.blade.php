@@ -40,14 +40,14 @@
                 Farm Management
             </a>
 
-{{--            <a class="nav-link" href="">--}}
-{{--                <div class="nav-link-icon"><i data-feather="filter"></i></div>--}}
-{{--                Cattle Insurance--}}
-{{--            </a>--}}
+            {{--            <a class="nav-link" href="">--}}
+            {{--                <div class="nav-link-icon"><i data-feather="filter"></i></div>--}}
+            {{--                Cattle Insurance--}}
+            {{--            </a>--}}
 
             <a class="nav-link" href="">
                 <div class="nav-link-icon"><i data-feather="filter"></i></div>
-                Claim Insurance
+                Insurance History
             </a>
 
             <a class="nav-link" href="">

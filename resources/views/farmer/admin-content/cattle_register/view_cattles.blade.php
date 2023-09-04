@@ -64,17 +64,27 @@
                                             <td>{{ $cattle->weight }}</td>
                                             <td>{{ $cattle->cattle_color }}</td>
                                             <td><img src="{{ asset('storage/'.$cattle->cow_with_owner) }}" alt=""
-                                            style="width: 100px"></td>
+                                                     style="width: 100px"></td>
                                             <td>{{ $cattle->sum_insured }}</td>
-                                            <td>{{ $cattle->insurance_status == 0 ? 'Not Insured' : 'Insured'  }}</td>
+
+                                            <td>{{ \App\Models\Order::order_verification($cattle->id) > 0 ? 'insured' : 'not insured' }}</td>
 
                                             <td>
                                                 <button class="btn btn-success" type="button">View</button>
                                             </td>
 
-                                            <td>
-                                                <a href="{{ route('claim.index', $cattle->id) }}" class="btn btn-danger" type="button">Process</a>
-                                            </td>
+                                            @if(\App\Models\Order::order_verification($cattle->id) > 0)
+                                                <td>
+                                                    <a href="{{ route('claim.index', $cattle->id) }}"
+                                                       class="btn btn-danger"
+                                                       type="button">Claim</a>
+                                                </td>
+
+                                            @else
+                                                <td>Not Applicable</td>
+                                            @endif
+
+
                                             {{--                                            <td><button class="btn btn-primary" type="button">Request</button></td>--}}
 
                                         </tr>
