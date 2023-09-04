@@ -119,7 +119,7 @@ class CattleRegistrationController extends Controller
         $options = 'registration';
 
         // API endpoint URL
-        $apiUrl = env("API_URL");
+        $apiUrl = "http://13.127.204.155/cattle_identification";
 
         $basename = $inputs['muzzle_of_cow'];
 
