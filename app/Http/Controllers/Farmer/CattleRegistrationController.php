@@ -47,28 +47,27 @@ class CattleRegistrationController extends Controller
         }
 
         $inputs = \request()->validate([
-//            'cattle_name' => 'required',
-//            'cattle_breed' => 'required',
-//            'age' => 'required',
-//            'cattle_color' => 'required',
-//            'weight' => 'required',
-//            'cattle_type' => 'required',
-//            'current_price' => 'required',
-//
-//            'sum_insured' => 'required',
-//            'bank_name_insured' => 'required',
-//            'bank_account_no' => 'required',
-//
-//            'nid_front' => 'required|mimes:jpeg,jpg,png',
-//            'nid_back' => 'required|mimes:jpeg,jpg,png',
-//            'chairman_certificate' => 'required|mimes:jpeg,jpg,png',
+            'cattle_name' => 'required',
+            'cattle_breed' => 'required',
+            'age' => 'required',
+            'cattle_color' => 'required',
+            'weight' => 'required',
+            'cattle_type' => 'required',
+
+            'sum_insured' => 'required',
+            'bank_name_insured' => 'required',
+            'bank_account_no' => 'required',
+
+            'nid_front' => 'required|mimes:jpeg,jpg,png',
+            'nid_back' => 'required|mimes:jpeg,jpg,png',
+            'chairman_certificate' => 'required|mimes:jpeg,jpg,png',
 
             'muzzle_of_cow' => 'required|mimes:jpeg,jpg,png',
-//            'left_side' => 'required|mimes:jpeg,jpg,png',
-//            'right_side' => 'required|mimes:jpeg,jpg,png',
-//            'special_marks' => 'required|mimes:jpeg,jpg,png',
-//            'cow_with_owner' => 'required|mimes:jpeg,jpg,png',
-//            'loan_investment' => 'required|mimes:jpeg,jpg,png,pdf,txt',
+            'left_side' => 'required|mimes:jpeg,jpg,png',
+            'right_side' => 'required|mimes:jpeg,jpg,png',
+            'special_marks' => 'required|mimes:jpeg,jpg,png',
+            'cow_with_owner' => 'required|mimes:jpeg,jpg,png',
+            'loan_investment' => 'required|mimes:jpeg,jpg,png,pdf,txt',
         ]);
 
 
@@ -120,21 +119,33 @@ class CattleRegistrationController extends Controller
         $options = 'registration';
 
         // API endpoint URL
-        $apiUrl = 'http://13.127.204.155/cattle_identification';
+        $apiUrl = env("API_URL");
+
+        $basename = $inputs['muzzle_of_cow'];
 
 
         try {
             $response = Http::attach(
                 'image',
                 file_get_contents(storage_path('app/public/' . $inputs['muzzle_of_cow'])),
-                basename('images/'.$inputs['muzzle_of_cow']) // File name to use in the request
+                basename($basename) // File name to use in the request
             )->post($apiUrl, ['options' => $options]);
 
 
             if ($response->status() == 200) {
 
                 $apiResponse = $response->json('output');
-                return $apiResponse;
+
+                if ($apiResponse == "Success") {
+                    auth()->user()->cattleRegister()->create($inputs);
+                    session()->flash("register", "Cattle Registered Successfully");
+                    return back();
+                } elseif ($apiResponse == "Failed") {
+                    session()->flash("register", "Cattle data exists, try different muzzle");
+                    return back();
+                } else {
+                    session()->flash("register", "Server error");
+                }
 
             } else {
                 // Handle API error, e.g., log or throw an exception
@@ -149,10 +160,6 @@ class CattleRegistrationController extends Controller
         }
 //        ------------------------------- API DATA ---------------------------------
 
-
-        auth()->user()->cattleRegister()->create($inputs);
-        session()->flash("register", "Cattle Registered Successfully");
-        return back();
     }
 
 

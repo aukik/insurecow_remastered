@@ -48,6 +48,7 @@
                                         <th>Price</th>
                                         <th>Insurance Status</th>
                                         <th>Action</th>
+                                        <th>Claim <span style="color: red">[TEST]</span></th>
 
                                         {{--                                        <th>Insurance</th>--}}
                                     </tr>
@@ -68,7 +69,11 @@
                                             <td>{{ $cattle->insurance_status == 0 ? 'Not Insured' : 'Insured'  }}</td>
 
                                             <td>
-                                                <button class="btn btn-success" type="button">View Info</button>
+                                                <button class="btn btn-success" type="button">View</button>
+                                            </td>
+
+                                            <td>
+                                                <a href="{{ route('claim.index', $cattle->id) }}" class="btn btn-danger" type="button">Process</a>
                                             </td>
                                             {{--                                            <td><button class="btn btn-primary" type="button">Request</button></td>--}}
 

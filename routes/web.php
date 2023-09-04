@@ -4,6 +4,7 @@ use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\Farmer\CattleRegistrationController;
 use App\Http\Controllers\Farmer\FarmerController;
 use App\Http\Controllers\Farmer\FarmerProfileController;
+use App\Http\Controllers\ml\ClaimController;
 use App\Http\Controllers\SslCommerzPaymentController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -75,6 +76,14 @@ Route::middleware(['auth', 'farmer'])->prefix('farmer')->group(function () {
 
 //    ----------------------- View insurance Package by company offers -----------------------
 
+
+//    ----------------------- Claim Insurance -----------------------
+
+    Route::get("claim_insurance_test/{id}", [ClaimController::class, 'index'])->name('claim.index');
+    Route::post("claim_insurance_test", [ClaimController::class, 'store'])->name('claim.store');
+
+
+//    ----------------------- Claim Insurance -----------------------
 
 });
 
