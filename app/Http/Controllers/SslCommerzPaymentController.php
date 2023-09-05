@@ -219,12 +219,15 @@ class SslCommerzPaymentController extends Controller
                     ->update(['status' => 'Processing']);
 
                 echo "<br >Transaction is successfully Completed";
+                return redirect()->route('login');
             }
         } else if ($order_details->status == 'Processing' || $order_details->status == 'Complete') {
             /*
              That means through IPN Order status already updated. Now you can just show the customer that transaction is completed. No need to udate database.
              */
             echo "Transaction is successfully Completed";
+            return redirect()->route('login');
+            
         } else {
             #That means something wrong happened. You can redirect customer to your product page.
             echo "Invalid Transaction";
