@@ -35,22 +35,23 @@
                 Apply For Insurance
             </a>
 
-            <a class="nav-link" href="">
-                <div class="nav-link-icon"><i data-feather="filter"></i></div>
-                Farm Management
-            </a>
 
             {{--            <a class="nav-link" href="">--}}
             {{--                <div class="nav-link-icon"><i data-feather="filter"></i></div>--}}
             {{--                Cattle Insurance--}}
             {{--            </a>--}}
 
-            <a class="nav-link" href="">
+            <a class="nav-link" href="{{ route('insurance.history.index') }}">
                 <div class="nav-link-icon"><i data-feather="filter"></i></div>
                 Insurance History
             </a>
 
             <a class="nav-link" href="">
+                <div class="nav-link-icon"><i data-feather="filter"></i></div>
+                Farm Management
+            </a>
+
+            <a class="nav-link" href="{{ route('view.password') }}">
                 <div class="nav-link-icon"><i data-feather="filter"></i></div>
                 Change Password
             </a>

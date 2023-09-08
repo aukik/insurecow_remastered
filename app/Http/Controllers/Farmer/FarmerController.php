@@ -93,11 +93,13 @@ class FarmerController extends Controller
 
     public function insurance_history()
     {
-        return auth()->user()->insuranceHistory()->get();
+        $insurance_history = auth()->user()->insuranceHistory()->where('status','Processing')->orWhere('status','Complete')->get();
+        return view("farmer.admin-content.insurance_payment_history.view",compact('insurance_history'));
     }
 
 
 //    --------------- Insurance History ---------------
+
 
 
 }
