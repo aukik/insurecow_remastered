@@ -15,8 +15,7 @@ class CreateCattleRegistrationsTable extends Migration
     {
         Schema::create('cattle_registrations', function (Blueprint $table) {
             $table->id();
-            $table->string("nid_front");
-            $table->string("nid_back");
+
             $table->string("chairman_certificate");
 
             $table->string("cattle_name");
@@ -38,6 +37,8 @@ class CreateCattleRegistrationsTable extends Migration
             $table->string('unique_id');
             $table->string('user_id');
 
+            $table->string("nid_front"); //file
+            $table->string("nid_back"); //file
             $table->string("loan_investment");  //file
             $table->string("bank_name_insured");
             $table->string("bank_account_no");

@@ -37,7 +37,8 @@
                             {{-- ---------------------------------------- Farmer Profile Creation ---------------------------------------- --}}
 
 
-                            <form action="{{ route('farmer_profile.store') }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('farmer_profile.store') }}" method="post"
+                                  enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <!-- Form Group (username)-->
 
@@ -336,19 +337,19 @@
                                 <!-- Form Row-->
                                 <div class="row gx-3 mb-3">
 
-{{--                                    <div class="col-md-6">--}}
-{{--                                        <label class="small mb-1" for="inputLastName"--}}
-{{--                                        >Sum Insured</label--}}
-{{--                                        >--}}
-{{--                                        <input--}}
-{{--                                            class="form-control"--}}
-{{--                                            id="inputLastName"--}}
-{{--                                            type="text"--}}
-{{--                                            placeholder=""--}}
-{{--                                            value="{{ old('sum_insured') }}"--}}
-{{--                                            name="sum_insured"--}}
-{{--                                        />--}}
-{{--                                    </div>--}}
+                                    {{--                                    <div class="col-md-6">--}}
+                                    {{--                                        <label class="small mb-1" for="inputLastName"--}}
+                                    {{--                                        >Sum Insured</label--}}
+                                    {{--                                        >--}}
+                                    {{--                                        <input--}}
+                                    {{--                                            class="form-control"--}}
+                                    {{--                                            id="inputLastName"--}}
+                                    {{--                                            type="text"--}}
+                                    {{--                                            placeholder=""--}}
+                                    {{--                                            value="{{ old('sum_insured') }}"--}}
+                                    {{--                                            name="sum_insured"--}}
+                                    {{--                                        />--}}
+                                    {{--                                    </div>--}}
 
                                     <div class="col-md-12">
                                         <label class="small mb-1" for="inputLastName"
@@ -368,11 +369,85 @@
 
                                 <div class="row gx-3 mb-3">
                                     <!-- Form Group (organization name)-->
-                                    <div class="col-md-12">
+                                    <div class="col-md-4">
                                         <label class="small mb-1" for="inputOrgName"
                                         >Farmers Image</label
                                         >
                                         <input type="file" class="form-control" name="image">
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label class="small mb-1" for="inputOrgName"
+                                        >Loan / Investment documents</label
+                                        >
+                                        <input type="file" class="form-control" name="loan_investment">
+
+                                        @error('loan_investment')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label class="small mb-1" for="inputLastName"
+                                        >Bank Name Insured</label
+                                        >
+                                        <input
+                                            class="form-control"
+                                            id="inputLastName"
+                                            type="text"
+                                            placeholder=""
+                                            value="{{ old('bank_name_insured') }}"
+                                            name="bank_name_insured"
+                                        />
+
+                                        @error('bank_name_insured')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
+                                </div>
+
+
+                                <div class="row gx-3 mb-3">
+                                    <div class="col-md-4">
+                                        <label class="small mb-1" for="inputLastName"
+                                        >Bank Account No</label
+                                        >
+                                        <input
+                                            class="form-control"
+                                            id="inputLastName"
+                                            type="text"
+                                            placeholder=""
+                                            value="{{ old('bank_account_no') }}"
+                                            name="bank_account_no"
+                                        />
+
+                                        @error('bank_account_no')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label class="small mb-1" for="inputOrgName"
+                                        >NID Front</label
+                                        >
+                                        <input type="file" class="form-control" name="nid_front">
+
+                                        @error('nid_front')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
+                                    <!-- Form Group (organization name)-->
+                                    <div class="col-md-4">
+                                        <label class="small mb-1" for="inputOrgName"
+                                        >NID Back</label
+                                        >
+                                        <input type="file" class="form-control" name="nid_back">
+
+                                        @error('nid_back')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
 

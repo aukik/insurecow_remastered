@@ -34,6 +34,14 @@ class CreateFarmerProfilesTable extends Migration
             $table->string('num_of_livestock');
             $table->string('type_of_livestock');
 //            $table->string('sum_insured');
+
+            $table->string("nid_front"); //file
+            $table->string("nid_back"); //file
+            $table->string("loan_investment");  //file
+            $table->string("bank_name_insured");
+            $table->string("bank_account_no");
+
+
             $table->string('nationality');
             $table->string('image');
             $table->string('user_id');
