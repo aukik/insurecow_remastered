@@ -64,12 +64,35 @@ class FarmerProfileController extends Controller
             'type_of_livestock' => 'required',
 //            'sum_insured' => 'required',
             'nationality' => 'required',
+
+            'bank_name_insured' => 'required',
+
+
+            'nid_front' => 'required|mimes:jpeg,jpg,png',
+            'nid_back' => 'required|mimes:jpeg,jpg,png',
+            'loan_investment' => 'required|mimes:jpeg,jpg,png,pdf,txt',
+
+
             'image' => 'required|mimes:jpeg,jpg,png',
+
         ]);
 
         if (request('image')) {
             $inputs['image'] = \request('image')->store('images');
         }
+
+        if (request('loan_investment')) {
+            $inputs['loan_investment'] = \request('loan_investment')->store('images');
+        }
+
+        if (request('nid_front')) {
+            $inputs['nid_front'] = \request('nid_front')->store('images');
+        }
+
+        if (request('nid_back')) {
+            $inputs['nid_back'] = \request('nid_back')->store('images');
+        }
+
 
         auth()->user()->farmerProfile()->create($inputs);
         return back();

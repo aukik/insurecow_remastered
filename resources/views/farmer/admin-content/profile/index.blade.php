@@ -409,23 +409,23 @@
 
 
                                 <div class="row gx-3 mb-3">
-                                    <div class="col-md-4">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >Bank Account No</label
-                                        >
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder=""
-                                            value="{{ old('bank_account_no') }}"
-                                            name="bank_account_no"
-                                        />
+{{--                                    <div class="col-md-4">--}}
+{{--                                        <label class="small mb-1" for="inputLastName"--}}
+{{--                                        >Bank Account No</label--}}
+{{--                                        >--}}
+{{--                                        <input--}}
+{{--                                            class="form-control"--}}
+{{--                                            id="inputLastName"--}}
+{{--                                            type="text"--}}
+{{--                                            placeholder=""--}}
+{{--                                            value="{{ old('bank_account_no') }}"--}}
+{{--                                            name="bank_account_no"--}}
+{{--                                        />--}}
 
-                                        @error('bank_account_no')
-                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
-                                        @enderror
-                                    </div>
+{{--                                        @error('bank_account_no')--}}
+{{--                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>--}}
+{{--                                        @enderror--}}
+{{--                                    </div>--}}
 
                                     <div class="col-md-4">
                                         <label class="small mb-1" for="inputOrgName"

@@ -39,7 +39,6 @@ class CreateFarmerProfilesTable extends Migration
             $table->string("nid_back"); //file
             $table->string("loan_investment");  //file
             $table->string("bank_name_insured");
-            $table->string("bank_account_no");
 
 
             $table->string('nationality');
