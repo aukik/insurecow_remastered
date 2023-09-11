@@ -66,8 +66,6 @@ class FarmerProfileController extends Controller
             'nationality' => 'required',
 
             'bank_name_insured' => 'required',
-
-
             'nid_front' => 'required|mimes:jpeg,jpg,png',
             'nid_back' => 'required|mimes:jpeg,jpg,png',
             'loan_investment' => 'required|mimes:jpeg,jpg,png,pdf,txt',
@@ -152,13 +150,39 @@ class FarmerProfileController extends Controller
             'type_of_livestock' => 'required',
 //            'sum_insured' => 'required',
             'nationality' => 'required',
+
+
             'image' => 'mimes:jpeg,jpg,png',
+            'bank_name_insured' => 'required',
+            'nid_front' => 'mimes:jpeg,jpg,png',
+            'nid_back' => 'mimes:jpeg,jpg,png',
+            'loan_investment' => 'mimes:jpeg,jpg,png,pdf,txt'
         ]);
+
 
         if (request('image')) {
             $inputs['image'] = \request('image')->store('images');
         } else {
             $inputs['image'] = $farmerProfile->image;
+        }
+
+
+        if (request('loan_investment')) {
+            $inputs['loan_investment'] = \request('loan_investment')->store('images');
+        } else {
+            $inputs['loan_investment'] = $farmerProfile->loan_investment;
+        }
+
+        if (request('nid_front')) {
+            $inputs['nid_front'] = \request('nid_front')->store('images');
+        } else {
+            $inputs['nid_front'] = $farmerProfile->nid_front;
+        }
+
+        if (request('nid_back')) {
+            $inputs['nid_back'] = \request('nid_back')->store('images');
+        } else {
+            $inputs['nid_back'] = $farmerProfile->nid_back;
         }
 
         auth()->user()->farmerProfile()->where('id', $farmerProfile->id)->update($inputs);

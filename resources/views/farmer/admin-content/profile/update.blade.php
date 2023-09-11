@@ -362,23 +362,8 @@
                                 <!-- Form Row-->
                                 <div class="row gx-3 mb-3">
 
-{{--                                    <div class="col-md-6">--}}
-{{--                                        <label class="small mb-1" for="inputLastName"--}}
-{{--                                        >Sum Insured</label--}}
-{{--                                        >--}}
-{{--                                        <input--}}
-{{--                                            class="form-control"--}}
-{{--                                            id="inputLastName"--}}
-{{--                                            type="text"--}}
-{{--                                            placeholder=""--}}
 
-{{--                                            value="{{ $profile->sum_insured }}"--}}
-
-{{--                                            name="sum_insured"--}}
-{{--                                        />--}}
-{{--                                    </div>--}}
-
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <label class="small mb-1" for="inputLastName"
                                         >Nationality</label
                                         >
@@ -391,6 +376,22 @@
                                             value="{{ $profile->nationality }}"
 
                                             name="nationality"
+                                        />
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label class="small mb-1" for="inputLastName"
+                                        >Bank Name Insured</label
+                                        >
+                                        <input
+                                            class="form-control"
+                                            id="inputLastName"
+                                            type="text"
+                                            placeholder=""
+
+                                            value="{{ $profile->bank_name_insured }}"
+
+                                            name="bank_name_insured"
                                         />
                                     </div>
                                 </div>
@@ -406,6 +407,50 @@
                                         >Farmer Image</label
                                         >
                                         <input type="file" class="form-control" name="image">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-control">
+                                    <img src="{{ asset('storage/'.$profile->nid_front) }}" style="width: 150px">
+                                </div>
+
+                                <div class="row gx-3 mb-3">
+                                    <!-- Form Group (organization name)-->
+                                    <div class="col-md-12">
+                                        <label class="small mb-1" for="inputOrgName"
+                                        >NID Front</label
+                                        >
+                                        <input type="file" class="form-control" name="nid_front">
+                                    </div>
+                                </div>
+
+                                <div class="form-control">
+                                    <img src="{{ asset('storage/'.$profile->nid_back) }}" style="width: 150px">
+                                </div>
+
+                                <div class="row gx-3 mb-3">
+                                    <!-- Form Group (organization name)-->
+                                    <div class="col-md-12">
+                                        <label class="small mb-1" for="inputOrgName"
+                                        >NID Back</label
+                                        >
+                                        <input type="file" class="form-control" name="nid_back">
+                                    </div>
+                                </div>
+
+
+                                <div class="form-control">
+                                    <img src="{{ asset('storage/'.$profile->loan_investment) }}" style="width: 150px">
+                                </div>
+
+                                <div class="row gx-3 mb-3">
+                                    <!-- Form Group (organization name)-->
+                                    <div class="col-md-12">
+                                        <label class="small mb-1" for="inputOrgName"
+                                        >Loan Investment</label
+                                        >
+                                        <input type="file" class="form-control" name="loan_investment">
                                     </div>
                                 </div>
 
