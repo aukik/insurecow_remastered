@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace App\Http\Middleware\Company;
 
 use Closure;
 use Illuminate\Http\Request;
 
-class FarmerMiddleware
+class PremiumInsuranceMiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,10 +16,14 @@ class FarmerMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->user()->role == 'f') {
-            return $next($request);
+        if (auth()->user()->permission != null) {
+            if (auth()->user()->permission->c_insurance) {
+                return $next($request);
+            } else {
+            return response()->view('exceptions.403', [], 404);
+//                abort(404);
+            }
         } else {
-//            return response()->view('welcome', [], 404);
             abort(404);
         }
     }

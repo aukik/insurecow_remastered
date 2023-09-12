@@ -14,18 +14,28 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
         return "Company";
     });
 
-//    -------------------------- Register Field Agent -----------------------------
 
-    Route::resource('farmer_register', RegisterFieldAgentController::class);
+    //    ----------------------------- Register Field Agent Middleware Block ----------------------------------
 
 
-//    -------------------------- Register Field Agent -----------------------------
+    Route::middleware('company.register_agent')->group(function () {
 
-//    -------------------------- Registered Farmer / Agents -----------------------------
+        //    -------------------------- Register Field Agent -----------------------------
 
-    Route::get('registered', [CompanyController::class, 'registered_farmers'])->name('company.farmer_registered');
+        Route::resource('farmer_register', RegisterFieldAgentController::class);
 
-//    -------------------------- Registered Farmer / Agents -----------------------------
+        //    -------------------------- Register Field Agent -----------------------------
+
+        //    -------------------------- Registered Farmer / Agents -----------------------------
+
+        Route::get('registered', [CompanyController::class, 'registered_farmers'])->name('company.farmer_registered');
+
+        //    -------------------------- Registered Farmer / Agents -----------------------------
+
+    });
+
+    //    ----------------------------- Register Field Agent Middleware Block ----------------------------------
+
 
 //    -------------------------- Policy Creation -----------------------------
 
@@ -33,19 +43,37 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
 
 //    -------------------------- Policy Creation -----------------------------
 
-//    -------------------------- Package Creation -----------------------------
+    //    ----------------------------- Company Insurance Middleware Block ----------------------------------
 
-    Route::resource('package', PackageController::class);
+    Route::middleware('company.premium_insurance')->group(function () {
 
-//    -------------------------- Package Creation -----------------------------
+        //    -------------------------- Package Creation -----------------------------
 
-//    -------------------------- Package Status -----------------------------
+        Route::resource('package', PackageController::class);
 
-    Route::get('package_status/{id}', [CompanyController::class,'package_status'])->name('package_status');
+        //    -------------------------- Package Creation -----------------------------
 
-//    -------------------------- Package Status -----------------------------
+        //    -------------------------- Package Status -----------------------------
+
+        Route::get('package_status/{id}', [CompanyController::class, 'package_status'])->name('package_status');
+
+        //    -------------------------- Package Status -----------------------------
+    });
+
+
+    //    ----------------------------- Company Insurance Middleware Block ----------------------------------
+
 
 });
+
+
+//Route::get('tt', function () {
+//    if (auth()->user()->permission->c_register_agent) {
+//        return "true";
+//    } else {
+//        return "false";
+//    }
+//});
 
 
 // -------------------------------------------------------------------- Company --------------------------------------------------------------------

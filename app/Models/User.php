@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Permission;
 
 class User extends Authenticatable
 {
@@ -105,6 +106,15 @@ class User extends Authenticatable
 
         return $date;
     }
+
+
+//    --------------------- relation between user and permission table ---------------------
+
+    public function permission(){
+        return $this->hasOne(\App\Models\Permission::class);
+    }
+
+//    --------------------- relation between user and permission table ---------------------
 
 
 }

@@ -15,7 +15,7 @@
                                 <div class="page-header-icon">
                                     <i data-feather="user"></i>
                                 </div>
-                                Register Company/NGO/Bank - Super Admin
+                                Register Company/NGO/Bank/Farmer - Super Admin
                             </h1>
                         </div>
                     </div>
@@ -162,6 +162,7 @@
                                             <option value="b">Bank</option>
                                             <option value="n">NGO</option>
                                             <option value="m">MFI</option>
+                                            <option value="f">Farmer</option>
                                         </select>
 
 

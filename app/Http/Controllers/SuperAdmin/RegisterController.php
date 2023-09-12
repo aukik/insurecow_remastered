@@ -41,9 +41,10 @@ class RegisterController extends Controller
         }
 
         $registered_user_id = auth()->user()->create($inputs);
-        
+
         Permission::create([
-            'user_id' => $registered_user_id->id
+            'user_id' => $registered_user_id->id,
+            'role' => $inputs['role']
         ]);
 
         session()->flash('register','Registration process completed successfully');

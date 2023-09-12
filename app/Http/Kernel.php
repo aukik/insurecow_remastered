@@ -2,7 +2,11 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\Company\PremiumInsuranceMiddleware;
+use App\Http\Middleware\Company\RegisterAgentMiddleware;
 use App\Http\Middleware\CompanyMiddleware;
+use App\Http\Middleware\Farmer\ApplyForInsuranceMiddleware;
+use App\Http\Middleware\Farmer\CattleRegistrationMiddleware;
 use App\Http\Middleware\FarmerMiddleware;
 use App\Http\Middleware\SuperAdminMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
@@ -66,8 +70,15 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+
         'super.admin' => SuperAdminMiddleware::class,
         'farmer' => FarmerMiddleware::class,
         'company' => CompanyMiddleware::class,
+
+        'company.register_agent' => RegisterAgentMiddleware::class,
+        'company.premium_insurance' => PremiumInsuranceMiddleware::class,
+        'farmer.cattle_reg' => CattleRegistrationMiddleware::class,
+        'farmer.insurance' => ApplyForInsuranceMiddleware::class,
+
     ];
 }

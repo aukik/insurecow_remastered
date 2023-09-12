@@ -43,52 +43,74 @@ Route::middleware(['auth', 'farmer'])->prefix('farmer')->group(function () {
 
 //    ----------------------------- Dashboard -----------------------------
 
+
 //    -------------------------- Farmer Profile -----------------------------
 
     Route::resource('farmer_profile', FarmerProfileController::class);
 
 //    -------------------------- Farmer Profile -----------------------------
 
-    //    -------------------------- Cattle Registration -----------------------------
 
-    Route::resource('cattle_register', CattleRegistrationController::class);
+    //    ----------------------------- Cattle Registration Middleware Block ----------------------------------
 
-//    -------------------------- Cattle Registration -----------------------------
+    Route::middleware('farmer.cattle_reg')->group(function () {
 
-//    -------------------------- Cattle Registration -----------------------------
+        //    -------------------------- Cattle Registration -----------------------------
 
-//    -------------------------- view registered cattle -----------------------------
+        Route::resource('cattle_register', CattleRegistrationController::class);
 
-    Route::get('cattle_list', [FarmerController::class, 'view_registered_cattle'])->name('cattle.list');
+        //    -------------------------- Cattle Registration -----------------------------
 
-//    -------------------------- view registered cattle -----------------------------
+        //    -------------------------- Cattle Registration -----------------------------
 
-//    ----------------------- Insurance Packages by companies -----------------------
+        //    -------------------------- view registered cattle -----------------------------
 
-    Route::get('insurance_packages', [FarmerController::class, 'company_insurance_packages'])->name('insurance.packages');
-    Route::post('insurance_packages', [FarmerController::class, 'company_insurance_packages_post'])->name('insurance.packages.post');
+        Route::get('cattle_list', [FarmerController::class, 'view_registered_cattle'])->name('cattle.list');
 
-//    ----------------------- Insurance Packages by companies -----------------------
+        //    -------------------------- view registered cattle -----------------------------
+    });
 
-//    ----------------------- View insurance Package by company offers -----------------------
-
-    Route::get('single_insurance_packages/{id}/{id2}', [FarmerController::class, 'company_insurance_packages_single'])->name('single.insurance.packages');
-
-//    ----------------------- View insurance Package by company offers -----------------------
+    //    ----------------------------- Cattle Registration Middleware Block ----------------------------------
 
 
-//    ----------------------- Claim Insurance -----------------------
+    //    ----------------------------- Insurance Middleware Block ----------------------------------
 
-    Route::get("claim_insurance_test/{id}", [ClaimController::class, 'index'])->name('claim.index');
-    Route::post("claim_insurance_test", [ClaimController::class, 'store'])->name('claim.store');
 
-//    ----------------------- Claim Insurance -----------------------
+    Route::middleware('farmer.insurance')->group(function () {
 
-//    ----------------------- Insurance History -----------------------
 
-    Route::get("insurance_history", [FarmerController::class, 'insurance_history'])->name('insurance.history.index');
+        //    ----------------------- Insurance Packages by companies -----------------------
 
-//    ----------------------- Insurance History -----------------------
+        Route::get('insurance_packages', [FarmerController::class, 'company_insurance_packages'])->name('insurance.packages');
+        Route::post('insurance_packages', [FarmerController::class, 'company_insurance_packages_post'])->name('insurance.packages.post');
+
+        //    ----------------------- Insurance Packages by companies -----------------------
+
+        //    ----------------------- View insurance Package by company offers -----------------------
+
+        Route::get('single_insurance_packages/{id}/{id2}', [FarmerController::class, 'company_insurance_packages_single'])->name('single.insurance.packages');
+
+        //    ----------------------- View insurance Package by company offers -----------------------
+
+
+        //    ----------------------- Claim Insurance -----------------------
+
+        Route::get("claim_insurance_test/{id}", [ClaimController::class, 'index'])->name('claim.index');
+        Route::post("claim_insurance_test", [ClaimController::class, 'store'])->name('claim.store');
+
+        //    ----------------------- Claim Insurance -----------------------
+
+        //    ----------------------- Insurance History -----------------------
+
+        Route::get("insurance_history", [FarmerController::class, 'insurance_history'])->name('insurance.history.index');
+
+        //    ----------------------- Insurance History -----------------------
+
+
+    });
+
+    //    ----------------------------- Insurance Middleware Block ----------------------------------
+
 
 });
 
