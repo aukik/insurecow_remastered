@@ -7,6 +7,7 @@ use App\Http\Middleware\Company\RegisterAgentMiddleware;
 use App\Http\Middleware\CompanyMiddleware;
 use App\Http\Middleware\Farmer\ApplyForInsuranceMiddleware;
 use App\Http\Middleware\Farmer\CattleRegistrationMiddleware;
+use App\Http\Middleware\Farmer\FarmManagementMiddleware;
 use App\Http\Middleware\FarmerMiddleware;
 use App\Http\Middleware\SuperAdminMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
@@ -79,6 +80,7 @@ class Kernel extends HttpKernel
         'company.premium_insurance' => PremiumInsuranceMiddleware::class,
         'farmer.cattle_reg' => CattleRegistrationMiddleware::class,
         'farmer.insurance' => ApplyForInsuranceMiddleware::class,
+        'farmer.farm_management' => FarmManagementMiddleware::class,
 
     ];
 }
