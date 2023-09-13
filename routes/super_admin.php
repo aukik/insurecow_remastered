@@ -43,6 +43,13 @@ Route::middleware(['auth', 'super.admin'])->prefix('superAdmin')->group(function
 
 //    ----------------------------- History -----------------------------
 
+//    ----------------------------- Registered Companies -----------------------------
+
+    Route::get("registered_companies", [CompanyRequest::class, "registered_companies"])->name("sp.registered_companies");
+
+
+//    ----------------------------- Registered Companies -----------------------------
+
 //    ----------------------------- Permission Setup -----------------------------
 
     Route::resource("permission", PermissionController::class);

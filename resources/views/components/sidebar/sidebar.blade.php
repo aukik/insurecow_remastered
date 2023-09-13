@@ -56,6 +56,12 @@
         </a>
 
         <!-- Sidenav Link (Tables)-->
+        <a class="nav-link" href="">
+            <div class="nav-link-icon"><i data-feather="filter"></i></div>
+            Registered Companies
+        </a>
+
+        <!-- Sidenav Link (Tables)-->
         <a class="nav-link" href="{{ route('sp.user_history') }}">
             <div class="nav-link-icon"><i data-feather="filter"></i></div>
             History

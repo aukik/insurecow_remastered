@@ -16,4 +16,9 @@ class CompanyRequest extends Controller
         $users = User::all();
         return view("super-admin.admin-content.history.index", compact('users'));
     }
+
+    public function registered_companies(){
+        $users = User::where('role', 'c')->get();
+        return $users;
+    }
 }
