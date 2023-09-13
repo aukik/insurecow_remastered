@@ -111,7 +111,7 @@ class User extends Authenticatable
 //    --------------------- relation between user and permission table ---------------------
 
     public function permission(){
-        return $this->hasOne(\App\Models\Permission::class);
+        return $this->hasOne(Permission::class);
     }
 
 //    --------------------- relation between user and permission table ---------------------

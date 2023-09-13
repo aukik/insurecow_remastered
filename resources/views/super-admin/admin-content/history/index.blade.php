@@ -44,7 +44,7 @@
                                         <th>Phone</th>
                                         <th>Role</th>
                                         <th>Registered At</th>
-                                        <th>Actions</th>
+                                        <th>Permission</th>
                                     </tr>
                                     </thead>
 
@@ -60,18 +60,16 @@
                                             <td>{{ $user->role }}</td>
                                             <td>{{ $user->created_at->format('d-m-y') }}</td>
 
-                                            <td>
-                                                {{--                                            <button--}}
-                                                {{--                                                class="btn btn-datatable btn-icon btn-transparent-dark me-2"--}}
-                                                {{--                                            >--}}
-                                                {{--                                                <i data-feather="more-vertical"></i>--}}
-                                                {{--                                            </button>--}}
-                                                <button
-                                                    class="btn btn-datatable btn-icon btn-transparent-dark"
-                                                >
-                                                    <i data-feather="trash-2"></i>
-                                                </button>
-                                            </td>
+                                            @if($user->role != "s")
+                                                <td>
+                                                    <a href="{{ route('permission.show', $user->id) }}">Set
+                                                        Permission</a>
+                                                </td>
+                                            @else
+                                                <td></td>
+                                            @endif
+
+
                                         </tr>
 
                                     @endforeach
