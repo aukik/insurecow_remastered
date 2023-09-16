@@ -115,51 +115,55 @@ class CattleRegistrationController extends Controller
 
 //        ------------------------------- API DATA ---------------------------------
 
-        // Additional parameters to send to the API
-        $options = 'registration';
-
-        // API endpoint URL
-        $apiUrl = "http://13.127.204.155/cattle_identification";
-
-        $basename = $inputs['muzzle_of_cow'];
-
-
-        try {
-            $response = Http::attach(
-                'image',
-                file_get_contents(storage_path('app/public/' . $inputs['muzzle_of_cow'])),
-                basename($basename) // File name to use in the request
-            )->post($apiUrl, ['options' => $options]);
-
-
-            if ($response->status() == 200) {
-
-                $apiResponse = $response->json('output');
-
-                if ($apiResponse == "Success") {
-                    auth()->user()->cattleRegister()->create($inputs);
-                    session()->flash("register", "Cattle Registered Successfully");
-                    return back();
-                } elseif ($apiResponse == "Failed") {
-                    session()->flash("register", "Cattle data exists, try different muzzle");
-                    return back();
-                } else {
-                    session()->flash("register", "Server error");
-                }
-
-            } else {
-                // Handle API error, e.g., log or throw an exception
-                // You can access the response content with $response->body()
-                // and the status code with $response->status()
-                return "Error";
-            }
-        } catch (Exception $e) {
-            // Handle exceptions, e.g., connection issues or timeouts
-            // Log or rethrow the exception as needed
-            return "Catch Exception";
-        }
+//        // Additional parameters to send to the API
+//        $options = 'registration';
+//
+//        // API endpoint URL
+//        $apiUrl = "http://13.127.204.155/cattle_identification";
+//
+//        $basename = $inputs['muzzle_of_cow'];
+//
+//
+//        try {
+//            $response = Http::attach(
+//                'image',
+//                file_get_contents(storage_path('app/public/' . $inputs['muzzle_of_cow'])),
+//                basename($basename) // File name to use in the request
+//            )->post($apiUrl, ['options' => $options]);
+//
+//
+//            if ($response->status() == 200) {
+//
+//                $apiResponse = $response->json('output');
+//
+//                if ($apiResponse == "Success") {
+//                    auth()->user()->cattleRegister()->create($inputs);
+//                    session()->flash("register", "Cattle Registered Successfully");
+//                    return back();
+//                } elseif ($apiResponse == "Failed") {
+//                    session()->flash("register", "Cattle data exists, try different muzzle");
+//                    return back();
+//                } else {
+//                    session()->flash("register", "Server error");
+//                }
+//
+//            } else {
+//                // Handle API error, e.g., log or throw an exception
+//                // You can access the response content with $response->body()
+//                // and the status code with $response->status()
+//                return "Error";
+//            }
+//        } catch (Exception $e) {
+//            // Handle exceptions, e.g., connection issues or timeouts
+//            // Log or rethrow the exception as needed
+//            return "Catch Exception";
+//        }
 //        ------------------------------- API DATA ---------------------------------
 
+
+        auth()->user()->cattleRegister()->create($inputs);
+        session()->flash("register", "Cattle Registered Successfully");
+        return back();
     }
 
 

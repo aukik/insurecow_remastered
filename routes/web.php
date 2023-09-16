@@ -14,9 +14,19 @@ Route::get('/', function () {
     return view("front.index");
 });
 
-Auth::routes();
+Auth::routes(['register'=>false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// -------------------------------------------------------------------- Test Phase [ dashboard ] --------------------------------------------------------------------
+
+Route::middleware('auth')->group(function (){
+    Route::get('dashboard', function (){
+        return view("dashboard.view");
+    })->name('dashboard');
+});
+
+// -------------------------------------------------------------------- Test Phase [ dashboard ] --------------------------------------------------------------------
 
 // -------------------------------------------------------------------- Logout --------------------------------------------------------------------
 

@@ -43,12 +43,14 @@ Route::middleware(['auth', 'super.admin'])->prefix('superAdmin')->group(function
 
 //    ----------------------------- History -----------------------------
 
-//    ----------------------------- Registered Companies -----------------------------
+//    ----------------------------- Registered Resources -----------------------------
 
-    Route::get("registered_companies", [CompanyRequest::class, "registered_companies"])->name("sp.registered_companies");
+    Route::get("registered_companies", [CompanyRequest::class, "registered_companies"])->name("sp.registered_resources");
+    Route::get("registered_farmers/{id}", [CompanyRequest::class, "farmers"])->name("sp.registered_farmers");
+    Route::get("registered_cattle/{id}", [CompanyRequest::class, "cattle_list"])->name("sp.registered_cattle");
 
 
-//    ----------------------------- Registered Companies -----------------------------
+//    ----------------------------- Registered Resources -----------------------------
 
 //    ----------------------------- Permission Setup -----------------------------
 

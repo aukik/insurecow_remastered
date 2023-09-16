@@ -25,11 +25,11 @@ class HomeController extends Controller
     {
 
         if (auth()->user()->role == 'f') {
-            return redirect()->route("farmer_profile.index");
+            return redirect()->route("dashboard");
         } elseif (auth()->user()->role == 's') {
-            return redirect()->route("profile.index");
+            return redirect()->route("dashboard");
         } elseif (auth()->user()->role == 'c') {
-            return redirect()->route('farmer_register.index');
+            return redirect()->route('dashboard');
         } else {
             abort(404);
         }

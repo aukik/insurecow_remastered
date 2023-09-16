@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Company;
 
 use App\Http\Controllers\Controller;
+use App\Models\Permission;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -56,7 +57,13 @@ class RegisterFieldAgentController extends Controller
             $inputs['company_logo'] = \request('company_logo')->store('images');
         }
 
-        auth()->user()->create($inputs);
+        $registered_user_id = auth()->user()->create($inputs);
+
+        Permission::create([
+            'user_id' => $registered_user_id->id,
+            'role' => $inputs['role']
+        ]);
+
         session()->flash('register','Registration process completed successfully');
         return back();
     }

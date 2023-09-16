@@ -15,7 +15,7 @@
                                 <div class="page-header-icon">
                                     <i data-feather="user"></i>
                                 </div>
-                                History - Registered Cattle - Farmer
+                                Registered Cattle - Farmer
                             </h1>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                 <div class="col-xl-12">
                     <!-- Account details card-->
                     <div class="card mb-4">
-                        <div class="card-header">History - Registered Cattle</div>
+                        <div class="card-header">Registered Cattle</div>
                         <div class="card-body">
 
                             {{--                            <div class="card-header">Extended DataTables</div>--}}
@@ -48,7 +48,7 @@
                                         <th>Price</th>
                                         <th>Insurance Status</th>
                                         <th>Action</th>
-                                        <th>Claim <span style="color: red">[TEST]</span></th>
+{{--                                        <th>Claim <span style="color: red">[TEST]</span></th>--}}
 
                                         {{--                                        <th>Insurance</th>--}}
                                     </tr>
@@ -73,16 +73,16 @@
                                                 <button class="btn btn-success" type="button">View</button>
                                             </td>
 
-                                            @if(\App\Models\Order::order_verification($cattle->id) > 0)
-                                                <td>
-                                                    <a href="{{ route('claim.index', $cattle->id) }}"
-                                                       class="btn btn-danger"
-                                                       type="button">Claim</a>
-                                                </td>
+{{--                                            @if(\App\Models\Order::order_verification($cattle->id) > 0)--}}
+{{--                                                <td>--}}
+{{--                                                    <a href="{{ route('claim.index', $cattle->id) }}"--}}
+{{--                                                       class="btn btn-danger"--}}
+{{--                                                       type="button">Claim</a>--}}
+{{--                                                </td>--}}
 
-                                            @else
-                                                <td>Not Applicable</td>
-                                            @endif
+{{--                                            @else--}}
+{{--                                                <td>Not Applicable</td>--}}
+{{--                                            @endif--}}
 
 
                                             {{--                                            <td><button class="btn btn-primary" type="button">Request</button></td>--}}

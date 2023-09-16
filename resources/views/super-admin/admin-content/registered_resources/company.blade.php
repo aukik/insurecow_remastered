@@ -15,7 +15,7 @@
                                 <div class="page-header-icon">
                                     <i data-feather="user"></i>
                                 </div>
-                                User History - Super Admin
+                                Registered Companies - Super Admin
                             </h1>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                 <div class="col-xl-12">
                     <!-- Account details card-->
                     <div class="card mb-4">
-                        <div class="card-header">User History</div>
+                        <div class="card-header">Registered Companies</div>
                         <div class="card-body">
 
                             {{--                            <div class="card-header">Extended DataTables</div>--}}
@@ -42,9 +42,9 @@
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Phone</th>
-                                        <th>Role</th>
-                                        <th>Registered At</th>
-                                        <th>Permission</th>
+                                        {{--                                        <th>Role</th>--}}
+                                        <th>Registered <br> Farmers</th>
+                                        {{--                                        <th>Registered <br> Field Agents</th>--}}
                                     </tr>
                                     </thead>
 
@@ -57,17 +57,15 @@
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
                                             <td>{{ $user->phone }}</td>
-                                            <td>{{ $user->role }}</td>
-                                            <td>{{ $user->created_at->format('d-m-y') }}</td>
+                                            {{--                                            <td>{{ $user->role }}</td>--}}
+                                            <td>
+                                                <a href="{{ route('sp.registered_farmers', $user->id) }}"
+                                                   class="btn btn-primary">View Farmers</a>
+                                            </td>
 
-                                            @if($user->role != "s")
-                                                <td>
-                                                    <a href="{{ route('permission.show', $user->id) }}">Set
-                                                        Permission</a>
-                                                </td>
-                                            @else
-                                                <td></td>
-                                            @endif
+                                            {{--                                            <td>--}}
+                                            {{--                                                <a href="" class="btn btn-primary">View Agents</a>--}}
+                                            {{--                                            </td>--}}
 
 
                                         </tr>

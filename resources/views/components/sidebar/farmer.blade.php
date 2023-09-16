@@ -15,7 +15,7 @@
 
         @if(auth()->user()->farmerProfile()->count() != 0)
 
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{ route('dashboard') }}">
                 <div class="nav-link-icon"><i data-feather="filter"></i></div>
                 Dashboard
             </a>

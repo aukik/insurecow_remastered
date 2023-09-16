@@ -39,7 +39,7 @@
         <!-- Sidenav Heading (Addons)-->
         <div class="sidenav-menu-heading">Super Admin Panel</div>
         <!-- Sidenav Link (Charts)-->
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ route('dashboard') }}">
             <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>
             Dashboard
         </a>
@@ -52,11 +52,11 @@
         <!-- Sidenav Link (Tables)-->
         <a class="nav-link" href="{{ route('sp_register_company') }}">
             <div class="nav-link-icon"><i data-feather="filter"></i></div>
-            Registration
+            Organization Registration
         </a>
 
         <!-- Sidenav Link (Tables)-->
-        <a class="nav-link" href="">
+        <a class="nav-link" href="{{ route('sp.registered_resources') }}">
             <div class="nav-link-icon"><i data-feather="filter"></i></div>
             Registered Companies
         </a>
@@ -64,7 +64,7 @@
         <!-- Sidenav Link (Tables)-->
         <a class="nav-link" href="{{ route('sp.user_history') }}">
             <div class="nav-link-icon"><i data-feather="filter"></i></div>
-            History
+            Enlisted
         </a>
 
         <!-- Sidenav Link (Tables)-->

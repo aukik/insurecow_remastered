@@ -64,6 +64,14 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
     //    ----------------------------- Company Insurance Middleware Block ----------------------------------
 
 
+    //    ----------------------------- Registered Resources -----------------------------
+
+    Route::get("registered_cattle/{id}", [CompanyController::class, "cattle_list"])->name("cm.registered_cattle");
+
+
+//    ----------------------------- Registered Resources -----------------------------
+
+
 });
 
 

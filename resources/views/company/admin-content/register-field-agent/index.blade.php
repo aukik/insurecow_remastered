@@ -154,7 +154,7 @@
                                     <!-- Form Group (last name)-->
                                     <div class="col-md-12">
                                         <label class="small mb-1" for="inputLastName"
-                                        >Agent Employee ID</label
+                                        >Farmer / Agent Identification ID</label
                                         >
                                         <input
                                             class="form-control"

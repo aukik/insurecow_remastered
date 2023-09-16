@@ -62,7 +62,7 @@
 
                                             @if($user->role != "s")
                                                 <td>
-                                                    <a href="{{ route('permission.show', $user->id) }}">Set
+                                                    <a href="{{ route('permission.show', $user->id) }}" class="">Set
                                                         Permission</a>
                                                 </td>
                                             @else

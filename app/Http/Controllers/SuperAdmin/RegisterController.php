@@ -34,21 +34,26 @@ class RegisterController extends Controller
             'role' => 'required',
         ]);
 
-        $inputs['password'] = Hash::make(\request('password'));
+        if($request['password'] !== $request['confirm_password']){
+            session()->flash('pass_error','Passwords do not match! Please make sure they are identical.');
+        }else{
+            $inputs['password'] = Hash::make(\request('password'));
 
-        if (request('company_logo')) {
-            $inputs['company_logo'] = \request('company_logo')->store('images');
+            if (request('company_logo')) {
+                $inputs['company_logo'] = \request('company_logo')->store('images');
+            }
+
+            $registered_user = auth()->user()->create($inputs);
+
+            Permission::create([
+                'user_id' => $registered_user->id,
+                'role' => $inputs['role']
+            ]);
+
+            session()->flash('register','Registration process completed successfully');
         }
-
-        $registered_user_id = auth()->user()->create($inputs);
-
-        Permission::create([
-            'user_id' => $registered_user_id->id,
-            'role' => $inputs['role']
-        ]);
-
-        session()->flash('register','Registration process completed successfully');
         return back();
+
 
     }
 
