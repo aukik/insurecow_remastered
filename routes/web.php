@@ -20,11 +20,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // -------------------------------------------------------------------- Test Phase [ dashboard ] --------------------------------------------------------------------
 
-Route::middleware('auth')->group(function (){
-    Route::get('dashboard', function (){
-        return view("dashboard.view");
-    })->name('dashboard');
-});
+//Route::middleware('auth')->group(function (){
+//    Route::get('dashboard', function (){
+//        return view("dashboard.view");
+//    })->name('dashboard');
+//});
 
 // -------------------------------------------------------------------- Test Phase [ dashboard ] --------------------------------------------------------------------
 

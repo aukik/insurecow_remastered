@@ -25,11 +25,11 @@ class HomeController extends Controller
     {
 
         if (auth()->user()->role == 'f') {
-            return redirect()->route("dashboard");
+            return redirect()->route("f.dashboard");
         } elseif (auth()->user()->role == 's') {
-            return redirect()->route("dashboard");
+            return redirect()->route("sp.dashboard");
         } elseif (auth()->user()->role == 'c') {
-            return redirect()->route('dashboard');
+            return redirect()->route('c.dashboard');
         } else {
             abort(404);
         }

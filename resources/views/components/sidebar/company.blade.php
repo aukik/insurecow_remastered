@@ -39,7 +39,7 @@
         <!-- Sidenav Heading (Addons)-->
         <div class="sidenav-menu-heading">Company Panel</div>
         <!-- Sidenav Link (Charts)-->
-        <a class="nav-link" href="{{ route('dashboard') }}">
+        <a class="nav-link" href="{{ route('c.dashboard') }}">
             <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>
             Dashboard
         </a>
