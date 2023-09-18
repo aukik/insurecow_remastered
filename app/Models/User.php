@@ -77,6 +77,11 @@ class User extends Authenticatable
         return $this->hasMany(Order::class);
     }
 
+    public function insurance_claimed()
+    {
+        return $this->hasMany(InsuranceClaim::class);
+    }
+
     public static function calculateTotalCost($cost, $rate, $discount, $vat)
     {
         if ($cost == null || $rate == null || $discount == null || $vat == null) {
