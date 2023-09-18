@@ -30,7 +30,7 @@ class ClaimController extends Controller
         $inputs = \request()->validate([
             'muzzle_of_cow' => 'required|mimes:jpeg,jpg,png',
             'muzzle_token' => 'required',
-            'cattle_id' => 'required',
+//            'cattle_id' => 'required',
         ]);
 
 
@@ -48,7 +48,7 @@ class ClaimController extends Controller
         $apiUrl = env('API_URL');
 
         $basename = $inputs['muzzle_token'];
-        $catl_id = $inputs['cattle_id'];
+//        $catl_id = $inputs['cattle_id'];
 
 
         try {
@@ -64,9 +64,8 @@ class ClaimController extends Controller
                 $apiResponse = $response->json('output');
 
                 if ($apiResponse == "Success") {
-//                    auth()->user()->cattleRegister()->create($inputs);
 
-                    auth()->user()->insurance_claimed()->create($inputs);
+//                    auth()->user()->insurance_claimed()->create($inputs);
 
                     session()->flash("claim_success", "Claim action matched successfully");
                     return back();
