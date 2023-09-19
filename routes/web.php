@@ -14,7 +14,7 @@ Route::get('/', function () {
     return view("front.index");
 });
 
-Auth::routes(['register'=>false]);
+Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -123,7 +123,7 @@ Route::middleware(['auth', 'farmer'])->prefix('farmer')->group(function () {
 
     //    ----------------------------- Farm Management Middleware Block ----------------------------------
 
-    Route::middleware('farmer.farm_management')->group(function (){
+    Route::middleware('farmer.farm_management')->group(function () {
 
     });
 

@@ -188,32 +188,60 @@
                                     </div>
                                 </div>
 
+                                {{--                                <div class="row gx-3 mb-3">--}}
+                                {{--                                    <!-- Form Group (organization name)-->--}}
+                                {{--                                    <div class="col-md-4">--}}
+                                {{--                                        <label class="small mb-1" for="inputOrgName"--}}
+                                {{--                                        >NID Front</label--}}
+                                {{--                                        >--}}
+                                {{--                                        <input type="file" class="form-control" name="nid_front">--}}
+
+                                {{--                                        @error('nid_front')--}}
+                                {{--                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>--}}
+                                {{--                                        @enderror--}}
+                                {{--                                    </div>--}}
+
+                                {{--                                    <!-- Form Group (organization name)-->--}}
+                                {{--                                    <div class="col-md-4">--}}
+                                {{--                                        <label class="small mb-1" for="inputOrgName"--}}
+                                {{--                                        >NID Back</label--}}
+                                {{--                                        >--}}
+                                {{--                                        <input type="file" class="form-control" name="nid_back">--}}
+
+                                {{--                                        @error('nid_back')--}}
+                                {{--                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>--}}
+                                {{--                                        @enderror--}}
+                                {{--                                    </div>--}}
+
+                                {{--                                    <!-- Form Group (organization name)-->--}}
+                                {{--                                    <div class="col-md-4">--}}
+                                {{--                                        <label class="small mb-1" for="inputOrgName"--}}
+                                {{--                                        >Chairman Certification</label--}}
+                                {{--                                        >--}}
+                                {{--                                        <input type="file" class="form-control" name="chairman_certificate">--}}
+
+                                {{--                                        @error('chairman_certificate')--}}
+                                {{--                                        <div class="alert alert-danger" style="margin-top: 10px">Chairman certification--}}
+                                {{--                                            required--}}
+                                {{--                                        </div>--}}
+                                {{--                                        @enderror--}}
+                                {{--                                    </div>--}}
+                                {{--                                </div>--}}
+
                                 <div class="row gx-3 mb-3">
                                     <!-- Form Group (organization name)-->
-                                    <div class="col-md-4">
-                                        <label class="small mb-1" for="inputOrgName"
-                                        >NID Front</label
-                                        >
-                                        <input type="file" class="form-control" name="nid_front">
+                                    {{--                                    <div class="col-md-4">--}}
+                                    {{--                                        <label class="small mb-1" for="inputOrgName"--}}
+                                    {{--                                        >Loan / Investment documents</label--}}
+                                    {{--                                        >--}}
+                                    {{--                                        <input type="file" class="form-control" name="loan_investment">--}}
 
-                                        @error('nid_front')
-                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
-                                        @enderror
-                                    </div>
+                                    {{--                                        @error('loan_investment')--}}
+                                    {{--                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>--}}
+                                    {{--                                        @enderror--}}
+                                    {{--                                    </div>--}}
 
-                                    <!-- Form Group (organization name)-->
-                                    <div class="col-md-4">
-                                        <label class="small mb-1" for="inputOrgName"
-                                        >NID Back</label
-                                        >
-                                        <input type="file" class="form-control" name="nid_back">
 
-                                        @error('nid_back')
-                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-
-                                    <!-- Form Group (organization name)-->
                                     <div class="col-md-4">
                                         <label class="small mb-1" for="inputOrgName"
                                         >Chairman Certification</label
@@ -226,26 +254,12 @@
                                         </div>
                                         @enderror
                                     </div>
-                                </div>
-
-                                <div class="row gx-3 mb-3">
-                                    <!-- Form Group (organization name)-->
-                                    <div class="col-md-4">
-                                        <label class="small mb-1" for="inputOrgName"
-                                        >Loan / Investment documents</label
-                                        >
-                                        <input type="file" class="form-control" name="loan_investment">
-
-                                        @error('loan_investment')
-                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
-                                        @enderror
-                                    </div>
 
 
                                     <!-- Form Group (organization name)-->
                                     <div class="col-md-4">
                                         <label class="small mb-1" for="inputOrgName"
-                                        >Left Side</label
+                                        >Cattle Left Side</label
                                         >
                                         <input type="file" class="form-control" name="left_side">
 
@@ -257,7 +271,7 @@
                                     <!-- Form Group (organization name)-->
                                     <div class="col-md-4">
                                         <label class="small mb-1" for="inputOrgName"
-                                        >Right Side</label
+                                        >Cattle Right Side</label
                                         >
                                         <input type="file" class="form-control" name="right_side">
 
@@ -269,6 +283,25 @@
 
 
                                 <div class="row gx-3 mb-3">
+
+
+                                    {{--  -------------********************************* Muzzle part -------------********************************* --}}
+
+                                    <div class="col-md-4">
+                                        <label class="small mb-1" for="inputOrgName"
+                                        >Muzzle Of Cow</label
+                                        >
+                                        <input type="file" class="form-control" name="muzzle_of_cow"
+                                               onchange="fetchFileData()" id="fileInput">
+
+                                        @error('muzzle_of_cow')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
+
+                                    {{--  -------------********************************* Muzzle part -------------********************************* --}}
+
                                     <!-- Form Group (organization name)-->
                                     <div class="col-md-4">
                                         <label class="small mb-1" for="inputOrgName"
@@ -281,8 +314,9 @@
                                         @enderror
                                     </div>
 
+
                                     <!-- Form Group (organization name)-->
-                                    <div class="col-md-8">
+                                    <div class="col-md-4">
                                         <label class="small mb-1" for="inputOrgName"
                                         >Cow With Owner</label
                                         >
@@ -317,63 +351,44 @@
                                 <div class="row gx-3 mb-3">
 
 
-                                    {{--  -------------********************************* Muzzle part -------------********************************* --}}
-
-                                    <div class="col-md-4">
-                                        <label class="small mb-1" for="inputOrgName"
-                                        >Muzzle Of Cow</label
-                                        >
-                                        <input type="file" class="form-control" name="muzzle_of_cow"
-                                               onchange="fetchFileData()" id="fileInput">
-
-                                        @error('muzzle_of_cow')
-                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-
-
-                                    {{--  -------------********************************* Muzzle part -------------********************************* --}}
-
-
-
                                     <!-- Form Group (organization name)-->
 
 
-                                    <div class="col-md-4">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >Bank Name Insured</label
-                                        >
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder=""
-                                            value="{{ old('bank_name_insured') }}"
-                                            name="bank_name_insured"
-                                        />
+                                    {{--                                    <div class="col-md-4">--}}
+                                    {{--                                        <label class="small mb-1" for="inputLastName"--}}
+                                    {{--                                        >Bank Name Insured</label--}}
+                                    {{--                                        >--}}
+                                    {{--                                        <input--}}
+                                    {{--                                            class="form-control"--}}
+                                    {{--                                            id="inputLastName"--}}
+                                    {{--                                            type="text"--}}
+                                    {{--                                            placeholder=""--}}
+                                    {{--                                            value="{{ old('bank_name_insured') }}"--}}
+                                    {{--                                            name="bank_name_insured"--}}
+                                    {{--                                        />--}}
 
-                                        @error('bank_name_insured')
-                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
-                                        @enderror
-                                    </div>
+                                    {{--                                        @error('bank_name_insured')--}}
+                                    {{--                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>--}}
+                                    {{--                                        @enderror--}}
+                                    {{--                                    </div>--}}
 
-                                    <div class="col-md-4">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >Bank Account No</label
-                                        >
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder=""
-                                            value="{{ old('bank_account_no') }}"
-                                            name="bank_account_no"
-                                        />
+                                    {{--                                    <div class="col-md-4">--}}
+                                    {{--                                        <label class="small mb-1" for="inputLastName"--}}
+                                    {{--                                        >Bank Account No</label--}}
+                                    {{--                                        >--}}
+                                    {{--                                        <input--}}
+                                    {{--                                            class="form-control"--}}
+                                    {{--                                            id="inputLastName"--}}
+                                    {{--                                            type="text"--}}
+                                    {{--                                            placeholder=""--}}
+                                    {{--                                            value="{{ old('bank_account_no') }}"--}}
+                                    {{--                                            name="bank_account_no"--}}
+                                    {{--                                        />--}}
 
-                                        @error('bank_account_no')
-                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
-                                        @enderror
-                                    </div>
+                                    {{--                                        @error('bank_account_no')--}}
+                                    {{--                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>--}}
+                                    {{--                                        @enderror--}}
+                                    {{--                                    </div>--}}
 
                                 </div>
 

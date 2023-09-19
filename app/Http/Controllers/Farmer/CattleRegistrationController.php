@@ -55,11 +55,11 @@ class CattleRegistrationController extends Controller
             'cattle_type' => 'required',
 
             'sum_insured' => 'required',
-            'bank_name_insured' => 'required',
-            'bank_account_no' => 'required',
+//            'bank_name_insured' => 'required',
+//            'bank_account_no' => 'required',
 
-            'nid_front' => 'required|mimes:jpeg,jpg,png',
-            'nid_back' => 'required|mimes:jpeg,jpg,png',
+//            'nid_front' => 'required|mimes:jpeg,jpg,png',
+//            'nid_back' => 'required|mimes:jpeg,jpg,png',
             'chairman_certificate' => 'required|mimes:jpeg,jpg,png',
 
             'muzzle_of_cow' => 'required|mimes:jpeg,jpg,png',
@@ -67,18 +67,17 @@ class CattleRegistrationController extends Controller
             'right_side' => 'required|mimes:jpeg,jpg,png',
             'special_marks' => 'required|mimes:jpeg,jpg,png',
             'cow_with_owner' => 'required|mimes:jpeg,jpg,png',
-            'loan_investment' => 'required|mimes:jpeg,jpg,png,pdf,txt',
+//            'loan_investment' => 'required|mimes:jpeg,jpg,png,pdf,txt',
         ]);
-
 
 #This worked
 //        return response()->file(storage_path('app/public/images/' . "WegbDj4ZUvacx9Je2MElnZn0ZMLTMIe8JBmnVnsY.jpg"), ['Content-Type' => "jpg"]);
 
         $inputs['unique_id'] = $id;
 
-        if (request('loan_investment')) {
-            $inputs['loan_investment'] = \request('loan_investment')->store('images');
-        }
+//        if (request('loan_investment')) {
+//            $inputs['loan_investment'] = \request('loan_investment')->store('images');
+//        }
 
         if (request('muzzle_of_cow')) {
             $inputs['muzzle_of_cow'] = \request('muzzle_of_cow')->store('images');
@@ -88,13 +87,13 @@ class CattleRegistrationController extends Controller
             $inputs['left_side'] = \request('left_side')->store('images');
         }
 
-        if (request('nid_front')) {
-            $inputs['nid_front'] = \request('nid_front')->store('images');
-        }
-
-        if (request('nid_back')) {
-            $inputs['nid_back'] = \request('nid_back')->store('images');
-        }
+//        if (request('nid_front')) {
+//            $inputs['nid_front'] = \request('nid_front')->store('images');
+//        }
+//
+//        if (request('nid_back')) {
+//            $inputs['nid_back'] = \request('nid_back')->store('images');
+//        }
 
 
         if (request('chairman_certificate')) {
@@ -116,54 +115,54 @@ class CattleRegistrationController extends Controller
 //        ------------------------------- API DATA ---------------------------------
 
         // Additional parameters to send to the API
-        $options = 'registration';
-
-        // API endpoint URL
-        $apiUrl = env('API_URL');
-
-        $basename = $inputs['muzzle_of_cow'];
-
-
-        try {
-            $response = Http::attach(
-                'image',
-                file_get_contents(storage_path('app/public/' . $inputs['muzzle_of_cow'])),
-                basename($basename) // File name to use in the request
-            )->post($apiUrl, ['options' => $options]);
-
-
-            if ($response->status() == 200) {
-
-                $apiResponse = $response->json('output');
-
-                if ($apiResponse == "Success") {
-                    auth()->user()->cattleRegister()->create($inputs);
-                    session()->flash("register", "Cattle Registered Successfully");
-                    return back();
-                } elseif ($apiResponse == "Failed") {
-                    session()->flash("register", "Cattle data exists, try different muzzle");
-                    return back();
-                } else {
-                    session()->flash("register", "Server error");
-                }
-
-            } else {
-                // Handle API error, e.g., log or throw an exception
-                // You can access the response content with $response->body()
-                // and the status code with $response->status()
-                return "Error";
-            }
-        } catch (Exception $e) {
-            // Handle exceptions, e.g., connection issues or timeouts
-            // Log or rethrow the exception as needed
-            return "Catch Exception";
-        }
+//        $options = 'registration';
+//
+//        // API endpoint URL
+//        $apiUrl = env('API_URL');
+//
+//        $basename = $inputs['muzzle_of_cow'];
+//
+//
+//        try {
+//            $response = Http::attach(
+//                'image',
+//                file_get_contents(storage_path('app/public/' . $inputs['muzzle_of_cow'])),
+//                basename($basename) // File name to use in the request
+//            )->post($apiUrl, ['options' => $options]);
+//
+//
+//            if ($response->status() == 200) {
+//
+//                $apiResponse = $response->json('output');
+//
+//                if ($apiResponse == "Success") {
+//                    auth()->user()->cattleRegister()->create($inputs);
+//                    session()->flash("register", "Cattle Registered Successfully");
+//                    return back();
+//                } elseif ($apiResponse == "Failed") {
+//                    session()->flash("register", "Cattle data exists, try different muzzle");
+//                    return back();
+//                } else {
+//                    session()->flash("register", "Server error");
+//                }
+//
+//            } else {
+//                // Handle API error, e.g., log or throw an exception
+//                // You can access the response content with $response->body()
+//                // and the status code with $response->status()
+//                return "Error";
+//            }
+//        } catch (Exception $e) {
+//            // Handle exceptions, e.g., connection issues or timeouts
+//            // Log or rethrow the exception as needed
+//            return "Catch Exception";
+//        }
 //        ------------------------------- API DATA ---------------------------------
 
 
-//        auth()->user()->cattleRegister()->create($inputs);
-//        session()->flash("register", "Cattle Registered Successfully");
-//        return back();
+        auth()->user()->cattleRegister()->create($inputs);
+        session()->flash("register", "Cattle Registered Successfully");
+        return back();
     }
 
 

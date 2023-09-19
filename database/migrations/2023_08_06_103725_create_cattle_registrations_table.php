@@ -37,11 +37,11 @@ class CreateCattleRegistrationsTable extends Migration
             $table->string('unique_id');
             $table->string('user_id');
 
-            $table->string("nid_front"); //file
-            $table->string("nid_back"); //file
-            $table->string("loan_investment");  //file
-            $table->string("bank_name_insured");
-            $table->string("bank_account_no");
+            $table->string("nid_front")->nullable(); //file
+            $table->string("nid_back")->nullable(); //file
+            $table->string("loan_investment")->nullable();  //file
+            $table->string("bank_name_insured")->nullable();
+            $table->string("bank_account_no")->nullable();
 
             $table->string('insured_by')->default(0);
             $table->string('insurance_status')->default(0);
