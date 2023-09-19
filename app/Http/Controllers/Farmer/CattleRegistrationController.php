@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Farmer;
 
 use App\Http\Controllers\Controller;
+use App\Jobs\Farmer\CattleRegistrationProcess;
 use App\Models\CattleRegistration;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -112,16 +113,12 @@ class CattleRegistrationController extends Controller
             $inputs['cow_with_owner'] = \request('cow_with_owner')->store('images');
         }
 
-//        ------------------------------- API DATA ---------------------------------
+//        ------------------------------- API DATA [ JOB Batching working ] ---------------------------------
 
-        // Additional parameters to send to the API
-//        $options = 'registration';
-//
-//        // API endpoint URL
-//        $apiUrl = env('API_URL');
-//
-//        $basename = $inputs['muzzle_of_cow'];
-//
+        $options = 'registration';
+
+        $apiUrl = env('API_URL');
+        $basename = $inputs['muzzle_of_cow'];
 //
 //        try {
 //            $response = Http::attach(
@@ -147,22 +144,24 @@ class CattleRegistrationController extends Controller
 //                }
 //
 //            } else {
-//                // Handle API error, e.g., log or throw an exception
-//                // You can access the response content with $response->body()
-//                // and the status code with $response->status()
+//
 //                return "Error";
 //            }
 //        } catch (Exception $e) {
-//            // Handle exceptions, e.g., connection issues or timeouts
-//            // Log or rethrow the exception as needed
+//
 //            return "Catch Exception";
 //        }
-//        ------------------------------- API DATA ---------------------------------
+//        ------------------------------- API DATA [ JOB Batching working ] ---------------------------------
 
 
-        auth()->user()->cattleRegister()->create($inputs);
-        session()->flash("register", "Cattle Registered Successfully");
+//        auth()->user()->cattleRegister()->create($inputs);
+//        session()->flash("register", "Cattle Registered Successfully");
+//        return back();
+
+        CattleRegistrationProcess::dispatch($basename, $inputs);
+
         return back();
+
     }
 
 
