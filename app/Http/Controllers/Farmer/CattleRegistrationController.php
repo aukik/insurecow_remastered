@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Farmer;
 use App\Http\Controllers\Controller;
 use App\Jobs\Farmer\CattleRegistrationProcess;
 use App\Models\CattleRegistration;
+use GuzzleHttp\Exception\ConnectException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Client\ConnectionException;
 
 class CattleRegistrationController extends Controller
 {
@@ -56,11 +58,6 @@ class CattleRegistrationController extends Controller
             'cattle_type' => 'required',
 
             'sum_insured' => 'required',
-//            'bank_name_insured' => 'required',
-//            'bank_account_no' => 'required',
-
-//            'nid_front' => 'required|mimes:jpeg,jpg,png',
-//            'nid_back' => 'required|mimes:jpeg,jpg,png',
             'chairman_certificate' => 'required|mimes:jpeg,jpg,png',
 
             'muzzle_of_cow' => 'required|mimes:jpeg,jpg,png',
@@ -68,17 +65,11 @@ class CattleRegistrationController extends Controller
             'right_side' => 'required|mimes:jpeg,jpg,png',
             'special_marks' => 'required|mimes:jpeg,jpg,png',
             'cow_with_owner' => 'required|mimes:jpeg,jpg,png',
-//            'loan_investment' => 'required|mimes:jpeg,jpg,png,pdf,txt',
         ]);
 
-#This worked
-//        return response()->file(storage_path('app/public/images/' . "WegbDj4ZUvacx9Je2MElnZn0ZMLTMIe8JBmnVnsY.jpg"), ['Content-Type' => "jpg"]);
 
         $inputs['unique_id'] = $id;
 
-//        if (request('loan_investment')) {
-//            $inputs['loan_investment'] = \request('loan_investment')->store('images');
-//        }
 
         if (request('muzzle_of_cow')) {
             $inputs['muzzle_of_cow'] = \request('muzzle_of_cow')->store('images');
@@ -87,14 +78,6 @@ class CattleRegistrationController extends Controller
         if (request('left_side')) {
             $inputs['left_side'] = \request('left_side')->store('images');
         }
-
-//        if (request('nid_front')) {
-//            $inputs['nid_front'] = \request('nid_front')->store('images');
-//        }
-//
-//        if (request('nid_back')) {
-//            $inputs['nid_back'] = \request('nid_back')->store('images');
-//        }
 
 
         if (request('chairman_certificate')) {
@@ -112,18 +95,38 @@ class CattleRegistrationController extends Controller
         if (request('cow_with_owner')) {
             $inputs['cow_with_owner'] = \request('cow_with_owner')->store('images');
         }
+//
+//        auth()->user()->cattleRegister()->create($inputs);
+//        session()->flash("register", "Cattle Registered Successfully");
+//        return back();
 
-//        ------------------------------- API DATA [ JOB Batching working ] ---------------------------------
+//        ------------------------------- API DATA [ With JOB Batching ] ---------------------------------
 
-        $options = 'registration';
 
-        $apiUrl = env('API_URL');
         $basename = $inputs['muzzle_of_cow'];
+
+        $this->dispatch(new CattleRegistrationProcess($inputs, $basename, auth()->user()));
+        session()->flash("register", "Verification process running, If the process is accepted, the cattle information will be automatically added to the list");
+        return back();
+
+//        ------------------------------- API DATA [ With JOB Batching ] ---------------------------------
+
+
+//        ------------------------------- API DATA ---------------------------------
+
+//
+
+
+//        $basename = $inputs['muzzle_of_cow'];
+//
+//        $apiUrl = "http://13.232.34.224/cattle_identification";
+//        $options = 'registration';
+
 //
 //        try {
 //            $response = Http::attach(
 //                'image',
-//                file_get_contents(storage_path('app/public/' . $inputs['muzzle_of_cow'])),
+//                file_get_contents(storage_path('app/public/' . $basename)),
 //                basename($basename) // File name to use in the request
 //            )->post($apiUrl, ['options' => $options]);
 //
@@ -133,34 +136,29 @@ class CattleRegistrationController extends Controller
 //                $apiResponse = $response->json('output');
 //
 //                if ($apiResponse == "Success") {
+//
 //                    auth()->user()->cattleRegister()->create($inputs);
 //                    session()->flash("register", "Cattle Registered Successfully");
 //                    return back();
 //                } elseif ($apiResponse == "Failed") {
-//                    session()->flash("register", "Cattle data exists, try different muzzle");
+//                    session()->flash("register", "Registration failed");
 //                    return back();
 //                } else {
-//                    session()->flash("register", "Server error");
+//                    session()->flash("register", "Server Error");
+//                    return back();
 //                }
 //
 //            } else {
 //
 //                return "Error";
 //            }
-//        } catch (Exception $e) {
+//        } catch (ConnectionException $e) {
 //
-//            return "Catch Exception";
+//            return "Server Timeout";
 //        }
-//        ------------------------------- API DATA [ JOB Batching working ] ---------------------------------
 
+//        ------------------------------- API DATA ---------------------------------
 
-//        auth()->user()->cattleRegister()->create($inputs);
-//        session()->flash("register", "Cattle Registered Successfully");
-//        return back();
-
-        CattleRegistrationProcess::dispatch($basename, $inputs);
-
-        return back();
 
     }
 

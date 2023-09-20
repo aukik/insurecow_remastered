@@ -32,7 +32,8 @@
                     <!-- Account details card-->
                     <div class="card mb-4">
                         <div class="card-header">Permission Setup - For <span
-                                style="color:red;">[ {{ $specific_user->name }} - {{ $specific_user->role }} ]</span></div>
+                                style="color:red;">[ {{ $specific_user->name }} - {{ $specific_user->role }} ]</span>
+                        </div>
                         <div class="card-body">
 
                             {{-- ---------------------------------------- Super Admin Profile Creation ---------------------------------------- --}}
@@ -51,119 +52,124 @@
 
 
                                 @if($permission->role == "f")
-                                    <div class="row gx-3 mb-3">
 
-
-                                        <label for="exampleFormControlSelect1">Cattle Registration [ Farmer Sided
-                                            Permission
-                                            ]</label>
-
-                                        <select
-                                            class="form-control form-control-solid mt-2" id="exampleFormControlSelect1"
-                                            name="f_cattle_reg">
-                                            <option @if( $permission->f_cattle_reg  == 1) selected @endif value="1">
-                                                Accepted
-                                            </option>
-                                            <option @if( $permission->f_cattle_reg  == 0) selected @endif value="0">
-                                                Denied
-                                            </option>
-                                        </select>
+                                    <div class="row gx-3 mb-3 align-items-center">
+                                        <div class="col-auto">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="hidden" name="f_cattle_reg"
+                                                       value="0">
+                                                <input class="form-check-input" type="checkbox"
+                                                       id="exampleFormControlSelect1"
+                                                       name="f_cattle_reg" value="1"
+                                                       @if($permission->f_cattle_reg == 1) checked @endif>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <label for="exampleFormControlSelect1">Cattle Registration [ Farmer Sided
+                                                Permission
+                                                ]</label>
+                                        </div>
                                     </div>
 
-                                    <div class="row gx-3 mb-3">
 
 
-                                        <label for="exampleFormControlSelect1">Farmer Insurance [ Farmer Sided
-                                            Permission
-                                            ]</label>
 
-                                        <select
-                                            class="form-control form-control-solid mt-2" id="exampleFormControlSelect1"
-                                            name="f_insurance">
-                                            <option @if( $permission->f_insurance  == 1) selected @endif value="1">
-                                                Accepted
-                                            </option>
-                                            <option @if( $permission->f_insurance  == 0) selected @endif value="0">
-                                                Denied
-                                            </option>
-                                        </select>
+                                    <div class="row gx-3 mb-3 align-items-center">
+                                        <div class="col-auto">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="hidden" name="f_insurance"
+                                                       value="0">
+                                                <input class="form-check-input" type="checkbox"
+                                                       id="exampleFormControlSelect1"
+                                                       name="f_insurance" value="1"
+                                                       @if($permission->f_insurance == 1) checked @endif>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <label for="exampleFormControlSelect1">Farmer Insurance [ Farmer Sided
+                                                Permission</label>
+                                        </div>
                                     </div>
 
-                                    <div class="row gx-3 mb-3">
 
 
-                                        <label for="exampleFormControlSelect1">Farm Management [ Farmer Sided Permission
-                                            ]</label>
 
-                                        <select
-                                            class="form-control form-control-solid mt-2" id="exampleFormControlSelect1"
-                                            name="f_farm_management">
-                                            <option @if( $permission->f_farm_management  == 1) selected
-                                                    @endif value="1">
-                                                Accepted
-                                            </option>
-                                            <option @if( $permission->f_farm_management  == 0) selected
-                                                    @endif value="0">
-                                                Denied
-                                            </option>
-                                        </select>
+
+
+                                    <div class="row gx-3 mb-3 align-items-center">
+                                        <div class="col-auto">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="hidden" name="f_farm_management"
+                                                       value="0">
+                                                <input class="form-check-input" type="checkbox"
+                                                       id="exampleFormControlSelect1"
+                                                       name="f_farm_management" value="1"
+                                                       @if($permission->f_farm_management == 1) checked @endif>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <label for="exampleFormControlSelect1">Farm Management [ Farmer Sided
+                                                Permission
+                                                ]</label>
+                                        </div>
                                     </div>
 
                                 @endif
 
 
                                 @if($permission->role == "c")
-                                    <div class="row gx-3 mb-3">
 
-
-                                        <label for="exampleFormControlSelect1">Dashboard [ Company Sided Permission
-                                            ]</label>
-
-                                        <select
-                                            class="form-control form-control-solid mt-2" id="exampleFormControlSelect1"
-                                            name="c_dashboard">
-                                            <option @if( $permission->c_dashboard  == 1) selected @endif value="1">
-                                                Accepted
-                                            </option>
-                                            <option @if( $permission->c_dashboard  == 0) selected @endif value="0">
-                                                Denied
-                                            </option>
-                                        </select>
+                                    <div class="row gx-3 mb-3 align-items-center">
+                                        <div class="col-auto">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="hidden" name="c_dashboard"
+                                                       value="0">
+                                                <input class="form-check-input" type="checkbox"
+                                                       id="exampleFormControlSelect1"
+                                                       name="c_dashboard" value="1"
+                                                       @if($permission->c_dashboard == 1) checked @endif>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <label for="exampleFormControlSelect1">Dashboard [ Company Sided Permission
+                                                ]</label>
+                                        </div>
                                     </div>
 
-                                    <div class="row gx-3 mb-3">
 
-                                        <label for="exampleFormControlSelect1">Registering Agent [ Company Sided
-                                            Permission
-                                            ]</label>
 
-                                        <select
-                                            class="form-control form-control-solid mt-2" id="exampleFormControlSelect1"
-                                            name="c_register_agent">
-                                            <option @if( $permission->c_register_agent  == 1) selected @endif value="1">
-                                                Accepted
-                                            </option>
-                                            <option @if( $permission->c_register_agent  == 0) selected @endif value="0">
-                                                Denied
-                                            </option>
-                                        </select>
+                                    <div class="row gx-3 mb-3 align-items-center">
+                                        <div class="col-auto">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="hidden" name="c_register_agent"
+                                                       value="0">
+                                                <input class="form-check-input" type="checkbox"
+                                                       id="exampleFormControlSelect1"
+                                                       name="c_register_agent" value="1"
+                                                       @if($permission->c_register_agent == 1) checked @endif>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <label for="exampleFormControlSelect1">Registering Agent [ Company Sided
+                                                Permission</label>
+                                        </div>
                                     </div>
 
-                                    <div class="row gx-3 mb-3">
-
-                                        <label for="exampleFormControlSelect1">Insurance [ Company Sided Permission
-                                            ]</label>
-
-                                        <select
-                                            class="form-control form-control-solid mt-2" id="exampleFormControlSelect1"
-                                            name="c_insurance">
-                                            <option @if( $permission->c_insurance  == 1) selected @endif value="1">
-                                                Accepted
-                                            </option>
-                                            <option @if( $permission->c_insurance  == 0) selected @endif value="0">
-                                                Denied
-                                            </option>
-                                        </select>
+                                    <div class="row gx-3 mb-3 align-items-center">
+                                        <div class="col-auto">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="hidden" name="c_insurance"
+                                                       value="0">
+                                                <input class="form-check-input" type="checkbox"
+                                                       id="exampleFormControlSelect1"
+                                                       name="c_insurance" value="1"
+                                                       @if($permission->c_insurance == 1) checked @endif>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <label for="exampleFormControlSelect1">Insurance [ Company Sided Permission
+                                                ]</label>
+                                        </div>
                                     </div>
                                 @endif
 

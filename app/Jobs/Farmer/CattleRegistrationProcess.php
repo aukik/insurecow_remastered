@@ -2,6 +2,7 @@
 
 namespace App\Jobs\Farmer;
 
+use Exception;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -9,6 +10,9 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Http\Client\ConnectionException;
+
 
 class CattleRegistrationProcess implements ShouldQueue
 {
@@ -16,33 +20,32 @@ class CattleRegistrationProcess implements ShouldQueue
 
     public $data;
     public $basename;
+    public $user;
 
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($basename, $data)
+    public function __construct($data, $basename, $user)
     {
         $this->data = $data;
         $this->basename = $basename;
+        $this->user = $user;
     }
 
     /**
      * Execute the job.
      *
-     * @return void
+     * @return string
      */
     public function handle()
     {
+
         $data = $this->data;
         $basename = $this->basename;
-        $options = 'claim';
-        $apiUrl = env('API_URL');
-
-//        auth()->user()->cattleRegister()->create($data);
-//        session()->flash("register", "Cattle Registered Successfully");
-//        return back()
+        $options = 'registration';
+        $apiUrl = "http://13.232.34.224/cattle_identification";
 
         try {
             $response = Http::attach(
@@ -57,21 +60,22 @@ class CattleRegistrationProcess implements ShouldQueue
                 $apiResponse = $response->json('output');
 
                 if ($apiResponse == "Success") {
-                    auth()->user()->cattleRegister()->create($data);
-                    session()->flash("register", "Cattle Registered Successfully");
+
+                    $output = $this->user->cattleRegister()->create($data);
+                    Log::info("Success");
                 } elseif ($apiResponse == "Failed") {
-                    session()->flash("register", "Cattle data exists, try different muzzle");
+                    Log::info("Failed");
                 } else {
-                    session()->flash("register", "Server error");
+                    Log::info("Server Error");
                 }
 
             } else {
 
-                return "Error";
+                Log::info("Error");
             }
-        } catch (Exception $e) {
+        } catch (ConnectionException $e) {
 
-            return "Catch Exception";
+            Log::info("Catch Exception");
         }
 
 
