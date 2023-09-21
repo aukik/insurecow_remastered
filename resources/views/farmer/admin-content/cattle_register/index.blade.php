@@ -38,7 +38,9 @@
 
                             @if(session('register'))
                                 <div class="alert alert-success" role="alert">
-                                    {{ session('register') }}
+                                    {{ session('register') }}. Please view the list from <a
+                                        href="{{ route('registration_verification_reports') }}" class="">&nbsp; verification
+                                        reports</a>
                                 </div>
                             @endif
 

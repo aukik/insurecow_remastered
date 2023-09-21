@@ -12,7 +12,7 @@ class DashboardController extends Controller
     {
         $company_count = User::where('role', 'c')->count();
         $total_user_count = User::count();
-        return view("dashboard.super_admin", compact('company_count','total_user_count'));
+        return view("dashboard.super_admin", compact('company_count', 'total_user_count'));
     }
 
     public function company()
@@ -22,7 +22,11 @@ class DashboardController extends Controller
 
     public function farmer()
     {
-        return view("dashboard.view");
+        $no_of_cattle = auth()->user()->cattleRegister()->count();
+        $cattle_reg_verification_count = auth()->user()->cattle_registration_verification_report()->count();
+        $cattle_reg_verification = auth()->user()->cattle_registration_verification_report()->orderBy('id', 'desc')->take(9)->get();
+
+        return view("dashboard.farmer", compact('cattle_reg_verification_count', 'no_of_cattle', 'cattle_reg_verification'));
     }
 
     public function field_agent()

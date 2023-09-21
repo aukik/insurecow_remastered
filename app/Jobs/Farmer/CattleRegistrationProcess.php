@@ -2,6 +2,7 @@
 
 namespace App\Jobs\Farmer;
 
+use App\Models\CattleRegReport;
 use Exception;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
@@ -46,6 +47,17 @@ class CattleRegistrationProcess implements ShouldQueue
         $basename = $this->basename;
         $options = 'registration';
         $apiUrl = "http://13.232.34.224/cattle_identification";
+        Log::info($data['cattle_name']);
+
+        $cattle_name = $data['cattle_name'];
+        $cow_with_owner = $data['cow_with_owner'];
+
+        CattleRegReport::create([
+            'cattle_name' => $cattle_name,
+            'cow_with_owner' => $cow_with_owner,
+            'verification_report' => "processing",
+            'user_id' => $this->user->id
+        ]);
 
         try {
             $response = Http::attach(
@@ -54,7 +66,6 @@ class CattleRegistrationProcess implements ShouldQueue
                 basename($basename) // File name to use in the request
             )->post($apiUrl, ['options' => $options]);
 
-
             if ($response->status() == 200) {
 
                 $apiResponse = $response->json('output');
@@ -62,10 +73,35 @@ class CattleRegistrationProcess implements ShouldQueue
                 if ($apiResponse == "Success") {
 
                     $output = $this->user->cattleRegister()->create($data);
+
+                    CattleRegReport::create([
+                        'cattle_name' => $cattle_name,
+                        'cow_with_owner' => $cow_with_owner,
+                        'verification_report' => "success",
+                        'user_id' => $this->user->id
+                    ]);
+
                     Log::info("Success");
+
                 } elseif ($apiResponse == "Failed") {
-                    Log::info("Failed");
+
+                    CattleRegReport::create([
+                        'cattle_name' => $cattle_name,
+                        'cow_with_owner' => $cow_with_owner,
+                        'verification_report' => "failed",
+                        'user_id' => $this->user->id
+                    ]);
+
+                    Log::info("failed");
                 } else {
+
+                    CattleRegReport::create([
+                        'cattle_name' => $cattle_name,
+                        'cow_with_owner' => $cow_with_owner,
+                        'verification_report' => "server currently busy, please try again later",
+                        'user_id' => $this->user->id
+                    ]);
+
                     Log::info("Server Error");
                 }
 
@@ -74,6 +110,13 @@ class CattleRegistrationProcess implements ShouldQueue
                 Log::info("Error");
             }
         } catch (ConnectionException $e) {
+
+            CattleRegReport::create([
+                'cattle_name' => $cattle_name,
+                'cow_with_owner' => $cow_with_owner,
+                'verification_report' => "server timeout, please try later",
+                'user_id' => $this->user->id
+            ]);
 
             Log::info("Catch Exception");
         }

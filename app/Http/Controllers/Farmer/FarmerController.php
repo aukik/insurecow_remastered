@@ -93,13 +93,22 @@ class FarmerController extends Controller
 
     public function insurance_history()
     {
-        $insurance_history = auth()->user()->insuranceHistory()->where('status','Processing')->orWhere('status','Complete')->get();
-        return view("farmer.admin-content.insurance_payment_history.view",compact('insurance_history'));
+        $insurance_history = auth()->user()->insuranceHistory()->where('status', 'Processing')->orWhere('status', 'Complete')->get();
+        return view("farmer.admin-content.insurance_payment_history.view", compact('insurance_history'));
     }
 
 
 //    --------------- Insurance History ---------------
 
+//    --------------- Cattle registration verification reports ---------------
+
+    public function cattle_reg_ver_reports()
+    {
+        $cattle_reg_verification_reports = auth()->user()->cattle_registration_verification_report()->orderBy('id','desc')->get();
+        return view("farmer.admin-content.cattle_reg_verification_reports.view", compact('cattle_reg_verification_reports'));
+    }
+
+//    --------------- Cattle registration verification reports ---------------
 
 
 }

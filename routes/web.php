@@ -78,6 +78,12 @@ Route::middleware(['auth', 'farmer'])->prefix('farmer')->group(function () {
         Route::get('cattle_list', [FarmerController::class, 'view_registered_cattle'])->name('cattle.list');
 
         //    -------------------------- view registered cattle -----------------------------
+
+        //    ----------------------- Cattle registration verification reports -----------------------
+
+        Route::get("registration_verification_reports", [FarmerController::class, 'cattle_reg_ver_reports'])->name('registration_verification_reports');
+
+        //    ----------------------- Cattle registration verification reports -----------------------
     });
 
     //    ----------------------------- Cattle Registration Middleware Block ----------------------------------

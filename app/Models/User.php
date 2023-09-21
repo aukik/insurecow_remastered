@@ -82,6 +82,17 @@ class User extends Authenticatable
         return $this->hasMany(InsuranceClaim::class);
     }
 
+
+//    -------------------- cattle registration verification report --------------------
+
+    public function cattle_registration_verification_report()
+    {
+        return $this->hasMany(CattleRegReport::class);
+    }
+
+
+//    -------------------- cattle registration verification report --------------------
+
     public static function calculateTotalCost($cost, $rate, $discount, $vat)
     {
         if ($cost == null || $rate == null || $discount == null || $vat == null) {
@@ -115,7 +126,8 @@ class User extends Authenticatable
 
 //    --------------------- relation between user and permission table ---------------------
 
-    public function permission(){
+    public function permission()
+    {
         return $this->hasOne(Permission::class);
     }
 
