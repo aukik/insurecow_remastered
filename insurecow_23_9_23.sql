@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 21, 2023 at 01:31 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.0.28
+-- Generation Time: Sep 23, 2023 at 01:07 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `cattle_registrations` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `chairman_certificate` varchar(255) NOT NULL,
+  `animal_type` varchar(255) NOT NULL,
   `cattle_name` varchar(255) NOT NULL,
   `cattle_breed` varchar(255) NOT NULL,
   `age` varchar(255) NOT NULL,
@@ -43,17 +43,12 @@ CREATE TABLE `cattle_registrations` (
   `cow_with_owner` varchar(255) NOT NULL,
   `sum_insured` varchar(255) NOT NULL,
   `unique_id` varchar(255) NOT NULL,
-  `user_id` varchar(255) NOT NULL,
-  `nid_front` varchar(255) DEFAULT NULL,
-  `nid_back` varchar(255) DEFAULT NULL,
-  `loan_investment` varchar(255) DEFAULT NULL,
-  `bank_name_insured` varchar(255) DEFAULT NULL,
-  `bank_account_no` varchar(255) DEFAULT NULL,
   `insured_by` varchar(255) NOT NULL DEFAULT '0',
   `insurance_status` varchar(255) NOT NULL DEFAULT '0',
   `insurance_date` date DEFAULT NULL,
   `insurance_expire_date` varchar(255) DEFAULT NULL,
   `is_claimed` varchar(255) NOT NULL DEFAULT '0',
+  `user_id` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -62,8 +57,8 @@ CREATE TABLE `cattle_registrations` (
 -- Dumping data for table `cattle_registrations`
 --
 
-INSERT INTO `cattle_registrations` (`id`, `chairman_certificate`, `cattle_name`, `cattle_breed`, `age`, `cattle_color`, `weight`, `cattle_type`, `muzzle_of_cow`, `left_side`, `right_side`, `special_marks`, `cow_with_owner`, `sum_insured`, `unique_id`, `user_id`, `nid_front`, `nid_back`, `loan_investment`, `bank_name_insured`, `bank_account_no`, `insured_by`, `insurance_status`, `insurance_date`, `insurance_expire_date`, `is_claimed`, `created_at`, `updated_at`) VALUES
-(21, 'images/zLjz9wzkT8WcOlj3gL6jx5Cfuc7IpwRqfzqB4pLq.jpg', 'grdg', 'grdg', 'grdg', 'grdgr', 'grdg', 'grdgrd', 'images/oGVgNFsBXt2T3Y8hQtM6HoGOJIqHSF2VEwaf5iaa.jpg', 'images/maT8N30ArBkzaghxVgCfZ6U7GXKPUGelXfpbfEVw.jpg', 'images/YxCdcBx0SubjIkoRZEoBB9xt3DJKOj3PTjTo5oM7.jpg', 'images/6ojeK6gEaynh0dwrcIeOEn4CzKn1JxILQBIL9Gq0.jpg', 'images/b2qOG992QmTIRly1HwIJO24iJE8awa5erCjILWOm.jpg', '520000', '1', '14', NULL, NULL, NULL, NULL, NULL, '0', '0', NULL, NULL, '0', '2023-09-21 03:11:02', '2023-09-21 03:11:02');
+INSERT INTO `cattle_registrations` (`id`, `animal_type`, `cattle_name`, `cattle_breed`, `age`, `cattle_color`, `weight`, `cattle_type`, `muzzle_of_cow`, `left_side`, `right_side`, `special_marks`, `cow_with_owner`, `sum_insured`, `unique_id`, `insured_by`, `insurance_status`, `insurance_date`, `insurance_expire_date`, `is_claimed`, `user_id`, `created_at`, `updated_at`) VALUES
+(1, 'goat', 'grdgrd', 'rdgrd', 'grdgr', 'fesfe', 'esfe', 'fesfe', 'Not Applicable for goat registration', 'images/XcxFOZ2Gl6Gdi0mBmbzTUY58uon2PWeua6Sct5f7.jpg', 'images/DK4och41SLm1nlHEJCBoYf30b4rOicmNxDWXaerm.jpg', 'images/MOVV7fSFKD7f3z5k4XWOvG7MG6E6Kx9eQLc77xW7.jpg', 'images/AGpFFJds4FEWyFjqR3QIROFmaYVM0TGqtGEKTXD4.jpg', '250000', '1', '0', '0', NULL, NULL, '0', '14', '2023-09-23 04:45:29', '2023-09-23 04:45:29');
 
 -- --------------------------------------------------------
 
@@ -191,22 +186,13 @@ CREATE TABLE `farmer_profiles` (
   `nid_back` varchar(255) NOT NULL,
   `loan_investment` varchar(255) NOT NULL,
   `bank_name_insured` varchar(255) NOT NULL,
+  `chairman_certificate` varchar(255) NOT NULL,
   `nationality` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
   `user_id` varchar(255) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `farmer_profiles`
---
-
-INSERT INTO `farmer_profiles` (`id`, `fathers_name`, `mothers_name`, `present_address`, `dob`, `nid`, `source_of_income`, `bank_account_no`, `farmer_address`, `thana`, `upazilla`, `union`, `city`, `district`, `zip_code`, `village`, `loan_amount`, `num_of_livestock`, `type_of_livestock`, `nid_front`, `nid_back`, `loan_investment`, `bank_name_insured`, `nationality`, `image`, `user_id`, `created_at`, `updated_at`) VALUES
-(2, 'yhhtfhtfhfthfth', 'rt', 'grdgd', '2023-09-04', '5454545445454', 'wewed', '34234242', '<p>fgddfgdg</p>', 'gddgr', 'gdfgre', 'gdgrdg', 'frsgrgrd', 'rdgrd', 'rtrdgrd', 'thhtdhft', '200000', 'sesfse', 'sefsefsef', 'images/5nj3gQg4CvGjWLejCEhABRtNie6beGqzRp6Z1fzH.jpg', 'images/dcOggYWCNtAv058qbkxM4y7JZfjd7Cl1Ie2cQtet.jpg', 'images/eIbqOwt8I7R8Srnzz4AVP2ofrVQiVOuHdbgIKLkR.jpg', 'rdgrdgd', 'grgrdgrdgrdg', 'images/Aer6GjJSpRGfecIP6jVPHupUNsbLPHnT4672MrKo.jpg', '1', '2023-09-11 01:10:18', '2023-09-11 01:30:10'),
-(3, 'fesf', 'fsefes', 'fsefsef', '2023-09-04', '34234234', 'fsef', 'sefsef', '<p>sefsef</p>', 'fsefse', 'fesfsef', 'sefsef', 'fsefse', 'sefsef', 'fsefse', 'sefsef', '20000000', 'gdrgrd', 'gdrg', 'images/LF9XsOzUKRLydRuZ4aPkPvhWOymo2zQZrebDNg4w.jpg', 'images/UqSlcUOrVuVoHT8slGoLuQVKN3TGEwUJNGv0Ve1b.jpg', 'images/2vosjHdLjwLU217ZF5han2kWow65agxMF5x2aGBs.jpg', 'rdgrdgd', 'grdgrd', 'images/PBWz7bSakW9AblqerFbKRyv6ZR1yc9OYRDmIpGZ2.jpg', '10', '2023-09-12 05:11:37', '2023-09-12 05:11:37'),
-(4, 'fef', 'fef', 'rw3rw3r', '2023-09-19', '42343435', 'grdg', '321312312321', '<p>rdgrdg</p>', 'rdgrdg', 'grdgrd', 'grdgrd', 'grdg', 'rdrdrd', 'rrr', 'rgdg', '444444', 'rgrd', 'rdgrdg', 'images/I79feEnDEXhDTSHp2amgjDuUKU6ddFTqRG2q2WCp.jpg', 'images/3Ja4EL92eDV19QPRmJzjGipRWChGnGyyAupPRjJ4.jpg', 'images/Vtp6de3JTsoeOXw8UItCZTCqhj7alKKIpGjHsfuV.jpg', 'jkjkjkjk,jk', 'gdrg', 'images/zywu3QMPqZ4URUu9lbhhXT6M1Ec9fQyk4kjDqjAT.jpg', '11', '2023-09-19 00:50:08', '2023-09-19 00:50:08'),
-(5, 'fef', 'fef', 'rw3rw3r', '2023-09-20', '44444', 'Test', 'sefsef', '<p>fsef</p>', 'fesfsef', 'esfse', 'fsef', 'fsefse', 'esfse', 'fsefes', 'esfes', '20000', 'ffesfse', 'dwadwa', 'images/VOkm6ZnTP0c51M2eoPpomx9m4XXE7JkZ8EHAvF45.jpg', 'images/GVSq0w2Yh0cx3iGfuGmCzYFEUyaK6Oe90MtwoAnU.jpg', 'images/0lFqLa1YhJToL7ioEf3ptuo8twBJh0xJGcRoek1p.jpg', 'sefsef', 'awdaw', 'images/1GnahoDn0CKdLAP99Q0PiWOlSgfWNcMypEA2AM45.jpg', '14', '2023-09-19 01:11:52', '2023-09-19 01:11:52');
 
 -- --------------------------------------------------------
 
@@ -266,12 +252,12 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (9, '2023_08_13_093947_create_company_policies_table', 1),
 (10, '2023_08_16_090854_create_packages_table', 1),
 (13, '2023_09_01_170436_create_orders_table', 2),
-(14, '2023_08_02_103420_create_farmer_profiles_table', 3),
 (16, '2023_09_11_085632_create_permissions_table', 4),
 (17, '2023_09_18_065111_create_insurance_claims_table', 5),
-(18, '2023_08_06_103725_create_cattle_registrations_table', 6),
 (19, '2023_09_19_075300_create_jobs_table', 7),
-(20, '2023_09_21_065611_create_cattle_reg_reports_table', 8);
+(20, '2023_09_21_065611_create_cattle_reg_reports_table', 8),
+(24, '2023_08_02_103420_create_farmer_profiles_table', 10),
+(25, '2023_08_06_103725_create_cattle_registrations_table', 11);
 
 -- --------------------------------------------------------
 
@@ -335,7 +321,7 @@ CREATE TABLE `packages` (
 --
 
 INSERT INTO `packages` (`id`, `package_name`, `insurance_period`, `coverage`, `quotation`, `policy`, `discount`, `rate`, `vat`, `package_status`, `user_id`, `created_at`, `updated_at`) VALUES
-(1, 'Sadhin', 1.0, '[\"ac\",\"fl\",\"er\"]', '<p>wdw</p>', 'policy/e0DIaWjmqTtcQFq32HvqEYUNGmdYdJ9FBCmcsG07.pdf', 50, 3, 15, 'active', '2', '2023-09-04 04:23:38', '2023-09-04 04:26:40');
+(1, 'Sadhin', '1.0', '[\"ac\",\"fl\",\"er\"]', '<p>wdw</p>', 'policy/e0DIaWjmqTtcQFq32HvqEYUNGmdYdJ9FBCmcsG07.pdf', 50, 3, 15, 'active', '2', '2023-09-04 04:23:38', '2023-09-04 04:26:40');
 
 -- --------------------------------------------------------
 
@@ -562,7 +548,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `cattle_registrations`
 --
 ALTER TABLE `cattle_registrations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `cattle_reg_reports`
@@ -592,7 +578,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `farmer_profiles`
 --
 ALTER TABLE `farmer_profiles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `insurance_claims`
@@ -604,13 +590,13 @@ ALTER TABLE `insurance_claims`
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `orders`
