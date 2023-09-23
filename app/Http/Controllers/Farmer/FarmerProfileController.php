@@ -69,6 +69,7 @@ class FarmerProfileController extends Controller
             'nid_front' => 'required|mimes:jpeg,jpg,png',
             'nid_back' => 'required|mimes:jpeg,jpg,png',
             'loan_investment' => 'required|mimes:jpeg,jpg,png,pdf,txt',
+            'chairman_certificate' => 'required|mimes:jpeg,jpg,png,pdf,txt',
 
 
             'image' => 'required|mimes:jpeg,jpg,png',
@@ -89,6 +90,10 @@ class FarmerProfileController extends Controller
 
         if (request('nid_back')) {
             $inputs['nid_back'] = \request('nid_back')->store('images');
+        }
+
+        if (request('chairman_certificate')) {
+            $inputs['chairman_certificate'] = \request('chairman_certificate')->store('images');
         }
 
 
@@ -156,7 +161,8 @@ class FarmerProfileController extends Controller
             'bank_name_insured' => 'required',
             'nid_front' => 'mimes:jpeg,jpg,png',
             'nid_back' => 'mimes:jpeg,jpg,png',
-            'loan_investment' => 'mimes:jpeg,jpg,png,pdf,txt'
+            'loan_investment' => 'mimes:jpeg,jpg,png,pdf,txt',
+            'chairman_certificate' => 'mimes:jpeg,jpg,png,pdf,txt',
         ]);
 
 
@@ -183,6 +189,12 @@ class FarmerProfileController extends Controller
             $inputs['nid_back'] = \request('nid_back')->store('images');
         } else {
             $inputs['nid_back'] = $farmerProfile->nid_back;
+        }
+
+        if (request('chairman_certificate')) {
+            $inputs['chairman_certificate'] = \request('chairman_certificate')->store('images');
+        } else {
+            $inputs['chairman_certificate'] = $farmerProfile->chairman_certificate;
         }
 
         auth()->user()->farmerProfile()->where('id', $farmerProfile->id)->update($inputs);

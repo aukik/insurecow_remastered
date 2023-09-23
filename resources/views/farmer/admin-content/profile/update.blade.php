@@ -55,7 +55,7 @@
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputLastName"
                                         >Fathers Name</label
-                                        >
+                                        ><span style="color: red">*</span>
                                         <input
                                             class="form-control"
                                             id="inputLastName"
@@ -70,7 +70,7 @@
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputLastName"
                                         >Mothers Name</label
-                                        >
+                                        ><span style="color: red">*</span>
                                         <input
                                             class="form-control"
                                             id="inputLastName"
@@ -88,7 +88,7 @@
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputLastName"
                                         >Present Address</label
-                                        >
+                                        ><span style="color: red">*</span>
                                         <input
                                             class="form-control"
                                             id="inputLastName"
@@ -102,7 +102,7 @@
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputLastName"
                                         >Date of Birth</label
-                                        >
+                                        ><span style="color: red">*</span>
                                         <input
                                             class="form-control"
                                             id="inputLastName"
@@ -121,7 +121,7 @@
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputLastName"
                                         >NID</label
-                                        >
+                                        ><span style="color: red">*</span>
                                         <input
                                             class="form-control"
                                             id="inputLastName"
@@ -136,7 +136,7 @@
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputLastName"
                                         >Source of Income</label
-                                        >
+                                        ><span style="color: red">*</span>
                                         <input
                                             class="form-control"
                                             id="inputLastName"
@@ -155,7 +155,7 @@
                                     <div class="col-md-12">
                                         <label class="small mb-1" for="inputLastName"
                                         >Bank Account No</label
-                                        >
+                                        ><span style="color: red">*</span>
                                         <input
                                             class="form-control"
                                             id="inputLastName"
@@ -174,8 +174,8 @@
 
                                     <div class="col-md-12">
                                         <label class="small mb-1" for="inputLastName"
-                                        >Farmer Address</label
-                                        >
+                                        >Farm Address</label
+                                        ><span style="color: red">*</span>
                                         <textarea class="form-control"
                                                   name="farmer_address">{{ $profile->farmer_address }}</textarea>
                                     </div>
@@ -188,7 +188,7 @@
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputLastName"
                                         >Thana</label
-                                        >
+                                        ><span style="color: red">*</span>
                                         <input
                                             class="form-control"
                                             id="inputLastName"
@@ -203,7 +203,7 @@
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputLastName"
                                         >Upazilla</label
-                                        >
+                                        ><span style="color: red">*</span>
                                         <input
                                             class="form-control"
                                             id="inputLastName"
@@ -222,7 +222,7 @@
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputLastName"
                                         >Union</label
-                                        >
+                                        ><span style="color: red">*</span>
                                         <input
                                             class="form-control"
                                             id="inputLastName"
@@ -237,7 +237,7 @@
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputLastName"
                                         >City</label
-                                        >
+                                        ><span style="color: red">*</span>
                                         <input
                                             class="form-control"
                                             id="inputLastName"
@@ -257,7 +257,7 @@
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputLastName"
                                         >District</label
-                                        >
+                                        ><span style="color: red">*</span>
                                         <input
                                             class="form-control"
                                             id="inputLastName"
@@ -272,7 +272,7 @@
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputLastName"
                                         >Zip Code</label
-                                        >
+                                        ><span style="color: red">*</span>
                                         <input
                                             class="form-control"
                                             id="inputLastName"
@@ -292,7 +292,7 @@
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputLastName"
                                         >Village</label
-                                        >
+                                        ><span style="color: red">*</span>
                                         <input
                                             class="form-control"
                                             id="inputLastName"
@@ -308,7 +308,7 @@
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputLastName"
                                         >Loan Amount</label
-                                        >
+                                        ><span style="color: red">*</span>
                                         <input
                                             class="form-control"
                                             id="inputLastName"
@@ -328,7 +328,7 @@
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputLastName"
                                         >No of Livestock</label
-                                        >
+                                        ><span style="color: red">*</span>
                                         <input
                                             class="form-control"
                                             id="inputLastName"
@@ -344,7 +344,7 @@
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputLastName"
                                         >Type of Livestock</label
-                                        >
+                                        ><span style="color: red">*</span>
                                         <input
                                             class="form-control"
                                             id="inputLastName"
@@ -366,7 +366,7 @@
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputLastName"
                                         >Nationality</label
-                                        >
+                                        ><span style="color: red">*</span>
                                         <input
                                             class="form-control"
                                             id="inputLastName"
@@ -382,7 +382,7 @@
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputLastName"
                                         >Bank Name Insured</label
-                                        >
+                                        ><span style="color: red">*</span>
                                         <input
                                             class="form-control"
                                             id="inputLastName"
@@ -405,7 +405,7 @@
                                     <div class="col-md-12">
                                         <label class="small mb-1" for="inputOrgName"
                                         >Farmer Image</label
-                                        >
+                                        ><span style="color: red">*</span>
                                         <input type="file" class="form-control" name="image">
                                     </div>
                                 </div>
@@ -420,7 +420,7 @@
                                     <div class="col-md-12">
                                         <label class="small mb-1" for="inputOrgName"
                                         >NID Front</label
-                                        >
+                                        ><span style="color: red">*</span>
                                         <input type="file" class="form-control" name="nid_front">
                                     </div>
                                 </div>
@@ -434,7 +434,7 @@
                                     <div class="col-md-12">
                                         <label class="small mb-1" for="inputOrgName"
                                         >NID Back</label
-                                        >
+                                        ><span style="color: red">*</span>
                                         <input type="file" class="form-control" name="nid_back">
                                     </div>
                                 </div>
@@ -449,8 +449,22 @@
                                     <div class="col-md-12">
                                         <label class="small mb-1" for="inputOrgName"
                                         >Loan Investment</label
-                                        >
+                                        ><span style="color: red">*</span>
                                         <input type="file" class="form-control" name="loan_investment">
+                                    </div>
+                                </div>
+
+                                <div class="form-control">
+                                    <img src="{{ asset('storage/'.$profile->chairman_certificate) }}" style="width: 150px">
+                                </div>
+
+                                <div class="row gx-3 mb-3">
+                                    <!-- Form Group (organization name)-->
+                                    <div class="col-md-12">
+                                        <label class="small mb-1" for="inputOrgName"
+                                        >Chairman Certificate</label
+                                        ><span style="color: red">*</span>
+                                        <input type="file" class="form-control" name="chairman_certificate">
                                     </div>
                                 </div>
 

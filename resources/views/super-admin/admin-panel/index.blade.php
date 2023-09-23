@@ -358,7 +358,7 @@
     tinymce.init({
         /* ... */
         fontsize_formats: "8pt 9pt 10pt 11pt 12pt 13pt 14pt 15pt 16pt 17pt 18pt 24pt 30pt 36pt 48pt 60pt",
-        selector: 'textarea',
+        selector: '.textarea',
         plugins: ['advlist autolink lists link image charmap preview anchor pagebreak', 'table'],
         toolbar_mode: 'floating',
         toolbar: 'numlist bullist | table tabledelete | tableprops tablerowprops tablecellprops | tableinsertrowbefore tableinsertrowafter tabledeleterow | tableinsertcolbefore tableinsertcolafter tabledeletecol',

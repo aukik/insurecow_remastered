@@ -41,6 +41,13 @@ class CattleRegistrationController extends Controller
      */
     public function store(Request $request)
     {
+
+        $animalType = $request->input('animal_type');
+
+        if (!in_array($animalType, ['cattle', 'goat'])) {
+            return "Invalid request";
+        }
+
         $id = 0;
 
         if (CattleRegistration::orderBy('id', 'desc')->count() == 0) {
@@ -49,7 +56,8 @@ class CattleRegistrationController extends Controller
             $id = CattleRegistration::orderBy('id', 'desc')->first()->id + 1;
         }
 
-        $inputs = \request()->validate([
+        $rules = [
+            'animal_type' => 'required',
             'cattle_name' => 'required',
             'cattle_breed' => 'required',
             'age' => 'required',
@@ -58,30 +66,34 @@ class CattleRegistrationController extends Controller
             'cattle_type' => 'required',
 
             'sum_insured' => 'required',
-            'chairman_certificate' => 'required|mimes:jpeg,jpg,png',
-
             'muzzle_of_cow' => 'required|mimes:jpeg,jpg,png',
             'left_side' => 'required|mimes:jpeg,jpg,png',
             'right_side' => 'required|mimes:jpeg,jpg,png',
             'special_marks' => 'required|mimes:jpeg,jpg,png',
             'cow_with_owner' => 'required|mimes:jpeg,jpg,png',
-        ]);
+        ];
 
-
+        // Perform the validation
+        $inputs = request()->validate($rules);
         $inputs['unique_id'] = $id;
 
 
-        if (request('muzzle_of_cow')) {
-            $inputs['muzzle_of_cow'] = \request('muzzle_of_cow')->store('images');
+//        ----------------------------- If animal type is cattle then muzzle will be inserted, else it will store "Not Applicable for goat registration" -----------------------------
+
+
+        if ($animalType === 'cattle') {
+            if (request('muzzle_of_cow')) {
+                $inputs['muzzle_of_cow'] = \request('muzzle_of_cow')->store('images');
+            }
+        } else if ($animalType === 'goat') {
+            $inputs['muzzle_of_cow'] = "Not Applicable for goat registration";
         }
+
+//        ----------------------------- If animal type is cattle then muzzle will be inserted, else it will store "Not Applicable for goat registration" -----------------------------
+
 
         if (request('left_side')) {
             $inputs['left_side'] = \request('left_side')->store('images');
-        }
-
-
-        if (request('chairman_certificate')) {
-            $inputs['chairman_certificate'] = \request('chairman_certificate')->store('images');
         }
 
         if (request('right_side')) {
@@ -95,13 +107,19 @@ class CattleRegistrationController extends Controller
         if (request('cow_with_owner')) {
             $inputs['cow_with_owner'] = \request('cow_with_owner')->store('images');
         }
-//
-//        auth()->user()->cattleRegister()->create($inputs);
-//        session()->flash("register", "Cattle Registered Successfully");
-//        return back();
 
-//        ------------------------------- API DATA [ With JOB Batching ] ---------------------------------
+//        ----------------------------- Detecting if animal type is goat -----------------------------
 
+        if ($animalType === 'goat') {
+            auth()->user()->cattleRegister()->create($inputs);
+            session()->flash("register_goat", "Goat Registered Successfully");
+            return back();
+        }
+
+//        ----------------------------- Detecting if animal type is goat -----------------------------
+
+
+//        ------------------------------- API DATA [ With JOB Batching ] - Cattle Registration ---------------------------------
 
         $basename = $inputs['muzzle_of_cow'];
 
@@ -109,7 +127,7 @@ class CattleRegistrationController extends Controller
         session()->flash("register", "Verification process running, If the process is accepted, the cattle information will be automatically added to the list");
         return back();
 
-//        ------------------------------- API DATA [ With JOB Batching ] ---------------------------------
+//        ------------------------------- API DATA [ With JOB Batching ] - Cattle Registration ---------------------------------
 
 
 //        ------------------------------- API DATA ---------------------------------

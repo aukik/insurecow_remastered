@@ -16,8 +16,9 @@ class CreateCattleRegistrationsTable extends Migration
         Schema::create('cattle_registrations', function (Blueprint $table) {
             $table->id();
 
-            $table->string("chairman_certificate");
+//            $table->string("chairman_certificate");
 
+            $table->string("animal_type");
             $table->string("cattle_name");
             $table->string("cattle_breed");
             $table->string("age");
@@ -32,23 +33,16 @@ class CreateCattleRegistrationsTable extends Migration
             $table->string("cow_with_owner");
 
             $table->string("sum_insured");
-//            $table->string("current_price");
-
             $table->string('unique_id');
-            $table->string('user_id');
 
-            $table->string("nid_front")->nullable(); //file
-            $table->string("nid_back")->nullable(); //file
-            $table->string("loan_investment")->nullable();  //file
-            $table->string("bank_name_insured")->nullable();
-            $table->string("bank_account_no")->nullable();
 
             $table->string('insured_by')->default(0);
             $table->string('insurance_status')->default(0);
             $table->date('insurance_date')->nullable();
             $table->string('insurance_expire_date')->nullable();
-
             $table->string('is_claimed')->default(0);
+
+            $table->string('user_id');
 
             $table->timestamps();
         });

@@ -182,7 +182,7 @@
                                         <label class="small mb-1" for="inputLastName"
                                         >Quotation / Description About The Package</label
                                         >
-                                        <textarea class="form-control" rows="40"
+                                        <textarea class="form-control textarea" rows="40"
                                                   name="quotation">{!!  $package->quotation  !!}</textarea>
 
                                     </div>

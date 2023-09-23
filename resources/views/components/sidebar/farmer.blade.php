@@ -22,12 +22,12 @@
 
             <a class="nav-link" href="{{ route('cattle_register.index') }}">
                 <div class="nav-link-icon"><i data-feather="filter"></i></div>
-                Add Cattle's
+                Add Cattle / Goat
             </a>
 
             <a class="nav-link" href="{{ route('cattle.list') }}">
                 <div class="nav-link-icon"><i data-feather="filter"></i></div>
-                View Registered Cattle's
+                View Registered list
             </a>
 
             <a class="nav-link" href="{{ route('insurance.packages') }}">
