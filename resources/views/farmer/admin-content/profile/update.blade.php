@@ -258,15 +258,222 @@
                                         <label class="small mb-1" for="inputLastName"
                                         >District</label
                                         ><span style="color: red">*</span>
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder=""
-                                            value="{{ $profile->district }}"
+                                        {{--                                        <input--}}
+                                        {{--                                            class="form-control"--}}
+                                        {{--                                            id="inputLastName"--}}
+                                        {{--                                            type="text"--}}
+                                        {{--                                            placeholder=""--}}
+                                        {{--                                            value="{{ $profile->district }}"--}}
 
-                                            name="district"
-                                        />
+                                        {{--                                            name="district"--}}
+                                        {{--                                        />--}}
+
+
+                                        {{--   -------------------------------------------- District update -------------------------------------------- --}}
+
+                                        <select class="form-control" name="district">
+                                            <option value="Bagerhat"
+                                                    @if($profile->district == "Bagerhat") selected @endif>Bagerhat
+                                            </option>
+                                            <option value="Bandarban"
+                                                    @if($profile->district == "Bandarban") selected @endif>Bandarban
+                                            </option>
+                                            <option value="Barguna"
+                                                    @if($profile->district == "Barguna") selected @endif>Barguna
+                                            </option>
+                                            <option value="Barisal"
+                                                    @if($profile->district == "Barisal") selected @endif>Barisal
+                                            </option>
+                                            <option value="Bhola" @if($profile->district == "Bhola") selected @endif>
+                                                Bhola
+                                            </option>
+                                            <option value="Bogura (formerly Bogra)"
+                                                    @if($profile->district == "Bogura (formerly Bogra)") selected @endif>
+                                                Bogura (formerly Bogra)
+                                            </option>
+                                            <option value="Brahmanbaria"
+                                                    @if($profile->district == "Brahmanbaria") selected @endif>
+                                                Brahmanbaria
+                                            </option>
+                                            <option value="Chandpur"
+                                                    @if($profile->district == "Chandpur") selected @endif>Chandpur
+                                            </option>
+                                            <option value="Chapai Nawabganj"
+                                                    @if($profile->district == "Chapai Nawabganj") selected @endif>Chapai
+                                                Nawabganj
+                                            </option>
+                                            <option value="Chattogram (Chittagong)"
+                                                    @if($profile->district == "Chattogram (Chittagong)") selected @endif>
+                                                Chattogram (Chittagong)
+                                            </option>
+                                            <option value="Chuadanga"
+                                                    @if($profile->district == "Chuadanga") selected @endif>Chuadanga
+                                            </option>
+                                            <option value="Comilla (Cumilla)"
+                                                    @if($profile->district == "Comilla (Cumilla)") selected @endif>
+                                                Comilla (Cumilla)
+                                            </option>
+                                            <option value="Cox's Bazar"
+                                                    @if($profile->district == "Cox's Bazar") selected @endif>Cox's Bazar
+                                            </option>
+                                            <option value="Dhaka" @if($profile->district == "Dhaka") selected @endif>
+                                                Dhaka
+                                            </option>
+                                            <option value="Dinajpur"
+                                                    @if($profile->district == "Dinajpur") selected @endif>Dinajpur
+                                            </option>
+                                            <option value="Faridpur"
+                                                    @if($profile->district == "Faridpur") selected @endif>Faridpur
+                                            </option>
+                                            <option value="Feni" @if($profile->district == "Feni") selected @endif>
+                                                Feni
+                                            </option>
+                                            <option value="Gaibandha"
+                                                    @if($profile->district == "Gaibandha") selected @endif>Gaibandha
+                                            </option>
+                                            <option value="Gazipur"
+                                                    @if($profile->district == "Gazipur") selected @endif>Gazipur
+                                            </option>
+                                            <option value="Gopalganj"
+                                                    @if($profile->district == "Gopalganj") selected @endif>Gopalganj
+                                            </option>
+                                            <option value="Habiganj"
+                                                    @if($profile->district == "Habiganj") selected @endif>Habiganj
+                                            </option>
+                                            <option value="Jamalpur"
+                                                    @if($profile->district == "Jamalpur") selected @endif>Jamalpur
+                                            </option>
+                                            <option value="Jashore (Jessore)"
+                                                    @if($profile->district == "Jashore (Jessore)") selected @endif>
+                                                Jashore (Jessore)
+                                            </option>
+                                            <option value="Jhalokati"
+                                                    @if($profile->district == "Jhalokati") selected @endif>Jhalokati
+                                            </option>
+                                            <option value="Jhenaidah"
+                                                    @if($profile->district == "Jhenaidah") selected @endif>Jhenaidah
+                                            </option>
+                                            <option value="Joypurhat"
+                                                    @if($profile->district == "Joypurhat") selected @endif>Joypurhat
+                                            </option>
+                                            <option value="Khagrachari"
+                                                    @if($profile->district == "Khagrachari") selected @endif>Khagrachari
+                                            </option>
+                                            <option value="Khulna" @if($profile->district == "Khulna") selected @endif>
+                                                Khulna
+                                            </option>
+                                            <option value="Kishoreganj"
+                                                    @if($profile->district == "Kishoreganj") selected @endif>Kishoreganj
+                                            </option>
+                                            <option value="Kushtia"
+                                                    @if($profile->district == "Kushtia") selected @endif>Kushtia
+                                            </option>
+                                            <option value="Lakshmipur"
+                                                    @if($profile->district == "Lakshmipur") selected @endif>Lakshmipur
+                                            </option>
+                                            <option value="Lalmonirhat"
+                                                    @if($profile->district == "Lalmonirhat") selected @endif>Lalmonirhat
+                                            </option>
+                                            <option value="Madaripur"
+                                                    @if($profile->district == "Madaripur") selected @endif>Madaripur
+                                            </option>
+                                            <option value="Magura" @if($profile->district == "Magura") selected @endif>
+                                                Magura
+                                            </option>
+                                            <option value="Manikganj"
+                                                    @if($profile->district == "Manikganj") selected @endif>Manikganj
+                                            </option>
+                                            <option value="Meherpur"
+                                                    @if($profile->district == "Meherpur") selected @endif>Meherpur
+                                            </option>
+                                            <option value="Moulvibazar"
+                                                    @if($profile->district == "Moulvibazar") selected @endif>Moulvibazar
+                                            </option>
+                                            <option value="Munshiganj"
+                                                    @if($profile->district == "Munshiganj") selected @endif>Munshiganj
+                                            </option>
+                                            <option value="Mymensingh"
+                                                    @if($profile->district == "Mymensingh") selected @endif>Mymensingh
+                                            </option>
+                                            <option value="Naogaon"
+                                                    @if($profile->district == "Naogaon") selected @endif>Naogaon
+                                            </option>
+                                            <option value="Narail" @if($profile->district == "Narail") selected @endif>
+                                                Narail
+                                            </option>
+                                            <option value="Narayanganj"
+                                                    @if($profile->district == "Narayanganj") selected @endif>Narayanganj
+                                            </option>
+                                            <option value="Narsingdi"
+                                                    @if($profile->district == "Narsingdi") selected @endif>Narsingdi
+                                            </option>
+                                            <option value="Natore" @if($profile->district == "Natore") selected @endif>
+                                                Natore
+                                            </option>
+                                            <option value="Netrokona"
+                                                    @if($profile->district == "Netrokona") selected @endif>Netrokona
+                                            </option>
+                                            <option value="Nilphamari"
+                                                    @if($profile->district == "Nilphamari") selected @endif>Nilphamari
+                                            </option>
+                                            <option value="Noakhali"
+                                                    @if($profile->district == "Noakhali") selected @endif>Noakhali
+                                            </option>
+                                            <option value="Pabna" @if($profile->district == "Pabna") selected @endif>
+                                                Pabna
+                                            </option>
+                                            <option value="Panchagarh"
+                                                    @if($profile->district == "Panchagarh") selected @endif>Panchagarh
+                                            </option>
+                                            <option value="Patuakhali"
+                                                    @if($profile->district == "Patuakhali") selected @endif>Patuakhali
+                                            </option>
+                                            <option value="Pirojpur"
+                                                    @if($profile->district == "Pirojpur") selected @endif>Pirojpur
+                                            </option>
+                                            <option value="Rajbari"
+                                                    @if($profile->district == "Rajbari") selected @endif>Rajbari
+                                            </option>
+                                            <option value="Rajshahi"
+                                                    @if($profile->district == "Rajshahi") selected @endif>Rajshahi
+                                            </option>
+                                            <option value="Rangamati"
+                                                    @if($profile->district == "Rangamati") selected @endif>Rangamati
+                                            </option>
+                                            <option value="Rangpur"
+                                                    @if($profile->district == "Rangpur") selected @endif>Rangpur
+                                            </option>
+                                            <option value="Satkhira"
+                                                    @if($profile->district == "Satkhira") selected @endif>Satkhira
+                                            </option>
+                                            <option value="Shariatpur"
+                                                    @if($profile->district == "Shariatpur") selected @endif>Shariatpur
+                                            </option>
+                                            <option value="Sherpur"
+                                                    @if($profile->district == "Sherpur") selected @endif>Sherpur
+                                            </option>
+                                            <option value="Sirajganj"
+                                                    @if($profile->district == "Sirajganj") selected @endif>Sirajganj
+                                            </option>
+                                            <option value="Sunamganj"
+                                                    @if($profile->district == "Sunamganj") selected @endif>Sunamganj
+                                            </option>
+                                            <option value="Sylhet" @if($profile->district == "Sylhet") selected @endif>
+                                                Sylhet
+                                            </option>
+                                            <option value="Tangail"
+                                                    @if($profile->district == "Tangail") selected @endif>Tangail
+                                            </option>
+                                            <option value="Thakurgaon"
+                                                    @if($profile->district == "Thakurgaon") selected @endif>Thakurgaon
+                                            </option>
+                                            <option value="Jamalpur"
+                                                    @if($profile->district == "Jamalpur") selected @endif>Jamalpur
+                                            </option>
+                                        </select>
+
+                                        {{--   -------------------------------------------- District update -------------------------------------------- --}}
+
                                     </div>
 
                                     <div class="col-md-6">
@@ -455,7 +662,8 @@
                                 </div>
 
                                 <div class="form-control">
-                                    <img src="{{ asset('storage/'.$profile->chairman_certificate) }}" style="width: 150px">
+                                    <img src="{{ asset('storage/'.$profile->chairman_certificate) }}"
+                                         style="width: 150px">
                                 </div>
 
                                 <div class="row gx-3 mb-3">
