@@ -30,482 +30,460 @@
 
                 <div class="col-xl-12">
                     <!-- Account details card-->
-                    <div class="card mb-4">
-                        <div class="card-header">Farmer Profile Creation</div>
-                        <div class="card-body">
 
-                            {{-- ---------------------------------------- Farmer Profile Creation ---------------------------------------- --}}
+                    <div id="app">
+                        <div class="card mb-4">
+                            <div class="card-header">Farmer Profile Creation</div>
+                            <div class="card-body">
+
+                                {{-- ---------------------------------------- Farmer Profile Creation ---------------------------------------- --}}
 
 
-                            <form action="{{ route('farmer_profile.store') }}" method="post"
-                                  enctype="multipart/form-data">
-                                {{ csrf_field() }}
-                                <!-- Form Group (username)-->
+                                <form action="{{ route('farmer_profile.store') }}" method="post"
+                                      enctype="multipart/form-data">
+                                    {{ csrf_field() }}
+                                    <!-- Form Group (username)-->
 
-                                <!-- Form Row-->
-                                <div class="row gx-3 mb-3">
+                                    <!-- Form Row-->
+                                    <div class="row gx-3 mb-3">
 
-                                    <div class="col-md-6">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >Fathers Name</label
-                                        ><span style="color: red">*</span>
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder=""
-                                            value="{{ old('fathers_name') }}"
-                                            name="fathers_name"
+                                        <div class="col-md-4">
+                                            <label class="small mb-1" for="inputLastName"
+                                            >Fathers Name</label
+                                            ><span style="color: red">*</span>
+                                            <input
+                                                class="form-control"
+                                                id="inputLastName"
+                                                type="text"
+                                                placeholder=""
+                                                value="{{ old('fathers_name') }}"
+                                                name="fathers_name"
 
-                                        />
+                                            />
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="small mb-1" for="inputLastName"
+                                            >Mothers Name</label
+                                            ><span style="color: red">*</span>
+                                            <input
+                                                class="form-control"
+                                                id="inputLastName"
+                                                type="text"
+                                                placeholder=""
+                                                value="{{ old('mothers_name') }}"
+                                                name="mothers_name"
+                                            />
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="small mb-1" for="inputLastName"
+                                            >Present Address</label
+                                            ><span style="color: red">*</span>
+                                            <input
+                                                class="form-control"
+                                                id="inputLastName"
+                                                type="text"
+                                                placeholder=""
+                                                value="{{ old('present_address') }}"
+                                                name="present_address"
+                                            />
+                                        </div>
+
                                     </div>
 
-                                    <div class="col-md-6">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >Mothers Name</label
-                                        ><span style="color: red">*</span>
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder=""
-                                            value="{{ old('mothers_name') }}"
-                                            name="mothers_name"
-                                        />
-                                    </div>
-                                </div>
+                                    <!-- Form Row-->
+                                    <div class="row gx-3 mb-3">
 
-                                <!-- Form Row-->
-                                <div class="row gx-3 mb-3">
 
-                                    <div class="col-md-6">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >Present Address</label
-                                        ><span style="color: red">*</span>
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder=""
-                                            value="{{ old('present_address') }}"
-                                            name="present_address"
-                                        />
-                                    </div>
+                                        <div class="col-md-4">
+                                            <label class="small mb-1" for="inputLastName"
+                                            >Date of Birth</label
+                                            ><span style="color: red">*</span>
+                                            <input
+                                                class="form-control"
+                                                id="inputLastName"
+                                                type="date"
+                                                placeholder=""
+                                                value="{{ old('dob') }}"
+                                                name="dob"
+                                            />
+                                        </div>
 
-                                    <div class="col-md-6">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >Date of Birth</label
-                                        ><span style="color: red">*</span>
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="date"
-                                            placeholder=""
-                                            value="{{ old('dob') }}"
-                                            name="dob"
-                                        />
-                                    </div>
-                                </div>
+                                        <div class="col-md-4">
+                                            <label class="small mb-1" for="inputLastName"
+                                            >NID</label
+                                            ><span style="color: red">*</span>
+                                            <input
+                                                class="form-control"
+                                                id="inputLastName"
+                                                type="number"
+                                                placeholder=""
+                                                value="{{ old('nid') }}"
+                                                name="nid"
+                                            />
+                                        </div>
 
-                                <!-- Form Row-->
-                                <div class="row gx-3 mb-3">
-
-                                    <div class="col-md-6">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >NID</label
-                                        ><span style="color: red">*</span>
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="number"
-                                            placeholder=""
-                                            value="{{ old('nid') }}"
-                                            name="nid"
-                                        />
+                                        <div class="col-md-4">
+                                            <label class="small mb-1" for="inputLastName"
+                                            >Source of Income</label
+                                            ><span style="color: red">*</span>
+                                            <input
+                                                class="form-control"
+                                                id="inputLastName"
+                                                type="text"
+                                                placeholder=""
+                                                value="{{ old('source_of_income') }}"
+                                                name="source_of_income"
+                                            />
+                                        </div>
                                     </div>
 
-                                    <div class="col-md-6">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >Source of Income</label
-                                        ><span style="color: red">*</span>
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder=""
-                                            value="{{ old('source_of_income') }}"
-                                            name="source_of_income"
-                                        />
-                                    </div>
-                                </div>
 
-                                <!-- Form Row-->
-                                <div class="row gx-3 mb-3">
-
-                                    <div class="col-md-12">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >Bank Account No</label
-                                        ><span style="color: red">*</span>
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder=""
-                                            value="{{ old('bank_account_no') }}"
-                                            name="bank_account_no"
-                                        />
-                                    </div>
-
-                                </div>
+                                    <!-- Form Row-->
+                                    <div class="row gx-3 mb-3">
 
 
-                                <div class="row gx-3 mb-3">
+                                        <div class="col-md-4">
+                                            <label class="small mb-1" for="inputLastName"
+                                            >Division</label
+                                            ><span style="color: red">*</span>
+                                            <div>
+                                                <select class="form-control" name="division" id="division"
+                                                        v-model="selectedDivision">
 
-                                    <div class="col-md-12">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >Farm Address</label
-                                        ><span style="color: red">*</span>
-                                        <textarea class="form-control"
-                                                  name="farmer_address">{{ old('bank_account_no') }}</textarea>
-                                    </div>
-                                </div>
+                                                    <option :value="item.division" v-for="item in division_data_array"
+                                                            :key="item">
+                                                        @{{ item.division }}
+                                                    </option>
+                                                </select>
+                                            </div>
 
+                                            <p>@{{ selectedDivision }}</p>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="small mb-1" for="inputLastName"
+                                            >District</label
+                                            ><span style="color: red">*</span>
 
-                                <!-- Form Row-->
-                                <div class="row gx-3 mb-3">
+                                            <div>
+                                                <select class="form-control" name="district" id="district">
 
-                                    <div class="col-md-6">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >Thana</label
-                                        ><span style="color: red">*</span>
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder=""
-                                            value="{{ old('thana') }}"
-                                            name="thana"
-                                        />
+                                                    <option value="Bagerhat">
+                                                        Bagerhat
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="small mb-1" for="inputLastName"
+                                            >Thana</label
+                                            ><span style="color: red">*</span>
+                                            <input
+                                                class="form-control"
+                                                id="inputLastName"
+                                                type="text"
+                                                placeholder=""
+                                                value="{{ old('thana') }}"
+                                                name="thana"
+                                            />
+                                        </div>
+
                                     </div>
 
-                                    <div class="col-md-6">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >Upazilla</label
-                                        ><span style="color: red">*</span>
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder=""
-                                            value="{{ old('upazilla') }}"
-                                            name="upazilla"
-                                        />
+                                    <!-- Form Row-->
+                                    <div class="row gx-3 mb-3">
+
+
+                                        <div class="col-md-4">
+                                            <label class="small mb-1" for="inputLastName"
+                                            >Upazilla</label
+                                            ><span style="color: red">*</span>
+                                            <input
+                                                class="form-control"
+                                                id="inputLastName"
+                                                type="text"
+                                                placeholder=""
+                                                value="{{ old('upazilla') }}"
+                                                name="upazilla"
+                                            />
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="small mb-1" for="inputLastName"
+                                            >Union</label
+                                            ><span style="color: red">*</span>
+                                            <input
+                                                class="form-control"
+                                                id="inputLastName"
+                                                type="text"
+                                                placeholder=""
+                                                value="{{ old('union') }}"
+                                                name="union"
+                                            />
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="small mb-1" for="inputLastName"
+                                            >Zip Code</label
+                                            ><span style="color: red">*</span>
+                                            <input
+                                                class="form-control"
+                                                id="inputLastName"
+                                                type="text"
+                                                placeholder=""
+                                                value="{{ old('zip_code') }}"
+                                                name="zip_code"
+                                            />
+                                        </div>
+
                                     </div>
-                                </div>
 
-                                <!-- Form Row-->
-                                <div class="row gx-3 mb-3">
 
-                                    <div class="col-md-6">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >Union</label
-                                        ><span style="color: red">*</span>
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder=""
-                                            value="{{ old('union') }}"
-                                            name="union"
-                                        />
+                                    <!-- Form Row-->
+                                    <div class="row gx-3 mb-3">
+
+
+                                        <div class="col-md-4">
+                                            <label class="small mb-1" for="inputLastName"
+                                            >Bank Account No</label
+                                            ><span style="color: red">*</span>
+                                            <input
+                                                class="form-control"
+                                                id="inputLastName"
+                                                type="text"
+                                                placeholder=""
+                                                value="{{ old('bank_account_no') }}"
+                                                name="bank_account_no"
+                                            />
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="small mb-1" for="inputLastName"
+                                            >Farm Address</label
+                                            ><span style="color: red">*</span>
+                                            <textarea class="form-control"
+                                                      name="farmer_address"
+                                                      rows="1">{{ old('bank_account_no') }}</textarea>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label class="small mb-1" for="inputLastName"
+                                            >Village</label
+                                            ><span style="color: red">*</span>
+                                            <input
+                                                class="form-control"
+                                                id="inputLastName"
+                                                type="text"
+                                                placeholder=""
+                                                value="{{ old('village') }}"
+                                                name="village"
+                                            />
+                                        </div>
+
                                     </div>
 
-                                    <div class="col-md-6">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >City</label
-                                        ><span style="color: red">*</span>
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder=""
-                                            value="{{ old('city') }}"
-                                            name="city"
-                                        />
-                                    </div>
-                                </div>
+
+                                    <!-- Form Row-->
+                                    <div class="row gx-3 mb-3">
 
 
-                                <!-- Form Row-->
-                                <div class="row gx-3 mb-3">
+                                        <div class="col-md-4">
+                                            <label class="small mb-1" for="inputLastName"
+                                            >Loan Amount</label
+                                            ><span style="color: red">*</span>
+                                            <input
+                                                class="form-control"
+                                                id="inputLastName"
+                                                type="number"
+                                                placeholder=""
+                                                value="{{ old('loan_amount') }}"
+                                                name="loan_amount"
+                                            />
+                                        </div>
 
-                                    <div class="col-md-6">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >District</label
-                                        ><span style="color: red">*</span>
-                                        <div>
-                                            <select class="form-control" name="district">
-                                                <option value="Bagerhat">Bagerhat</option>
-                                                <option value="Bandarban">Bandarban</option>
-                                                <option value="Barguna">Barguna</option>
-                                                <option value="Barisal">Barisal</option>
-                                                <option value="Bhola">Bhola</option>
-                                                <option value="Bogura (formerly Bogra)">Bogura (formerly Bogra)</option>
-                                                <option value="Brahmanbaria">Brahmanbaria</option>
-                                                <option value="Chandpur">Chandpur</option>
-                                                <option value="Chapai Nawabganj">Chapai Nawabganj</option>
-                                                <option value="Chattogram (Chittagong)">Chattogram (Chittagong)</option>
-                                                <option value="Chuadanga">Chuadanga</option>
-                                                <option value="Comilla (Cumilla)">Comilla (Cumilla)</option>
-                                                <option value="Cox's Bazar">Cox's Bazar</option>
-                                                <option value="Dhaka">Dhaka</option>
-                                                <option value="Dinajpur">Dinajpur</option>
-                                                <option value="Faridpur">Faridpur</option>
-                                                <option value="Feni">Feni</option>
-                                                <option value="Gaibandha">Gaibandha</option>
-                                                <option value="Gazipur">Gazipur</option>
-                                                <option value="Gopalganj">Gopalganj</option>
-                                                <option value="Habiganj">Habiganj</option>
-                                                <option value="Jamalpur">Jamalpur</option>
-                                                <option value="Jashore (Jessore)">Jashore (Jessore)</option>
-                                                <option value="Jhalokati">Jhalokati</option>
-                                                <option value="Jhenaidah">Jhenaidah</option>
-                                                <option value="Joypurhat">Joypurhat</option>
-                                                <option value="Khagrachari">Khagrachari</option>
-                                                <option value="Khulna">Khulna</option>
-                                                <option value="Kishoreganj">Kishoreganj</option>
-                                                <option value="Kushtia">Kushtia</option>
-                                                <option value="Lakshmipur">Lakshmipur</option>
-                                                <option value="Lalmonirhat">Lalmonirhat</option>
-                                                <option value="Madaripur">Madaripur</option>
-                                                <option value="Magura">Magura</option>
-                                                <option value="Manikganj">Manikganj</option>
-                                                <option value="Meherpur">Meherpur</option>
-                                                <option value="Moulvibazar">Moulvibazar</option>
-                                                <option value="Munshiganj">Munshiganj</option>
-                                                <option value="Mymensingh">Mymensingh</option>
-                                                <option value="Naogaon">Naogaon</option>
-                                                <option value="Narail">Narail</option>
-                                                <option value="Narayanganj">Narayanganj</option>
-                                                <option value="Narsingdi">Narsingdi</option>
-                                                <option value="Natore">Natore</option>
-                                                <option value="Netrokona">Netrokona</option>
-                                                <option value="Nilphamari">Nilphamari</option>
-                                                <option value="Noakhali">Noakhali</option>
-                                                <option value="Pabna">Pabna</option>
-                                                <option value="Panchagarh">Panchagarh</option>
-                                                <option value="Patuakhali">Patuakhali</option>
-                                                <option value="Pirojpur">Pirojpur</option>
-                                                <option value="Rajbari">Rajbari</option>
-                                                <option value="Rajshahi">Rajshahi</option>
-                                                <option value="Rangamati">Rangamati</option>
-                                                <option value="Rangpur">Rangpur</option>
-                                                <option value="Satkhira">Satkhira</option>
-                                                <option value="Shariatpur">Shariatpur</option>
-                                                <option value="Sherpur">Sherpur</option>
-                                                <option value="Sirajganj">Sirajganj</option>
-                                                <option value="Sunamganj">Sunamganj</option>
-                                                <option value="Sylhet">Sylhet</option>
-                                                <option value="Tangail">Tangail</option>
-                                                <option value="Thakurgaon">Thakurgaon</option>
-                                                <option value="Jamalpur">Jamalpur</option>
-                                            </select>
+                                        <div class="col-md-4">
+                                            <label class="small mb-1" for="inputLastName"
+                                            >No of Livestock</label
+                                            ><span style="color: red">*</span>
+                                            <input
+                                                class="form-control"
+                                                id="inputLastName"
+                                                type="text"
+                                                placeholder=""
+                                                value="{{ old('num_of_livestock') }}"
+                                                name="num_of_livestock"
+                                            />
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="small mb-1" for="inputLastName"
+                                            >Type of Livestock</label
+                                            ><span style="color: red">*</span>
+                                            <input
+                                                class="form-control"
+                                                id="inputLastName"
+                                                type="text"
+                                                placeholder=""
+                                                value="{{ old('type_of_livestock') }}"
+                                                name="type_of_livestock"
+                                            />
                                         </div>
 
 
                                     </div>
 
-                                    <div class="col-md-6">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >Zip Code</label
-                                        ><span style="color: red">*</span>
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder=""
-                                            value="{{ old('zip_code') }}"
-                                            name="zip_code"
-                                        />
-                                    </div>
-                                </div>
+
+                                    <!-- Form Row-->
+                                    <div class="row gx-3 mb-3">
 
 
-                                <!-- Form Row-->
-                                <div class="row gx-3 mb-3">
-
-                                    <div class="col-md-6">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >Village</label
-                                        ><span style="color: red">*</span>
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder=""
-                                            value="{{ old('village') }}"
-                                            name="village"
-                                        />
+                                        <div class="col-md-12">
+                                            <label class="small mb-1" for="inputLastName"
+                                            >Nationality</label
+                                            ><span style="color: red">*</span>
+                                            <input
+                                                class="form-control"
+                                                id="inputLastName"
+                                                type="text"
+                                                placeholder=""
+                                                value="{{ old('nationality') }}"
+                                                name="nationality"
+                                            />
+                                        </div>
                                     </div>
 
-                                    <div class="col-md-6">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >Loan Amount</label
-                                        ><span style="color: red">*</span>
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="number"
-                                            placeholder=""
-                                            value="{{ old('loan_amount') }}"
-                                            name="loan_amount"
-                                        />
-                                    </div>
-                                </div>
 
-                                <!-- Form Row-->
-                                <div class="row gx-3 mb-3">
+                                    <div class="row gx-3 mb-3">
+                                        <!-- Form Group (organization name)-->
+                                        <div class="col-md-4">
+                                            <label class="small mb-1" for="inputOrgName"
+                                            >Farmers Image</label
+                                            ><span style="color: red">*</span>
+                                            <input type="file" class="form-control" name="image">
+                                        </div>
 
-                                    <div class="col-md-6">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >No of Livestock</label
-                                        ><span style="color: red">*</span>
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder=""
-                                            value="{{ old('num_of_livestock') }}"
-                                            name="num_of_livestock"
-                                        />
-                                    </div>
+                                        <div class="col-md-4">
+                                            <label class="small mb-1" for="inputOrgName"
+                                            >Loan / Investment documents</label
+                                            ><span style="color: red">*</span>
+                                            <input type="file" class="form-control" name="loan_investment">
 
-                                    <div class="col-md-6">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >Type of Livestock</label
-                                        ><span style="color: red">*</span>
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder=""
-                                            value="{{ old('type_of_livestock') }}"
-                                            name="type_of_livestock"
-                                        />
-                                    </div>
-                                </div>
+                                            @error('loan_investment')
+                                            <div class="alert alert-danger"
+                                                 style="margin-top: 10px">{{ $message }}</div>
+                                            @enderror
+                                        </div>
 
+                                        <div class="col-md-4">
+                                            <label class="small mb-1" for="inputLastName"
+                                            >Bank Name Insured</label
+                                            ><span style="color: red">*</span>
+                                            <input
+                                                class="form-control"
+                                                id="inputLastName"
+                                                type="text"
+                                                placeholder=""
+                                                value="{{ old('bank_name_insured') }}"
+                                                name="bank_name_insured"
+                                            />
 
-                                <!-- Form Row-->
-                                <div class="row gx-3 mb-3">
+                                            @error('bank_name_insured')
+                                            <div class="alert alert-danger"
+                                                 style="margin-top: 10px">{{ $message }}</div>
+                                            @enderror
+                                        </div>
 
-
-                                    <div class="col-md-12">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >Nationality</label
-                                        ><span style="color: red">*</span>
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder=""
-                                            value="{{ old('nationality') }}"
-                                            name="nationality"
-                                        />
-                                    </div>
-                                </div>
-
-
-                                <div class="row gx-3 mb-3">
-                                    <!-- Form Group (organization name)-->
-                                    <div class="col-md-4">
-                                        <label class="small mb-1" for="inputOrgName"
-                                        >Farmers Image</label
-                                        ><span style="color: red">*</span>
-                                        <input type="file" class="form-control" name="image">
                                     </div>
 
-                                    <div class="col-md-4">
-                                        <label class="small mb-1" for="inputOrgName"
-                                        >Loan / Investment documents</label
-                                        ><span style="color: red">*</span>
-                                        <input type="file" class="form-control" name="loan_investment">
 
-                                        @error('loan_investment')
-                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
-                                        @enderror
+                                    <div class="row gx-3 mb-3">
+
+                                        <div class="col-md-4">
+                                            <label class="small mb-1" for="inputOrgName"
+                                            >NID Front</label
+                                            ><span style="color: red">*</span>
+                                            <input type="file" class="form-control" name="nid_front">
+
+                                            @error('nid_front')
+                                            <div class="alert alert-danger"
+                                                 style="margin-top: 10px">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+
+                                        <!-- Form Group (organization name)-->
+                                        <div class="col-md-4">
+                                            <label class="small mb-1" for="inputOrgName"
+                                            >NID Back</label
+                                            ><span style="color: red">*</span>
+                                            <input type="file" class="form-control" name="nid_back">
+
+                                            @error('nid_back')
+                                            <div class="alert alert-danger"
+                                                 style="margin-top: 10px">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+
+                                        <!-- Form Group (organization name)-->
+                                        <div class="col-md-4">
+                                            <label class="small mb-1" for="inputOrgName"
+                                            >Chairman Certificate</label
+                                            ><span style="color: red">*</span>
+                                            <input type="file" class="form-control" name="chairman_certificate">
+
+                                            @error('chairman_certificate')
+                                            <div class="alert alert-danger"
+                                                 style="margin-top: 10px">{{ $message }}</div>
+                                            @enderror
+                                        </div>
                                     </div>
 
-                                    <div class="col-md-4">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >Bank Name Insured</label
-                                        ><span style="color: red">*</span>
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder=""
-                                            value="{{ old('bank_name_insured') }}"
-                                            name="bank_name_insured"
-                                        />
+                                    <button class="btn btn-primary" type="submit">
+                                        Save changes
+                                    </button>
+                                </form>
 
-                                        @error('bank_name_insured')
-                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
-                                        @enderror
-                                    </div>
+                                {{-- ---------------------------------------- Farmer Profile Creation ---------------------------------------- --}}
 
-                                </div>
-
-
-                                <div class="row gx-3 mb-3">
-
-                                    <div class="col-md-4">
-                                        <label class="small mb-1" for="inputOrgName"
-                                        >NID Front</label
-                                        ><span style="color: red">*</span>
-                                        <input type="file" class="form-control" name="nid_front">
-
-                                        @error('nid_front')
-                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-
-                                    <!-- Form Group (organization name)-->
-                                    <div class="col-md-4">
-                                        <label class="small mb-1" for="inputOrgName"
-                                        >NID Back</label
-                                        ><span style="color: red">*</span>
-                                        <input type="file" class="form-control" name="nid_back">
-
-                                        @error('nid_back')
-                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-
-                                    <!-- Form Group (organization name)-->
-                                    <div class="col-md-4">
-                                        <label class="small mb-1" for="inputOrgName"
-                                        >Chairman Certificate</label
-                                        ><span style="color: red">*</span>
-                                        <input type="file" class="form-control" name="chairman_certificate">
-
-                                        @error('chairman_certificate')
-                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                </div>
-
-                                <button class="btn btn-primary" type="submit">
-                                    Save changes
-                                </button>
-                            </form>
-
-                            {{-- ---------------------------------------- Farmer Profile Creation ---------------------------------------- --}}
-
+                            </div>
                         </div>
+
                     </div>
+
                 </div>
             </div>
         </div>
     </main>
+
+
+    {{--    ----------------------------------- District division selection ----------------------------------- --}}
+
+    <script>
+        // axios.get('https://bdapis.com/api/v1.1/divisions/').then(el => {
+        //         console.log(el.data.data);
+        // });
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                division_data_array: [],
+                selectedDivision: ''
+            },
+
+            methods: {
+                divisions() {
+                    axios.get('https://bdapis.com/api/v1.1/divisions/').then(el => {
+                        this.division_data_array = el.data.data;
+                    });
+                }
+            },
+
+            mounted() {
+                this.divisions();
+            }
+        })
+
+    </script>
+
+    {{--    ----------------------------------- District division selection ----------------------------------- --}}
+
 @endsection

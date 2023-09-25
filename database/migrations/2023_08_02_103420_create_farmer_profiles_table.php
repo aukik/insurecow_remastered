@@ -26,7 +26,7 @@ class CreateFarmerProfilesTable extends Migration
             $table->string('thana');
             $table->string('upazilla');
             $table->string('union');
-            $table->string('city');
+            $table->string('division');
             $table->string('district');
             $table->string('zip_code');
             $table->string('village');

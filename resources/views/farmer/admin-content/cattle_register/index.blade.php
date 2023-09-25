@@ -111,7 +111,7 @@
                                 <!-- Form Row-->
                                 <div class="row gx-3 mb-3">
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <label class="small mb-1" for="inputLastName"
                                         >Cattle Age</label
                                         ><span style="color: red">*</span>
@@ -129,7 +129,7 @@
                                         @enderror
                                     </div>
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-4">
                                         <label class="small mb-1" for="inputLastName"
                                         >Cattle Color</label
                                         ><span style="color: red">*</span>
@@ -148,11 +148,6 @@
                                     </div>
 
 
-                                </div>
-
-                                <!-- Form Row-->
-                                <div class="row gx-3 mb-3">
-
                                     <div class="col-md-4">
                                         <label class="small mb-1" for="inputLastName"
                                         >Cattle Weight</label
@@ -170,6 +165,11 @@
                                         <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
                                         @enderror
                                     </div>
+
+                                </div>
+
+                                <!-- Form Row-->
+                                <div class="row gx-3 mb-3">
 
 
                                     <div class="col-md-4">
@@ -207,14 +207,9 @@
                                         <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
                                         @enderror
                                     </div>
-                                </div>
-
-
-                                <div class="row gx-3 mb-3">
-
 
                                     <!-- Form Group (organization name)-->
-                                    <div class="col-md-8">
+                                    <div class="col-md-4">
                                         <label class="small mb-1" for="inputOrgName"
                                         >Cattle Left Side</label
                                         ><span style="color: red">*</span>
@@ -224,6 +219,12 @@
                                         <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
                                         @enderror
                                     </div>
+
+                                </div>
+
+
+                                <div class="row gx-3 mb-3">
+
 
                                     <!-- Form Group (organization name)-->
                                     <div class="col-md-4">
@@ -236,27 +237,6 @@
                                         <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
                                         @enderror
                                     </div>
-                                </div>
-
-
-                                <div class="row gx-3 mb-3">
-
-
-                                    {{--  -------------********************************* Muzzle part -------------********************************* --}}
-
-                                    <div class="col-md-4" id="muzzle_of_cow">
-                                        <label class="small mb-1" for="inputOrgName"
-                                        >Muzzle Of Cow</label
-                                        ><span style="color: red">*</span>
-                                        <input type="file" class="form-control" name="muzzle_of_cow" id="fileInput">
-
-                                        @error('muzzle_of_cow')
-                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-
-
-                                    {{--  -------------********************************* Muzzle part -------------********************************* --}}
 
                                     <!-- Form Group (organization name)-->
                                     <div class="col-md-4">
@@ -282,6 +262,31 @@
                                         <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
                                         @enderror
                                     </div>
+
+
+                                </div>
+
+
+                                <div class="row gx-3 mb-3">
+
+
+                                    {{--  -------------********************************* Muzzle part -------------********************************* --}}
+
+                                    <div class="col-md-12" id="muzzle_of_cow">
+                                        <label class="small mb-1" for="inputOrgName"
+                                        >Muzzle Of Cow</label
+                                        ><span style="color: red">*</span>
+                                        <input type="file" class="form-control" name="muzzle_of_cow" id="fileInput">
+
+                                        @error('muzzle_of_cow')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
+
+                                    {{--  -------------********************************* Muzzle part -------------********************************* --}}
+
+
                                 </div>
 
 

@@ -236,16 +236,16 @@
 
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputLastName"
-                                        >City</label
+                                        >Division</label
                                         ><span style="color: red">*</span>
                                         <input
                                             class="form-control"
                                             id="inputLastName"
                                             type="text"
                                             placeholder=""
-                                            value="{{ $profile->city }}"
+                                            value="{{ $profile->division }}"
 
-                                            name="city"
+                                            name="division"
                                         />
                                     </div>
                                 </div>

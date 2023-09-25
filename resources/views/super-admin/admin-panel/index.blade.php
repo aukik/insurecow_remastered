@@ -21,6 +21,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"
             crossorigin="anonymous"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14"></script>
+
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/axios.min.js"
         integrity="sha512-aoTNnqZcT8B4AmeCFmiSnDlc4Nj/KPaZyB5G7JnOnUEkdNpCZs1LCankiYi01sLTyWy+m2P+W4XM+BuQ3Q4/Dg=="
