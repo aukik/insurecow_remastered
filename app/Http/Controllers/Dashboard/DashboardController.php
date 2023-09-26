@@ -17,7 +17,9 @@ class DashboardController extends Controller
 
     public function company()
     {
-        return view("dashboard.view");
+        $field_agent_count = User::where('role', 'fa')->where('company_id', auth()->user()->id)->count();
+        $farmer_count = User::where('role', 'f')->where('company_id', auth()->user()->id)->count();
+        return view("dashboard.company", compact('field_agent_count','farmer_count'));
     }
 
     public function farmer()
