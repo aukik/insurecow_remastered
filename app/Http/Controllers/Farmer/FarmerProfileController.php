@@ -26,6 +26,14 @@ class FarmerProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+    public function get_farmer_info()
+    {
+        $profile = auth()->user()->farmerProfile()->orderBy('id', 'desc')->first();
+        return view('farmer.admin-content.profile.view', compact('profile'));
+    }
+
     public function index()
     {
 
@@ -77,9 +85,9 @@ class FarmerProfileController extends Controller
             'union' => 'required',
             'division' => 'required',
             'district' => 'required',
-            'zip_code' => 'required',
+            'zip_code' => 'nullable',
             'village' => 'required',
-            'loan_amount' => 'required',
+            'loan_amount' => 'nullable',
             'num_of_livestock' => 'required',
             'type_of_livestock' => 'required',
 //            'sum_insured' => 'required',
@@ -88,7 +96,7 @@ class FarmerProfileController extends Controller
             'bank_name_insured' => 'required',
             'nid_front' => 'required|mimes:jpeg,jpg,png',
             'nid_back' => 'required|mimes:jpeg,jpg,png',
-            'loan_investment' => 'required|mimes:jpeg,jpg,png,pdf,txt',
+            'loan_investment' => 'nullable|mimes:jpeg,jpg,png,pdf,txt',
             'chairman_certificate' => 'required|mimes:jpeg,jpg,png,pdf,txt',
 
 
@@ -174,9 +182,9 @@ class FarmerProfileController extends Controller
             'union' => 'required',
             'division' => 'required',
             'district' => 'required',
-            'zip_code' => 'required',
+            'zip_code' => 'nullable',
             'village' => 'required',
-            'loan_amount' => 'required',
+            'loan_amount' => 'nullable',
             'num_of_livestock' => 'required',
             'type_of_livestock' => 'required',
 //            'sum_insured' => 'required',

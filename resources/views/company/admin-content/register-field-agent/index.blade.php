@@ -50,10 +50,8 @@
 
                                 <!-- Form Row-->
                                 <div class="row gx-3 mb-3">
-                                    <!-- Form Group (first name)-->
 
-                                    <!-- Form Group (last name)-->
-                                    <div class="col-md-12">
+                                    <div class="col-md-4">
                                         <label class="small mb-1" for="inputLastName"
                                         >Full Name</label
                                         >
@@ -66,14 +64,7 @@
                                             name="name"
                                         />
                                     </div>
-                                </div>
-
-
-                                <div class="row gx-3 mb-3">
-                                    <!-- Form Group (first name)-->
-
-                                    <!-- Form Group (last name)-->
-                                    <div class="col-md-12">
+                                    <div class="col-md-4">
                                         <label class="small mb-1" for="inputLastName"
                                         >Phone</label
                                         >
@@ -86,14 +77,7 @@
                                             name="phone"
                                         />
                                     </div>
-                                </div>
-
-
-                                <div class="row gx-3 mb-3">
-                                    <!-- Form Group (first name)-->
-
-                                    <!-- Form Group (last name)-->
-                                    <div class="col-md-12">
+                                    <div class="col-md-4">
                                         <label class="small mb-1" for="inputLastName"
                                         >Email Address</label
                                         >
@@ -106,14 +90,13 @@
                                             name="email"
                                         />
                                     </div>
+
                                 </div>
 
 
                                 <div class="row gx-3 mb-3">
-                                    <!-- Form Group (first name)-->
 
-                                    <!-- Form Group (last name)-->
-                                    <div class="col-md-12">
+                                    <div class="col-md-4">
                                         <label class="small mb-1" for="inputLastName"
                                         >Password</label
                                         >
@@ -126,14 +109,8 @@
                                             name="password"
                                         />
                                     </div>
-                                </div>
 
-
-                                <div class="row gx-3 mb-3">
-                                    <!-- Form Group (first name)-->
-
-                                    <!-- Form Group (last name)-->
-                                    <div class="col-md-12">
+                                    <div class="col-md-4">
                                         <label class="small mb-1" for="inputLastName"
                                         >Address</label
                                         >
@@ -146,13 +123,8 @@
                                             name="address"
                                         />
                                     </div>
-                                </div>
 
-                                <div class="row gx-3 mb-3">
-                                    <!-- Form Group (first name)-->
-
-                                    <!-- Form Group (last name)-->
-                                    <div class="col-md-12">
+                                    <div class="col-md-4">
                                         <label class="small mb-1" for="inputLastName"
                                         >Farmer / Agent Identification ID</label
                                         >
@@ -165,13 +137,13 @@
                                             name="agent_employee_id"
                                         />
                                     </div>
+
                                 </div>
 
-                                <div class="row gx-3 mb-3">
-                                    <!-- Form Group (first name)-->
 
-                                    <!-- Form Group (last name)-->
-                                    <div class="col-md-12">
+                                <div class="row gx-3 mb-3">
+
+                                    <div class="col-md-4">
                                         <label class="small mb-1" for="inputLastName"
                                         >Register As</label>
 
@@ -182,11 +154,7 @@
 
 
                                     </div>
-                                </div>
-
-                                <div class="row gx-3 mb-3">
-                                    <!-- Form Group (organization name)-->
-                                    <div class="col-md-12">
+                                    <div class="col-md-4">
                                         <label class="small mb-1" for="inputOrgName"
                                         >Person Image</label
                                         >

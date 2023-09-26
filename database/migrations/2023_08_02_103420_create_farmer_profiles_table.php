@@ -28,16 +28,16 @@ class CreateFarmerProfilesTable extends Migration
             $table->string('union');
             $table->string('division');
             $table->string('district');
-            $table->string('zip_code');
+            $table->string('zip_code')->nullable();
             $table->string('village');
-            $table->string('loan_amount');
+            $table->string('loan_amount')->nullable();
             $table->string('num_of_livestock');
             $table->string('type_of_livestock');
 //            $table->string('sum_insured');
 
             $table->string("nid_front"); //file
             $table->string("nid_back"); //file
-            $table->string("loan_investment");  //file
+            $table->string("loan_investment")->nullable();  //file
             $table->string("bank_name_insured");
             $table->string("chairman_certificate");
 

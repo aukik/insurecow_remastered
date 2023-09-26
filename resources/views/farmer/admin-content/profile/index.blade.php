@@ -150,16 +150,14 @@
                                             ><span style="color: red">*</span>
                                             <div>
                                                 <select class="form-control" name="division" id="division"
-                                                        v-model="selectedDivision">
-
-                                                    <option :value="item.division" v-for="item in division_data_array"
-                                                            :key="item">
+                                                        @change="onSelectDivision" v-model="selectedDivision">
+                                                    <option value="" disabled selected>Select a division</option>
+                                                    <option :value="item.division" v-for="item in division_data_array">
                                                         @{{ item.division }}
                                                     </option>
                                                 </select>
                                             </div>
 
-                                            <p>@{{ selectedDivision }}</p>
                                         </div>
                                         <div class="col-md-4">
                                             <label class="small mb-1" for="inputLastName"
@@ -167,14 +165,40 @@
                                             ><span style="color: red">*</span>
 
                                             <div>
-                                                <select class="form-control" name="district" id="district">
-
-                                                    <option value="Bagerhat">
-                                                        Bagerhat
+                                                <select class="form-control" name="district" id="district"
+                                                        @change="onSelectDistrict" v-model="selectedDistrict">
+                                                    <option value="" disabled selected>Select a district</option>
+                                                    <option :value="item2.district"
+                                                            v-for="item2 in district_data_array">
+                                                        @{{ item2.district }}
                                                     </option>
                                                 </select>
                                             </div>
                                         </div>
+
+                                        <div class="col-md-4">
+                                            <label class="small mb-1" for="inputLastName"
+                                            >Upazilla</label
+                                            ><span style="color: red">*</span>
+
+
+                                            <div>
+                                                <select class="form-control" name="upazilla" id="upazilla"
+                                                        @change="onSelectUpazilla">
+                                                    <option value="" disabled selected>Select Upazilla</option>
+                                                    <option :value="item3" v-for="item3 in upazilla_data_array">
+                                                        @{{ item3 }}
+                                                    </option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+
+                                    <!-- Form Row-->
+                                    <div class="row gx-3 mb-3">
 
                                         <div class="col-md-4">
                                             <label class="small mb-1" for="inputLastName"
@@ -187,28 +211,10 @@
                                                 placeholder=""
                                                 value="{{ old('thana') }}"
                                                 name="thana"
+                                                v-model="thana"
                                             />
                                         </div>
 
-                                    </div>
-
-                                    <!-- Form Row-->
-                                    <div class="row gx-3 mb-3">
-
-
-                                        <div class="col-md-4">
-                                            <label class="small mb-1" for="inputLastName"
-                                            >Upazilla</label
-                                            ><span style="color: red">*</span>
-                                            <input
-                                                class="form-control"
-                                                id="inputLastName"
-                                                type="text"
-                                                placeholder=""
-                                                value="{{ old('upazilla') }}"
-                                                name="upazilla"
-                                            />
-                                        </div>
 
                                         <div class="col-md-4">
                                             <label class="small mb-1" for="inputLastName"
@@ -221,13 +227,14 @@
                                                 placeholder=""
                                                 value="{{ old('union') }}"
                                                 name="union"
+                                                v-model="union"
                                             />
                                         </div>
 
                                         <div class="col-md-4">
                                             <label class="small mb-1" for="inputLastName"
                                             >Zip Code</label
-                                            ><span style="color: red">*</span>
+                                            ><span style="color: red"></span>
                                             <input
                                                 class="form-control"
                                                 id="inputLastName"
@@ -290,7 +297,7 @@
                                         <div class="col-md-4">
                                             <label class="small mb-1" for="inputLastName"
                                             >Loan Amount</label
-                                            ><span style="color: red">*</span>
+                                            ><span style="color: red"></span>
                                             <input
                                                 class="form-control"
                                                 id="inputLastName"
@@ -365,7 +372,7 @@
                                         <div class="col-md-4">
                                             <label class="small mb-1" for="inputOrgName"
                                             >Loan / Investment documents</label
-                                            ><span style="color: red">*</span>
+                                            ><span style="color: red"></span>
                                             <input type="file" class="form-control" name="loan_investment">
 
                                             @error('loan_investment')
@@ -466,15 +473,74 @@
             el: '#app',
             data: {
                 division_data_array: [],
-                selectedDivision: ''
+                selectedDivision: '',
+                district_data_array: [],
+                upazilla_data_array: [],
+                selectedDistrict: '',
+                thana: '',
+                union: '',
             },
 
             methods: {
                 divisions() {
                     axios.get('https://bdapis.com/api/v1.1/divisions/').then(el => {
+
                         this.division_data_array = el.data.data;
                     });
+                },
+                onSelectDivision(event) {
+                    const selectedValue = event.target.value;
+                    if (selectedValue) {
+                        // Perform actions with the selected value
+                        // console.log("Selected Division:", selectedValue);
+
+                        axios.get('https://bdapis.com/api/v1.1/division/' + selectedValue).then(el => {
+                            this.district_data_array = el.data.data;
+                        });
+
+                    } else {
+                        // Handle the case when the user selects the default option
+                        console.log("Please select a division");
+                    }
+                },
+
+                onSelectDistrict(event) {
+                    const selectedValue = event.target.value;
+                    if (selectedValue) {
+
+                        // console.log(this.selectedDivision);
+
+                        axios.get('https://bdapis.com/api/v1.1/division/' + this.selectedDivision).then(el => {
+                            el.data.data.forEach(data => {
+                                if (data.district === this.selectedDistrict) {
+                                    this.upazilla_data_array = data.upazilla;
+                                }
+                            });
+                        });
+
+
+                    } else {
+                        // Handle the case when the user selects the default option
+                        console.log("Please select a District");
+                    }
+                }, onSelectUpazilla(event) {
+                    const selectedValue = event.target.value;
+
+                    if (selectedValue) {
+
+                        // console.log(selectedValue);
+
+                        this.thana = selectedValue;
+                        this.union = selectedValue;
+
+                    } else {
+                        // Handle the case when the user selects the default option
+                        console.log("Please select a District");
+                    }
+
                 }
+
+
             },
 
             mounted() {

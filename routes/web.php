@@ -57,6 +57,7 @@ Route::middleware(['auth', 'farmer'])->prefix('farmer')->group(function () {
 //    -------------------------- Farmer Profile -----------------------------
 
     Route::resource('farmer_profile', FarmerProfileController::class);
+    Route::get('view_farmer_profile', [FarmerProfileController::class, 'get_farmer_info'])->name('farmer.view_profile');
 
 //    -------------------------- Farmer Profile -----------------------------
 
