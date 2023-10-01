@@ -42,7 +42,9 @@ class FarmerProfileController extends Controller
             return view('farmer.admin-content.profile.index');
         } else {
             $profile = auth()->user()->farmerProfile()->orderBy('id', 'desc')->first();
-            return view('farmer.admin-content.profile.update', compact('profile'));
+//            return view('farmer.admin-content.profile.update', compact('profile'));
+
+            return redirect()->route('farmer.view_profile');
         }
     }
 
@@ -77,8 +79,8 @@ class FarmerProfileController extends Controller
             'present_address' => 'required',
             'dob' => 'required',
             'nid' => 'required',
-            'source_of_income' => 'required',
-            'bank_account_no' => 'required',
+            'source_of_income' => 'nullable',
+            'bank_account_no' => 'required|numeric|regex:/^\d+$/',
             'farmer_address' => 'required',
             'thana' => 'required',
             'upazilla' => 'required',
@@ -97,7 +99,7 @@ class FarmerProfileController extends Controller
             'nid_front' => 'required|mimes:jpeg,jpg,png',
             'nid_back' => 'required|mimes:jpeg,jpg,png',
             'loan_investment' => 'nullable|mimes:jpeg,jpg,png,pdf,txt',
-            'chairman_certificate' => 'required|mimes:jpeg,jpg,png,pdf,txt',
+            'chairman_certificate' => 'nullable|mimes:jpeg,jpg,png,pdf,txt',
 
 
             'image' => 'required|mimes:jpeg,jpg,png',
@@ -146,9 +148,10 @@ class FarmerProfileController extends Controller
      * @param \App\Models\FarmerProfile $farmerProfile
      * @return \Illuminate\Http\Response
      */
-    public function edit(FarmerProfile $farmerProfile)
+    public function edit($id)
     {
-        //
+        $profile = auth()->user()->farmerProfile()->orderBy('id', 'desc')->first();
+        return view('farmer.admin-content.profile.update', compact('profile'));
     }
 
     /**
@@ -174,8 +177,8 @@ class FarmerProfileController extends Controller
             'present_address' => 'required',
             'dob' => 'required',
             'nid' => 'required',
-            'source_of_income' => 'required',
-            'bank_account_no' => 'required',
+            'source_of_income' => 'nullable',
+            'bank_account_no' => 'required|numeric|regex:/^\d+$/',
             'farmer_address' => 'required',
             'thana' => 'required',
             'upazilla' => 'required',

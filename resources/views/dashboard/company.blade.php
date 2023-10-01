@@ -273,7 +273,7 @@
                 <div class="col-xl-6 mb-4">
                     <div class="card card-header-actions h-100">
                         <div class="card-header">
-                            Earnings Breakdown
+                            Cattle Registration Breakdown
                             <div class="dropdown no-caret">
                                 <button
                                     class="btn btn-transparent-dark btn-icon dropdown-toggle"

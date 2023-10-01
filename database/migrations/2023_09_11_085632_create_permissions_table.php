@@ -21,6 +21,11 @@ class CreatePermissionsTable extends Migration
             $table->boolean("c_dashboard")->default(true);
             $table->boolean("c_register_agent")->default(false);
             $table->boolean("c_insurance")->default(false);
+
+            $table->boolean("cattle")->default(true);
+            $table->boolean("buffalo")->default(true);
+            $table->boolean("goat")->default(true);
+
             $table->string("role")->nullable();
             $table->string("user_id")->unique();
             $table->timestamps();

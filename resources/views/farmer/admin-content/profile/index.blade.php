@@ -58,7 +58,9 @@
                                                 placeholder=""
                                                 value="{{ old('fathers_name') }}"
                                                 name="fathers_name"
-
+                                                pattern="[A-Za-z\s]*"
+                                                title="Only text characters are allowed"
+                                                required
                                             />
                                         </div>
 
@@ -73,12 +75,15 @@
                                                 placeholder=""
                                                 value="{{ old('mothers_name') }}"
                                                 name="mothers_name"
+                                                pattern="[A-Za-z\s]*"
+                                                title="Only text characters are allowed"
+                                                required
                                             />
                                         </div>
 
                                         <div class="col-md-4">
                                             <label class="small mb-1" for="inputLastName"
-                                            >Present Address</label
+                                            >Farmers Present Address</label
                                             ><span style="color: red">*</span>
                                             <input
                                                 class="form-control"
@@ -87,6 +92,7 @@
                                                 placeholder=""
                                                 value="{{ old('present_address') }}"
                                                 name="present_address"
+                                                required
                                             />
                                         </div>
 
@@ -107,6 +113,7 @@
                                                 placeholder=""
                                                 value="{{ old('dob') }}"
                                                 name="dob"
+                                                required
                                             />
                                         </div>
 
@@ -121,13 +128,17 @@
                                                 placeholder=""
                                                 value="{{ old('nid') }}"
                                                 name="nid"
+                                                oninput="validateNID(this)"
+                                                required
                                             />
+                                            <span id="nidError" style="color: red;"></span>
                                         </div>
+
 
                                         <div class="col-md-4">
                                             <label class="small mb-1" for="inputLastName"
                                             >Source of Income</label
-                                            ><span style="color: red">*</span>
+                                            ><span style="color: red"></span>
                                             <input
                                                 class="form-control"
                                                 id="inputLastName"
@@ -212,6 +223,7 @@
                                                 value="{{ old('thana') }}"
                                                 name="thana"
                                                 v-model="thana"
+                                                required
                                             />
                                         </div>
 
@@ -228,8 +240,59 @@
                                                 value="{{ old('union') }}"
                                                 name="union"
                                                 v-model="union"
+                                                required
                                             />
                                         </div>
+
+
+                                        <div class="col-md-4">
+                                            <label class="small mb-1" for="inputLastName"
+                                            >Village</label
+                                            ><span style="color: red">*</span>
+                                            <input
+                                                class="form-control"
+                                                id="inputLastName"
+                                                type="text"
+                                                placeholder=""
+                                                value="{{ old('village') }}"
+                                                name="village"
+                                                required
+                                            />
+                                        </div>
+
+
+                                    </div>
+
+
+                                    <!-- Form Row-->
+                                    <div class="row gx-3 mb-3">
+
+
+                                        <div class="col-md-4">
+                                            <label class="small mb-1" for="inputLastName"
+                                            >Nationality</label
+                                            ><span style="color: red">*</span>
+                                            <input
+                                                class="form-control"
+                                                id="inputLastName"
+                                                type="text"
+                                                placeholder=""
+                                                value="{{ old('nationality') }}"
+                                                name="nationality"
+                                                required
+                                            />
+                                        </div>
+
+
+                                        <div class="col-md-4">
+                                            <label class="small mb-1" for="inputLastName"
+                                            >Farm Address</label
+                                            ><span style="color: red">*</span>
+                                            <textarea class="form-control"
+                                                      name="farmer_address"
+                                                      rows="1" required>{{ old('bank_account_no') }}</textarea>
+                                        </div>
+
 
                                         <div class="col-md-4">
                                             <label class="small mb-1" for="inputLastName"
@@ -245,6 +308,7 @@
                                             />
                                         </div>
 
+
                                     </div>
 
 
@@ -252,49 +316,64 @@
                                     <div class="row gx-3 mb-3">
 
 
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
+                                            <label class="small mb-1" for="inputLastName"
+                                            >No of Livestock</label
+                                            ><span style="color: red">*</span>
+                                            <input
+                                                class="form-control"
+                                                id="inputLastName"
+                                                type="number"
+                                                placeholder=""
+                                                value="{{ old('num_of_livestock') }}"
+                                                name="num_of_livestock"
+                                                required
+                                                pattern="[0-9]*"
+
+                                            />
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <label class="small mb-1" for="inputLastName"
+                                            >Type of Livestock</label
+                                            ><span style="color: red">*</span>
+                                            <input
+                                                class="form-control"
+                                                id="inputLastName"
+                                                type="text"
+                                                placeholder=""
+                                                value="{{ old('type_of_livestock') }}"
+                                                name="type_of_livestock"
+                                                required
+                                            />
+                                        </div>
+
+
+                                    </div>
+
+
+                                    <!-- Form Row-->
+                                    <div class="row gx-3 mb-3">
+
+
+                                        <div class="col-md-6">
                                             <label class="small mb-1" for="inputLastName"
                                             >Bank Account No</label
                                             ><span style="color: red">*</span>
                                             <input
                                                 class="form-control"
                                                 id="inputLastName"
-                                                type="text"
+                                                type="number"
                                                 placeholder=""
                                                 value="{{ old('bank_account_no') }}"
                                                 name="bank_account_no"
-                                            />
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label class="small mb-1" for="inputLastName"
-                                            >Farm Address</label
-                                            ><span style="color: red">*</span>
-                                            <textarea class="form-control"
-                                                      name="farmer_address"
-                                                      rows="1">{{ old('bank_account_no') }}</textarea>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label class="small mb-1" for="inputLastName"
-                                            >Village</label
-                                            ><span style="color: red">*</span>
-                                            <input
-                                                class="form-control"
-                                                id="inputLastName"
-                                                type="text"
-                                                placeholder=""
-                                                value="{{ old('village') }}"
-                                                name="village"
+                                                pattern="[0-9]*"
+                                                required
                                             />
                                         </div>
 
-                                    </div>
 
-
-                                    <!-- Form Row-->
-                                    <div class="row gx-3 mb-3">
-
-
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <label class="small mb-1" for="inputLastName"
                                             >Loan Amount</label
                                             ><span style="color: red"></span>
@@ -308,55 +387,7 @@
                                             />
                                         </div>
 
-                                        <div class="col-md-4">
-                                            <label class="small mb-1" for="inputLastName"
-                                            >No of Livestock</label
-                                            ><span style="color: red">*</span>
-                                            <input
-                                                class="form-control"
-                                                id="inputLastName"
-                                                type="text"
-                                                placeholder=""
-                                                value="{{ old('num_of_livestock') }}"
-                                                name="num_of_livestock"
-                                            />
-                                        </div>
 
-                                        <div class="col-md-4">
-                                            <label class="small mb-1" for="inputLastName"
-                                            >Type of Livestock</label
-                                            ><span style="color: red">*</span>
-                                            <input
-                                                class="form-control"
-                                                id="inputLastName"
-                                                type="text"
-                                                placeholder=""
-                                                value="{{ old('type_of_livestock') }}"
-                                                name="type_of_livestock"
-                                            />
-                                        </div>
-
-
-                                    </div>
-
-
-                                    <!-- Form Row-->
-                                    <div class="row gx-3 mb-3">
-
-
-                                        <div class="col-md-12">
-                                            <label class="small mb-1" for="inputLastName"
-                                            >Nationality</label
-                                            ><span style="color: red">*</span>
-                                            <input
-                                                class="form-control"
-                                                id="inputLastName"
-                                                type="text"
-                                                placeholder=""
-                                                value="{{ old('nationality') }}"
-                                                name="nationality"
-                                            />
-                                        </div>
                                     </div>
 
 
@@ -366,7 +397,7 @@
                                             <label class="small mb-1" for="inputOrgName"
                                             >Farmers Image</label
                                             ><span style="color: red">*</span>
-                                            <input type="file" class="form-control" name="image">
+                                            <input type="file" class="form-control" name="image" required>
                                         </div>
 
                                         <div class="col-md-4">
@@ -392,6 +423,7 @@
                                                 placeholder=""
                                                 value="{{ old('bank_name_insured') }}"
                                                 name="bank_name_insured"
+                                                required
                                             />
 
                                             @error('bank_name_insured')
@@ -409,7 +441,7 @@
                                             <label class="small mb-1" for="inputOrgName"
                                             >NID Front</label
                                             ><span style="color: red">*</span>
-                                            <input type="file" class="form-control" name="nid_front">
+                                            <input type="file" class="form-control" name="nid_front" required>
 
                                             @error('nid_front')
                                             <div class="alert alert-danger"
@@ -422,7 +454,7 @@
                                             <label class="small mb-1" for="inputOrgName"
                                             >NID Back</label
                                             ><span style="color: red">*</span>
-                                            <input type="file" class="form-control" name="nid_back">
+                                            <input type="file" class="form-control" name="nid_back" required>
 
                                             @error('nid_back')
                                             <div class="alert alert-danger"
@@ -434,7 +466,7 @@
                                         <div class="col-md-4">
                                             <label class="small mb-1" for="inputOrgName"
                                             >Chairman Certificate</label
-                                            ><span style="color: red">*</span>
+                                            ><span style="color: red"></span>
                                             <input type="file" class="form-control" name="chairman_certificate">
 
                                             @error('chairman_certificate')
@@ -530,8 +562,8 @@
 
                         // console.log(selectedValue);
 
-                        this.thana = selectedValue;
-                        this.union = selectedValue;
+                        // this.thana = selectedValue;
+                        // this.union = selectedValue;
 
                     } else {
                         // Handle the case when the user selects the default option
@@ -551,5 +583,28 @@
     </script>
 
     {{--    ----------------------------------- District division selection ----------------------------------- --}}
+
+    {{--    ----------------------------------- Validate Nid length ----------------------------------- --}}
+
+
+    <script>
+        function validateNID(input) {
+            const value = input.value.trim();
+            const nidError = document.getElementById("nidError");
+
+            if (value.length < 10) {
+                nidError.textContent = "Minimum 10 digits required.";
+                input.setCustomValidity("Minimum 10 digits required.");
+            } else if (value.length > 13) {
+                nidError.textContent = "Maximum 13 digits allowed.";
+                input.setCustomValidity("Maximum 13 digits allowed.");
+            } else {
+                nidError.textContent = "";
+                input.setCustomValidity("");
+            }
+        }
+    </script>
+
+    {{--    ----------------------------------- Validate Nid length ----------------------------------- --}}
 
 @endsection

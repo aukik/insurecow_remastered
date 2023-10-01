@@ -33,8 +33,15 @@
 
 
                     <div class="card mb-4">
-                        <div class="card-header">
+                        {{--                        <div class="card-header">--}}
+                        {{--                            Farmer Profile - View Info--}}
+                        {{--                        </div>--}}
+
+                        <div class="card-header d-flex flex-wrap justify-content-between align-items-center">
                             Farmer Profile - View Info
+
+                            <a href="{{ route('farmer_profile.edit', auth()->user()->id) }}" class="btn btn-primary">Update
+                                Profile</a>
                         </div>
 
                         <div class="card-body">
@@ -305,8 +312,17 @@
 
                                     <div class="form-control">
 
-                                        <img src="{{ asset('storage/'.$profile->chairman_certificate) }}"
-                                             style="width: 150px; max-height: 90px">
+
+                                        @if(!$profile->loan_investment == null)
+                                            <img src="{{ asset('storage/'.$profile->chairman_certificate) }}"
+                                                 style="width: 150px; max-height: 90px">
+                                        @else
+                                            <p style="padding: 27px 0; color: red">Chairman certificate file is not
+                                                uploaded</p>
+                                        @endif
+
+                                        {{--                                        <img src="{{ asset('storage/'.$profile->chairman_certificate) }}"--}}
+                                        {{--                                             style="width: 150px; max-height: 90px">--}}
                                     </div>
                                 </div>
                             </div>

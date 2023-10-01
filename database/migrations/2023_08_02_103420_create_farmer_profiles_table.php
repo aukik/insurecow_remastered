@@ -20,7 +20,7 @@ class CreateFarmerProfilesTable extends Migration
             $table->string('present_address');
             $table->date('dob');
             $table->string('nid');
-            $table->string('source_of_income');
+            $table->string('source_of_income')->nullable();
             $table->string('bank_account_no');
             $table->string('farmer_address');
             $table->string('thana');
@@ -39,7 +39,7 @@ class CreateFarmerProfilesTable extends Migration
             $table->string("nid_back"); //file
             $table->string("loan_investment")->nullable();  //file
             $table->string("bank_name_insured");
-            $table->string("chairman_certificate");
+            $table->string("chairman_certificate")->nullable();
 
 
             $table->string('nationality');

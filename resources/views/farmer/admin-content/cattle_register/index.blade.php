@@ -15,7 +15,7 @@
                                 <div class="page-header-icon">
                                     <i data-feather="user"></i>
                                 </div>
-                                Cattle / Goat Registration - Farmer
+                                Animal Registration - Farmer
                             </h1>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                 <div class="col-xl-12">
                     <!-- Account details card-->
                     <div class="card mb-4">
-                        <div class="card-header">Cattle / Goat Registration</div>
+                        <div class="card-header"> Animal Registration</div>
                         <div class="card-body">
 
                             {{-- ---------------------------------------- Farmer Cow Registration ---------------------------------------- --}}
@@ -65,15 +65,24 @@
                                         ><span style="color: red">*</span>
 
                                         <select class="form-control" name="animal_type" id="animal_type">
-                                            <option value="cattle">Cattle</option>
-                                            <option value="goat">Goat</option>
+                                            @if(auth()->user()->permission->cattle == 1)
+                                                <option value="cattle">Cattle</option>
+                                            @endif
+
+                                            @if(auth()->user()->permission->buffalo == 1)
+                                                <option value="buffalo">Buffalo</option>
+                                            @endif
+
+                                            @if(auth()->user()->permission->goat == 1)
+                                                <option value="goat">Goat</option>
+                                            @endif
                                         </select>
 
                                     </div>
 
                                     <div class="col-md-4">
                                         <label class="small mb-1" for="inputLastName"
-                                        >Cattle Name</label
+                                        >Animal Name</label
                                         ><span style="color: red">*</span>
                                         <input
                                             class="form-control "
@@ -91,7 +100,7 @@
 
                                     <div class="col-md-4">
                                         <label class="small mb-1" for="inputLastName"
-                                        >Cattle Breed</label
+                                        >Animal Breed</label
                                         ><span style="color: red">*</span>
                                         <input
                                             class="form-control"
@@ -113,7 +122,7 @@
 
                                     <div class="col-md-4">
                                         <label class="small mb-1" for="inputLastName"
-                                        >Cattle Age</label
+                                        >Animal Age</label
                                         ><span style="color: red">*</span>
                                         <input
                                             class="form-control"
@@ -131,7 +140,7 @@
 
                                     <div class="col-md-4">
                                         <label class="small mb-1" for="inputLastName"
-                                        >Cattle Color</label
+                                        >Animal Color</label
                                         ><span style="color: red">*</span>
                                         <input
                                             class="form-control"
@@ -150,7 +159,7 @@
 
                                     <div class="col-md-4">
                                         <label class="small mb-1" for="inputLastName"
-                                        >Cattle Weight</label
+                                        >Animal Weight</label
                                         ><span style="color: red">*</span>
                                         <input
                                             class="form-control"
@@ -174,7 +183,7 @@
 
                                     <div class="col-md-4">
                                         <label class="small mb-1" for="inputLastName"
-                                        >Cattle Type</label
+                                        >Animal Type</label
                                         ><span style="color: red">*</span>
                                         <input
                                             class="form-control"
@@ -211,7 +220,7 @@
                                     <!-- Form Group (organization name)-->
                                     <div class="col-md-4">
                                         <label class="small mb-1" for="inputOrgName"
-                                        >Cattle Left Side</label
+                                        >Animal Left Side</label
                                         ><span style="color: red">*</span>
                                         <input type="file" class="form-control" name="left_side">
 
@@ -229,7 +238,7 @@
                                     <!-- Form Group (organization name)-->
                                     <div class="col-md-4">
                                         <label class="small mb-1" for="inputOrgName"
-                                        >Cattle Right Side</label
+                                        >Animal Right Side</label
                                         ><span style="color: red">*</span>
                                         <input type="file" class="form-control" name="right_side">
 
@@ -254,7 +263,7 @@
                                     <!-- Form Group (organization name)-->
                                     <div class="col-md-4">
                                         <label class="small mb-1" for="inputOrgName"
-                                        >Cow With Owner</label
+                                        >Animal With Owner</label
                                         ><span style="color: red">*</span>
                                         <input type="file" class="form-control" name="cow_with_owner">
 
@@ -274,7 +283,7 @@
 
                                     <div class="col-md-12" id="muzzle_of_cow">
                                         <label class="small mb-1" for="inputOrgName"
-                                        >Muzzle Of Cow</label
+                                        >Muzzle Of Animal</label
                                         ><span style="color: red">*</span>
                                         <input type="file" class="form-control" name="muzzle_of_cow" id="fileInput">
 
@@ -291,7 +300,7 @@
 
 
                                 <button class="btn btn-primary cattle_register_button" type="submit">
-                                    Register cattle
+                                    Register Animal
                                 </button>
 
                             </form>

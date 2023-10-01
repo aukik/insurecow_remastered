@@ -15,41 +15,56 @@
 
         @if(auth()->user()->farmerProfile()->count() != 0)
 
-            <a class="nav-link" href="{{ route('f.dashboard') }}">
-                <div class="nav-link-icon"><i data-feather="filter"></i></div>
-                Dashboard
-            </a>
+            @if(auth()->user()->permission->c_dashboard == 1)
 
-            <a class="nav-link" href="{{ route('cattle_register.index') }}">
-                <div class="nav-link-icon"><i data-feather="filter"></i></div>
-                Add Cattle / Goat
-            </a>
+                <a class="nav-link" href="{{ route('f.dashboard') }}">
+                    <div class="nav-link-icon"><i data-feather="filter"></i></div>
+                    Dashboard
+                </a>
 
-            <a class="nav-link" href="{{ route('cattle.list') }}">
-                <div class="nav-link-icon"><i data-feather="filter"></i></div>
-                View Registered list
-            </a>
+            @endif
 
-            <a class="nav-link" href="{{ route('insurance.packages') }}">
-                <div class="nav-link-icon"><i data-feather="filter"></i></div>
-                Apply For Insurance
-            </a>
+            @if(auth()->user()->permission->f_cattle_reg == 1)
+                <a class="nav-link" href="{{ route('cattle_register.index') }}">
+                    <div class="nav-link-icon"><i data-feather="filter"></i></div>
+                    Add Cattle / Goat
+                </a>
+
+                <a class="nav-link" href="{{ route('cattle.list') }}">
+                    <div class="nav-link-icon"><i data-feather="filter"></i></div>
+                    View Registered list
+                </a>
+            @endif
 
 
-            {{--            <a class="nav-link" href="">--}}
-            {{--                <div class="nav-link-icon"><i data-feather="filter"></i></div>--}}
-            {{--                Cattle Insurance--}}
-            {{--            </a>--}}
+            @if(auth()->user()->permission->f_insurance == 1)
 
-            <a class="nav-link" href="{{ route('insurance.history.index') }}">
-                <div class="nav-link-icon"><i data-feather="filter"></i></div>
-                Insurance History
-            </a>
+                <a class="nav-link" href="{{ route('insurance.packages') }}">
+                    <div class="nav-link-icon"><i data-feather="filter"></i></div>
+                    Apply For Insurance
+                </a>
 
-            <a class="nav-link" href="">
-                <div class="nav-link-icon"><i data-feather="filter"></i></div>
-                Farm Management
-            </a>
+
+                {{--            <a class="nav-link" href="">--}}
+                {{--                <div class="nav-link-icon"><i data-feather="filter"></i></div>--}}
+                {{--                Cattle Insurance--}}
+                {{--            </a>--}}
+
+                <a class="nav-link" href="{{ route('insurance.history.index') }}">
+                    <div class="nav-link-icon"><i data-feather="filter"></i></div>
+                    Insurance History
+                </a>
+
+            @endif
+
+            @if(auth()->user()->permission->f_farm_management == 1)
+
+                <a class="nav-link" href="">
+                    <div class="nav-link-icon"><i data-feather="filter"></i></div>
+                    Farm Management
+                </a>
+
+            @endif
 
             <a class="nav-link" href="{{ route('view.password') }}">
                 <div class="nav-link-icon"><i data-feather="filter"></i></div>

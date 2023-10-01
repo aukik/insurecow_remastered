@@ -53,64 +53,135 @@
 
                                 @if($permission->role == "f")
 
-                                    <div class="row gx-3 mb-3 align-items-center">
-                                        <div class="col-auto">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="hidden" name="f_cattle_reg"
-                                                       value="0">
-                                                <input class="form-check-input" type="checkbox"
-                                                       id="exampleFormControlSelect1"
-                                                       name="f_cattle_reg" value="1"
-                                                       @if($permission->f_cattle_reg == 1) checked @endif>
+                                    <div class="row">
+                                        <div class="col-md-5">
+
+                                            <div style="color: #0a3622; font-weight: bold">Panel Permission</div>
+                                            <hr style="color: #0a3622; font-weight: bold">
+
+                                            <div class="row gx-3 mb-3 align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="hidden"
+                                                               name="f_cattle_reg"
+                                                               value="0">
+                                                        <input class="form-check-input" type="checkbox"
+                                                               id="exampleFormControlSelect1"
+                                                               name="f_cattle_reg" value="1"
+                                                               @if($permission->f_cattle_reg == 1) checked @endif>
+                                                    </div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <label for="exampleFormControlSelect1">Cattle Registration [ Farmer
+                                                        Sided
+                                                        Permission
+                                                        ]</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="row gx-3 mb-3 align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="hidden" name="f_insurance"
+                                                               value="0">
+                                                        <input class="form-check-input" type="checkbox"
+                                                               id="exampleFormControlSelect1"
+                                                               name="f_insurance" value="1"
+                                                               @if($permission->f_insurance == 1) checked @endif>
+                                                    </div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <label for="exampleFormControlSelect1">Farmer Insurance [ Farmer
+                                                        Sided
+                                                        Permission ]</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="row gx-3 mb-3 align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="hidden"
+                                                               name="f_farm_management"
+                                                               value="0">
+                                                        <input class="form-check-input" type="checkbox"
+                                                               id="exampleFormControlSelect1"
+                                                               name="f_farm_management" value="1"
+                                                               @if($permission->f_farm_management == 1) checked @endif>
+                                                    </div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <label for="exampleFormControlSelect1">Farm Management [ Farmer
+                                                        Sided
+                                                        Permission
+                                                        ]</label>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="col-auto">
-                                            <label for="exampleFormControlSelect1">Cattle Registration [ Farmer Sided
-                                                Permission
-                                                ]</label>
-                                        </div>
-                                    </div>
 
+                                        <div class="col-md-7">
 
+                                            <div style="color: #0a3622; font-weight: bold">Animal Registration Permission</div>
+                                            <hr style="color: #0a3622; font-weight: bold">
 
-
-                                    <div class="row gx-3 mb-3 align-items-center">
-                                        <div class="col-auto">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="hidden" name="f_insurance"
-                                                       value="0">
-                                                <input class="form-check-input" type="checkbox"
-                                                       id="exampleFormControlSelect1"
-                                                       name="f_insurance" value="1"
-                                                       @if($permission->f_insurance == 1) checked @endif>
+                                            <div class="row gx-3 mb-3 align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="hidden" name="cattle"
+                                                               value="0">
+                                                        <input class="form-check-input" type="checkbox"
+                                                               id="exampleFormControlSelect1"
+                                                               name="cattle" value="1"
+                                                               @if($permission->cattle == 1) checked @endif>
+                                                    </div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <label for="exampleFormControlSelect1">Farmer Can register with
+                                                        animal type
+                                                        Cattle [ Farmer Sided
+                                                        Permission
+                                                        ]</label>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <label for="exampleFormControlSelect1">Farmer Insurance [ Farmer Sided
-                                                Permission</label>
-                                        </div>
-                                    </div>
 
-
-
-
-
-
-                                    <div class="row gx-3 mb-3 align-items-center">
-                                        <div class="col-auto">
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="hidden" name="f_farm_management"
-                                                       value="0">
-                                                <input class="form-check-input" type="checkbox"
-                                                       id="exampleFormControlSelect1"
-                                                       name="f_farm_management" value="1"
-                                                       @if($permission->f_farm_management == 1) checked @endif>
+                                            <div class="row gx-3 mb-3 align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="hidden" name="buffalo"
+                                                               value="0">
+                                                        <input class="form-check-input" type="checkbox"
+                                                               id="exampleFormControlSelect1"
+                                                               name="buffalo" value="1"
+                                                               @if($permission->buffalo == 1) checked @endif>
+                                                    </div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <label for="exampleFormControlSelect1">Farmer Can register with
+                                                        animal type
+                                                        Buffalo [ Farmer Sided
+                                                        Permission
+                                                        ]</label>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <label for="exampleFormControlSelect1">Farm Management [ Farmer Sided
-                                                Permission
-                                                ]</label>
+
+                                            <div class="row gx-3 mb-3 align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="hidden" name="goat"
+                                                               value="0">
+                                                        <input class="form-check-input" type="checkbox"
+                                                               id="exampleFormControlSelect1"
+                                                               name="goat" value="1"
+                                                               @if($permission->goat == 1) checked @endif>
+                                                    </div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <label for="exampleFormControlSelect1">Farmer Can register with
+                                                        animal type
+                                                        Goat [ Farmer Sided
+                                                        Permission
+                                                        ]</label>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -118,6 +189,10 @@
 
 
                                 @if($permission->role == "c")
+
+
+                                    <div style="color: #0a3622; font-weight: bold">Panel Permission</div>
+                                    <hr style="color: #0a3622; font-weight: bold">
 
                                     <div class="row gx-3 mb-3 align-items-center">
                                         <div class="col-auto">
@@ -173,6 +248,7 @@
                                     </div>
                                 @endif
 
+                                <br>
 
                                 <button class="btn btn-primary" type="submit">
                                     Save permission changes
