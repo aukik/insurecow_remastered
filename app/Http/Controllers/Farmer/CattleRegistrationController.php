@@ -44,10 +44,6 @@ class CattleRegistrationController extends Controller
 
         $animalType = $request->input('animal_type');
 
-        if (!in_array($animalType, ['cattle', 'goat'])) {
-            return "Invalid request";
-        }
-
         $id = 0;
 
         if (CattleRegistration::orderBy('id', 'desc')->count() == 0) {
@@ -80,13 +76,12 @@ class CattleRegistrationController extends Controller
 
 //        ----------------------------- If animal type is cattle then muzzle will be inserted, else it will store "Not Applicable for goat registration" -----------------------------
 
-
-        if ($animalType === 'cattle') {
+        if ($animalType === 'goat') {
+            $inputs['muzzle_of_cow'] = "Not Applicable for goat registration";
+        }else{
             if (request('muzzle_of_cow')) {
                 $inputs['muzzle_of_cow'] = \request('muzzle_of_cow')->store('images');
             }
-        } else if ($animalType === 'goat') {
-            $inputs['muzzle_of_cow'] = "Not Applicable for goat registration";
         }
 
 //        ----------------------------- If animal type is cattle then muzzle will be inserted, else it will store "Not Applicable for goat registration" -----------------------------
@@ -123,7 +118,7 @@ class CattleRegistrationController extends Controller
 
         $basename = $inputs['muzzle_of_cow'];
 
-        $this->dispatch(new CattleRegistrationProcess($inputs, $basename, auth()->user()));
+        $this->dispatch(new CattleRegistrationProcess($inputs, $basename, auth()->user(), $id));
         session()->flash("register", "Verification process running, If the process is accepted, the cattle information will be automatically added to the list");
         return back();
 

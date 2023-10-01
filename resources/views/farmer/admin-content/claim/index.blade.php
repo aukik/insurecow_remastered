@@ -77,6 +77,9 @@
                                     <input type="hidden" class="form-control" name="muzzle_token"
                                            value="{{ $cattle_info->muzzle_of_cow }}">
 
+                                    <input type="hidden" class="form-control" name="cattle_id"
+                                           value="{{ $cattle_info->id }}">
+
 
                                     {{--  -------------********************************* Muzzle part -------------********************************* --}}
 

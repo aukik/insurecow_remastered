@@ -135,11 +135,9 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-auto">
-                                                    <label for="exampleFormControlSelect1">Farmer Can register with
+                                                    <label for="exampleFormControlSelect1">Farmer can register with
                                                         animal type
-                                                        Cattle [ Farmer Sided
-                                                        Permission
-                                                        ]</label>
+                                                        Cattle</label>
                                                 </div>
                                             </div>
 
@@ -155,11 +153,9 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-auto">
-                                                    <label for="exampleFormControlSelect1">Farmer Can register with
+                                                    <label for="exampleFormControlSelect1">Farmer can register with
                                                         animal type
-                                                        Buffalo [ Farmer Sided
-                                                        Permission
-                                                        ]</label>
+                                                        Buffalo</label>
                                                 </div>
                                             </div>
 
@@ -175,11 +171,9 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-auto">
-                                                    <label for="exampleFormControlSelect1">Farmer Can register with
+                                                    <label for="exampleFormControlSelect1">Farmer can register with
                                                         animal type
-                                                        Goat [ Farmer Sided
-                                                        Permission
-                                                        ]</label>
+                                                        Goat</label>
                                                 </div>
                                             </div>
                                         </div>

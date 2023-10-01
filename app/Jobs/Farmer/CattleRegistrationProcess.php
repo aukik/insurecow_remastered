@@ -22,17 +22,19 @@ class CattleRegistrationProcess implements ShouldQueue
     public $data;
     public $basename;
     public $user;
+    public $cattle_id;
 
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($data, $basename, $user)
+    public function __construct($data, $basename, $user, $id)
     {
         $this->data = $data;
         $this->basename = $basename;
         $this->user = $user;
+        $this->cattle_id = $id;
     }
 
     /**
@@ -47,7 +49,6 @@ class CattleRegistrationProcess implements ShouldQueue
         $basename = $this->basename;
         $options = 'registration';
         $apiUrl = "http://13.232.34.224/cattle_identification";
-        Log::info($data['cattle_name']);
 
         $cattle_name = $data['cattle_name'];
         $cow_with_owner = $data['cow_with_owner'];
@@ -56,7 +57,10 @@ class CattleRegistrationProcess implements ShouldQueue
             'cattle_name' => $cattle_name,
             'cow_with_owner' => $cow_with_owner,
             'verification_report' => "processing",
-            'user_id' => $this->user->id
+            'user_id' => $this->user->id,
+            'cattle_id' => $this->cattle_id,
+            'operation' => 'registration'
+
         ]);
 
         try {
@@ -78,7 +82,12 @@ class CattleRegistrationProcess implements ShouldQueue
                         'cattle_name' => $cattle_name,
                         'cow_with_owner' => $cow_with_owner,
                         'verification_report' => "success",
-                        'user_id' => $this->user->id
+                        'user_id' => $this->user->id,
+                        'cattle_id' => $this->cattle_id,
+                        'operation' => 'registration'
+
+
+
                     ]);
 
                     Log::info("Success");
@@ -89,7 +98,12 @@ class CattleRegistrationProcess implements ShouldQueue
                         'cattle_name' => $cattle_name,
                         'cow_with_owner' => $cow_with_owner,
                         'verification_report' => "failed",
-                        'user_id' => $this->user->id
+                        'user_id' => $this->user->id,
+                        'cattle_id' => $this->cattle_id,
+                        'operation' => 'registration'
+
+
+
                     ]);
 
                     Log::info("failed");
@@ -99,7 +113,10 @@ class CattleRegistrationProcess implements ShouldQueue
                         'cattle_name' => $cattle_name,
                         'cow_with_owner' => $cow_with_owner,
                         'verification_report' => "server currently busy, please try again later",
-                        'user_id' => $this->user->id
+                        'user_id' => $this->user->id,
+                        'cattle_id' => $this->cattle_id,
+                        'operation' => 'registration'
+
                     ]);
 
                     Log::info("Server Error");
@@ -115,7 +132,11 @@ class CattleRegistrationProcess implements ShouldQueue
                 'cattle_name' => $cattle_name,
                 'cow_with_owner' => $cow_with_owner,
                 'verification_report' => "server timeout, please try later",
-                'user_id' => $this->user->id
+                'user_id' => $this->user->id,
+                'cattle_id' => $this->cattle_id,
+                'operation' => 'registration'
+
+
             ]);
 
             Log::info("Catch Exception");

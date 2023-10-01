@@ -48,6 +48,7 @@
                                         <th>Price</th>
                                         <th>Insurance Status</th>
                                         <th>Action</th>
+                                        <th>Claim</th>
 {{--                                        <th>Claim <span style="color: red">[TEST]</span></th>--}}
 
                                         {{--                                        <th>Insurance</th>--}}
@@ -71,6 +72,12 @@
 
                                             <td>
                                                 <button class="btn btn-success" type="button">View</button>
+                                            </td>
+
+                                            <td>
+{{--                                                <button class="btn btn-success" type="button">View</button>--}}
+
+                                                <a href="{{ route('claim.index', $cattle->id) }}" class="btn btn-danger">Claim</a>
                                             </td>
 
 {{--                                            @if(\App\Models\Order::order_verification($cattle->id) > 0)--}}

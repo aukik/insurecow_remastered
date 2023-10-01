@@ -21,8 +21,6 @@ class ClaimController extends Controller
         } else {
             return "Invalid request";
         }
-
-
     }
 
     public function store(Request $request)
@@ -30,7 +28,7 @@ class ClaimController extends Controller
         $inputs = \request()->validate([
             'muzzle_of_cow' => 'required|mimes:jpeg,jpg,png',
             'muzzle_token' => 'required',
-//            'cattle_id' => 'required',
+            'cattle_id' => 'required',
         ]);
 
 
@@ -45,7 +43,7 @@ class ClaimController extends Controller
         $options = 'claim';
 
         // API endpoint URL
-        $apiUrl = env('API_URL');
+        $apiUrl = "http://13.232.34.224/cattle_identification";
 
         $basename = $inputs['muzzle_token'];
 //        $catl_id = $inputs['cattle_id'];

@@ -19,6 +19,8 @@ class CreateCattleRegReportsTable extends Migration
             $table->string('verification_report')->nullable();
             $table->string('cow_with_owner')->nullable();
             $table->string('user_id')->nullable();
+            $table->string('cattle_id')->nullable();
+            $table->string('operation')->nullable();
             $table->timestamps();
         });
     }
