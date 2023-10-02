@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\ml;
 
 use App\Http\Controllers\Controller;
+use App\Models\CattleRegistration;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Str;
 
 class ClaimController extends Controller
 {
@@ -31,6 +33,8 @@ class ClaimController extends Controller
             'cattle_id' => 'required',
         ]);
 
+//        return CattleRegistration::findOrFail($inputs['cattle_id']);
+
 
         if (request('muzzle_of_cow')) {
             $inputs['muzzle_of_cow'] = \request('muzzle_of_cow')->store('images');
@@ -46,8 +50,9 @@ class ClaimController extends Controller
         $apiUrl = "http://13.232.34.224/cattle_identification";
 
         $basename = $inputs['muzzle_token'];
-//        $catl_id = $inputs['cattle_id'];
+        $cattle_id = $inputs['cattle_id'];
 
+        $cattle_data = CattleRegistration::findOrFail($cattle_id);
 
         try {
             $response = Http::attach(
@@ -61,12 +66,12 @@ class ClaimController extends Controller
 
                 $apiResponse = $response->json('output');
 
-                if ($apiResponse == "Success") {
+                if (Str::length($apiResponse) > 30) {
 
 //                    auth()->user()->insurance_claimed()->create($inputs);
 
                     session()->flash("claim_success", "Claim action matched successfully");
-                    return back();
+                    return back()->with("data",$cattle_data);
                 } elseif ($apiResponse == "Failed") {
                     session()->flash("claim_failed", "Claim action unaccepted");
                     return back();

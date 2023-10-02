@@ -15,7 +15,7 @@
                                 <div class="page-header-icon">
                                     <i data-feather="user"></i>
                                 </div>
-                                Claim Insurance - <span style="color: red">&nbsp;Under Construction</span>
+                                Claim Insurance - Farmer<span style="color: red">&nbsp</span>
                             </h1>
                         </div>
                     </div>
@@ -31,8 +31,8 @@
                 <div class="col-xl-12">
                     <!-- Account details card-->
                     <div class="card mb-4">
-                        <div class="card-header">Claim Insurance -<span
-                                style="color: red">&nbsp;Under Construction</span></div>
+                        <div class="card-header">Claim Insurance - Farmer<span
+                                style="color: red"></span></div>
                         <div class="card-body">
 
                             {{-- ---------------------------------------- Farmer Cow Registration ---------------------------------------- --}}
@@ -96,6 +96,72 @@
                             </form>
 
                             {{-- ---------------------------------------- Farmer Cow Registration ---------------------------------------- --}}
+
+
+                            <br>
+                            @if(session('data'))
+
+                                <div style="color: #0a3622; font-weight: bold">Claim Report - Success</div>
+                                <hr style="color: #0a3622; font-weight: bold">
+
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <p style="font-weight: bold">
+                                            <span style="color: #0a3622">Cattle Name :</span> {{ session('data')->cattle_name }}
+                                        </p>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <p style="font-weight: bold">
+                                            <span style="color: #0a3622">Cattle Breed :</span> {{ session('data')->cattle_breed }}
+                                        </p>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <p style="font-weight: bold">
+                                            <span style="color: #0a3622">Cattle Age :</span> {{ session('data')->age }}
+                                        </p>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <p style="font-weight: bold">
+                                            <span style="color: #0a3622">Cattle Weight :</span> {{ session('data')->weight }}
+                                        </p>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <p style="font-weight: bold">
+                                            <span style="color: #0a3622">Cattle Type :</span> {{ session('data')->cattle_type }}
+                                        </p>
+                                    </div>
+
+                                    <div class="col-md-4">
+
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <p style="font-weight: bold">
+                                            <span style="color: #0a3622">Cattle with Owner :</span>
+                                        </p>
+                                        <img src="{{ asset('storage/'.session('data')->cow_with_owner) }}" alt="" style="width: 100px">
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <p style="font-weight: bold">
+                                            <span style="color: #0a3622">Cattle Left Side :</span>
+                                        </p>
+                                        <img src="{{ asset('storage/'.session('data')->left_side) }}" alt="" style="width: 100px">
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <p style="font-weight: bold">
+                                            <span style="color: #0a3622">Cattle Right Side :</span>
+                                        </p>
+                                        <img src="{{ asset('storage/'.session('data')->right_side) }}" alt="" style="width: 100px">
+                                    </div>
+                                </div>
+
+                            @endif
 
                         </div>
                     </div>
