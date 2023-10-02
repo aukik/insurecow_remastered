@@ -44,6 +44,11 @@ class CattleRegistrationController extends Controller
 
         $animalType = $request->input('animal_type');
 
+        if (!in_array($animalType, ['cattle', 'buffalo', 'goat'])) {
+            // Return early or display an error message
+            return "Invalid Request";
+        }
+
         $id = 0;
 
         if (CattleRegistration::orderBy('id', 'desc')->count() == 0) {
