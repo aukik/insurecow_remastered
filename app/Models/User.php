@@ -83,6 +83,15 @@ class User extends Authenticatable
     }
 
 
+//    -------------------- Farm Management --------------------
+
+    public function farm(){
+        return $this->hasMany(Firm::class);
+
+    }
+
+//    -------------------- Farm Management --------------------
+
 //    -------------------- cattle registration verification report --------------------
 
     public function cattle_registration_verification_report()

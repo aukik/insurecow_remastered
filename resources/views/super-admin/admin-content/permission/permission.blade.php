@@ -49,8 +49,6 @@
                                 {{ csrf_field() }}
                                 @method('put')
 
-
-
                                 @if($permission->role == "f")
 
                                     <div class="row">

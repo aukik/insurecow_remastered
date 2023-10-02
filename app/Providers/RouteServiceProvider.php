@@ -57,6 +57,7 @@ class RouteServiceProvider extends ServiceProvider
                     require base_path('routes/company.php');
                     require base_path('routes/super_admin.php');
                     require base_path('routes/dashboard.php');
+                    require base_path('routes/firm_management.php');
                 });
         });
     }

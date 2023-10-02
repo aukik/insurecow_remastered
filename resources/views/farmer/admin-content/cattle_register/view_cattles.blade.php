@@ -49,7 +49,7 @@
                                         <th>Insurance Status</th>
                                         <th>Action</th>
                                         <th>Claim</th>
-{{--                                        <th>Claim <span style="color: red">[TEST]</span></th>--}}
+                                        {{--                                        <th>Claim <span style="color: red">[TEST]</span></th>--}}
 
                                         {{--                                        <th>Insurance</th>--}}
                                     </tr>
@@ -75,21 +75,22 @@
                                             </td>
 
                                             <td>
-{{--                                                <button class="btn btn-success" type="button">View</button>--}}
+                                                {{--                                                <button class="btn btn-success" type="button">View</button>--}}
 
-                                                <a href="{{ route('claim.index', $cattle->id) }}" class="btn btn-danger">Claim</a>
+                                                <a href="{{ route('claim.index', $cattle->id) }}"
+                                                   class="btn btn-danger">Claim</a>
                                             </td>
 
-{{--                                            @if(\App\Models\Order::order_verification($cattle->id) > 0)--}}
-{{--                                                <td>--}}
-{{--                                                    <a href="{{ route('claim.index', $cattle->id) }}"--}}
-{{--                                                       class="btn btn-danger"--}}
-{{--                                                       type="button">Claim</a>--}}
-{{--                                                </td>--}}
+                                            {{--                                            @if(\App\Models\Order::order_verification($cattle->id) > 0)--}}
+                                            {{--                                                <td>--}}
+                                            {{--                                                    <a href="{{ route('claim.index', $cattle->id) }}"--}}
+                                            {{--                                                       class="btn btn-danger"--}}
+                                            {{--                                                       type="button">Claim</a>--}}
+                                            {{--                                                </td>--}}
 
-{{--                                            @else--}}
-{{--                                                <td>Not Applicable</td>--}}
-{{--                                            @endif--}}
+                                            {{--                                            @else--}}
+                                            {{--                                                <td>Not Applicable</td>--}}
+                                            {{--                                            @endif--}}
 
 
                                             {{--                                            <td><button class="btn btn-primary" type="button">Request</button></td>--}}
@@ -100,11 +101,6 @@
                                 </table>
                             </div>
 
-                            {{-- ---------------------------------------- Company Request Data ---------------------------------------- --}}
-
-
-
-                            {{-- ---------------------------------------- Register Company/NGO/Bank ---------------------------------------- --}}
 
                         </div>
                     </div>

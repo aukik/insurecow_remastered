@@ -128,15 +128,6 @@ Route::middleware(['auth', 'farmer'])->prefix('farmer')->group(function () {
 
     //    ----------------------------- Insurance Middleware Block ----------------------------------
 
-    //    ----------------------------- Farm Management Middleware Block ----------------------------------
-
-    Route::middleware('farmer.farm_management')->group(function () {
-
-    });
-
-
-    //    ----------------------------- Farm Management Middleware Block ----------------------------------
-
 
 });
 
