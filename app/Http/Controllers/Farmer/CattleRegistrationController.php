@@ -62,7 +62,7 @@ class CattleRegistrationController extends Controller
             'cattle_type' => 'required',
 
             'sum_insured' => 'required',
-            'muzzle_of_cow' => 'required|mimes:jpeg,jpg,png',
+            'muzzle_of_cow' => $animalType === 'goat' ? 'nullable|mimes:jpeg,jpg,png' : 'required|mimes:jpeg,jpg,png',
             'left_side' => 'required|mimes:jpeg,jpg,png',
             'right_side' => 'required|mimes:jpeg,jpg,png',
             'special_marks' => 'required|mimes:jpeg,jpg,png',
@@ -78,7 +78,7 @@ class CattleRegistrationController extends Controller
 
         if ($animalType === 'goat') {
             $inputs['muzzle_of_cow'] = "Not Applicable for goat registration";
-        }else{
+        } else {
             if (request('muzzle_of_cow')) {
                 $inputs['muzzle_of_cow'] = \request('muzzle_of_cow')->store('images');
             }
