@@ -115,7 +115,7 @@
                                             ></div>
                                         </div>
                                         <div class="timeline-item-content">
-                                            <b>Registration Report</b> - verification for <b
+                                            <b>{{ Str::ucfirst($verification->operation) }} Report</b> - verification for <b
                                                 style="color: #6f0a00"> {{ $verification->cattle_name }} </b> - <b
                                                 style="color: #0a3622">{{ Str::ucfirst($verification->verification_report)  }}</b> - <b>{{ $verification->created_at->format('d-m-Y') }}</b>
                                         </div>

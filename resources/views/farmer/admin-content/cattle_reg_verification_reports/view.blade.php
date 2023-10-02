@@ -43,6 +43,7 @@
                                         <th>cattle name</th>
                                         <th>Cow With Owner</th>
                                         <th>Verification Report</th>
+                                        <th>Operation Type</th>
                                         <th>Report Date</th>
                                         <th>Report Date [ DAYS ]</th>
 
@@ -58,6 +59,7 @@
                                             <td><img src="{{ asset('storage/'.$report->cow_with_owner) }}"
                                                      style="width: 150px"></td>
                                             <td><b style="color: #0a3622">{{ Str::ucfirst($report->verification_report)  }}</b></td>
+                                            <td><b style="color: #0a3622">{{ Str::ucfirst($report->operation)  }}</b></td>
                                             <td>{{ $report->created_at }}</td>
                                             <td>{{ $report->created_at->diffForHumans() }}</td>
                                         </tr>

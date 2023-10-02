@@ -4,6 +4,7 @@ namespace App\Http\Controllers\ml;
 
 use App\Http\Controllers\Controller;
 use App\Models\CattleRegistration;
+use App\Models\CattleRegReport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
@@ -69,6 +70,16 @@ class ClaimController extends Controller
                 if (Str::length($apiResponse) > 30) {
 
 //                    auth()->user()->insurance_claimed()->create($inputs);
+
+                    CattleRegReport::create([
+                        'cattle_name' => $cattle_data->cattle_name,
+                        'cow_with_owner' => $cattle_data->cow_with_owner,
+                        'verification_report' => "claimed",
+                        'user_id' => auth()->user()->id,
+                        'cattle_id' => $cattle_data->id,
+                        'operation' => 'claim'
+
+                    ]);
 
                     session()->flash("claim_success", "Claim action matched successfully");
                     return back()->with("data",$cattle_data);
