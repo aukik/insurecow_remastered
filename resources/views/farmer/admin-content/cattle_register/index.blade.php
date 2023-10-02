@@ -181,20 +181,32 @@
                                 <div class="row gx-3 mb-3">
 
 
-                                    <div class="col-md-4">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >Animal Type</label
-                                        ><span style="color: red">*</span>
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder=""
-                                            value="{{ old('cattle_type') }}"
-                                            name="cattle_type"
-                                        />
+{{--                                    <div class="col-md-4">--}}
+{{--                                        <label class="small mb-1" for="inputLastName"--}}
+{{--                                        >Animal Type</label--}}
+{{--                                        ><span style="color: red">*</span>--}}
+{{--                                        <input--}}
+{{--                                            class="form-control"--}}
+{{--                                            id="inputLastName"--}}
+{{--                                            type="text"--}}
+{{--                                            placeholder=""--}}
+{{--                                            value="{{ old('cattle_type') }}"--}}
+{{--                                            name="cattle_type"--}}
+{{--                                        />--}}
 
-                                        @error('weight')
+{{--                                        @error('weight')--}}
+{{--                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>--}}
+{{--                                        @enderror--}}
+{{--                                    </div>--}}
+
+                                    <!-- Form Group (organization name)-->
+                                    <div class="col-md-4">
+                                        <label class="small mb-1" for="inputOrgName"
+                                        >Animal With Owner</label
+                                        ><span style="color: red">*</span>
+                                        <input type="file" class="form-control" name="cow_with_owner">
+
+                                        @error('cow_with_owner')
                                         <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
                                         @enderror
                                     </div>
@@ -260,28 +272,10 @@
                                     </div>
 
 
-                                    <!-- Form Group (organization name)-->
-                                    <div class="col-md-4">
-                                        <label class="small mb-1" for="inputOrgName"
-                                        >Animal With Owner</label
-                                        ><span style="color: red">*</span>
-                                        <input type="file" class="form-control" name="cow_with_owner">
-
-                                        @error('cow_with_owner')
-                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-
-
-                                </div>
-
-
-                                <div class="row gx-3 mb-3">
-
 
                                     {{--  -------------********************************* Muzzle part -------------********************************* --}}
 
-                                    <div class="col-md-12" id="muzzle_of_cow">
+                                    <div class="col-md-4" id="muzzle_of_cow">
                                         <label class="small mb-1" for="inputOrgName"
                                         >Muzzle Of Animal</label
                                         ><span style="color: red">*</span>
@@ -294,6 +288,15 @@
 
 
                                     {{--  -------------********************************* Muzzle part -------------********************************* --}}
+
+
+                                </div>
+
+
+                                <div class="row gx-3 mb-3">
+
+
+
 
 
                                 </div>

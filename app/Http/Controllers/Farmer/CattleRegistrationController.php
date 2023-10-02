@@ -64,7 +64,7 @@ class CattleRegistrationController extends Controller
             'age' => 'required',
             'cattle_color' => 'required',
             'weight' => 'required',
-            'cattle_type' => 'required',
+            'cattle_type' => 'nullable',
 
             'sum_insured' => 'required',
             'muzzle_of_cow' => $animalType === 'goat' ? 'nullable|mimes:jpeg,jpg,png' : 'required|mimes:jpeg,jpg,png',
