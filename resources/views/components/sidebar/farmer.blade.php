@@ -78,8 +78,8 @@
                             </a>
                             <div class="collapse" id="pagesCollapseAccount" data-bs-parent="#accordionSidenavPagesMenu">
                                 <nav class="sidenav-menu-nested nav">
-                                    <a class="nav-link" href="">Create Firm</a>
-                                    <a class="nav-link" href="">View Firms</a>
+                                    <a class="nav-link" href="{{ route('farm.create') }}">Create Firm</a>
+                                    <a class="nav-link" href="{{ route('farm.create') }}">View Firms</a>
                                 </nav>
                             </div>
                         </nav>
