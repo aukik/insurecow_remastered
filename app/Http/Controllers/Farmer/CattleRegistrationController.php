@@ -62,7 +62,7 @@ class CattleRegistrationController extends Controller
             'cattle_type' => 'required',
 
             'sum_insured' => 'required',
-            'muzzle_of_cow' => 'nullable|mimes:jpeg,jpg,png',
+            'muzzle_of_cow' => 'required|mimes:jpeg,jpg,png',
             'left_side' => 'required|mimes:jpeg,jpg,png',
             'right_side' => 'required|mimes:jpeg,jpg,png',
             'special_marks' => 'required|mimes:jpeg,jpg,png',
