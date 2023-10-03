@@ -44,7 +44,7 @@
                                         {{--                                        <th>Owner Image</th>--}}
                                         <th>Weight</th>
                                         <th>Color</th>
-                                        <th>Cow With Owner</th>
+                                        {{--                                        <th>Cow With Owner</th>--}}
                                         <th>Price</th>
                                         {{--                                        <th>Insurance Status</th>--}}
                                         <th>Action</th>
@@ -64,15 +64,15 @@
                                             {{--                                            <td><img src="{{ asset('storage/'.auth()->user()->profile()->orderBy('id','desc')->first()->image) }}" alt="" style="width: 100px"></td>--}}
                                             <td>{{ $cattle->weight }}</td>
                                             <td>{{ $cattle->cattle_color }}</td>
-                                            <td><img src="{{ asset('storage/'.$cattle->cow_with_owner) }}" alt=""
-                                                     style="width: 100px"></td>
+                                            {{--                                            <td><img src="{{ asset('storage/'.$cattle->cow_with_owner) }}" alt=""--}}
+                                            {{--                                                     style="width: 100px"></td>--}}
                                             <td>{{ $cattle->sum_insured }}</td>
 
                                             {{--                                            <td>{{ \App\Models\Order::order_verification($cattle->id) > 0 ? 'insured' : 'not insured' }}</td>--}}
 
                                             <td>
                                                 <a class="btn btn-success" type="button"
-                                                   href="{{ route('cattle.list.single',$cattle->id)  }}">View</a>
+                                                   href="{{ route('cattle.list.single',$cattle->id)  }}">View Info</a>
                                             </td>
 
                                             <td>
