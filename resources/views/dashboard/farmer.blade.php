@@ -4,7 +4,7 @@
 
     <main>
         <header
-            class="page-header page-header-dark bg-gradient-primary-to-secondary pb-10"
+            class="page-header page-header-dark bg-gradient-primary-to-secondary"
         >
             <div class="container-xl px-4">
                 <div class="page-header-content pt-4">
@@ -25,243 +25,243 @@
             </div>
         </header>
         <!-- Main page content-->
-        <div class="container-xl px-4 mt-n10">
-            <div class="row">
-                <div class="col-xxl-4 col-xl-12 mb-4">
-                    <div class="card h-100">
-                        <div class="card-body h-100 p-5">
-                            <div class="row align-items-center">
-                                <div class="col-xl-8 col-xxl-12">
-                                    <div
-                                        class="text-center text-xl-start text-xxl-center mb-4 mb-xl-0 mb-xxl-4"
-                                    >
-                                        <h1 class="text-primary">Welcome to Dashboard!</h1>
-                                        <p class="text-gray-700 mb-0">
-                                            Browse our fully designed UI toolkit! Browse our
-                                            prebuilt app pages, components, and utilites, and be
-                                            sure to look at our full documentation!
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="col-xl-4 col-xxl-12 text-center">
-                                    <img
-                                        class="img-fluid"
-                                        src="{{ asset('assets/img/illustrations/at-work.svg') }}"
-                                        style="max-width: 26rem"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xxl-8 col-xl-8 mb-4">
-                    <div class="card card-header-actions h-100">
-                        <div class="card-header">
-                            Cattle registration verification reports
-                            <div class="dropdown no-caret">
-                                <button
-                                    class="btn btn-transparent-dark btn-icon dropdown-toggle"
-                                    id="dropdownMenuButton"
-                                    type="button"
-                                    data-bs-toggle="dropdown"
-                                    aria-haspopup="true"
-                                    aria-expanded="false"
-                                >
-                                    <i
-                                        class="text-gray-500"
-                                        data-feather="more-vertical"
-                                    ></i>
-                                </button>
-                                <div
-                                    class="dropdown-menu dropdown-menu-end animated--fade-in-up"
-                                    aria-labelledby="dropdownMenuButton"
-                                >
-                                    <h6 class="dropdown-header">Filter Activity:</h6>
-                                    <a class="dropdown-item" href="#!"
-                                    ><span class="badge bg-green-soft text-green my-1"
-                                        >Commerce</span
-                                        ></a
-                                    >
-                                    <a class="dropdown-item" href="#!"
-                                    ><span class="badge bg-blue-soft text-blue my-1"
-                                        >Reporting</span
-                                        ></a
-                                    >
-                                    <a class="dropdown-item" href="#!"
-                                    ><span class="badge bg-yellow-soft text-yellow my-1"
-                                        >Server</span
-                                        ></a
-                                    >
-                                    <a class="dropdown-item" href="#!"
-                                    ><span class="badge bg-purple-soft text-purple my-1"
-                                        >Users</span
-                                        ></a
-                                    >
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="timeline timeline-xs">
+        <div class="container-xl px-4" style="margin-top: 2%">
+{{--            <div class="row">--}}
+{{--                <div class="col-xxl-4 col-xl-12 mb-4">--}}
+{{--                    <div class="card h-100">--}}
+{{--                        <div class="card-body h-100 p-5">--}}
+{{--                            <div class="row align-items-center">--}}
+{{--                                <div class="col-xl-8 col-xxl-12">--}}
+{{--                                    <div--}}
+{{--                                        class="text-center text-xl-start text-xxl-center mb-4 mb-xl-0 mb-xxl-4"--}}
+{{--                                    >--}}
+{{--                                        <h1 class="text-primary">Welcome to Dashboard!</h1>--}}
+{{--                                        <p class="text-gray-700 mb-0">--}}
+{{--                                            Browse our fully designed UI toolkit! Browse our--}}
+{{--                                            prebuilt app pages, components, and utilites, and be--}}
+{{--                                            sure to look at our full documentation!--}}
+{{--                                        </p>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                                <div class="col-xl-4 col-xxl-12 text-center">--}}
+{{--                                    <img--}}
+{{--                                        class="img-fluid"--}}
+{{--                                        src="{{ asset('assets/img/illustrations/at-work.svg') }}"--}}
+{{--                                        style="max-width: 26rem"--}}
+{{--                                    />--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="col-xxl-8 col-xl-8 mb-4">--}}
+{{--                    <div class="card card-header-actions h-100">--}}
+{{--                        <div class="card-header">--}}
+{{--                            Cattle registration verification reports--}}
+{{--                            <div class="dropdown no-caret">--}}
+{{--                                <button--}}
+{{--                                    class="btn btn-transparent-dark btn-icon dropdown-toggle"--}}
+{{--                                    id="dropdownMenuButton"--}}
+{{--                                    type="button"--}}
+{{--                                    data-bs-toggle="dropdown"--}}
+{{--                                    aria-haspopup="true"--}}
+{{--                                    aria-expanded="false"--}}
+{{--                                >--}}
+{{--                                    <i--}}
+{{--                                        class="text-gray-500"--}}
+{{--                                        data-feather="more-vertical"--}}
+{{--                                    ></i>--}}
+{{--                                </button>--}}
+{{--                                <div--}}
+{{--                                    class="dropdown-menu dropdown-menu-end animated--fade-in-up"--}}
+{{--                                    aria-labelledby="dropdownMenuButton"--}}
+{{--                                >--}}
+{{--                                    <h6 class="dropdown-header">Filter Activity:</h6>--}}
+{{--                                    <a class="dropdown-item" href="#!"--}}
+{{--                                    ><span class="badge bg-green-soft text-green my-1"--}}
+{{--                                        >Commerce</span--}}
+{{--                                        ></a--}}
+{{--                                    >--}}
+{{--                                    <a class="dropdown-item" href="#!"--}}
+{{--                                    ><span class="badge bg-blue-soft text-blue my-1"--}}
+{{--                                        >Reporting</span--}}
+{{--                                        ></a--}}
+{{--                                    >--}}
+{{--                                    <a class="dropdown-item" href="#!"--}}
+{{--                                    ><span class="badge bg-yellow-soft text-yellow my-1"--}}
+{{--                                        >Server</span--}}
+{{--                                        ></a--}}
+{{--                                    >--}}
+{{--                                    <a class="dropdown-item" href="#!"--}}
+{{--                                    ><span class="badge bg-purple-soft text-purple my-1"--}}
+{{--                                        >Users</span--}}
+{{--                                        ></a--}}
+{{--                                    >--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="card-body">--}}
+{{--                            <div class="timeline timeline-xs">--}}
 
 
-                                @foreach($cattle_reg_verification as $verification)
-                                    <!-- Timeline Item 1-->
-                                    <div class="timeline-item">
-                                        <div class="timeline-item-marker">
-                                            <div
-                                                class="timeline-item-marker-text">{{ $verification->created_at->diffForHumans() }}</div>
-                                            <div
-                                                class="timeline-item-marker-indicator bg-green"
-                                            ></div>
-                                        </div>
-                                        <div class="timeline-item-content">
-                                            <b>{{ Str::ucfirst($verification->operation) }} Report</b> - verification for <b
-                                                style="color: #6f0a00"> {{ $verification->cattle_name }} </b> - <b
-                                                style="color: #0a3622">{{ Str::ucfirst($verification->verification_report)  }}</b> - <b>{{ $verification->created_at->format('d-m-Y') }}</b>
-                                        </div>
-                                    </div>
+{{--                                @foreach($cattle_reg_verification as $verification)--}}
+{{--                                    <!-- Timeline Item 1-->--}}
+{{--                                    <div class="timeline-item">--}}
+{{--                                        <div class="timeline-item-marker">--}}
+{{--                                            <div--}}
+{{--                                                class="timeline-item-marker-text">{{ $verification->created_at->diffForHumans() }}</div>--}}
+{{--                                            <div--}}
+{{--                                                class="timeline-item-marker-indicator bg-green"--}}
+{{--                                            ></div>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="timeline-item-content">--}}
+{{--                                            <b>{{ Str::ucfirst($verification->operation) }} Report</b> - verification for <b--}}
+{{--                                                style="color: #6f0a00"> {{ $verification->cattle_name }} </b> - <b--}}
+{{--                                                style="color: #0a3622">{{ Str::ucfirst($verification->verification_report)  }}</b> - <b>{{ $verification->created_at->format('d-m-Y') }}</b>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
 
-                                @endforeach
+{{--                                @endforeach--}}
 
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {{--                <div class="col-xxl-4 col-xl-6 mb-4">--}}
-                {{--                    <div class="card card-header-actions h-100">--}}
-                {{--                        <div class="card-header">--}}
-                {{--                            Progress Tracker--}}
-                {{--                            <div class="dropdown no-caret">--}}
-                {{--                                <button--}}
-                {{--                                    class="btn btn-transparent-dark btn-icon dropdown-toggle"--}}
-                {{--                                    id="dropdownMenuButton"--}}
-                {{--                                    type="button"--}}
-                {{--                                    data-bs-toggle="dropdown"--}}
-                {{--                                    aria-haspopup="true"--}}
-                {{--                                    aria-expanded="false"--}}
-                {{--                                >--}}
-                {{--                                    <i--}}
-                {{--                                        class="text-gray-500"--}}
-                {{--                                        data-feather="more-vertical"--}}
-                {{--                                    ></i>--}}
-                {{--                                </button>--}}
-                {{--                                <div--}}
-                {{--                                    class="dropdown-menu dropdown-menu-end animated--fade-in-up"--}}
-                {{--                                    aria-labelledby="dropdownMenuButton"--}}
-                {{--                                >--}}
-                {{--                                    <a class="dropdown-item" href="#!">--}}
-                {{--                                        <div class="dropdown-item-icon">--}}
-                {{--                                            <i class="text-gray-500" data-feather="list"></i>--}}
-                {{--                                        </div>--}}
-                {{--                                        Manage Tasks--}}
-                {{--                                    </a>--}}
-                {{--                                    <a class="dropdown-item" href="#!">--}}
-                {{--                                        <div class="dropdown-item-icon">--}}
-                {{--                                            <i--}}
-                {{--                                                class="text-gray-500"--}}
-                {{--                                                data-feather="plus-circle"--}}
-                {{--                                            ></i>--}}
-                {{--                                        </div>--}}
-                {{--                                        Add New Task--}}
-                {{--                                    </a>--}}
-                {{--                                    <a class="dropdown-item" href="#!">--}}
-                {{--                                        <div class="dropdown-item-icon">--}}
-                {{--                                            <i--}}
-                {{--                                                class="text-gray-500"--}}
-                {{--                                                data-feather="minus-circle"--}}
-                {{--                                            ></i>--}}
-                {{--                                        </div>--}}
-                {{--                                        Delete Tasks--}}
-                {{--                                    </a>--}}
-                {{--                                </div>--}}
-                {{--                            </div>--}}
-                {{--                        </div>--}}
-                {{--                        <div class="card-body">--}}
-                {{--                            <h4 class="small">--}}
-                {{--                                Server Migration--}}
-                {{--                                <span class="float-end fw-bold">20%</span>--}}
-                {{--                            </h4>--}}
-                {{--                            <div class="progress mb-4">--}}
-                {{--                                <div--}}
-                {{--                                    class="progress-bar bg-danger"--}}
-                {{--                                    role="progressbar"--}}
-                {{--                                    style="width: 20%"--}}
-                {{--                                    aria-valuenow="20"--}}
-                {{--                                    aria-valuemin="0"--}}
-                {{--                                    aria-valuemax="100"--}}
-                {{--                                ></div>--}}
-                {{--                            </div>--}}
-                {{--                            <h4 class="small">--}}
-                {{--                                Sales Tracking--}}
-                {{--                                <span class="float-end fw-bold">40%</span>--}}
-                {{--                            </h4>--}}
-                {{--                            <div class="progress mb-4">--}}
-                {{--                                <div--}}
-                {{--                                    class="progress-bar bg-warning"--}}
-                {{--                                    role="progressbar"--}}
-                {{--                                    style="width: 40%"--}}
-                {{--                                    aria-valuenow="40"--}}
-                {{--                                    aria-valuemin="0"--}}
-                {{--                                    aria-valuemax="100"--}}
-                {{--                                ></div>--}}
-                {{--                            </div>--}}
-                {{--                            <h4 class="small">--}}
-                {{--                                Customer Database--}}
-                {{--                                <span class="float-end fw-bold">60%</span>--}}
-                {{--                            </h4>--}}
-                {{--                            <div class="progress mb-4">--}}
-                {{--                                <div--}}
-                {{--                                    class="progress-bar"--}}
-                {{--                                    role="progressbar"--}}
-                {{--                                    style="width: 60%"--}}
-                {{--                                    aria-valuenow="60"--}}
-                {{--                                    aria-valuemin="0"--}}
-                {{--                                    aria-valuemax="100"--}}
-                {{--                                ></div>--}}
-                {{--                            </div>--}}
-                {{--                            <h4 class="small">--}}
-                {{--                                Payout Details--}}
-                {{--                                <span class="float-end fw-bold">80%</span>--}}
-                {{--                            </h4>--}}
-                {{--                            <div class="progress mb-4">--}}
-                {{--                                <div--}}
-                {{--                                    class="progress-bar bg-info"--}}
-                {{--                                    role="progressbar"--}}
-                {{--                                    style="width: 80%"--}}
-                {{--                                    aria-valuenow="80"--}}
-                {{--                                    aria-valuemin="0"--}}
-                {{--                                    aria-valuemax="100"--}}
-                {{--                                ></div>--}}
-                {{--                            </div>--}}
-                {{--                            <h4 class="small">--}}
-                {{--                                Account Setup--}}
-                {{--                                <span class="float-end fw-bold">Complete!</span>--}}
-                {{--                            </h4>--}}
-                {{--                            <div class="progress">--}}
-                {{--                                <div--}}
-                {{--                                    class="progress-bar bg-success"--}}
-                {{--                                    role="progressbar"--}}
-                {{--                                    style="width: 100%"--}}
-                {{--                                    aria-valuenow="100"--}}
-                {{--                                    aria-valuemin="0"--}}
-                {{--                                    aria-valuemax="100"--}}
-                {{--                                ></div>--}}
-                {{--                            </div>--}}
-                {{--                        </div>--}}
-                {{--                        <div class="card-footer position-relative">--}}
-                {{--                            <div--}}
-                {{--                                class="d-flex align-items-center justify-content-between small text-body"--}}
-                {{--                            >--}}
-                {{--                                <a class="stretched-link text-body" href="#!"--}}
-                {{--                                >Visit Task Center</a--}}
-                {{--                                >--}}
-                {{--                                <i class="fas fa-angle-right"></i>--}}
-                {{--                            </div>--}}
-                {{--                        </div>--}}
-                {{--                    </div>--}}
-                {{--                </div>--}}
-            </div>
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                --}}{{--                <div class="col-xxl-4 col-xl-6 mb-4">--}}
+{{--                --}}{{--                    <div class="card card-header-actions h-100">--}}
+{{--                --}}{{--                        <div class="card-header">--}}
+{{--                --}}{{--                            Progress Tracker--}}
+{{--                --}}{{--                            <div class="dropdown no-caret">--}}
+{{--                --}}{{--                                <button--}}
+{{--                --}}{{--                                    class="btn btn-transparent-dark btn-icon dropdown-toggle"--}}
+{{--                --}}{{--                                    id="dropdownMenuButton"--}}
+{{--                --}}{{--                                    type="button"--}}
+{{--                --}}{{--                                    data-bs-toggle="dropdown"--}}
+{{--                --}}{{--                                    aria-haspopup="true"--}}
+{{--                --}}{{--                                    aria-expanded="false"--}}
+{{--                --}}{{--                                >--}}
+{{--                --}}{{--                                    <i--}}
+{{--                --}}{{--                                        class="text-gray-500"--}}
+{{--                --}}{{--                                        data-feather="more-vertical"--}}
+{{--                --}}{{--                                    ></i>--}}
+{{--                --}}{{--                                </button>--}}
+{{--                --}}{{--                                <div--}}
+{{--                --}}{{--                                    class="dropdown-menu dropdown-menu-end animated--fade-in-up"--}}
+{{--                --}}{{--                                    aria-labelledby="dropdownMenuButton"--}}
+{{--                --}}{{--                                >--}}
+{{--                --}}{{--                                    <a class="dropdown-item" href="#!">--}}
+{{--                --}}{{--                                        <div class="dropdown-item-icon">--}}
+{{--                --}}{{--                                            <i class="text-gray-500" data-feather="list"></i>--}}
+{{--                --}}{{--                                        </div>--}}
+{{--                --}}{{--                                        Manage Tasks--}}
+{{--                --}}{{--                                    </a>--}}
+{{--                --}}{{--                                    <a class="dropdown-item" href="#!">--}}
+{{--                --}}{{--                                        <div class="dropdown-item-icon">--}}
+{{--                --}}{{--                                            <i--}}
+{{--                --}}{{--                                                class="text-gray-500"--}}
+{{--                --}}{{--                                                data-feather="plus-circle"--}}
+{{--                --}}{{--                                            ></i>--}}
+{{--                --}}{{--                                        </div>--}}
+{{--                --}}{{--                                        Add New Task--}}
+{{--                --}}{{--                                    </a>--}}
+{{--                --}}{{--                                    <a class="dropdown-item" href="#!">--}}
+{{--                --}}{{--                                        <div class="dropdown-item-icon">--}}
+{{--                --}}{{--                                            <i--}}
+{{--                --}}{{--                                                class="text-gray-500"--}}
+{{--                --}}{{--                                                data-feather="minus-circle"--}}
+{{--                --}}{{--                                            ></i>--}}
+{{--                --}}{{--                                        </div>--}}
+{{--                --}}{{--                                        Delete Tasks--}}
+{{--                --}}{{--                                    </a>--}}
+{{--                --}}{{--                                </div>--}}
+{{--                --}}{{--                            </div>--}}
+{{--                --}}{{--                        </div>--}}
+{{--                --}}{{--                        <div class="card-body">--}}
+{{--                --}}{{--                            <h4 class="small">--}}
+{{--                --}}{{--                                Server Migration--}}
+{{--                --}}{{--                                <span class="float-end fw-bold">20%</span>--}}
+{{--                --}}{{--                            </h4>--}}
+{{--                --}}{{--                            <div class="progress mb-4">--}}
+{{--                --}}{{--                                <div--}}
+{{--                --}}{{--                                    class="progress-bar bg-danger"--}}
+{{--                --}}{{--                                    role="progressbar"--}}
+{{--                --}}{{--                                    style="width: 20%"--}}
+{{--                --}}{{--                                    aria-valuenow="20"--}}
+{{--                --}}{{--                                    aria-valuemin="0"--}}
+{{--                --}}{{--                                    aria-valuemax="100"--}}
+{{--                --}}{{--                                ></div>--}}
+{{--                --}}{{--                            </div>--}}
+{{--                --}}{{--                            <h4 class="small">--}}
+{{--                --}}{{--                                Sales Tracking--}}
+{{--                --}}{{--                                <span class="float-end fw-bold">40%</span>--}}
+{{--                --}}{{--                            </h4>--}}
+{{--                --}}{{--                            <div class="progress mb-4">--}}
+{{--                --}}{{--                                <div--}}
+{{--                --}}{{--                                    class="progress-bar bg-warning"--}}
+{{--                --}}{{--                                    role="progressbar"--}}
+{{--                --}}{{--                                    style="width: 40%"--}}
+{{--                --}}{{--                                    aria-valuenow="40"--}}
+{{--                --}}{{--                                    aria-valuemin="0"--}}
+{{--                --}}{{--                                    aria-valuemax="100"--}}
+{{--                --}}{{--                                ></div>--}}
+{{--                --}}{{--                            </div>--}}
+{{--                --}}{{--                            <h4 class="small">--}}
+{{--                --}}{{--                                Customer Database--}}
+{{--                --}}{{--                                <span class="float-end fw-bold">60%</span>--}}
+{{--                --}}{{--                            </h4>--}}
+{{--                --}}{{--                            <div class="progress mb-4">--}}
+{{--                --}}{{--                                <div--}}
+{{--                --}}{{--                                    class="progress-bar"--}}
+{{--                --}}{{--                                    role="progressbar"--}}
+{{--                --}}{{--                                    style="width: 60%"--}}
+{{--                --}}{{--                                    aria-valuenow="60"--}}
+{{--                --}}{{--                                    aria-valuemin="0"--}}
+{{--                --}}{{--                                    aria-valuemax="100"--}}
+{{--                --}}{{--                                ></div>--}}
+{{--                --}}{{--                            </div>--}}
+{{--                --}}{{--                            <h4 class="small">--}}
+{{--                --}}{{--                                Payout Details--}}
+{{--                --}}{{--                                <span class="float-end fw-bold">80%</span>--}}
+{{--                --}}{{--                            </h4>--}}
+{{--                --}}{{--                            <div class="progress mb-4">--}}
+{{--                --}}{{--                                <div--}}
+{{--                --}}{{--                                    class="progress-bar bg-info"--}}
+{{--                --}}{{--                                    role="progressbar"--}}
+{{--                --}}{{--                                    style="width: 80%"--}}
+{{--                --}}{{--                                    aria-valuenow="80"--}}
+{{--                --}}{{--                                    aria-valuemin="0"--}}
+{{--                --}}{{--                                    aria-valuemax="100"--}}
+{{--                --}}{{--                                ></div>--}}
+{{--                --}}{{--                            </div>--}}
+{{--                --}}{{--                            <h4 class="small">--}}
+{{--                --}}{{--                                Account Setup--}}
+{{--                --}}{{--                                <span class="float-end fw-bold">Complete!</span>--}}
+{{--                --}}{{--                            </h4>--}}
+{{--                --}}{{--                            <div class="progress">--}}
+{{--                --}}{{--                                <div--}}
+{{--                --}}{{--                                    class="progress-bar bg-success"--}}
+{{--                --}}{{--                                    role="progressbar"--}}
+{{--                --}}{{--                                    style="width: 100%"--}}
+{{--                --}}{{--                                    aria-valuenow="100"--}}
+{{--                --}}{{--                                    aria-valuemin="0"--}}
+{{--                --}}{{--                                    aria-valuemax="100"--}}
+{{--                --}}{{--                                ></div>--}}
+{{--                --}}{{--                            </div>--}}
+{{--                --}}{{--                        </div>--}}
+{{--                --}}{{--                        <div class="card-footer position-relative">--}}
+{{--                --}}{{--                            <div--}}
+{{--                --}}{{--                                class="d-flex align-items-center justify-content-between small text-body"--}}
+{{--                --}}{{--                            >--}}
+{{--                --}}{{--                                <a class="stretched-link text-body" href="#!"--}}
+{{--                --}}{{--                                >Visit Task Center</a--}}
+{{--                --}}{{--                                >--}}
+{{--                --}}{{--                                <i class="fas fa-angle-right"></i>--}}
+{{--                --}}{{--                            </div>--}}
+{{--                --}}{{--                        </div>--}}
+{{--                --}}{{--                    </div>--}}
+{{--                --}}{{--                </div>--}}
+{{--            </div>--}}
             <!-- Example Colored Cards for Dashboard Demo-->
             <div class="row">
 
@@ -368,6 +368,81 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-xl-6 col-xl-6 mb-4">
+                    <div class="card card-header-actions h-100">
+                        <div class="card-header">
+                            Cattle registration verification reports
+                            <div class="dropdown no-caret">
+                                <button
+                                    class="btn btn-transparent-dark btn-icon dropdown-toggle"
+                                    id="dropdownMenuButton"
+                                    type="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-haspopup="true"
+                                    aria-expanded="false"
+                                >
+                                    <i
+                                        class="text-gray-500"
+                                        data-feather="more-vertical"
+                                    ></i>
+                                </button>
+                                <div
+                                    class="dropdown-menu dropdown-menu-end animated--fade-in-up"
+                                    aria-labelledby="dropdownMenuButton"
+                                >
+                                    <h6 class="dropdown-header">Filter Activity:</h6>
+                                    <a class="dropdown-item" href="#!"
+                                    ><span class="badge bg-green-soft text-green my-1"
+                                        >Commerce</span
+                                        ></a
+                                    >
+                                    <a class="dropdown-item" href="#!"
+                                    ><span class="badge bg-blue-soft text-blue my-1"
+                                        >Reporting</span
+                                        ></a
+                                    >
+                                    <a class="dropdown-item" href="#!"
+                                    ><span class="badge bg-yellow-soft text-yellow my-1"
+                                        >Server</span
+                                        ></a
+                                    >
+                                    <a class="dropdown-item" href="#!"
+                                    ><span class="badge bg-purple-soft text-purple my-1"
+                                        >Users</span
+                                        ></a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="timeline timeline-xs">
+
+
+                                @foreach($cattle_reg_verification as $verification)
+                                    <!-- Timeline Item 1-->
+                                    <div class="timeline-item">
+                                        <div class="timeline-item-marker">
+                                            <div
+                                                class="timeline-item-marker-text">{{ $verification->created_at->diffForHumans() }}</div>
+                                            <div
+                                                class="timeline-item-marker-indicator bg-green"
+                                            ></div>
+                                        </div>
+                                        <div class="timeline-item-content">
+                                            <b>{{ Str::ucfirst($verification->operation) }} Report</b> - verification for <b
+                                                style="color: #6f0a00"> {{ $verification->cattle_name }} </b> - <b
+                                                style="color: #0a3622">{{ Str::ucfirst($verification->verification_report)  }}</b> - <b>{{ $verification->created_at->format('d-m-Y') }}</b>
+                                        </div>
+                                    </div>
+
+                                @endforeach
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="col-xl-6 mb-4">
                     <div class="card card-header-actions h-100">
                         <div class="card-header">
