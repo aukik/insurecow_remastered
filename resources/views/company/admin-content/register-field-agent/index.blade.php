@@ -34,7 +34,7 @@
                         <div class="card-header">Register Field Agent / Farmer - Company</div>
                         <div class="card-body">
 
-                            {{-- ---------------------------------------- Register Company/NGO/Bank  ---------------------------------------- --}}
+                            {{-- ---------------------------------------- Register Field Agent / Farmer - Company  ---------------------------------------- --}}
 
                             @if(session('register'))
                                 <div class="alert alert-success" role="alert">
@@ -63,7 +63,14 @@
                                             value=""
                                             name="name"
                                         />
+
+                                        @error('name')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
+
                                     </div>
+
+
                                     <div class="col-md-4">
                                         <label class="small mb-1" for="inputLastName"
                                         >Phone</label
@@ -76,6 +83,10 @@
                                             value=""
                                             name="phone"
                                         />
+
+                                        @error('phone')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="col-md-4">
                                         <label class="small mb-1" for="inputLastName"
@@ -89,6 +100,9 @@
                                             value=""
                                             name="email"
                                         />
+                                        @error('email')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                 </div>
@@ -108,6 +122,9 @@
                                             value=""
                                             name="password"
                                         />
+                                        @error('password')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <div class="col-md-4">
@@ -122,6 +139,9 @@
                                             value=""
                                             name="address"
                                         />
+                                        @error('address')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <div class="col-md-4">
@@ -136,6 +156,9 @@
                                             value=""
                                             name="agent_employee_id"
                                         />
+                                        @error('agent_employee_id')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                 </div>
@@ -148,17 +171,25 @@
                                         >Register As</label>
 
                                         <select class="form-control" id="exampleFormControlSelect2" name="role">
+                                            <option selected disabled>Select a role</option>
                                             <option value="fa">Field Agent</option>
                                             <option value="f">Farmer</option>
                                         </select>
 
 
+                                        @error('role')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="col-md-4">
                                         <label class="small mb-1" for="inputOrgName"
                                         >Person Image</label
                                         >
                                         <input type="file" class="form-control" name="company_logo">
+
+                                        @error('company_logo')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -168,7 +199,7 @@
                                 </button>
                             </form>
 
-                            {{-- ---------------------------------------- Register Company/NGO/Bank ---------------------------------------- --}}
+                            {{-- ---------------------------------------- Register Field Agent / Farmer - Company ---------------------------------------- --}}
 
                         </div>
                     </div>

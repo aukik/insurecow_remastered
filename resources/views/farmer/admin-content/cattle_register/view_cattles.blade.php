@@ -46,7 +46,7 @@
                                         <th>Color</th>
                                         <th>Cow With Owner</th>
                                         <th>Price</th>
-                                        <th>Insurance Status</th>
+                                        {{--                                        <th>Insurance Status</th>--}}
                                         <th>Action</th>
                                         <th>Claim</th>
                                         {{--                                        <th>Claim <span style="color: red">[TEST]</span></th>--}}
@@ -68,10 +68,11 @@
                                                      style="width: 100px"></td>
                                             <td>{{ $cattle->sum_insured }}</td>
 
-                                            <td>{{ \App\Models\Order::order_verification($cattle->id) > 0 ? 'insured' : 'not insured' }}</td>
+                                            {{--                                            <td>{{ \App\Models\Order::order_verification($cattle->id) > 0 ? 'insured' : 'not insured' }}</td>--}}
 
                                             <td>
-                                                <button class="btn btn-success" type="button">View</button>
+                                                <a class="btn btn-success" type="button"
+                                                   href="{{ route('cattle.list.single',$cattle->id)  }}">View</a>
                                             </td>
 
                                             <td>

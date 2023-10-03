@@ -77,6 +77,7 @@ Route::middleware(['auth', 'farmer'])->prefix('farmer')->group(function () {
         //    -------------------------- view registered cattle -----------------------------
 
         Route::get('cattle_list', [FarmerController::class, 'view_registered_cattle'])->name('cattle.list');
+        Route::get('cattle_list_single/{id}', [FarmerController::class, 'view_registered_cattle_single'])->name('cattle.list.single');
 
         //    -------------------------- view registered cattle -----------------------------
 

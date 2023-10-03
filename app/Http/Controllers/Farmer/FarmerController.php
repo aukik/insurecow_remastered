@@ -25,6 +25,25 @@ class FarmerController extends Controller
 
 //    --------------- view registered Cattle ---------------
 
+//    --------------- view registered Cattle Single ---------------
+
+    public function view_registered_cattle_single($id)
+    {
+        $cattle = auth()->user()->cattleRegister()->where('id', $id)->first();
+
+        if ($cattle != null){
+            return view('farmer.admin-content.cattle_register.view_single_cattle_info', compact('cattle'));
+        }else{
+            return "Information does not exists";
+        }
+
+
+//        $cattle_list = auth()->user()->cattleRegister()->get();
+//        return view('farmer.admin-content.cattle_register.view_cattles', compact('cattle_list'));
+    }
+
+//    --------------- view registered Cattle Single ---------------
+
 //    --------------- Insurance Packages search by company offers ---------------
 
     public function company_insurance_packages()
@@ -104,7 +123,7 @@ class FarmerController extends Controller
 
     public function cattle_reg_ver_reports()
     {
-        $cattle_reg_verification_reports = auth()->user()->cattle_registration_verification_report()->orderBy('id','desc')->get();
+        $cattle_reg_verification_reports = auth()->user()->cattle_registration_verification_report()->orderBy('id', 'desc')->get();
         return view("farmer.admin-content.cattle_reg_verification_reports.view", compact('cattle_reg_verification_reports'));
     }
 

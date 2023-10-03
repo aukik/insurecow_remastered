@@ -71,11 +71,16 @@
                                                     class="form-control"
                                                     id="inputLastName"
                                                     type="email"
-                                                    placeholder="Enter Phone Number"
+                                                    placeholder="Enter Email Address"
                                                     value="{{ old('email') }}"
                                                     name="email"
                                                 />
                                             </div>
+
+                                            @error('email')
+                                            <div class="alert alert-danger"
+                                                 style="margin-top: 10px">{{ $message }}</div>
+                                            @enderror
                                         </div>
 
 
@@ -91,11 +96,16 @@
                                                     class="form-control"
                                                     id="inputLastName"
                                                     type="password"
-                                                    placeholder="Enter Phone Number"
+                                                    placeholder="Enter Password"
                                                     value="{{ old('password') }}"
                                                     name="password"
                                                 />
                                             </div>
+
+                                            @error('password')
+                                            <div class="alert alert-danger"
+                                                 style="margin-top: 10px">{{ $message }}</div>
+                                            @enderror
                                         </div>
 
 
@@ -111,11 +121,16 @@
                                                     class="form-control"
                                                     id="inputLastName"
                                                     type="password"
-                                                    placeholder="Enter Phone Number"
+                                                    placeholder="Confirm Password"
                                                     value="{{ old('confirm_password') }}"
                                                     name="confirm_password"
                                                 />
                                             </div>
+
+                                            @error('confirm_password')
+                                            <div class="alert alert-danger"
+                                                 style="margin-top: 10px">{{ $message }}</div>
+                                            @enderror
                                         </div>
 
                                         <div class="row gx-3 mb-3">
@@ -125,6 +140,7 @@
                                                 >Registered For</label>
 
                                                 <select class="form-control" id="exampleFormControlSelect2" name="role">
+                                                    <option disabled selected>Select a role</option>
                                                     <option value="c">Company</option>
                                                     <option value="b">Bank</option>
                                                     <option value="n">NGO</option>
@@ -132,8 +148,12 @@
                                                     <option value="f">Farmer</option>
                                                 </select>
 
-
                                             </div>
+
+                                            @error('role')
+                                            <div class="alert alert-danger"
+                                                 style="margin-top: 10px">{{ $message }}</div>
+                                            @enderror
                                         </div>
 
                                     </div>
@@ -159,6 +179,11 @@
                                                     name="name"
                                                 />
                                             </div>
+
+                                            @error('name')
+                                            <div class="alert alert-danger"
+                                                 style="margin-top: 10px">{{ $message }}</div>
+                                            @enderror
                                         </div>
 
 
@@ -171,12 +196,17 @@
                                                 <input
                                                     class="form-control"
                                                     id="inputLastName"
-                                                    type="text"
+                                                    type="number"
                                                     placeholder="Enter Phone Number"
                                                     value="{{ old('phone') }}"
                                                     name="phone"
                                                 />
                                             </div>
+
+                                            @error('phone')
+                                            <div class="alert alert-danger"
+                                                 style="margin-top: 10px">{{ $message }}</div>
+                                            @enderror
                                         </div>
 
 
@@ -195,6 +225,11 @@
                                                     name="address"
                                                 />
                                             </div>
+
+                                            @error('address')
+                                            <div class="alert alert-danger"
+                                                 style="margin-top: 10px">{{ $message }}</div>
+                                            @enderror
                                         </div>
 
 
@@ -205,6 +240,11 @@
                                                 >
                                                 <input type="file" class="form-control" name="company_logo">
                                             </div>
+
+                                            @error('company_logo')
+                                            <div class="alert alert-danger"
+                                                 style="margin-top: 10px">{{ $message }}</div>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
