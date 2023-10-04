@@ -505,7 +505,7 @@
 
     {{--    ----------------------------------- District division selection ----------------------------------- --}}
 
-    <script>
+    <script defer>
         // axios.get('https://bdapis.com/api/v1.1/divisions/').then(el => {
         //         console.log(el.data.data);
         // });
