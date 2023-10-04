@@ -59,12 +59,28 @@
                                 <!-- Form Row-->
                                 <div class="row gx-3 mb-3">
 
+
+                                    <div class="col-md-4">
+                                        <label class="small mb-1" for="inputLastName"
+                                        >Farm Name</label
+                                        ><span style="color: red">*</span>
+
+                                        <select class="form-select" name="farm" id="animal_type">
+                                            <option disabled selected>Select Farm</option>
+
+                                            @foreach($farms as $farm)
+                                                <option value="{{ $farm->id }}">{{ $farm->farm_name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+
                                     <div class="col-md-4">
                                         <label class="small mb-1" for="inputLastName"
                                         >Animal Type</label
                                         ><span style="color: red">*</span>
 
-                                        <select class="form-control" name="animal_type" id="animal_type">
+                                        <select class="form-select" name="animal_type" id="animal_type">
                                             @if(auth()->user()->permission->cattle == 1)
                                                 <option value="cattle">Cattle</option>
                                             @endif
@@ -97,6 +113,11 @@
                                         @enderror
                                     </div>
 
+                                </div>
+
+                                <!-- Form Row-->
+                                <div class="row gx-3 mb-3">
+
                                     <div class="col-md-4">
                                         <label class="small mb-1" for="inputLastName"
                                         >Animal Breed</label
@@ -114,10 +135,7 @@
                                         <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
                                         @enderror
                                     </div>
-                                </div>
 
-                                <!-- Form Row-->
-                                <div class="row gx-3 mb-3">
 
                                     <div class="col-md-4">
                                         <label class="small mb-1" for="inputLastName"
@@ -156,41 +174,17 @@
                                     </div>
 
 
-                                    <div class="col-md-4">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >Animal Weight</label
-                                        ><span style="color: red">*</span>
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder=""
-                                            value="{{ old('weight') }}"
-                                            name="weight"
-                                        />
-
-                                        @error('weight')
-                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-
-                                </div>
-
-                                <!-- Form Row-->
-                                <div class="row gx-3 mb-3">
-
-
-                                    {{--                                    <div class="col-md-4">--}}
+                                    {{--                                    <div class="col-md-3">--}}
                                     {{--                                        <label class="small mb-1" for="inputLastName"--}}
-                                    {{--                                        >Animal Type</label--}}
+                                    {{--                                        >Animal Weight</label--}}
                                     {{--                                        ><span style="color: red">*</span>--}}
                                     {{--                                        <input--}}
                                     {{--                                            class="form-control"--}}
                                     {{--                                            id="inputLastName"--}}
                                     {{--                                            type="text"--}}
                                     {{--                                            placeholder=""--}}
-                                    {{--                                            value="{{ old('cattle_type') }}"--}}
-                                    {{--                                            name="cattle_type"--}}
+                                    {{--                                            value="{{ old('weight') }}"--}}
+                                    {{--                                            name="weight"--}}
                                     {{--                                        />--}}
 
                                     {{--                                        @error('weight')--}}
@@ -198,17 +192,11 @@
                                     {{--                                        @enderror--}}
                                     {{--                                    </div>--}}
 
-                                    <!-- Form Group (organization name)-->
-                                    <div class="col-md-4">
-                                        <label class="small mb-1" for="inputOrgName"
-                                        >Animal With Owner</label
-                                        ><span style="color: red">*</span>
-                                        <input type="file" class="form-control" name="cow_with_owner">
+                                </div>
 
-                                        @error('cow_with_owner')
-                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
-                                        @enderror
-                                    </div>
+                                <!-- Form Row-->
+                                <div class="row gx-3 mb-3">
+
 
                                     <div class="col-md-4">
                                         <label class="small mb-1" for="inputLastName"
@@ -228,7 +216,56 @@
                                         @enderror
                                     </div>
 
+                                    <div class="col-md-4">
+                                        <label class="small mb-1" for="inputLastName"
+                                        >Animal Weight</label
+                                        ><span style="color: red">*</span>
+                                        <input
+                                            class="form-control"
+                                            id="inputLastName"
+                                            type="text"
+                                            placeholder=""
+                                            value="{{ old('weight') }}"
+                                            name="weight"
+                                        />
+
+
+                                        @error('weight')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
+
+                                    <div class="col-md-4">
+                                        <label class="small mb-1" for="inputOrgName"
+                                        >Animal With Owner</label
+                                        ><span style="color: red"></span>
+                                        <input type="file" class="form-control" name="cow_with_owner">
+
+                                        @error('cow_with_owner')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
+
                                     <!-- Form Group (organization name)-->
+                                    {{--                                    <div class="col-md-4">--}}
+                                    {{--                                        <label class="small mb-1" for="inputOrgName"--}}
+                                    {{--                                        >Animal Left Side</label--}}
+                                    {{--                                        ><span style="color: red">*</span>--}}
+                                    {{--                                        <input type="file" class="form-control" name="left_side">--}}
+
+                                    {{--                                        @error('left_side')--}}
+                                    {{--                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>--}}
+                                    {{--                                        @enderror--}}
+                                    {{--                                    </div>--}}
+
+                                </div>
+
+
+                                <div class="row gx-3 mb-3">
+
+
                                     <div class="col-md-4">
                                         <label class="small mb-1" for="inputOrgName"
                                         >Animal Left Side</label
@@ -239,11 +276,6 @@
                                         <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
                                         @enderror
                                     </div>
-
-                                </div>
-
-
-                                <div class="row gx-3 mb-3">
 
 
                                     <!-- Form Group (organization name)-->
@@ -273,6 +305,27 @@
 
                                     {{--  -------------********************************* Muzzle part -------------********************************* --}}
 
+                                    {{--                                    <div class="col-md-4" id="muzzle_of_cow">--}}
+                                    {{--                                        <label class="small mb-1" for="inputOrgName"--}}
+                                    {{--                                        >Muzzle Of Animal</label--}}
+                                    {{--                                        ><span style="color: red">*</span>--}}
+                                    {{--                                        <input type="file" class="form-control" name="muzzle_of_cow" id="fileInput">--}}
+
+                                    {{--                                        @error('muzzle_of_cow')--}}
+                                    {{--                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>--}}
+                                    {{--                                        @enderror--}}
+                                    {{--                                    </div>--}}
+
+
+                                    {{--  -------------********************************* Muzzle part -------------********************************* --}}
+
+                                </div>
+
+
+                                <div class="row gx-3 mb-3">
+
+                                    {{--  -------------********************************* Muzzle part -------------********************************* --}}
+
                                     <div class="col-md-4" id="muzzle_of_cow">
                                         <label class="small mb-1" for="inputOrgName"
                                         >Muzzle Of Animal</label
@@ -287,23 +340,6 @@
 
                                     {{--  -------------********************************* Muzzle part -------------********************************* --}}
 
-                                </div>
-
-                                <div class="row gx-3 mb-3">
-
-                                    <div class="col-md-4">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >Farm Name</label
-                                        ><span style="color: red">*</span>
-
-                                        <select class="form-control" name="farm" id="animal_type">
-                                            <option disabled selected>Select Farm</option>
-
-                                            @foreach($farms as $farm)
-                                                <option value="{{ $farm->id }}">{{ $farm->farm_name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
 
                                 </div>
 

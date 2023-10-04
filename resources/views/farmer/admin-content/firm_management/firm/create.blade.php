@@ -46,28 +46,6 @@
                                 {{ csrf_field() }}
                                 <!-- Form Group (username)-->
 
-                                <!-- Form Row-->
-                                <div class="row gx-3 mb-3">
-                                    <!-- Form Group (first name)-->
-
-                                    <!-- Form Group (last name)-->
-                                    <div class="col-md-12">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >Farm Name</label
-                                        >
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder="Farm Name"
-                                            value=""
-                                            name="farm_name"
-                                        />
-                                    </div>
-
-                                </div>
-
-
                                 <div class="row gx-3 mb-3">
 
 
@@ -144,22 +122,55 @@
                                 </div>
 
 
-                                <div class="row gx-3 mb-3">
-                                    <!-- Form Group (last name)-->
-                                    <div class="col-md-12">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >Farm Address</label
-                                        >
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder="Farm Address"
-                                            value=""
-                                            name="farm_address"
-                                        />
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row gx-3 mb-3">
+                                            <!-- Form Group (first name)-->
+
+                                            <!-- Form Group (last name)-->
+                                            <div class="col-md-12">
+                                                <label class="small mb-1" for="inputLastName"
+                                                >Farm Name</label
+                                                >
+                                                <input
+                                                    class="form-control"
+                                                    id="inputLastName"
+                                                    type="text"
+                                                    placeholder="Farm Name"
+                                                    value=""
+                                                    name="farm_name"
+                                                />
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="row gx-3 mb-3">
+                                            <!-- Form Group (last name)-->
+                                            <div class="col-md-12">
+                                                <label class="small mb-1" for="inputLastName"
+                                                >Farm Address</label
+                                                >
+                                                <input
+                                                    class="form-control"
+                                                    id="inputLastName"
+                                                    type="text"
+                                                    placeholder="Farm Address"
+                                                    value=""
+                                                    name="farm_address"
+                                                />
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
+
+                                <!-- Form Row-->
+
+
 
 
                                 <button class="btn btn-primary" type="submit">

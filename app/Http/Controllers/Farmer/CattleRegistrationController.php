@@ -76,7 +76,7 @@ class CattleRegistrationController extends Controller
             'left_side' => 'required|mimes:jpeg,jpg,png',
             'right_side' => 'required|mimes:jpeg,jpg,png',
             'special_marks' => 'required|mimes:jpeg,jpg,png',
-            'cow_with_owner' => 'required|mimes:jpeg,jpg,png',
+            'cow_with_owner' => 'nullable|mimes:jpeg,jpg,png',
 
         ];
 

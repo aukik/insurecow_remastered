@@ -29,7 +29,7 @@ class CreateCattleRegistrationsTable extends Migration
             $table->string("left_side");
             $table->string("right_side");
             $table->string("special_marks");
-            $table->string("cow_with_owner");
+            $table->string("cow_with_owner")->nullable();
             $table->string("farm");
 
             $table->string("sum_insured");

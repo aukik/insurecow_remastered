@@ -311,7 +311,6 @@
                                                 placeholder=""
                                                 value="{{ old('zip_code') }}"
                                                 name="zip_code"
-                                                pattern="[A-Za-z\s]*"
                                             />
                                         </div>
 

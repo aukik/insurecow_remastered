@@ -331,7 +331,6 @@
                                             placeholder=""
                                             value="{{ $profile->zip_code }}"
                                             name="zip_code"
-                                            pattern="[A-Za-z\s]*"
                                         />
                                     </div>
 
