@@ -77,7 +77,6 @@
                                                 <option value="goat">Goat</option>
                                             @endif
                                         </select>
-
                                     </div>
 
                                     <div class="col-md-4">
@@ -181,23 +180,23 @@
                                 <div class="row gx-3 mb-3">
 
 
-{{--                                    <div class="col-md-4">--}}
-{{--                                        <label class="small mb-1" for="inputLastName"--}}
-{{--                                        >Animal Type</label--}}
-{{--                                        ><span style="color: red">*</span>--}}
-{{--                                        <input--}}
-{{--                                            class="form-control"--}}
-{{--                                            id="inputLastName"--}}
-{{--                                            type="text"--}}
-{{--                                            placeholder=""--}}
-{{--                                            value="{{ old('cattle_type') }}"--}}
-{{--                                            name="cattle_type"--}}
-{{--                                        />--}}
+                                    {{--                                    <div class="col-md-4">--}}
+                                    {{--                                        <label class="small mb-1" for="inputLastName"--}}
+                                    {{--                                        >Animal Type</label--}}
+                                    {{--                                        ><span style="color: red">*</span>--}}
+                                    {{--                                        <input--}}
+                                    {{--                                            class="form-control"--}}
+                                    {{--                                            id="inputLastName"--}}
+                                    {{--                                            type="text"--}}
+                                    {{--                                            placeholder=""--}}
+                                    {{--                                            value="{{ old('cattle_type') }}"--}}
+                                    {{--                                            name="cattle_type"--}}
+                                    {{--                                        />--}}
 
-{{--                                        @error('weight')--}}
-{{--                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>--}}
-{{--                                        @enderror--}}
-{{--                                    </div>--}}
+                                    {{--                                        @error('weight')--}}
+                                    {{--                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>--}}
+                                    {{--                                        @enderror--}}
+                                    {{--                                    </div>--}}
 
                                     <!-- Form Group (organization name)-->
                                     <div class="col-md-4">
@@ -272,7 +271,6 @@
                                     </div>
 
 
-
                                     {{--  -------------********************************* Muzzle part -------------********************************* --}}
 
                                     <div class="col-md-4" id="muzzle_of_cow">
@@ -289,15 +287,23 @@
 
                                     {{--  -------------********************************* Muzzle part -------------********************************* --}}
 
-
                                 </div>
-
 
                                 <div class="row gx-3 mb-3">
 
+                                    <div class="col-md-4">
+                                        <label class="small mb-1" for="inputLastName"
+                                        >Farm Name</label
+                                        ><span style="color: red">*</span>
 
+                                        <select class="form-control" name="farm" id="animal_type">
+                                            <option disabled selected>Select Farm</option>
 
-
+                                            @foreach($farms as $farm)
+                                                <option value="{{ $farm->id }}">{{ $farm->farm_name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
 
                                 </div>
 

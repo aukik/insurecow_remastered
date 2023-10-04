@@ -103,6 +103,7 @@
                                             placeholder=""
                                             value="{{ $profile->present_address }}"
                                             name="present_address"
+                                            pattern="[A-Za-z\s]*"
                                             required
                                         />
                                     </div>
@@ -154,7 +155,7 @@
                                             type="text"
                                             placeholder=""
                                             value="{{ $profile->source_of_income }}"
-
+                                            pattern="[A-Za-z\s]*"
                                             name="source_of_income"
                                         />
                                     </div>
@@ -173,6 +174,7 @@
                                             placeholder=""
                                             value="{{ $profile->division }}"
                                             name="division"
+                                            pattern="[A-Za-z\s]*"
                                         />
                                     </div>
 
@@ -186,7 +188,7 @@
                                             type="text"
                                             placeholder=""
                                             value="{{ $profile->district }}"
-
+                                            pattern="[A-Za-z\s]*"
                                             name="district"
                                         />
 
@@ -202,7 +204,7 @@
                                             type="text"
                                             placeholder=""
                                             value="{{ $profile->upazilla }}"
-
+                                            pattern="[A-Za-z\s]*"
                                             name="upazilla"
                                         />
                                     </div>
@@ -222,6 +224,7 @@
                                             placeholder=""
                                             value="{{ $profile->thana }}"
                                             name="thana"
+                                            pattern="[A-Za-z\s]*"
                                             required
                                         />
                                     </div>
@@ -237,6 +240,7 @@
                                             placeholder=""
                                             value="{{ $profile->union }}"
                                             name="union"
+                                            pattern="[A-Za-z\s]*"
                                             required
                                         />
                                     </div>
@@ -252,6 +256,7 @@
                                             placeholder=""
                                             value="{{ $profile->village }}"
                                             name="village"
+                                            pattern="[A-Za-z\s]*"
                                             required
                                         />
                                     </div>
@@ -270,7 +275,7 @@
                                         ><span style="color: red">*</span>
                                         <textarea class="form-control" rows="1"
                                                   name="farmer_address"
-                                                  required>{{ $profile->farmer_address }}</textarea>
+                                                  required >{{ $profile->farmer_address }}</textarea>
                                     </div>
 
 
@@ -286,6 +291,8 @@
                                             value="{{ $profile->nationality }}"
                                             name="nationality"
                                             required
+                                            pattern="[A-Za-z\s]*"
+
                                         />
                                     </div>
 
@@ -301,6 +308,7 @@
                                             value="{{ $profile->type_of_livestock }}"
                                             name="type_of_livestock"
                                             required
+                                            pattern="[A-Za-z\s]*"
                                         />
                                     </div>
 
@@ -323,6 +331,7 @@
                                             placeholder=""
                                             value="{{ $profile->zip_code }}"
                                             name="zip_code"
+                                            pattern="[A-Za-z\s]*"
                                         />
                                     </div>
 
@@ -360,6 +369,7 @@
                                             placeholder=""
                                             value="{{ $profile->loan_amount }}"
                                             name="loan_amount"
+                                            pattern="[0-9]*"
                                         />
                                     </div>
 
@@ -392,6 +402,7 @@
                                             placeholder=""
                                             value="{{ $profile->bank_name_insured }}"
                                             name="bank_name_insured"
+                                            pattern="[A-Za-z\s]*"
                                             required
                                         />
                                     </div>

@@ -1,0 +1,167 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400&display=swap");
+
+/*=============== BASE ===============*/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html body {
+    font-family: "Poppins", sans-serif;
+    color: #082E13;
+}
+
+.hr-style {
+    margin: 0;
+    background: #2F673F;
+}
+
+.fontAwesome {
+    font-family: Helvetica, 'FontAwesome', sans-serif;
+}
+
+/*=============== NAVBAR ===============*/
+
+nav .navbar-nav li a {
+    font-size: 18px;
+    color: #082E13 !important;
+}
+
+nav .navbar-nav li a:hover {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    text-decoration-thickness: 2px;
+    text-decoration-color: #1D5C2E;
+}
+
+.navbar-light .navbar-toggler {
+    border-color: #fff;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.vr-style {
+    color: #2F673F;
+    margin-top: 14px;
+    height: 30px;
+}
+
+.signout-button {
+    width: 140px;
+    background: #23BB86;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 0px;
+}
+
+/*=============== LOG IN ===============*/
+
+/* Image Card */
+.card-style {
+    background-color: #EFFFF080;
+    border-radius: 10px;
+    border: none;
+}
+
+/* Login Card */
+.login-card {
+    background-color: #FDFCFC;
+    border-radius: 10px;
+    border: none;
+    box-shadow: rgba(79, 172, 35, 0.67) 0px 4px 8px;
+}
+
+.login-text {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.p-welcome-text {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.input-form {
+    border-radius: 10px;
+}
+
+/* Log In Button*/
+.login-button {
+    width: 12rem;
+    background: #23BB86;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    border: none;
+    border-radius: 50px;
+    padding: 5px 0px;
+}
+
+/*Form Footer*/
+.form-footer-text {
+    font-size: 18px;
+    color: #082E13;
+    text-decoration: none;
+}
+
+.form-footer-text:hover {
+    color: #082E13;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    text-decoration-thickness: 2px;
+    text-decoration-color: #1D5C2E;
+}
+
+/*=============== FOOTER ===============*/
+
+.language-footer {
+    text-decoration: none;
+    color: #082E13;
+}
+
+.language-footer:hover {
+    color: #082E13;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    text-decoration-thickness: 2px;
+    text-decoration-color: #1D5C2E;
+}
+
+/*=============== Media screen for mobile devices ===============*/
+
+@media only screen and (max-width: 600px) {
+
+    /* Navbar */
+    .signout-button {
+        width: 120px;
+        padding: 6px 0px;
+    }
+
+    .card-style {
+        display: none;
+    }
+
+    .login-card {
+        box-shadow: rgba(62, 135, 27, 0.25) 0px 4px 10px;
+    }
+}
+
+/*=============== Media screen for tab (portrait) ===============*/
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation: portrait) {
+    
+    .card-style {
+        display: none;
+    }
+
+    .login-card {
+        box-shadow: rgba(62, 135, 27, 0.25) 0px 4px 10px;
+    }
+}

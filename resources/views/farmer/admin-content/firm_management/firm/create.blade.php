@@ -15,7 +15,7 @@
                                 <div class="page-header-icon">
                                     <i data-feather="user"></i>
                                 </div>
-                                Firm Management - Farmer
+                                Farm Management - Farmer
                             </h1>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                 <div class="col-xl-12">
                     <!-- Account details card-->
                     <div class="card mb-4">
-                        <div class="card-header">Firm Management</div>
+                        <div class="card-header">Farm Management - Create / view farms</div>
                         <div class="card-body">
 
                             @if(session('success'))
@@ -53,15 +53,110 @@
                                     <!-- Form Group (last name)-->
                                     <div class="col-md-12">
                                         <label class="small mb-1" for="inputLastName"
-                                        >Add Farm</label
+                                        >Farm Name</label
                                         >
                                         <input
                                             class="form-control"
                                             id="inputLastName"
                                             type="text"
-                                            placeholder="Enter website url"
+                                            placeholder="Farm Name"
                                             value=""
                                             name="farm_name"
+                                        />
+                                    </div>
+
+                                </div>
+
+
+                                <div class="row gx-3 mb-3">
+
+
+                                    <!-- Form Group (last name)-->
+                                    <div class="col-md-12 pb-2">
+                                        <label class="small mb-1" for="inputLastName"
+                                        >Farm Type</label
+                                        >
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="row gx-3 mb-3 align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="form-check">
+
+                                                        <input class="form-check-input" type="hidden"
+                                                               name="cattle"
+                                                               value="0">
+                                                        <input class="form-check-input" type="checkbox"
+                                                               id="exampleFormControlSelect1"
+                                                               name="cattle" value="1"
+                                                        >
+                                                    </div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <label for="exampleFormControlSelect1">Cattle</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <div class="row gx-3 mb-3 align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="hidden"
+                                                               name="buffalo"
+                                                               value="0">
+                                                        <input class="form-check-input" type="checkbox"
+                                                               id="exampleFormControlSelect1"
+                                                               name="buffalo" value="1"
+                                                        >
+                                                    </div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <label for="exampleFormControlSelect1">Buffalo</label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-2">
+                                            <div class="row gx-3 mb-3 align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="hidden"
+                                                               name="goat"
+                                                               value="0">
+                                                        <input class="form-check-input" type="checkbox"
+                                                               id="exampleFormControlSelect1"
+                                                               name="goat" value="1"
+                                                        >
+                                                    </div>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <label for="exampleFormControlSelect1">Goat</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col"></div>
+                                    </div>
+
+
+                                </div>
+
+
+                                <div class="row gx-3 mb-3">
+                                    <!-- Form Group (last name)-->
+                                    <div class="col-md-12">
+                                        <label class="small mb-1" for="inputLastName"
+                                        >Farm Address</label
+                                        >
+                                        <input
+                                            class="form-control"
+                                            id="inputLastName"
+                                            type="text"
+                                            placeholder="Farm Address"
+                                            value=""
+                                            name="farm_address"
                                         />
                                     </div>
                                 </div>
@@ -86,7 +181,10 @@
                                     <thead>
                                     <tr>
                                         <th>Serial</th>
-                                        <th>Cattle Name</th>
+                                        <th>Farm Name</th>
+                                        <th>Farm Type [ cattle ]</th>
+                                        <th>Farm Type [ buffalo ]</th>
+                                        <th>Farm Type [ goat ]</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
@@ -97,8 +195,11 @@
                                         <tr>
                                             <td>{{ $id += 1 }}</td>
                                             <td>{{ $farm->farm_name }}</td>
+                                            <td>{{ $farm->cattle == 1 ? 'Included' : 'Not Included' }}</td>
+                                            <td>{{ $farm->buffalo == 1 ? 'Included' : 'Not Included' }}</td>
+                                            <td>{{ $farm->goat == 1 ? 'Included' : 'Not Included' }}</td>
                                             <td>
-                                                <button class="btn btn-primary" type="button">View Cattle</button>
+                                                <a class="btn btn-primary" type="button" href="{{ route('cattle.list.with_farm', $farm->id) }}">View Cattle</a>
                                             </td>
                                         </tr>
                                     @endforeach

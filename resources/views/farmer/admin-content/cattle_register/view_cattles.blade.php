@@ -34,24 +34,24 @@
                         <div class="card-header">Registered Cattle</div>
                         <div class="card-body">
 
-                            {{--                            <div class="card-header">Extended DataTables</div>--}}
+
                             <div class="card-body">
                                 <table id="datatablesSimple">
                                     <thead>
                                     <tr>
                                         <th>Serial</th>
-                                        <th>Cattle Name</th>
-                                        {{--                                        <th>Owner Image</th>--}}
-                                        <th>Weight</th>
-                                        <th>Color</th>
-                                        {{--                                        <th>Cow With Owner</th>--}}
-                                        <th>Price</th>
-                                        {{--                                        <th>Insurance Status</th>--}}
-                                        <th>Action</th>
-                                        <th>Claim</th>
-                                        {{--                                        <th>Claim <span style="color: red">[TEST]</span></th>--}}
+                                        <th>Animal Name</th>
 
-                                        {{--                                        <th>Insurance</th>--}}
+                                        <th>Animal Weight</th>
+                                        <th>Animal Color</th>
+
+                                        <th>Animal Price</th>
+
+                                        <th>View</th>
+                                        <th>Edit</th>
+                                        <th>Approval Status</th>
+                                        {{--                                        <th>Animal Claim</th>--}}
+
                                     </tr>
                                     </thead>
 
@@ -61,40 +61,29 @@
                                         <tr>
                                             <td>{{ $id += 1 }}</td>
                                             <td>{{ $cattle->cattle_name }}</td>
-                                            {{--                                            <td><img src="{{ asset('storage/'.auth()->user()->profile()->orderBy('id','desc')->first()->image) }}" alt="" style="width: 100px"></td>--}}
+
                                             <td>{{ $cattle->weight }}</td>
                                             <td>{{ $cattle->cattle_color }}</td>
-                                            {{--                                            <td><img src="{{ asset('storage/'.$cattle->cow_with_owner) }}" alt=""--}}
-                                            {{--                                                     style="width: 100px"></td>--}}
+
                                             <td>{{ $cattle->sum_insured }}</td>
 
-                                            {{--                                            <td>{{ \App\Models\Order::order_verification($cattle->id) > 0 ? 'insured' : 'not insured' }}</td>--}}
 
                                             <td>
-                                                <a class="btn btn-success" type="button"
+                                                <a class="btn btn-outline-primary" type="button"
                                                    href="{{ route('cattle.list.single',$cattle->id)  }}">View Info</a>
                                             </td>
 
                                             <td>
-                                                {{--                                                <button class="btn btn-success" type="button">View</button>--}}
-
-                                                <a href="{{ route('claim.index', $cattle->id) }}"
-                                                   class="btn btn-danger">Claim</a>
+                                                <a class="btn btn-outline-yellow" type="button"
+                                                   href="">Edit Info</a>
                                             </td>
 
-                                            {{--                                            @if(\App\Models\Order::order_verification($cattle->id) > 0)--}}
-                                            {{--                                                <td>--}}
-                                            {{--                                                    <a href="{{ route('claim.index', $cattle->id) }}"--}}
-                                            {{--                                                       class="btn btn-danger"--}}
-                                            {{--                                                       type="button">Claim</a>--}}
-                                            {{--                                                </td>--}}
+                                            <td>Approved</td>
+                                            {{--                                            <td>--}}
 
-                                            {{--                                            @else--}}
-                                            {{--                                                <td>Not Applicable</td>--}}
-                                            {{--                                            @endif--}}
-
-
-                                            {{--                                            <td><button class="btn btn-primary" type="button">Request</button></td>--}}
+                                            {{--                                                <a href="{{ route('claim.index', $cattle->id) }}"--}}
+                                            {{--                                                   class="btn btn-danger">Claim</a>--}}
+                                            {{--                                            </td>--}}
 
                                         </tr>
                                     @endforeach

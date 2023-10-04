@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Farmer;
 
 use App\Http\Controllers\Controller;
 use App\Models\CattleRegistration;
+use App\Models\Firm;
 use App\Models\Package;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -25,15 +26,33 @@ class FarmerController extends Controller
 
 //    --------------- view registered Cattle ---------------
 
+
+//    --------------- view registered Cattle ---------------
+
+    public function view_registered_cattle_with_farm($id)
+    {
+        $farm = Firm::findOrFail($id);
+
+        if ($farm->user_id != auth()->user()->id) {
+            return "Farm authentication failed";
+        }
+
+
+        $cattle_list = auth()->user()->cattleRegister()->where('farm', $id)->get();
+        return view('farmer.admin-content.cattle_register.view_cattles', compact('cattle_list'));
+    }
+
+//    --------------- view registered Cattle ---------------
+
 //    --------------- view registered Cattle Single ---------------
 
     public function view_registered_cattle_single($id)
     {
         $cattle = auth()->user()->cattleRegister()->where('id', $id)->first();
 
-        if ($cattle != null){
+        if ($cattle != null) {
             return view('farmer.admin-content.cattle_register.view_single_cattle_info', compact('cattle'));
-        }else{
+        } else {
             return "Information does not exists";
         }
 

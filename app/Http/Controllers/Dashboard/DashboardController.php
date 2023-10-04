@@ -27,8 +27,9 @@ class DashboardController extends Controller
         $no_of_cattle = auth()->user()->cattleRegister()->count();
         $cattle_reg_verification_count = auth()->user()->cattle_registration_verification_report()->count();
         $cattle_reg_verification = auth()->user()->cattle_registration_verification_report()->orderBy('id', 'desc')->take(9)->get();
+        $firms_count = auth()->user()->farm()->count();
 
-        return view("dashboard.farmer", compact('cattle_reg_verification_count', 'no_of_cattle', 'cattle_reg_verification'));
+        return view("dashboard.farmer", compact('cattle_reg_verification_count', 'no_of_cattle', 'cattle_reg_verification','firms_count'));
     }
 
     public function field_agent()

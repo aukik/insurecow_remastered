@@ -14,7 +14,7 @@ Route::get('/', function () {
     return view("front.index");
 });
 
-Auth::routes();
+Auth::routes(['register'=>false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -77,6 +77,7 @@ Route::middleware(['auth', 'farmer'])->prefix('farmer')->group(function () {
         //    -------------------------- view registered cattle -----------------------------
 
         Route::get('cattle_list', [FarmerController::class, 'view_registered_cattle'])->name('cattle.list');
+        Route::get('cattle_list_with_farm/{id}', [FarmerController::class, 'view_registered_cattle_with_farm'])->name('cattle.list.with_farm');
         Route::get('cattle_list_single/{id}', [FarmerController::class, 'view_registered_cattle_single'])->name('cattle.list.single');
 
         //    -------------------------- view registered cattle -----------------------------

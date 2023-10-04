@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Farmer;
 use App\Http\Controllers\Controller;
 use App\Jobs\Farmer\CattleRegistrationProcess;
 use App\Models\CattleRegistration;
+use App\Models\Firm;
 use GuzzleHttp\Exception\ConnectException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -20,7 +21,9 @@ class CattleRegistrationController extends Controller
      */
     public function index()
     {
-        return view('farmer.admin-content.cattle_register.index');
+        $farms = auth()->user()->farm;
+
+        return view('farmer.admin-content.cattle_register.index', compact('farms'));
     }
 
     /**
@@ -41,6 +44,7 @@ class CattleRegistrationController extends Controller
      */
     public function store(Request $request)
     {
+
 
         $animalType = $request->input('animal_type');
 
@@ -64,6 +68,7 @@ class CattleRegistrationController extends Controller
             'age' => 'required',
             'cattle_color' => 'required',
             'weight' => 'required',
+            'farm' => 'required',
             'cattle_type' => 'nullable',
 
             'sum_insured' => 'required',
@@ -72,11 +77,23 @@ class CattleRegistrationController extends Controller
             'right_side' => 'required|mimes:jpeg,jpg,png',
             'special_marks' => 'required|mimes:jpeg,jpg,png',
             'cow_with_owner' => 'required|mimes:jpeg,jpg,png',
+
         ];
 
         // Perform the validation
         $inputs = request()->validate($rules);
         $inputs['unique_id'] = $id;
+
+
+//        -------------------------- farm checkup ---------------------------
+
+        $farm = Firm::findOrFail($inputs['farm']);
+
+        if (auth()->user()->id != $farm->user_id) {
+            return "Farm Authentication Failed";
+        }
+
+//        -------------------------- farm checkup ---------------------------
 
 
 //        ----------------------------- If animal type is cattle then muzzle will be inserted, else it will store "Not Applicable for goat registration" -----------------------------

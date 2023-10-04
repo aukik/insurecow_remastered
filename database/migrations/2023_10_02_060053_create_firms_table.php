@@ -15,7 +15,11 @@ class CreateFirmsTable extends Migration
     {
         Schema::create('firms', function (Blueprint $table) {
             $table->id();
-            $table->string("farm_name");
+            $table->string("farm_name")->unique();
+            $table->integer("cattle");
+            $table->integer("buffalo");
+            $table->integer("goat");
+            $table->text("farm_address");
             $table->string("user_id");
             $table->timestamps();
         });

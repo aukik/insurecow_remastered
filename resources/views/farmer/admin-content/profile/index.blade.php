@@ -92,6 +92,7 @@
                                                 placeholder=""
                                                 value="{{ old('present_address') }}"
                                                 name="present_address"
+                                                pattern="[A-Za-z\s]*"
                                                 required
                                             />
                                         </div>
@@ -145,6 +146,7 @@
                                                 type="text"
                                                 placeholder=""
                                                 value="{{ old('source_of_income') }}"
+                                                pattern="[A-Za-z\s]*"
                                                 name="source_of_income"
                                             />
                                         </div>
@@ -224,6 +226,7 @@
                                                 name="thana"
                                                 v-model="thana"
                                                 required
+                                                pattern="[A-Za-z\s]*"
                                             />
                                         </div>
 
@@ -241,6 +244,7 @@
                                                 name="union"
                                                 v-model="union"
                                                 required
+                                                pattern="[A-Za-z\s]*"
                                             />
                                         </div>
 
@@ -257,6 +261,7 @@
                                                 value="{{ old('village') }}"
                                                 name="village"
                                                 required
+                                                pattern="[A-Za-z\s]*"
                                             />
                                         </div>
 
@@ -280,6 +285,7 @@
                                                 value="{{ old('nationality') }}"
                                                 name="nationality"
                                                 required
+                                                pattern="[A-Za-z\s]*"
                                             />
                                         </div>
 
@@ -305,6 +311,7 @@
                                                 placeholder=""
                                                 value="{{ old('zip_code') }}"
                                                 name="zip_code"
+                                                pattern="[A-Za-z\s]*"
                                             />
                                         </div>
 
@@ -344,6 +351,7 @@
                                                 placeholder=""
                                                 value="{{ old('type_of_livestock') }}"
                                                 name="type_of_livestock"
+                                                pattern="[A-Za-z\s]*"
                                                 required
                                             />
                                         </div>
@@ -384,6 +392,7 @@
                                                 placeholder=""
                                                 value="{{ old('loan_amount') }}"
                                                 name="loan_amount"
+                                                pattern="[0-9]*"
                                             />
                                         </div>
 

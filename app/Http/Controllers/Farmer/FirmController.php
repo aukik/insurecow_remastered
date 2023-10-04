@@ -25,7 +25,7 @@ class FirmController extends Controller
      */
     public function create()
     {
-        $farms = auth()->user()->farm;
+        $farms = auth()->user()->farm()->orderBy('id', 'desc')->get();
 
         return view("farmer.admin-content.firm_management.firm.create", compact('farms'));
     }
@@ -33,25 +33,36 @@ class FirmController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
+
         $inputs = \request()->validate([
-            'farm_name' => 'required'
+            'farm_name' => 'required||unique:firms',
+            'cattle' => 'required',
+            'goat' => 'required',
+            'buffalo' => 'required',
+            'farm_address' => 'required',
         ]);
+
+        if ($inputs['cattle'] != 0 && $inputs['cattle'] != 1
+            || $inputs['goat'] != 0 && $inputs['goat'] != 1
+            || $inputs['buffalo'] != 0 && $inputs['buffalo'] != 1) {
+            return "Invalid request";
+        }
 
 
         auth()->user()->farm()->create($inputs);
-        session()->flash("success","Farm info added successfully");
+        session()->flash("success", "Farm info added successfully");
         return back();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Firm  $firm
+     * @param \App\Models\Firm $firm
      * @return \Illuminate\Http\Response
      */
     public function show(Firm $firm)
@@ -62,7 +73,7 @@ class FirmController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Firm  $firm
+     * @param \App\Models\Firm $firm
      * @return \Illuminate\Http\Response
      */
     public function edit(Firm $firm)
@@ -73,8 +84,8 @@ class FirmController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Firm  $firm
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\Firm $firm
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Firm $firm)
@@ -85,7 +96,7 @@ class FirmController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Firm  $firm
+     * @param \App\Models\Firm $firm
      * @return \Illuminate\Http\Response
      */
     public function destroy(Firm $firm)

@@ -24,13 +24,13 @@ class CreateCattleRegistrationsTable extends Migration
             $table->string("age");
             $table->string("cattle_color");
             $table->string("weight");
-            $table->string("cattle_type")->nullable();
 
             $table->string("muzzle_of_cow");
             $table->string("left_side");
             $table->string("right_side");
             $table->string("special_marks");
             $table->string("cow_with_owner");
+            $table->string("farm");
 
             $table->string("sum_insured");
             $table->string('unique_id');
