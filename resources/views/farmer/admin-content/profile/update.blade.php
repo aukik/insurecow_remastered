@@ -275,7 +275,7 @@
                                         ><span style="color: red">*</span>
                                         <textarea class="form-control" rows="1"
                                                   name="farmer_address"
-                                                  required >{{ $profile->farmer_address }}</textarea>
+                                                  required>{{ $profile->farmer_address }}</textarea>
                                     </div>
 
 
@@ -299,7 +299,7 @@
                                     <div class="col-md-4">
                                         <label class="small mb-1" for="inputLastName"
                                         >Type of Livestock</label
-                                        ><span style="color: red">*</span>
+                                        ><span style="color: red"></span>
                                         <input
                                             class="form-control"
                                             id="inputLastName"
@@ -311,7 +311,6 @@
                                             pattern="[A-Za-z\s]*"
                                         />
                                     </div>
-
 
                                 </div>
 
@@ -337,7 +336,7 @@
                                     <div class="col-md-4">
                                         <label class="small mb-1" for="inputLastName"
                                         >No of Livestock</label
-                                        ><span style="color: red">*</span>
+                                        ><span style="color: red"></span>
                                         <input
                                             class="form-control"
                                             id="inputLastName"

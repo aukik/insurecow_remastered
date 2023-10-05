@@ -15,7 +15,16 @@ class FirmController extends Controller
      */
     public function index()
     {
+        if (auth()->user()->role == "s") {
+            $farms = Firm::orderBy('id', 'desc')->get();
+        }else if (auth()->user()->role == "f"){
+            $farms = auth()->user()->farm()->orderBy('id', 'desc')->get();
 
+        }else{
+            return "Unauthorized entry";
+        }
+
+        return view("farmer.admin-content.firm_management.firm.index", compact('farms'));
     }
 
     /**
@@ -25,9 +34,8 @@ class FirmController extends Controller
      */
     public function create()
     {
-        $farms = auth()->user()->farm()->orderBy('id', 'desc')->get();
 
-        return view("farmer.admin-content.firm_management.firm.create", compact('farms'));
+        return view("farmer.admin-content.firm_management.firm.create");
     }
 
     /**

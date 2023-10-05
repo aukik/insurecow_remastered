@@ -1,11 +1,11 @@
 <?php
 
+use App\Http\Controllers\Farmer\FarmerController;
+use App\Http\Controllers\Farmer\FirmController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\SuperAdmin\CompanyRequest;
 use App\Http\Controllers\SuperAdmin\ProfileController;
 use App\Http\Controllers\SuperAdmin\RegisterController;
-use App\Models\CattleRegistration;
-use App\Models\Permission;
 use Illuminate\Support\Facades\Route;
 
 // -------------------------------------------------------------------- Super Admin --------------------------------------------------------------------
@@ -48,6 +48,19 @@ Route::middleware(['auth', 'super.admin'])->prefix('superAdmin')->group(function
     Route::get("registered_companies", [CompanyRequest::class, "registered_companies"])->name("sp.registered_resources");
     Route::get("registered_farmers/{id}", [CompanyRequest::class, "farmers"])->name("sp.registered_farmers");
     Route::get("registered_cattle/{id}", [CompanyRequest::class, "cattle_list"])->name("sp.registered_cattle");
+    Route::get("all_registered_farmers/", [CompanyRequest::class, "all_farmers"])->name("sp.all_registered_farmers");
+
+    Route::get("registered_farms/", [FirmController::class, "index"])->name("sp.all_registered_farms");
+
+//    ------------------ registered animals  ------------------
+
+    Route::get("registered_animals/", [\App\Http\Controllers\SuperAdmin\AnimalController::class, "index"])->name("sp.all_registered_animals");
+
+//    ------------------ registered animals  ------------------
+
+
+    Route::get('cattle_list_with_farm/{id}', [FarmerController::class, 'view_registered_cattle_with_farm'])->name('sp.cattle.list.with_farm');
+    Route::get('cattle_list_single/{id}', [FarmerController::class, 'view_registered_cattle_single'])->name('sp.cattle.list.single');
 
 
 //    ----------------------------- Registered Resources -----------------------------

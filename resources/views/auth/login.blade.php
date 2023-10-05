@@ -167,7 +167,6 @@
                                     type="checkbox"
                                     value=""
                                     id="remember"
-                                    required
                                     name="remember"
                                     {{ old('remember') ? 'checked' : '' }}
                                 />
@@ -219,22 +218,22 @@
                 </div>
 
                 <!--Grid column-->
-                <div class="col-lg-2 col-md-12 mt-lg-4 mb-4 mb-md-4 offset-lg-1">
-                    <div>
-                        <h5 class="mb-4">Language</h5>
-                        <ul class="list-unstyled mb-0">
-                            <li class="mb-2">
-                                <a href="#" class="language-footer">English</a>
-                            </li>
-                            <li class="mb-2">
-                                <a href="#" class="language-footer">Bangla</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+{{--                <div class="col-lg-2 col-md-12 mt-lg-4 mb-4 mb-md-4 offset-lg-1">--}}
+{{--                    <div>--}}
+{{--                        <h5 class="mb-4">Language</h5>--}}
+{{--                        <ul class="list-unstyled mb-0">--}}
+{{--                            <li class="mb-2">--}}
+{{--                                <a href="#" class="language-footer">English</a>--}}
+{{--                            </li>--}}
+{{--                            <li class="mb-2">--}}
+{{--                                <a href="#" class="language-footer">Bangla</a>--}}
+{{--                            </li>--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
 
                 <!--Grid column-->
-                <div class="col-lg-4 col-md-12 mt-lg-4 mb-4 mb-md-0 offset-lg-1">
+                <div class="col-lg-4 col-md-12 mt-lg-4 mb-4 mb-md-0 offset-lg-4">
                     <div>
                         <h5 class="mb-4">Contact Us</h5>
                         <ul class="list-unstyled mb-0">

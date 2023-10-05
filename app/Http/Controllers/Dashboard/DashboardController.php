@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\CattleRegistration;
+use App\Models\Firm;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -10,9 +12,12 @@ class DashboardController extends Controller
 {
     public function super_admin()
     {
+        $firm_count = Firm::count();
+        $animal_count = CattleRegistration::count();
         $company_count = User::where('role', 'c')->count();
         $total_user_count = User::count();
-        return view("dashboard.super_admin", compact('company_count', 'total_user_count'));
+        $total_farmers_count = User::where('role', 'f')->count();
+        return view("dashboard.super_admin", compact('company_count', 'total_user_count','total_farmers_count','firm_count','animal_count'));
     }
 
     public function company()

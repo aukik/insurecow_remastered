@@ -494,6 +494,94 @@
                     </div>
                 </div>
 
+                <div class="col-lg-6 col-xl-3 mb-4">
+                    <div class="card bg-pink text-white h-100">
+                        <div class="card-body">
+                            <div
+                                class="d-flex justify-content-between align-items-center"
+                            >
+                                <div class="me-3">
+                                    <div class="text-white-75 small">All Registered Farmers</div>
+                                    <div class="text-lg fw-bold">{{ $total_farmers_count }}</div>
+                                </div>
+                                <i
+                                    class="feather-xl text-white-50"
+                                    data-feather="check-square"
+                                ></i>
+                            </div>
+                        </div>
+                        <div
+                            class="card-footer d-flex align-items-center justify-content-between small"
+                        >
+                            <a class="text-white stretched-link" href="{{ route('sp.all_registered_farmers') }}"
+                            >View Information</a
+                            >
+                            <div class="text-white">
+                                <i class="fas fa-angle-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-xl-3 mb-4">
+                    <div class="card bg-green text-white h-100">
+                        <div class="card-body">
+                            <div
+                                class="d-flex justify-content-between align-items-center"
+                            >
+                                <div class="me-3">
+                                    <div class="text-white-75 small">Total Farms</div>
+                                    <div class="text-lg fw-bold">{{ $firm_count }}</div>
+                                </div>
+                                <i
+                                    class="feather-xl text-white-50"
+                                    data-feather="check-square"
+                                ></i>
+                            </div>
+                        </div>
+                        <div
+                            class="card-footer d-flex align-items-center justify-content-between small"
+                        >
+                            <a class="text-white stretched-link" href="{{ route('sp.all_registered_farmers') }}"
+                            >View Information</a
+                            >
+                            <div class="text-white">
+                                <i class="fas fa-angle-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-xl-3 mb-4">
+                    <div class="card bg-indigo text-white h-100">
+                        <div class="card-body">
+                            <div
+                                class="d-flex justify-content-between align-items-center"
+                            >
+                                <div class="me-3">
+                                    <div class="text-white-75 small">Total Animals</div>
+                                    <div class="text-lg fw-bold">{{ $animal_count }}</div>
+                                </div>
+                                <i
+                                    class="feather-xl text-white-50"
+                                    data-feather="check-square"
+                                ></i>
+                            </div>
+                        </div>
+                        <div
+                            class="card-footer d-flex align-items-center justify-content-between small"
+                        >
+                            <a class="text-white stretched-link" href="{{ route('sp.all_registered_animals') }}"
+                            >View Information</a
+                            >
+                            <div class="text-white">
+                                <i class="fas fa-angle-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
 
                 {{--                <div class="col-lg-6 col-xl-3 mb-4">--}}
                 {{--                    <div class="card bg-danger text-white h-100">--}}

@@ -35,6 +35,14 @@ class CompanyRequest extends Controller
         return view("super-admin.admin-content.registered_resources.farmer", compact('users', 'user'));
     }
 
+
+    public function all_farmers()
+    {
+        $users = User::where('role', 'f')->get();
+        return view("super-admin.admin-content.registered_resources.farmer", compact('users'));
+    }
+
+
     public function cattle_list($id)
     {
         $user = User::findOrFail($id);

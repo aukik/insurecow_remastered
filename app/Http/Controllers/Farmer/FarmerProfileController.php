@@ -30,8 +30,9 @@ class FarmerProfileController extends Controller
 
     public function get_farmer_info()
     {
+        $farmer_auth_info = auth()->user();
         $profile = auth()->user()->farmerProfile()->orderBy('id', 'desc')->first();
-        return view('farmer.admin-content.profile.view', compact('profile'));
+        return view('farmer.admin-content.profile.view', compact('profile','farmer_auth_info'));
     }
 
     public function index()

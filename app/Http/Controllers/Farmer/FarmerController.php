@@ -31,14 +31,23 @@ class FarmerController extends Controller
 
     public function view_registered_cattle_with_farm($id)
     {
+
         $farm = Firm::findOrFail($id);
 
-        if ($farm->user_id != auth()->user()->id) {
-            return "Farm authentication failed";
+        if (auth()->user()->role == "f"){
+            if ($farm->user_id != auth()->user()->id) {
+                return "Farm authentication failed";
+            }
+        }
+
+        if(auth()->user()->role == "f"){
+            $cattle_list = auth()->user()->cattleRegister()->where('farm', $id)->get();
+        }else{
+            $cattle_list = CattleRegistration::where('farm', $id)->get();
+
         }
 
 
-        $cattle_list = auth()->user()->cattleRegister()->where('farm', $id)->get();
         return view('farmer.admin-content.cattle_register.view_cattles', compact('cattle_list'));
     }
 

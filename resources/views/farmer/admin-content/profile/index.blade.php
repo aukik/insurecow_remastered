@@ -325,7 +325,7 @@
                                         <div class="col-md-6">
                                             <label class="small mb-1" for="inputLastName"
                                             >No of Livestock</label
-                                            ><span style="color: red">*</span>
+                                            ><span style="color: red"></span>
                                             <input
                                                 class="form-control"
                                                 id="inputLastName"
@@ -342,7 +342,7 @@
                                         <div class="col-md-6">
                                             <label class="small mb-1" for="inputLastName"
                                             >Type of Livestock</label
-                                            ><span style="color: red">*</span>
+                                            ><span style="color: red"></span>
                                             <input
                                                 class="form-control"
                                                 id="inputLastName"

@@ -122,7 +122,6 @@
                                 </div>
 
 
-
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="row gx-3 mb-3">
@@ -171,8 +170,6 @@
                                 <!-- Form Row-->
 
 
-
-
                                 <button class="btn btn-primary" type="submit">
                                     Add Firm
                                 </button>
@@ -181,45 +178,6 @@
 
                             {{-- ---------------------------------------- Farm Creation ---------------------------------------- --}}
 
-                            {{-- ---------------------------------------- Farm List ---------------------------------------- --}}
-
-                            <hr style="color: #0a3622; font-weight: bold">
-
-                            <div style="color: #0a3622; font-weight: bold">Number Of Firms</div>
-
-                            <div class="card-body">
-                                <table id="datatablesSimple">
-                                    <thead>
-                                    <tr>
-                                        <th>Serial</th>
-                                        <th>Farm Name</th>
-                                        <th>Farm Type [ cattle ]</th>
-                                        <th>Farm Type [ buffalo ]</th>
-                                        <th>Farm Type [ goat ]</th>
-                                        <th>Action</th>
-                                    </tr>
-                                    </thead>
-
-                                    <tbody>
-                                    <?php $id = 0 ?>
-                                    @foreach($farms as $farm)
-                                        <tr>
-                                            <td>{{ $id += 1 }}</td>
-                                            <td>{{ $farm->farm_name }}</td>
-                                            <td>{{ $farm->cattle == 1 ? 'Included' : 'Not Included' }}</td>
-                                            <td>{{ $farm->buffalo == 1 ? 'Included' : 'Not Included' }}</td>
-                                            <td>{{ $farm->goat == 1 ? 'Included' : 'Not Included' }}</td>
-                                            <td>
-                                                <a class="btn btn-primary" type="button" href="{{ route('cattle.list.with_farm', $farm->id) }}">View Cattle</a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-
-
-                            {{-- ---------------------------------------- Farm List ---------------------------------------- --}}
 
                         </div>
                     </div>

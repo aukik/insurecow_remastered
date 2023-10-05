@@ -50,6 +50,35 @@
 
                                 <div class="col-md-4">
                                     <label class="small mb-1 fw-bold" for="inputLastName"
+                                    >Farmers Name</label
+                                    ><span style="color: red"></span>
+                                    <p>{{ $farmer_auth_info->name }}</p>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label class="small mb-1 fw-bold" for="inputLastName"
+                                    >Farmers Email</label
+                                    ><span style="color: red"></span>
+                                    <p>{{ $farmer_auth_info->email }}</p>
+
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label class="small mb-1 fw-bold" for="inputLastName"
+                                    >Farmers Phone</label
+                                    ><span style="color: red"></span>
+
+                                    <p>{{ $farmer_auth_info->phone }}</p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="row gx-3 mb-3">
+
+                                <div class="col-md-4">
+                                    <label class="small mb-1 fw-bold" for="inputLastName"
                                     >Fathers Name</label
                                     ><span style="color: red"></span>
                                     <p>{{ $profile->fathers_name }}</p>
