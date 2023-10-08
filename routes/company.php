@@ -4,6 +4,7 @@ use App\Http\Controllers\Company\CompanyController;
 use App\Http\Controllers\Company\CompanyPolicyController;
 use App\Http\Controllers\Company\PackageController;
 use App\Http\Controllers\Company\RegisterFieldAgentController;
+use App\Http\Controllers\Company\InsuranceRequest;
 use Illuminate\Support\Facades\Route;
 
 // -------------------------------------------------------------------- Company --------------------------------------------------------------------
@@ -58,6 +59,24 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
         Route::get('package_status/{id}', [CompanyController::class, 'package_status'])->name('package_status');
 
         //    -------------------------- Package Status -----------------------------
+
+        //    -------------------------- View Insurance requests from farmers -----------------------------
+
+        Route::get("company_insurance_requests", [InsuranceRequest::class, 'view_insurance_history'])->name('company_view_insurance_history');
+
+        //    -------------------------- View Insurance requests from farmers -----------------------------
+
+        //    -------------------------- Send request to farmer -----------------------------
+
+        Route::get("send_request_to_farmer/{id}", [InsuranceRequest::class, 'send_request'])->name('company_send_request');
+
+        //    -------------------------- Send request to farmer -----------------------------
+
+        //    -------------------------- View Cattle Info -----------------------------
+
+        Route::get("view_cattle_info/{id}", [InsuranceRequest::class, 'view_cattle_info'])->name('company_view_cattle_info');
+
+        //    -------------------------- View Cattle Info -----------------------------
     });
 
 

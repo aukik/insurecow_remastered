@@ -142,5 +142,15 @@ class User extends Authenticatable
 
 //    --------------------- relation between user and permission table ---------------------
 
+//    --------------------- farmer will be request for insurance ---------------------
+
+    public function farmer_req_for_ins()
+    {
+        return $this->hasOne(InsuranceRequest::class);
+    }
+
+
+//    --------------------- farmer will be request for insurance ---------------------
+
 
 }

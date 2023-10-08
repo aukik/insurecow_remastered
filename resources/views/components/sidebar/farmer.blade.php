@@ -87,6 +87,11 @@
                     Claim Insurance
                 </a>
 
+                    <a class="nav-link" href="{{ route('farmer_view_insurance_history') }}">
+                        <div class="nav-link-icon"><i data-feather="filter"></i></div>
+                        Insurance requests
+                    </a>
+
                 <a class="nav-link" href="{{ route('insurance.history.index') }}">
                     <div class="nav-link-icon"><i data-feather="filter"></i></div>
                     Insurance History

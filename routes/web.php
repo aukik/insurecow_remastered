@@ -4,6 +4,7 @@ use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\Farmer\CattleRegistrationController;
 use App\Http\Controllers\Farmer\FarmerController;
 use App\Http\Controllers\Farmer\FarmerProfileController;
+use App\Http\Controllers\Farmer\InsuranceRequestController;
 use App\Http\Controllers\ml\ClaimController;
 use App\Http\Controllers\SslCommerzPaymentController;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +15,7 @@ Route::get('/', function () {
     return view("front.index");
 });
 
-Auth::routes(['register'=>false]);
+Auth::routes(['register' => false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -105,6 +106,20 @@ Route::middleware(['auth', 'farmer'])->prefix('farmer')->group(function () {
 
         //    ----------------------- Insurance Packages by companies -----------------------
 
+        //    ----------------------- Farmer requests for insurance to company -----------------------
+
+        Route::post('farmer_insurance_request', [InsuranceRequestController::class, 'request_for_insurance'])->name('farmer_insurance_request');
+
+        //    ----------------------- Farmer requests for insurance to company -----------------------
+
+
+        //    ----------------------- Farmers view insurance history -----------------------
+
+        Route::get("farmer_insurance_request", [InsuranceRequestController::class, 'view_insurance_history'])->name('farmer_view_insurance_history');
+
+        //    ----------------------- Farmers view insurance history -----------------------
+
+
         //    ----------------------- View insurance Package by company offers -----------------------
 
         Route::get('single_insurance_packages/{id}/{id2}', [FarmerController::class, 'company_insurance_packages_single'])->name('single.insurance.packages');
@@ -160,7 +175,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
 Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout']);
 
-Route::post('/pay', [SslCommerzPaymentController::class, 'index']);
+Route::post('/pay', [SslCommerzPaymentController::class, 'index'])->name("pay");
 Route::post('/pay-via-ajax', [SslCommerzPaymentController::class, 'payViaAjax']);
 
 Route::post('/success', [SslCommerzPaymentController::class, 'success']);

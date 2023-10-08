@@ -29,7 +29,10 @@ class SslCommerzPaymentController extends Controller
             'package_id' => 'required',
             'company_id' => 'required',
             'package_insurance_period' => 'required',
+            'insurance_request_id' => 'required',
         ]);
+
+        $users_id = auth()->user()->id;
 
         $cattle_info = auth()->user()->cattleRegister()->where('id', \request('cattle_id'))->first();
 
@@ -100,8 +103,9 @@ class SslCommerzPaymentController extends Controller
                     'cattle_id' => $inputs['cattle_id'],
                     'package_id' => $inputs['package_id'],
                     'company_id' => $inputs['company_id'],
-                    'user_id' => auth()->user()->id,
+                    'user_id' => $users_id,
                     'package_expiration_date' => $expired_date,
+                    'insurance_request_id' => $inputs['insurance_request_id'],
                 ]);
         } else {
             return "Invalid operation";
@@ -227,7 +231,7 @@ class SslCommerzPaymentController extends Controller
              */
             echo "Transaction is successfully Completed";
             return redirect()->route('login');
-            
+
         } else {
             #That means something wrong happened. You can redirect customer to your product page.
             echo "Invalid Transaction";

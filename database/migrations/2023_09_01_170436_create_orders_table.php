@@ -28,6 +28,7 @@ class CreateOrdersTable extends Migration
             $table->string("package_id")->nullable();
             $table->string("company_id")->nullable();
             $table->string("user_id")->nullable();
+            $table->string("insurance_request_id")->nullable();
 
             $table->date("package_expiration_date")->nullable();
 
