@@ -34,15 +34,15 @@ class FarmerController extends Controller
 
         $farm = Firm::findOrFail($id);
 
-        if (auth()->user()->role == "f"){
+        if (auth()->user()->role == "f") {
             if ($farm->user_id != auth()->user()->id) {
                 return "Farm authentication failed";
             }
         }
 
-        if(auth()->user()->role == "f"){
+        if (auth()->user()->role == "f") {
             $cattle_list = auth()->user()->cattleRegister()->where('farm', $id)->get();
-        }else{
+        } else {
             $cattle_list = CattleRegistration::where('farm', $id)->get();
 
         }

@@ -65,12 +65,18 @@
                                         >Farm Name</label
                                         ><span style="color: red">*</span>
 
-                                        <select class="form-select" name="farm" id="animal_type">
+                                        <select class="form-select" name="farm" id="farm_name">
                                             <option disabled selected>Select Farm</option>
 
-                                            @foreach($farms as $farm)
-                                                <option value="{{ $farm->id }}">{{ $farm->farm_name }}</option>
-                                            @endforeach
+                                            @if($farms->count() == 0)
+                                                <option value="No Farm">No Farm</option>
+                                            @else
+                                                @foreach($farms as $farm)
+                                                    <option value="{{ $farm->id }}">{{ $farm->farm_name }}</option>
+                                                @endforeach
+                                            @endif
+
+
                                         </select>
                                     </div>
 
