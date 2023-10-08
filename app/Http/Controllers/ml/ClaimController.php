@@ -67,7 +67,7 @@ class ClaimController extends Controller
 
                 $apiResponse = $response->json('output');
 
-                if (Str::length($apiResponse) > 30) {
+                if ($apiResponse == "Success") {
 
 //                    auth()->user()->insurance_claimed()->create($inputs);
 
