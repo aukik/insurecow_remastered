@@ -20,8 +20,8 @@ class InsuranceRequestController extends Controller
             'package_insurance_period' => request('package_insurance_period'),
         ]);
 
-        session('request','Request sent successfully');
-        return back();
+        session()->flash('success','Request sent successfully');
+        return redirect()->route('farmer_insurance_request');
     }
 
 //    ------------------------ requesting for insurance from farmer side ------------------------

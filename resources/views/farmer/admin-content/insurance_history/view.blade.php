@@ -15,7 +15,7 @@
                                 <div class="page-header-icon">
                                     <i data-feather="user"></i>
                                 </div>
-                                Farmer - Insurance History
+                                Farmer - Insurance Requests
                             </h1>
                         </div>
                     </div>
@@ -31,9 +31,14 @@
                 <div class="col-xl-12">
                     <!-- Account details card-->
                     <div class="card mb-4">
-                        <div class="card-header">Farmer - Insurance History</div>
+                        <div class="card-header">Farmer - Insurance Requests</div>
                         <div class="card-body">
 
+                            @if(session('success'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
                             {{--                            <div class="card-header">Extended DataTables</div>--}}
                             <div class="card-body">
                                 <table id="datatablesSimple">
@@ -42,11 +47,16 @@
                                         <th>Serial</th>
                                         <th>Package Info</th>
                                         <th>Company Name</th>
+
+
                                         <th>Premium Policy</th>
+
+
                                         <th>Package Insurance Period</th>
                                         <th>Muzzle Verification Status</th>
                                         <th>Insurance Status</th>
-                                        <th>Test Insurance Buy <span style="color: red">[ Under construction ]</span></th>
+                                        <th>Test Insurance Buy <span style="color: red">[ Under construction ]</span>
+                                        </th>
                                         <th>Buy Insurance</th>
                                         {{--                                        <th>Insurance Status</th>--}}
                                     </tr>
@@ -59,14 +69,20 @@
                                             <td>{{ $id += 1 }}</td>
                                             <td>{!!  \App\Http\Controllers\Farmer\InsuranceRequestController::package_id($history->package_id) !!}</td>
                                             <td>{!!  \App\Http\Controllers\Farmer\InsuranceRequestController::company_data($history->company_id) !!}</td>
-                                            <td>
-                                                <a href="{!! asset("storage/".\App\Http\Controllers\Farmer\InsuranceRequestController::package_policy($history->package_id))  !!}">View
-                                                    Quotation</a></td>
+
+                                            @if($history->insurance_status == "received")
+
+                                                <td>
+                                                    <a href="{!! asset("storage/".\App\Http\Controllers\Farmer\InsuranceRequestController::package_policy($history->package_id))  !!}">View
+                                                        Quotation</a></td>
+
+                                            @else
+                                                <td>-</td>
+                                            @endif
+
                                             <td>{{ $history->package_insurance_period }}</td>
                                             <td>{{ $history->muzzle_verification == null ? "Not verified" : "Verified" }}</td>
                                             <td>{{ $history->insurance_status }}</td>
-
-
 
 
                                             <td>{!!  \App\Http\Controllers\Farmer\InsuranceRequestController::insurance_buy_status($history->id) !!}</td>
