@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Farmer;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
 use App\Models\Package;
 use App\Models\User;
 
@@ -20,7 +21,7 @@ class InsuranceRequestController extends Controller
             'package_insurance_period' => request('package_insurance_period'),
         ]);
 
-        session()->flash('success','Request sent successfully');
+        session()->flash('success', 'Request sent successfully');
         return redirect()->route('farmer_insurance_request');
     }
 
@@ -30,7 +31,7 @@ class InsuranceRequestController extends Controller
 
     public function view_insurance_history()
     {
-        $insurance_history = auth()->user()->farmer_req_for_ins()->orderBy('id','desc')->get();
+        $insurance_history = auth()->user()->farmer_req_for_ins()->orderBy('id', 'desc')->get();
         return view('farmer.admin-content.insurance_history.view', compact('insurance_history'));
     }
 
@@ -82,14 +83,39 @@ class InsuranceRequestController extends Controller
 
     public static function insurance_buy_status($id)
     {
-        return $id;
+        $order = Order::where('insurance_request_id', $id)->orderBy('id', 'desc')->first();
+
+        if (!$order) {
+            return "No Transaction status";
+        }
+
+        if ($order->status === "Processing" || $order->status === "Complete") {
+            return "Paid";
+        } else {
+            return "Not paid";
+        }
     }
 
 
 //    ------------------------ Insurance status check bought by farmer ------------------------
 
+//    ------------------------ Insurance status check bought by farmer ------------------------
+
+    public static function insurance_recent_attempt($id)
+    {
+        $order = Order::where('insurance_request_id', $id)->orderBy('id', 'desc')->first();
+
+        if (!$order) {
+            return "No Transaction status";
+        }
+
+        return $order->status;
 
 
+    }
+
+
+//    ------------------------ Insurance status check bought by farmer ------------------------
 
 
 }

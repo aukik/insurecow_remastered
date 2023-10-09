@@ -33,6 +33,7 @@ class SslCommerzPaymentController extends Controller
         ]);
 
         $users_id = auth()->user()->id;
+//        $users_id = 14;
 
         $cattle_info = auth()->user()->cattleRegister()->where('id', \request('cattle_id'))->first();
 
@@ -223,14 +224,14 @@ class SslCommerzPaymentController extends Controller
                     ->update(['status' => 'Processing']);
 
                 echo "<br >Transaction is successfully Completed";
-                return redirect()->route('login');
+                return redirect()->route('farmer_view_insurance_history');
             }
         } else if ($order_details->status == 'Processing' || $order_details->status == 'Complete') {
             /*
              That means through IPN Order status already updated. Now you can just show the customer that transaction is completed. No need to udate database.
              */
             echo "Transaction is successfully Completed";
-            return redirect()->route('login');
+            return redirect()->route('farmer_view_insurance_history');
 
         } else {
             #That means something wrong happened. You can redirect customer to your product page.

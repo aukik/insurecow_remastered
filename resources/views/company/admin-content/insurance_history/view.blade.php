@@ -49,6 +49,7 @@
                                         <th>Muzzle Verification Status</th>
                                         <th>Insurance Status</th>
                                         <th>Send Quotation</th>
+                                        <th>Payment History</th>
                                         {{--                                        <th>Insurance Status</th>--}}
                                     </tr>
                                     </thead>
@@ -79,6 +80,9 @@
                                                        class="btn btn-success">Send</a>
                                                 </td>
                                             @endif
+
+                                            <td>{{ \App\Http\Controllers\Farmer\InsuranceRequestController::insurance_buy_status($history->id) }}</td>
+
                                         </tr>
                                     @endforeach
                                     </tbody>

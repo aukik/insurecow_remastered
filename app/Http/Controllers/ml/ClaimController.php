@@ -67,7 +67,7 @@ class ClaimController extends Controller
 
                 $apiResponse = $response->json('output');
 
-                if ($apiResponse == "Success") {
+                if ($apiResponse != "Failed") {
 
 //                    auth()->user()->insurance_claimed()->create($inputs);
 
@@ -82,7 +82,7 @@ class ClaimController extends Controller
                     ]);
 
                     session()->flash("claim_success", "Claim action matched successfully");
-                    return back()->with("data",$cattle_data);
+                    return back()->with("data", $cattle_data);
                 } elseif ($apiResponse == "Failed") {
                     session()->flash("claim_failed", "Claim action unaccepted");
                     return back();
