@@ -85,17 +85,6 @@ class CattleRegistrationController extends Controller
         $inputs['unique_id'] = $id;
 
 
-//        -------------------------- farm checkup ---------------------------
-
-        $farm = Firm::findOrFail($inputs['farm']);
-
-        if (auth()->user()->id != $farm->user_id) {
-            return "Farm Authentication Failed";
-        }
-
-//        -------------------------- farm checkup ---------------------------
-
-
 //        ----------------------------- If animal type is cattle then muzzle will be inserted, else it will store "Not Applicable for goat registration" -----------------------------
 
         if ($animalType === 'goat') {
