@@ -220,7 +220,7 @@
                                                     class="form-control"
                                                     id="inputLastName"
                                                     type="text"
-                                                    placeholder="Enter Phone Number"
+                                                    placeholder="Enter Address"
                                                     value="{{ old('address') }}"
                                                     name="address"
                                                 />

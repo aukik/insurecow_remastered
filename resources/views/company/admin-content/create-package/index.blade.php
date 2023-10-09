@@ -64,7 +64,7 @@
 
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputLastName"
-                                        >Specific Policy for Package</label
+                                        >Specific Policy for Package [ PDF File ]</label
                                         >
                                         <input
                                             class="form-control"
