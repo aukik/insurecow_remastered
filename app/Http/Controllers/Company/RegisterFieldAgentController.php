@@ -40,7 +40,7 @@ class RegisterFieldAgentController extends Controller
 
         $inputs = \request()->validate([
             'name' => 'required',
-            'phone' => 'required',
+            'phone' => 'required|unique:users',
             'email' => 'required|unique:users',
             'password' => 'required',
             'address' => 'required',

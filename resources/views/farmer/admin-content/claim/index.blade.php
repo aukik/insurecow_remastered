@@ -51,51 +51,64 @@
                                 </div>
                             @endif
 
-                            <form action="{{ route('claim.store') }}" method="post"
-                                  enctype="multipart/form-data">
-                                {{ csrf_field() }}
 
 
-                                <div class="row gx-3 mb-3">
+                            {{--  ------------------------------------------ Both insurance payment and claim status check ------------------------------------------ --}}
+
+                            @if(\App\Http\Controllers\Farmer\FarmerCattleListLogicController::insurance_detection($cattle_info->id) == true)
+                                @if(\App\Http\Controllers\Farmer\FarmerCattleListLogicController::claim_detection($cattle_info->id) == true)
+
+                                    <form action="{{ route('claim.store') }}" method="post"
+                                          enctype="multipart/form-data">
+                                        {{ csrf_field() }}
 
 
-                                    {{--  -------------********************************* Muzzle part -------------********************************* --}}
-
-                                    <div class="col-md-12">
-                                        <label class="small mb-1" for="inputOrgName"
-                                        >Muzzle Of Cow [Insert the image of the cow muzzle]</label
-                                        >
-                                        <input type="file" class="form-control" name="muzzle_of_cow" id="fileInput">
-
-                                        @error('muzzle_of_cow')
-                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
-                                        @enderror
-
-                                    </div>
+                                        <div class="row gx-3 mb-3">
 
 
-                                    <input type="hidden" class="form-control" name="muzzle_token"
-                                           value="{{ $cattle_info->muzzle_of_cow }}">
+                                            {{--  -------------********************************* Muzzle part -------------********************************* --}}
 
-                                    <input type="hidden" class="form-control" name="cattle_id"
-                                           value="{{ $cattle_info->id }}">
+                                            <div class="col-md-12">
+                                                <label class="small mb-1" for="inputOrgName"
+                                                >Muzzle Of Cow [Insert the image of the cow muzzle]</label
+                                                >
+                                                <input type="file" class="form-control" name="muzzle_of_cow"
+                                                       id="fileInput">
+
+                                                @error('muzzle_of_cow')
+                                                <div class="alert alert-danger"
+                                                     style="margin-top: 10px">{{ $message }}</div>
+                                                @enderror
+
+                                            </div>
 
 
-                                    {{--  -------------********************************* Muzzle part -------------********************************* --}}
+                                            <input type="hidden" class="form-control" name="muzzle_token"
+                                                   value="{{ $cattle_info->muzzle_of_cow }}">
+
+                                            <input type="hidden" class="form-control" name="cattle_id"
+                                                   value="{{ $cattle_info->id }}">
 
 
-                                </div>
+                                            {{--  -------------********************************* Muzzle part -------------********************************* --}}
 
-                                {{--                                <p class="muzzle_checking_text" style="color: red">Muzzle Checking in progress</p>--}}
-                                {{--                                <br><br>--}}
 
-                                <button class="btn btn-primary cattle_register_button" type="submit">
-                                    Claim Insurance
-                                </button>
+                                        </div>
 
-                            </form>
+                                        <button class="btn btn-primary cattle_register_button" type="submit">
+                                            Claim Insurance
+                                        </button>
 
-                            {{-- ---------------------------------------- Farmer Cow Registration ---------------------------------------- --}}
+                                    </form>
+
+                                @else
+                                    <p>Claimed</p>
+                                @endif
+                            @else
+                                <p>Not insured</p>
+                            @endif
+
+                            {{--  ------------------------------------------ Both insurance payment and claim status check ------------------------------------------ --}}
 
 
                             <br>
@@ -107,13 +120,15 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                         <p style="font-weight: bold">
-                                            <span style="color: #0a3622">Cattle Name :</span> {{ session('data')->cattle_name }}
+                                            <span
+                                                style="color: #0a3622">Cattle Name :</span> {{ session('data')->cattle_name }}
                                         </p>
                                     </div>
 
                                     <div class="col-md-4">
                                         <p style="font-weight: bold">
-                                            <span style="color: #0a3622">Cattle Breed :</span> {{ session('data')->cattle_breed }}
+                                            <span
+                                                style="color: #0a3622">Cattle Breed :</span> {{ session('data')->cattle_breed }}
                                         </p>
                                     </div>
 
@@ -125,13 +140,15 @@
 
                                     <div class="col-md-4">
                                         <p style="font-weight: bold">
-                                            <span style="color: #0a3622">Cattle Weight :</span> {{ session('data')->weight }}
+                                            <span
+                                                style="color: #0a3622">Cattle Weight :</span> {{ session('data')->weight }}
                                         </p>
                                     </div>
 
                                     <div class="col-md-4">
                                         <p style="font-weight: bold">
-                                            <span style="color: #0a3622">Cattle Type :</span> {{ session('data')->cattle_type }}
+                                            <span
+                                                style="color: #0a3622">Cattle Type :</span> {{ session('data')->cattle_type }}
                                         </p>
                                     </div>
 
@@ -143,21 +160,24 @@
                                         <p style="font-weight: bold">
                                             <span style="color: #0a3622">Cattle with Owner :</span>
                                         </p>
-                                        <img src="{{ asset('storage/'.session('data')->cow_with_owner) }}" alt="" style="width: 100px">
+                                        <img src="{{ asset('storage/'.session('data')->cow_with_owner) }}" alt=""
+                                             style="width: 100px">
                                     </div>
 
                                     <div class="col-md-4">
                                         <p style="font-weight: bold">
                                             <span style="color: #0a3622">Cattle Left Side :</span>
                                         </p>
-                                        <img src="{{ asset('storage/'.session('data')->left_side) }}" alt="" style="width: 100px">
+                                        <img src="{{ asset('storage/'.session('data')->left_side) }}" alt=""
+                                             style="width: 100px">
                                     </div>
 
                                     <div class="col-md-4">
                                         <p style="font-weight: bold">
                                             <span style="color: #0a3622">Cattle Right Side :</span>
                                         </p>
-                                        <img src="{{ asset('storage/'.session('data')->right_side) }}" alt="" style="width: 100px">
+                                        <img src="{{ asset('storage/'.session('data')->right_side) }}" alt=""
+                                             style="width: 100px">
                                     </div>
                                 </div>
 

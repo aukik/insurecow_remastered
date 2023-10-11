@@ -56,7 +56,7 @@
                                         <th>Muzzle Verification Status</th>
                                         <th>Insurance Status</th>
                                         <th>Insurance Payment Status</th>
-                                        <th>Recent Attempts</th>
+                                        <th>Transaction Status</th>
                                         <th>Buy Insurance</th>
                                         {{--                                        <th>Insurance Status</th>--}}
                                     </tr>

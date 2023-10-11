@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\CattleRegistration;
 use App\Models\CattleRegReport;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 
@@ -51,6 +52,15 @@ class ClaimController extends Controller
         $apiUrl = "http://13.232.34.224/cattle_identification";
 
         $basename = $inputs['muzzle_token'];
+
+
+//        ---------------------------- Path Info without extension , the cattle_r_id ----------------------------
+
+        $basename_with_cattle_r_id = pathinfo($basename, PATHINFO_FILENAME);
+
+//        ---------------------------- Path Info without extension , the cattle_r_id ----------------------------
+
+
         $cattle_id = $inputs['cattle_id'];
 
         $cattle_data = CattleRegistration::findOrFail($cattle_id);
@@ -59,22 +69,33 @@ class ClaimController extends Controller
             $response = Http::attach(
                 'image',
                 file_get_contents(storage_path('app/public/' . $inputs['muzzle_of_cow'])),
-                basename($basename) // File name to use in the request
+                basename($basename_with_cattle_r_id) // File name to use in the request
             )->post($apiUrl, ['options' => $options]);
 
 
             if ($response->status() == 200) {
 
+                CattleRegReport::create([
+                    'cattle_name' => $cattle_data->cattle_name,
+                    'cow_with_owner' => $cattle_data->cow_with_owner,
+                    'verification_report' => "processing",
+                    'user_id' => auth()->user()->id,
+                    'cattle_id' => $cattle_data->id,
+                    'operation' => 'claim'
+
+                ]);
+
                 $apiResponse = $response->json('output');
 
-                if ($apiResponse != "Failed") {
 
-//                    auth()->user()->insurance_claimed()->create($inputs);
+                $result = auth()->user()->cattleRegister()->where('muzzle_of_cow', 'like', '%' . $apiResponse . '%')->count();
+
+                if ($result == 1) {
 
                     CattleRegReport::create([
                         'cattle_name' => $cattle_data->cattle_name,
                         'cow_with_owner' => $cattle_data->cow_with_owner,
-                        'verification_report' => "claimed",
+                        'verification_report' => "success",
                         'user_id' => auth()->user()->id,
                         'cattle_id' => $cattle_data->id,
                         'operation' => 'claim'
@@ -83,7 +104,20 @@ class ClaimController extends Controller
 
                     session()->flash("claim_success", "Claim action matched successfully");
                     return back()->with("data", $cattle_data);
-                } elseif ($apiResponse == "Failed") {
+
+
+                } elseif ($result == 0) {
+
+                    CattleRegReport::create([
+                        'cattle_name' => $cattle_data->cattle_name,
+                        'cow_with_owner' => $cattle_data->cow_with_owner,
+                        'verification_report' => "failed",
+                        'user_id' => auth()->user()->id,
+                        'cattle_id' => $cattle_data->id,
+                        'operation' => 'claim'
+
+                    ]);
+
                     session()->flash("claim_failed", "Claim action unaccepted");
                     return back();
                 } else {

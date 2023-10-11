@@ -7,7 +7,9 @@ use App\Models\User;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
-use Symfony\Component\HttpFoundation\Response; //must notice
+use Symfony\Component\HttpFoundation\Response;
+
+//must notice
 
 class AuthController extends Controller
 {
@@ -30,32 +32,35 @@ class AuthController extends Controller
     public function login(Request $request)
     {
 
-        if($request->phone == null){
-            if (!Auth::attempt($request->only('email', 'password'))) {
-                return response([
-                    'message' => 'Inavalid Credentials'
-                ], Response::HTTP_UNAUTHORIZED);
-            };
-        }else{
-            if (!Auth::attempt($request->only('phone', 'password'))) {
-                return response([
-                    'message' => 'Inavalid Credentials'
-                ], Response::HTTP_UNAUTHORIZED);
-            };
+        $phoneOrEmail = $request->input('phone_or_email');
+        $password = $request->input('password');
+
+        if (filter_var($phoneOrEmail, FILTER_VALIDATE_EMAIL)) {
+            $credentials = ['email' => $phoneOrEmail, 'password' => $password];
+        } else {
+            $credentials = ['phone' => $phoneOrEmail, 'password' => $password];
         }
+
+        if (!Auth::attempt($credentials)) {
+            return response([
+                'message' => 'Invalid Credentials'
+            ], Response::HTTP_UNAUTHORIZED);
+        }
+
 
         $user = Auth::user();
         $token = $user->createToken('token')->plainTextToken;
-        $cookie = cookie('jwt',$token,60*24); //1day
+        $cookie = cookie('jwt', $token, 60 * 24); //1day
         return response([
-            'message' => $token
+            'token' => $token,
+            'user' => $user,
         ])->withCookie($cookie);
 
     }
 
 
-
-    public function logout(){
+    public function logout()
+    {
         $cookie = Cookie::forget('jwt');
 
         return response([

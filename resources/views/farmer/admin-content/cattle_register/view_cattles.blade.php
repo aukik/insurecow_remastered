@@ -48,9 +48,9 @@
                                         <th>Animal Price</th>
 
                                         <th>View</th>
-                                        <th>Edit</th>
-                                        <th>Approval Status</th>
-                                        {{--                                        <th>Animal Claim</th>--}}
+                                        {{--                                        <th>Edit</th>--}}
+                                        {{--                                        <th>Approval Status</th>--}}
+                                        <th>Animal Claim</th>
 
                                     </tr>
                                     </thead>
@@ -73,17 +73,37 @@
                                                    href="{{ route('cattle.list.single',$cattle->id)  }}">View Info</a>
                                             </td>
 
-                                            <td>
-                                                <a class="btn btn-outline-yellow" type="button"
-                                                   href="">Edit Info</a>
-                                            </td>
-
-                                            <td>Approved</td>
                                             {{--                                            <td>--}}
-
-                                            {{--                                                <a href="{{ route('claim.index', $cattle->id) }}"--}}
-                                            {{--                                                   class="btn btn-danger">Claim</a>--}}
+                                            {{--                                                <a class="btn btn-outline-yellow" type="button"--}}
+                                            {{--                                                   href="">Edit Info</a>--}}
                                             {{--                                            </td>--}}
+
+                                            {{--                                            <td>Approved</td>--}}
+
+
+
+
+
+
+
+                                            {{--  ------------------------------------------ Both insurance payment and claim status check ------------------------------------------ --}}
+
+                                            @if(\App\Http\Controllers\Farmer\FarmerCattleListLogicController::insurance_detection($cattle->id) == true)
+                                                @if(\App\Http\Controllers\Farmer\FarmerCattleListLogicController::claim_detection($cattle->id) == true)
+                                                    <td>
+                                                        <a href="{{ route('claim.index', $cattle->id) }}"
+                                                           class="btn btn-success">Claim</a>
+
+                                                    </td>
+
+                                                @else
+                                                    <td>Claimed</td>
+                                                @endif
+                                            @else
+                                                <td>Not insured</td>
+                                            @endif
+
+                                            {{--  ------------------------------------------ Both insurance payment and claim status check ------------------------------------------ --}}
 
                                         </tr>
                                     @endforeach

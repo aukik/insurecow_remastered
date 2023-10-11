@@ -69,7 +69,7 @@
                                             <option disabled selected>Select Farm</option>
 
                                             @if($farms->count() == 0)
-                                                <option value="No Farm">No Farm</option>
+                                                <option value="No Farm" selected>No Farm</option>
                                             @else
                                                 @foreach($farms as $farm)
                                                     <option value="{{ $farm->id }}">{{ $farm->farm_name }}</option>

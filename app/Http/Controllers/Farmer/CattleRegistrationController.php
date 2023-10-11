@@ -92,6 +92,15 @@ class CattleRegistrationController extends Controller
         } else {
             if (request('muzzle_of_cow')) {
                 $inputs['muzzle_of_cow'] = \request('muzzle_of_cow')->store('images');
+//                return $inputs['muzzle_of_cow'];
+
+//                -------------------------- the cattle_r_id , currently on test mode --------------------------
+
+//                $cattle_r_id = pathinfo($inputs['muzzle_of_cow'], PATHINFO_FILENAME);
+//                $inputs['unique_id'] = $cattle_r_id;
+//                return $cattle_r_id;
+
+//                -------------------------- the cattle_r_id , currently on test mode --------------------------
             }
         }
 
