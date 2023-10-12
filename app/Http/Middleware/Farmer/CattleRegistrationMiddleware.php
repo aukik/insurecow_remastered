@@ -21,7 +21,6 @@ class CattleRegistrationMiddleware
                 return $next($request);
             } else {
                 return response()->view('exceptions.403', [], 404);
-//                abort(404);
             }
         } else {
             abort(404);

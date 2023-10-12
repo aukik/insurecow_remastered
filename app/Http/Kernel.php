@@ -76,8 +76,12 @@ class Kernel extends HttpKernel
         'farmer' => FarmerMiddleware::class,
         'company' => CompanyMiddleware::class,
 
+// -------------------------- Farmer Api middleware --------------------------
 
         'api.farmer' => Middleware\Api\Farmer\FarmerApiMiddleware::class,
+        'api.farmer.cattle_reg' => Middleware\Api\Farmer\FarmerCattleRegistrationMiddleware::class,
+
+// -------------------------- Farmer Api middleware --------------------------
 
 
         'company.register_agent' => RegisterAgentMiddleware::class,
