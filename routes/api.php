@@ -16,15 +16,15 @@ use App\Http\Controllers\AuthController;
 */
 
 
-// ------------------------ API login and registration portion added ------------------------
+// ------------------------ API login and registration portion added , farmer sided ------------------------
 
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
 
-Route::middleware('auth:sanctum')->group(function (){
+Route::middleware(['auth:sanctum','api.farmer'])->group(function (){
     Route::get('user',[AuthController::class,'user']);
     Route::post('logout',[AuthController::class,'logout']);
 });
 
 
-// ------------------------ API login and registration portion added ------------------------
+// ------------------------ API login and registration portion added , farmer sided ------------------------

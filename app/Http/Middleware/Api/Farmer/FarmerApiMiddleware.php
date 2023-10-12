@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace App\Http\Middleware\Api\Farmer;
 
 use Closure;
 use Illuminate\Http\Request;
 
-class FarmerMiddleware
+class FarmerApiMiddleware
 {
     /**
      * Handle an incoming request.
@@ -19,12 +19,11 @@ class FarmerMiddleware
         if (auth()->user()->role == 'f') {
             return $next($request);
         } else {
-//            return response()->view('welcome', [], 404);
-            abort(404);
-
-//            return response()->json([
-//                'unauthorized'
-//            ]);
+            return response()->json([
+                'response' => 'unauthorized',
+                'status' => 404,
+                'message' => 'Not a farmer account credential',
+            ], 404);
 
         }
     }
