@@ -1,55 +1,37 @@
 <?php
 
-namespace App\Http\Controllers\ml;
+namespace App\Http\Controllers\API\Farmer\Claim;
 
 use App\Http\Controllers\Controller;
 use App\Models\CattleRegistration;
 use App\Models\CattleRegReport;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Str;
 
-class ClaimController extends Controller
+class ClaimRegistrationController extends Controller
 {
-
-
-    public function index($id)
-    {
-
-        $cattle_info = auth()->user()->cattleRegister()->where('id', $id)->first();
-
-        if ($cattle_info != null) {
-            return view("farmer.admin-content.claim.index", compact('cattle_info'));
-
-        } else {
-            return "Invalid request";
-        }
-    }
-
     public function store(Request $request)
     {
-        $inputs = \request()->validate([
-            'muzzle_of_cow' => 'required|mimes:jpeg,jpg,png',
-            'muzzle_token' => 'required',
-            'cattle_id' => 'required',
-        ]);
+        $inputs = [];
+        $inputs['muzzle_of_cow'] = $request->input('muzzle_of_cow');
+//        $inputs['muzzle_token'] = $request->input('muzzle_token');
+        $inputs['cattle_id'] = $request->input('cattle_id');
 
         if (request('muzzle_of_cow')) {
             $inputs['muzzle_of_cow'] = \request('muzzle_of_cow')->store('images');
         }
 
-
-        //        ------------------------------- API DATA ---------------------------------
-
         // Additional parameters to send to the API
         $options = 'claim';
-
-        // API endpoint URL
         $apiUrl = "http://13.232.34.224/cattle_identification";
 
-        $basename = $inputs['muzzle_token'];
 
+        $cattle_id = $inputs['cattle_id'];
+        $cattle_data = CattleRegistration::findOrFail($cattle_id);
+
+        // API endpoint URL
+
+        $basename = $cattle_data->muzzle_of_cow;
 
 //        ---------------------------- Path Info without extension , the cattle_r_id ----------------------------
 
@@ -57,10 +39,6 @@ class ClaimController extends Controller
 
 //        ---------------------------- Path Info without extension , the cattle_r_id ----------------------------
 
-
-        $cattle_id = $inputs['cattle_id'];
-
-        $cattle_data = CattleRegistration::findOrFail($cattle_id);
 
         try {
             $response = Http::attach(
@@ -99,8 +77,12 @@ class ClaimController extends Controller
 
                     ]);
 
-                    session()->flash("claim_success", "Claim action matched successfully");
-                    return back()->with("data", $cattle_data);
+//                    session()->flash("claim_success", "Claim action matched successfully");
+//                    return back()->with("data", $cattle_data);
+
+                    return response()->json([
+                        'message' => 'Claim action matched successfully'
+                    ], 200); // 404 Not Found
 
 
                 } elseif ($result == 0) {
@@ -115,8 +97,12 @@ class ClaimController extends Controller
 
                     ]);
 
-                    session()->flash("claim_failed", "Claim action unaccepted");
-                    return back();
+//                    session()->flash("claim_failed", "Claim action unaccepted");
+//                    return back();
+
+                    return response()->json([
+                        'message' => 'Claim action unaccepted'
+                    ], 200); // 404 Not Found
                 } else {
                     session()->flash("error", "Server error");
                 }
@@ -137,4 +123,29 @@ class ClaimController extends Controller
 
         return back();
     }
+
+    public function index()
+    {
+
+        $claim_reports = auth()->user()->cattle_reg_report()->where('verification_report','success')->get()->map(function ($claim) {
+            return [
+                'id' => $claim->id,
+                'cattle_name' => $claim->cattle_name,
+                'verification_report' => $claim->verification_report,
+
+                'cow_with_owner' => asset($claim->cow_with_owner),
+                'farmer_id' => (int) $claim->user_id,
+                'cattle_id' => (int) $claim->cattle_id,
+
+                'created_at' => $claim->created_at,
+                'updated_at' => $claim->updated_at,
+            ];
+        });
+
+        return response()->json([
+            'data' => $claim_reports
+        ]);
+
+    }
+
 }

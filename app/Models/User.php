@@ -85,7 +85,8 @@ class User extends Authenticatable
 
 //    -------------------- Farm Management --------------------
 
-    public function farm(){
+    public function farm()
+    {
         return $this->hasMany(Firm::class);
 
     }
@@ -149,6 +150,10 @@ class User extends Authenticatable
         return $this->hasOne(InsuranceRequest::class);
     }
 
+    public function cattle_reg_report()
+    {
+        return $this->hasMany(CattleRegReport::class);
+    }
 
 //    --------------------- farmer will be request for insurance ---------------------
 

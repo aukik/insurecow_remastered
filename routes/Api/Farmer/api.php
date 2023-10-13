@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\API\Farmer\Authentication\AuthController;
+use App\Http\Controllers\API\Farmer\CattleRegistration\CattleRegistrationController;
+use App\Http\Controllers\API\Farmer\Claim\ClaimRegistrationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,13 +29,20 @@ Route::middleware(['auth:sanctum', 'api.farmer'])->group(function () {
 // ---------------------------------------------- Animal registration middleware ----------------------------------------------
 
 
-    Route::middleware(['auth:sanctum', 'api.farmer.cattle_reg'])->group(function () {
+    Route::middleware(['auth:sanctum', 'api.farmer.cattle_reg'])->prefix('farmer')->group(function () {
 
-// ---------------------- Animal registration middleware ----------------------
+// ---------------------- Animal registration  ----------------------
+
+        Route::resource('cattle_registration', CattleRegistrationController::class)->only(['index', 'store', 'show']);
+
+// ---------------------- Animal registration  ----------------------
 
 
+// ---------------------- Animal claim ----------------------
 
-// ---------------------- Animal registration middleware ----------------------
+        Route::resource('claim_api', ClaimRegistrationController::class);
+
+// ---------------------- Animal claim ----------------------
 
     });
 

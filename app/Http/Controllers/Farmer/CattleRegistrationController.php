@@ -45,12 +45,11 @@ class CattleRegistrationController extends Controller
     public function store(Request $request)
     {
 
-
         $animalType = $request->input('animal_type');
 
         if (!in_array($animalType, ['cattle', 'buffalo', 'goat'])) {
             // Return early or display an error message
-            return "Invalid Request";
+            return "Invalid animal type";
         }
 
         $id = 0;
@@ -83,7 +82,6 @@ class CattleRegistrationController extends Controller
         // Perform the validation
         $inputs = request()->validate($rules);
         $inputs['unique_id'] = $id;
-
 
 //        ----------------------------- If animal type is cattle then muzzle will be inserted, else it will store "Not Applicable for goat registration" -----------------------------
 
