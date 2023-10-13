@@ -26,7 +26,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('user', [AuthController::class, 'user']);
     Route::post('logout', [AuthController::class, 'logout']);
 
-    Route::resource('cattle_registration_api', CattleRegistrationController::class)->only(['store']);
+    Route::post('cattle_registration_api', [CattleRegistrationController::class,'store']);
 
 
 // ---------------------------------------------- Animal registration middleware ----------------------------------------------
