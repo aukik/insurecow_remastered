@@ -33,7 +33,10 @@ Route::middleware(['auth:sanctum', 'api.farmer'])->group(function () {
 
 // ---------------------- Animal registration  ----------------------
 
-        Route::resource('cattle_registration_api', CattleRegistrationController::class)->only(['index', 'store', 'show']);
+//        Route::resource('cattle_registration_api', CattleRegistrationController::class)->only(['index', 'store', 'show']);
+
+        Route::get('cattle_registration_api',[CattleRegistrationController::class,'index']);
+        Route::post('cattle_registration_api',[CattleRegistrationController::class,'store']);
 
 // ---------------------- Animal registration  ----------------------
 
