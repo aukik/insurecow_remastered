@@ -22,32 +22,30 @@ use Illuminate\Support\Facades\Route;
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
 
-Route::middleware(['auth:sanctum', 'api.farmer'])->group(function () {
+Route::middleware('auth:sanctum')->group(function () {
     Route::get('user', [AuthController::class, 'user']);
     Route::post('logout', [AuthController::class, 'logout']);
 
-    Route::post('test', [CattleRegistrationController::class,'store']);
+    // ---------------------- Animal registration  ----------------------
+
+    Route::resource('cattle_registration', CattleRegistrationController::class)->only(['index', 'store', 'show']);
+
+// ---------------------- Animal registration  ----------------------
+
+    // ---------------------- Animal claim ----------------------
+
+    Route::resource('claim_api', ClaimRegistrationController::class);
+
+// ---------------------- Animal claim ----------------------
 
 
 // ---------------------------------------------- Animal registration middleware ----------------------------------------------
 
 
-    Route::middleware('api.farmer.cattle_reg')->prefix('farmer')->group(function () {
-
-// ---------------------- Animal registration  ----------------------
-
-        Route::resource('cattle_registration', CattleRegistrationController::class)->only(['index', 'store', 'show']);
-
-// ---------------------- Animal registration  ----------------------
-
-
-// ---------------------- Animal claim ----------------------
-
-        Route::resource('claim_api', ClaimRegistrationController::class);
-
-// ---------------------- Animal claim ----------------------
-
-    });
+//    Route::middleware('api.farmer.cattle_reg')->prefix('farmer')->group(function () {
+//
+//
+//    });
 
 
 // ---------------------------------------------- Animal registration middleware ----------------------------------------------
