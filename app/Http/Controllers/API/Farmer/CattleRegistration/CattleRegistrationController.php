@@ -48,13 +48,15 @@ class CattleRegistrationController extends Controller
 
     public function index()
     {
-        $animal_data = auth()->user()->cattleRegister->map(function ($animal) {
-            return $this->transformAnimalData($animal);
-        });
+//        $animal_data = auth()->user()->cattleRegister->map(function ($animal) {
+//            return $this->transformAnimalData($animal);
+//        });
+//
+//        return response()->json([
+//            'data' => $animal_data
+//        ]);
 
-        return response()->json([
-            'data' => $animal_data
-        ]);
+        return "hi";
     }
 
     /**
