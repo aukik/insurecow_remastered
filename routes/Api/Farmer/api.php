@@ -32,7 +32,7 @@ Route::middleware(['auth:sanctum', 'api.farmer'])->group(function () {
 // ---------------------------------------------- Animal registration middleware ----------------------------------------------
 
 
-    Route::middleware(['auth:sanctum', 'api.farmer.cattle_reg'])->prefix('farmer')->group(function () {
+    Route::middleware('api.farmer.cattle_reg')->prefix('farmer')->group(function () {
 
 // ---------------------- Animal registration  ----------------------
 
