@@ -31,7 +31,7 @@ Route::middleware('auth:sanctum')->group(function () {
 //    Route::get('cattle_registration_index', [CattleRegistrationController::class,'index']);
 //    Route::post('cattle_registration_store', [CattleRegistrationController::class,'store']);
 
-    Route::resource('cattle_registration_api', CattleRegistrationController::class);
+    Route::resource('cattle_registration', CattleRegistrationController::class);
 
 // ---------------------- Animal registration  ----------------------
 
