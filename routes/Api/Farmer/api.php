@@ -22,9 +22,12 @@ use Illuminate\Support\Facades\Route;
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
 
-Route::middleware(['auth:sanctum', 'api.farmer'])->group(function () {
+Route::middleware('auth:sanctum')->group(function () {
     Route::get('user', [AuthController::class, 'user']);
     Route::post('logout', [AuthController::class, 'logout']);
+
+    Route::resource('cattle_registration_api', CattleRegistrationController::class)->only(['store']);
+
 
 // ---------------------------------------------- Animal registration middleware ----------------------------------------------
 
@@ -33,7 +36,6 @@ Route::middleware(['auth:sanctum', 'api.farmer'])->group(function () {
 
 // ---------------------- Animal registration  ----------------------
 
-        Route::resource('cattle_registration_api', CattleRegistrationController::class)->only(['store']);
 
 //        Route::get('cattle_registration_api',[CattleRegistrationController::class,'index']);
 //        Route::post('cattle_registration_api_store',[CattleRegistrationController::class,'store']);
