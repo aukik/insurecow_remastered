@@ -133,7 +133,7 @@ class ClaimRegistrationController extends Controller
                 'cattle_name' => $claim->cattle_name,
                 'verification_report' => $claim->verification_report,
 
-                'cow_with_owner' => asset($claim->cow_with_owner),
+                'cow_with_owner' => asset('storage/'.$claim->cow_with_owner),
                 'farmer_id' => (int) $claim->user_id,
                 'cattle_id' => (int) $claim->cattle_id,
 
