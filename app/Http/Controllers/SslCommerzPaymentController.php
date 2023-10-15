@@ -33,7 +33,6 @@ class SslCommerzPaymentController extends Controller
         ]);
 
         $users_id = auth()->user()->id;
-//        $users_id = 14;
 
         $cattle_info = auth()->user()->cattleRegister()->where('id', \request('cattle_id'))->first();
 
@@ -77,7 +76,6 @@ class SslCommerzPaymentController extends Controller
 
 
         if (!$cattle_info == null) {
-//            return $cattle_info;
 
             $expired_date = User::addYearsAndMonths($inputs['package_insurance_period']);
 
@@ -86,7 +84,6 @@ class SslCommerzPaymentController extends Controller
             $amount = User::calculateTotalCost($cattle_info->sum_insured, $package->rate, $package->discount, $package->vat);
 
             $post_data['total_amount'] = $amount;
-
 
 
             #Before  going to initiate the payment order status need to insert or update as Pending.

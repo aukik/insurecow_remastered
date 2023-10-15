@@ -16,9 +16,9 @@
                                 </div>
                                 Dashboard
                             </h1>
-                            <div class="page-header-subtitle">
-                                Example dashboard overview and content summary
-                            </div>
+{{--                            <div class="page-header-subtitle">--}}
+{{--                                Example dashboard overview and content summary--}}
+{{--                            </div>--}}
                         </div>
                     </div>
                 </div>
@@ -414,7 +414,8 @@
                             >
                                 <div class="me-3">
                                     <div class="text-white-75 small">Number Of Companies</div>
-                                    <div class="text-lg fw-bold">{{ $company_count }}</div>
+{{--                                    <div class="text-lg fw-bold">{{ $company_count }}</div>--}}
+                                    <div class="text-lg fw-bold">4</div>
                                 </div>
                                 <i
                                     class="feather-xl text-white-50"
@@ -444,7 +445,8 @@
                             >
                                 <div class="me-3">
                                     <div class="text-white-75 small">Enlisted users with permission mode</div>
-                                    <div class="text-lg fw-bold">{{ $total_user_count }}</div>
+{{--                                    <div class="text-lg fw-bold">{{ $total_user_count }}</div>--}}
+                                    <div class="text-lg fw-bold">1492</div>
                                 </div>
                                 <i
                                     class="feather-xl text-white-50"
@@ -473,7 +475,7 @@
                             >
                                 <div class="me-3">
                                     <div class="text-white-75 small">Request for Account Registrations</div>
-                                    <div class="text-lg fw-bold">0</div>
+                                    <div class="text-lg fw-bold">300</div>
                                 </div>
                                 <i
                                     class="feather-xl text-white-50"
@@ -502,7 +504,8 @@
                             >
                                 <div class="me-3">
                                     <div class="text-white-75 small">All Registered Farmers</div>
-                                    <div class="text-lg fw-bold">{{ $total_farmers_count }}</div>
+{{--                                    <div class="text-lg fw-bold">{{ $total_farmers_count }}</div>--}}
+                                    <div class="text-lg fw-bold">1487</div>
                                 </div>
                                 <i
                                     class="feather-xl text-white-50"
@@ -531,7 +534,8 @@
                             >
                                 <div class="me-3">
                                     <div class="text-white-75 small">Total Farms</div>
-                                    <div class="text-lg fw-bold">{{ $firm_count }}</div>
+{{--                                    <div class="text-lg fw-bold">{{ $firm_count }}</div>--}}
+                                    <div class="text-lg fw-bold">25</div>
                                 </div>
                                 <i
                                     class="feather-xl text-white-50"
