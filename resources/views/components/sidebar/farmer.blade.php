@@ -82,10 +82,10 @@
                 </a>
 
 
-                <a class="nav-link" href="">
-                    <div class="nav-link-icon"><i data-feather="filter"></i></div>
-                    Claim Insurance
-                </a>
+{{--                <a class="nav-link" href="">--}}
+{{--                    <div class="nav-link-icon"><i data-feather="filter"></i></div>--}}
+{{--                    Claim Insurance--}}
+{{--                </a>--}}
 
                     <a class="nav-link" href="{{ route('farmer_view_insurance_history') }}">
                         <div class="nav-link-icon"><i data-feather="filter"></i></div>
