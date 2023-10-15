@@ -82,12 +82,12 @@
 
                                     <br><br>
 
-                                    <input type="text" class="form-control" name="muzzle_token"
+                                    <input type="hidden" class="form-control" name="muzzle_token"
                                            value="images/0fiLfAztzcaWx5cOMIGPP55OJ5oiFIh2VdAwtFUO.jpg">
 
                                     <br><br>
 
-                                    <input type="text" class="form-control" name="cattle_id"
+                                    <input type="hidden" class="form-control" name="cattle_id"
                                            value="17">
 
 
