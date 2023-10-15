@@ -26,32 +26,9 @@ Route::middleware(['auth:sanctum', 'api.farmer'])->group(function () {
     Route::get('user', [AuthController::class, 'user']);
     Route::post('logout', [AuthController::class, 'logout']);
 
-    Route::prefix('farmer')->group(function () {
-        // ---------------------- Animal registration  ----------------------
+    Route::resource('farmer/claim_api', ClaimRegistrationController::class);
 
-        Route::resource('cattle_registration', CattleRegistrationController::class);
-
-// ---------------------- Animal registration  ----------------------
-
-        // ---------------------- Animal claim ----------------------
-
-        Route::resource('claim_api', ClaimRegistrationController::class);
-
-// ---------------------- Animal claim ----------------------
-    });
-
-
-// ---------------------------------------------- Animal registration middleware ----------------------------------------------
-
-
-//    Route::middleware('api.farmer.cattle_reg')->prefix('farmer')->group(function () {
-//
-//
-//    });
-
-
-// ---------------------------------------------- Animal registration middleware ----------------------------------------------
-
+    Route::resource('farmer/cattle_registration', CattleRegistrationController::class);
 
 });
 

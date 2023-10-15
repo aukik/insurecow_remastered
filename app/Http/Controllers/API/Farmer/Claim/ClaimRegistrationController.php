@@ -7,15 +7,18 @@ use App\Models\CattleRegistration;
 use App\Models\CattleRegReport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class ClaimRegistrationController extends Controller
 {
     public function store(Request $request)
     {
+
         $inputs = [];
         $inputs['muzzle_of_cow'] = $request->input('muzzle_of_cow');
 //        $inputs['muzzle_token'] = $request->input('muzzle_token');
         $inputs['cattle_id'] = $request->input('cattle_id');
+
 
         if (request('muzzle_of_cow')) {
             $inputs['muzzle_of_cow'] = \request('muzzle_of_cow')->store('images');
@@ -33,9 +36,12 @@ class ClaimRegistrationController extends Controller
 
         $basename = $cattle_data->muzzle_of_cow;
 
+
 //        ---------------------------- Path Info without extension , the cattle_r_id ----------------------------
 
         $basename_with_cattle_r_id = pathinfo($basename, PATHINFO_FILENAME);
+
+
 
 //        ---------------------------- Path Info without extension , the cattle_r_id ----------------------------
 
@@ -44,7 +50,7 @@ class ClaimRegistrationController extends Controller
             $response = Http::attach(
                 'image',
                 file_get_contents(storage_path('app/public/' . $inputs['muzzle_of_cow'])),
-                basename($basename_with_cattle_r_id) // File name to use in the request
+                basename($basename) // File name to use in the request
             )->post($apiUrl, ['options' => $options]);
 
 
@@ -80,6 +86,7 @@ class ClaimRegistrationController extends Controller
 //                    session()->flash("claim_success", "Claim action matched successfully");
 //                    return back()->with("data", $cattle_data);
 
+                    Log::debug("passed");
                     return response()->json([
                         'message' => 'Claim action matched successfully'
                     ], 200); // 404 Not Found
@@ -100,10 +107,15 @@ class ClaimRegistrationController extends Controller
 //                    session()->flash("claim_failed", "Claim action unaccepted");
 //                    return back();
 
+                    Log::debug("unaccepted");
+
+
                     return response()->json([
                         'message' => 'Claim action unaccepted'
                     ], 200); // 404 Not Found
                 } else {
+                    Log::debug("problem server error");
+
                     session()->flash("error", "Server error");
                 }
 
@@ -111,11 +123,18 @@ class ClaimRegistrationController extends Controller
                 // Handle API error, e.g., log or throw an exception
                 // You can access the response content with $response->body()
                 // and the status code with $response->status()
+
+                Log::debug("error");
+
+
                 return "Error";
             }
         } catch (Exception $e) {
             // Handle exceptions, e.g., connection issues or timeouts
             // Log or rethrow the exception as needed
+
+            Log::debug("catch exception");
+
             return "Catch Exception";
         }
 //        ------------------------------- API DATA ---------------------------------
