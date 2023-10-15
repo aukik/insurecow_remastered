@@ -148,7 +148,7 @@
                                     <div class="col-md-4">
                                         <p style="font-weight: bold">
                                             <span
-                                                style="color: #0a3622">Cattle Type :</span> {{ session('data')->cattle_type }}
+                                                style="color: #0a3622">Cattle Type :</span> {{ session('data')->animal_type }}
                                         </p>
                                     </div>
 
