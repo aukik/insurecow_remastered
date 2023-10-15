@@ -194,7 +194,7 @@ Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
 Route::middleware('auth')->group(function (){
     Route::get("claim_test_page", function (){
         return view("farmer.admin-content.claim.index_claim_demo");
-    })->name('claim_test_page');
+    })->name('claim.test');
 });
 
 // -------------------------------------------------------------------- Farmer Claim Api --------------------------------------------------------------------

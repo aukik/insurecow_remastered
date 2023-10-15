@@ -82,7 +82,7 @@
                 </a>
 
 
-                <a class="nav-link" href="">
+                <a class="nav-link" href="{{ route('claim.test') }}">
                     <div class="nav-link-icon"><i data-feather="filter"></i></div>
                     Claim Insurance
                 </a>
