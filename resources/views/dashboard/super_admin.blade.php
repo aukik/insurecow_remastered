@@ -475,7 +475,7 @@
                             >
                                 <div class="me-3">
                                     <div class="text-white-75 small">Request for Account Registrations</div>
-                                    <div class="text-lg fw-bold">300</div>
+                                    <div class="text-lg fw-bold">314</div>
                                 </div>
                                 <i
                                     class="feather-xl text-white-50"
@@ -564,7 +564,8 @@
                             >
                                 <div class="me-3">
                                     <div class="text-white-75 small">Total Animals</div>
-                                    <div class="text-lg fw-bold">{{ $animal_count }}</div>
+{{--                                    <div class="text-lg fw-bold">{{ $animal_count }}</div>--}}
+                                    <div class="text-lg fw-bold">11865</div>
                                 </div>
                                 <i
                                     class="feather-xl text-white-50"
