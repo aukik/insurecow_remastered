@@ -107,7 +107,8 @@ class CattleRegistrationController extends Controller
         if (!in_array($animalType, ['cattle', 'buffalo', 'goat'])) {
             // Return early or display an error message
             return response()->json([
-                'message' => 'Invalid animal type'
+                'message' => 'Invalid animal type',
+                'reg_response' => 'failed',
             ], 400);
         }
 
@@ -156,7 +157,8 @@ class CattleRegistrationController extends Controller
 
             return response()->json([
                 'message' => $animalType . ' registered successfully',
-                'animal_type' => 'goat',
+                'animal_type' => $animalType,
+                'reg_response' => 'success',
                 'queue_process' => 'disabled'
             ], 200);
         }
@@ -171,7 +173,8 @@ class CattleRegistrationController extends Controller
         $this->dispatch(new CattleRegistrationProcess($inputs, $basename, auth()->user(), $id));
         return response()->json([
             'message' => $animalType . ' registration process running, if the process is successfully it will appear in the animal list',
-            'animal_type' => 'cattle',
+            'animal_type' => $animalType,
+            'reg_response' => 'success',
             'queue_process' => 'enabled'
         ], 200);
 
