@@ -30,7 +30,18 @@ class ClaimRegistrationController extends Controller
 
 
         $cattle_id = $inputs['cattle_id'];
-        $cattle_data = CattleRegistration::findOrFail($cattle_id);
+
+//        $cattle_data = CattleRegistration::findOrFail($cattle_id);
+
+        $cattle_data = CattleRegistration::find($cattle_id);
+
+        if (!$cattle_data) {
+            return response()->json([
+                'response' =>'not_exists',
+                'message' => 'Cattle data does not exists in the database',
+                'test_purpose' => 'for test purpose from insurecow.xyz, pass cattle_id = 17, for finding the cattle_id go to api route if needed  https://insurecow.xyz/api/farmer/cattle_registration/17 ',
+            ], 200);
+        }
 
         // API endpoint URL
 
@@ -40,7 +51,6 @@ class ClaimRegistrationController extends Controller
 //        ---------------------------- Path Info without extension , the cattle_r_id ----------------------------
 
         $basename_with_cattle_r_id = pathinfo($basename, PATHINFO_FILENAME);
-
 
 
 //        ---------------------------- Path Info without extension , the cattle_r_id ----------------------------
@@ -89,7 +99,7 @@ class ClaimRegistrationController extends Controller
                     Log::debug("passed");
                     return response()->json([
                         'message' => 'Claim action matched successfully'
-                    ], 200); // 404 Not Found
+                    ], 200);
 
 
                 } elseif ($result == 0) {
@@ -146,15 +156,15 @@ class ClaimRegistrationController extends Controller
     public function index()
     {
 
-        $claim_reports = auth()->user()->cattle_reg_report()->where('verification_report','success')->get()->map(function ($claim) {
+        $claim_reports = auth()->user()->cattle_reg_report()->where('verification_report', 'success')->get()->map(function ($claim) {
             return [
                 'id' => $claim->id,
                 'cattle_name' => $claim->cattle_name,
                 'verification_report' => $claim->verification_report,
 
-                'cow_with_owner' => asset('storage/'.$claim->cow_with_owner),
-                'farmer_id' => (int) $claim->user_id,
-                'cattle_id' => (int) $claim->cattle_id,
+                'cow_with_owner' => asset('storage/' . $claim->cow_with_owner),
+                'farmer_id' => (int)$claim->user_id,
+                'cattle_id' => (int)$claim->cattle_id,
 
                 'created_at' => $claim->created_at,
                 'updated_at' => $claim->updated_at,
