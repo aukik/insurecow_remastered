@@ -194,6 +194,8 @@ class SslCommerzPaymentController extends Controller
 
     public function success(Request $request)
     {
+        session()->flash("success", "Insurance paid successfully");
+
         echo "Transaction is Successful";
 
         $tran_id = $request->input('tran_id');
