@@ -27,13 +27,13 @@ Route::middleware(['auth:sanctum', 'api.farmer'])->group(function () {
     Route::get('user', [AuthController::class, 'user']);
     Route::post('logout', [AuthController::class, 'logout']);
 
-    Route::resource('farmer/claim_api', ClaimRegistrationController::class);
+    Route::apiResource('farmer/claim_api', ClaimRegistrationController::class);
 
-    Route::resource('farmer/cattle_registration', CattleRegistrationController::class);
+    Route::apiResource('farmer/cattle_registration', CattleRegistrationController::class);
 
 //    -------------------------------- farms --------------------------------
 
-    Route::resource('farmer/farm_api', FarmController::class);
+    Route::apiResource('farmer/farm_api', FarmController::class);
 
 
 //    -------------------------------- farms --------------------------------
