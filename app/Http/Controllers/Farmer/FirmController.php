@@ -48,7 +48,7 @@ class FirmController extends Controller
     {
 
         $inputs = \request()->validate([
-            'farm_name' => 'required||unique:firms',
+            'farm_name' => 'required|unique:firms',
             'cattle' => 'required',
             'goat' => 'required',
             'buffalo' => 'required',

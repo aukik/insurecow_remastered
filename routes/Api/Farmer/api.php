@@ -3,6 +3,7 @@
 use App\Http\Controllers\API\Farmer\Authentication\AuthController;
 use App\Http\Controllers\API\Farmer\CattleRegistration\CattleRegistrationController;
 use App\Http\Controllers\API\Farmer\Claim\ClaimRegistrationController;
+use App\Http\Controllers\API\Farmer\Farm\FarmController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +30,14 @@ Route::middleware(['auth:sanctum', 'api.farmer'])->group(function () {
     Route::resource('farmer/claim_api', ClaimRegistrationController::class);
 
     Route::resource('farmer/cattle_registration', CattleRegistrationController::class);
+
+//    -------------------------------- farms --------------------------------
+
+    Route::resource('farmer/farm_api', FarmController::class);
+
+
+//    -------------------------------- farms --------------------------------
+
 
 });
 
