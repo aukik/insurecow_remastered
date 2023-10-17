@@ -137,7 +137,9 @@ class ClaimRegistrationController extends Controller
                 Log::debug("error");
 
 
-                return "Error";
+                return response()->json([
+                    'message' => 'Error'
+                ], 200);
             }
         } catch (Exception $e) {
             // Handle exceptions, e.g., connection issues or timeouts
@@ -145,7 +147,9 @@ class ClaimRegistrationController extends Controller
 
             Log::debug("catch exception");
 
-            return "Catch Exception";
+            return response()->json([
+                'message' => 'Catch Exception'
+            ], 200);
         }
 //        ------------------------------- API DATA ---------------------------------
 

@@ -28,11 +28,7 @@ class FarmController extends Controller
         return response()->json(['message' => 'Farms retrieved successfully', 'data' => $farms, 'farm_count' => $farm_count], 200);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         //
@@ -52,6 +48,25 @@ class FarmController extends Controller
         $inputs['goat'] = $request->input('goat');
         $inputs['buffalo'] = $request->input('buffalo');
         $inputs['farm_address'] = $request->input('farm_address');
+
+
+        $missingFields = [];
+
+        foreach ($inputs as $field => $value) {
+            if (empty($value)) {
+                $missingFields[] = $field;
+            }
+        }
+
+        if (!empty($missingFields)) {
+            $response = [
+                'error' => 'Missing required fields',
+                'missing_fields' => $missingFields
+            ];
+
+            return response()->json($response, 400); // Return a JSON error response with a 400 status code
+        }
+
 
         // Check if the input values for cattle, goat, and buffalo are either 0 or 1
         if ($inputs['cattle'] != 0 && $inputs['cattle'] != 1
@@ -74,12 +89,6 @@ class FarmController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\JsonResponse
-     */
     public function show($id)
     {
         $farm = auth()->user()->farm()->find($id);
@@ -104,13 +113,7 @@ class FarmController extends Controller
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
         //
