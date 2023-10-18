@@ -200,12 +200,15 @@ class ClaimRegistrationController extends Controller
             ];
 
             return response()->json([
-                'data' => $formatted_claim_report
+                'data' => $formatted_claim_report,
+                'report_status' => 'success'
             ]);
         } else {
             // Return an appropriate response if the claim report is not found
             return response()->json([
-                'message' => 'Claim report not found'
+                'message' => 'Claim report not found',
+                'report_status' => 'failed'
+
             ], 404); // You can choose an appropriate HTTP status code
         }
     }
