@@ -193,8 +193,7 @@ class ClaimRegistrationController extends Controller
         if ($claim_report) {
             $formatted_claim_report = [
                 'claim_report_id' => $claim_report->id,
-                'verification_report' => $claim_report->cattle_name,
-                'cow_with_owner' => $claim_report->cattle_name,
+                'verification_report' => $claim_report->verification_report,
                 'farmers_user_id' => $claim_report->user_id,
                 'animal_data' => app(CattleRegistrationController::class)->show($claim_report->cattle_id)->getData()->data ?? null,
             ];
