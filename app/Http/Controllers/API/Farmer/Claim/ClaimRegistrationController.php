@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API\Farmer\Claim;
 
+use App\Http\Controllers\API\Farmer\CattleRegistration\CattleRegistrationController;
 use App\Http\Controllers\Controller;
 use App\Models\CattleRegistration;
 use App\Models\CattleRegReport;
@@ -37,7 +38,7 @@ class ClaimRegistrationController extends Controller
 
         if (!$cattle_data) {
             return response()->json([
-                'response' =>'not_exists',
+                'response' => 'not_exists',
                 'message' => 'Cattle data does not exists in the database',
                 'test_purpose' => 'for test purpose from insurecow.xyz, pass cattle_id = 17, for finding the cattle_id go to api route if needed  https://insurecow.xyz/api/farmer/cattle_registration/17 ',
             ], 200);
@@ -162,14 +163,12 @@ class ClaimRegistrationController extends Controller
 
         $claim_reports = auth()->user()->cattle_reg_report()->where('verification_report', 'success')->get()->map(function ($claim) {
             return [
-                'id' => $claim->id,
+                'claim_report_id' => $claim->id,
                 'cattle_name' => $claim->cattle_name,
                 'verification_report' => $claim->verification_report,
-
-                'cow_with_owner' => asset('storage/' . $claim->cow_with_owner),
                 'farmer_id' => (int)$claim->user_id,
-                'cattle_id' => (int)$claim->cattle_id,
-
+                'animal_id' => (int)$claim->cattle_id,
+                'animal_data' => app(CattleRegistrationController::class)->show($claim->cattle_id)->getData()->data ?? null,
                 'created_at' => $claim->created_at,
                 'updated_at' => $claim->updated_at,
             ];
@@ -180,5 +179,38 @@ class ClaimRegistrationController extends Controller
         ]);
 
     }
+
+//    -------------------------------- claim status check --------------------------------
+
+    public function claim_success_check($cattle_id)
+    {
+//        $claim_report = auth()->user()->cattle_reg_report()->where('verification_report', 'success')->where('cattle_id', $cattle_id)->first();
+//
+//        return $claim_report;
+
+        $claim_report = auth()->user()->cattle_reg_report()->where('verification_report', 'success')->where('cattle_id', $cattle_id)->first();
+
+        if ($claim_report) {
+            $formatted_claim_report = [
+                'claim_report_id' => $claim_report->id,
+                'verification_report' => $claim_report->cattle_name,
+                'cow_with_owner' => $claim_report->cattle_name,
+                'farmers_user_id' => $claim_report->user_id,
+                'animal_data' => app(CattleRegistrationController::class)->show($claim_report->cattle_id)->getData()->data ?? null,
+            ];
+
+            return response()->json([
+                'data' => $formatted_claim_report
+            ]);
+        } else {
+            // Return an appropriate response if the claim report is not found
+            return response()->json([
+                'message' => 'Claim report not found'
+            ], 404); // You can choose an appropriate HTTP status code
+        }
+    }
+
+//    -------------------------------- claim status check --------------------------------
+
 
 }
