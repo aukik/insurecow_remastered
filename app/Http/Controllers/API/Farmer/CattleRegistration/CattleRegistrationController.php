@@ -56,8 +56,8 @@ class CattleRegistrationController extends Controller
         });
 
         return response()->json([
-            'data' => $animal_data,
-            'animal_count' => $animal_count
+            'animal_count' => $animal_count,
+            'data' => $animal_data
         ]);
 
     }
