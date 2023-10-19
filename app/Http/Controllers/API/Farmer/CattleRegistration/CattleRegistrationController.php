@@ -21,10 +21,10 @@ class CattleRegistrationController extends Controller
             'age' => $animal->age,
             'cattle_color' => $animal->cattle_color,
             'weight' => $animal->weight,
-            'left_side' => asset('storage/'.$animal->left_side),
-            'right_side' => asset('storage/'.$animal->right_side),
-            'special_marks' => asset('storage/'.$animal->special_marks),
-            'cow_with_owner' => asset('storage/'.$animal->cow_with_owner),
+            'left_side' => asset('storage/' . $animal->left_side),
+            'right_side' => asset('storage/' . $animal->right_side),
+            'special_marks' => asset('storage/' . $animal->special_marks),
+            'cow_with_owner' => asset('storage/' . $animal->cow_with_owner),
             'farm' => $animal->farm,
             'sum_insured' => $animal->sum_insured,
             'unique_id' => $animal->unique_id,
@@ -48,12 +48,16 @@ class CattleRegistrationController extends Controller
 
     public function index()
     {
+
+        $animal_count = auth()->user()->cattleRegister()->count();
+
         $animal_data = auth()->user()->cattleRegister->map(function ($animal) {
             return $this->transformAnimalData($animal);
         });
 
         return response()->json([
-            'data' => $animal_data
+            'data' => $animal_data,
+            'animal_count' => $animal_count
         ]);
 
     }
