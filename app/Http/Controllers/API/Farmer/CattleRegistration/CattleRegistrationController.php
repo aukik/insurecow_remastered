@@ -69,7 +69,7 @@ class CattleRegistrationController extends Controller
      */
     public function create()
     {
-        return "test";
+
     }
 
     /**

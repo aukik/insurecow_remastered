@@ -81,7 +81,7 @@ class FarmerProfileController extends Controller
             'dob' => 'required',
             'nid' => 'required',
             'source_of_income' => 'nullable',
-            'bank_account_no' => 'required|numeric|regex:/^\d+$/',
+            'bank_account_no' => 'required',
             'farmer_address' => 'required',
             'thana' => 'required',
             'upazilla' => 'required',

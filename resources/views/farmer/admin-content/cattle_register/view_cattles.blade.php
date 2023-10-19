@@ -41,9 +41,10 @@
                                     <tr>
                                         <th>Serial</th>
                                         <th>Animal Name</th>
+                                        <th>Animal Type</th>
 
-                                        <th>Animal Weight</th>
-                                        <th>Animal Color</th>
+                                        <th>Farm Name</th>
+{{--                                        <th>Animal Color</th>--}}
 
                                         <th>Animal Price</th>
 
@@ -61,9 +62,10 @@
                                         <tr>
                                             <td>{{ $id += 1 }}</td>
                                             <td>{{ $cattle->cattle_name }}</td>
+                                            <td>{{ \Illuminate\Support\Str::ucfirst($cattle->animal_type) }}</td>
 
-                                            <td>{{ $cattle->weight }}</td>
-                                            <td>{{ $cattle->cattle_color }}</td>
+                                            <td>{{ $cattle->farm }}</td>
+{{--                                            <td>{{ $cattle->cattle_color }}</td>--}}
 
                                             <td>{{ $cattle->sum_insured }}</td>
 
