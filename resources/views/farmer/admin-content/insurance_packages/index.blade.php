@@ -34,47 +34,10 @@
                         <div class="card-header">Search Insurance Packages - Farmer</div>
                         <div class="card-body">
 
-                            {{-- ---------------------------------------- Package Data ---------------------------------------- --}}
 
-                            {{--                            <div class="card-body">--}}
-                            {{--                                <table id="datatablesSimple">--}}
-                            {{--                                    <thead>--}}
-                            {{--                                    <tr>--}}
-                            {{--                                        <th>Serial</th>--}}
-                            {{--                                        <th>Package Name</th>--}}
-                            {{--                                        <th>Company Name</th>--}}
-                            {{--                                        <th>Company Logo</th>--}}
-                            {{--                                        <th>Insurance Period</th>--}}
-                            {{--                                        <th>Amount</th>--}}
-                            {{--                                        <th>Package Status</th>--}}
-                            {{--                                        <th>Action</th>--}}
-                            {{--                                    </tr>--}}
-                            {{--                                    </thead>--}}
-
-                            {{--                                    <tbody>--}}
-                            {{--                                    <?php $id = 0 ?>--}}
-                            {{--                                    @foreach($packages as $package)--}}
-                            {{--                                        <tr>--}}
-                            {{--                                            <td>{{ $id += 1 }}</td>--}}
-                            {{--                                            <td>{{ $package->package_name }}</td>--}}
-                            {{--                                            <td>{{ \App\Models\User::whereId($package->user_id)->first()->name ?? null }}</td>--}}
-                            {{--                                            <td><img--}}
-                            {{--                                                    src="{{ asset('storage/'.\App\Models\FarmerProfile::whereId($package->user_id)->first()->image) }}"--}}
-                            {{--                                                    alt="" style="width: 120px"></td>--}}
-                            {{--                                            <td>{{ $package->insurance_period }}</td>--}}
-                            {{--                                            <td>{{ $package->total_amount }}</td>--}}
-                            {{--                                            <td>{{ $package->package_status }}</td>--}}
-                            {{--                                            <td>--}}
-                            {{--                                                <a href="" class="btn btn-primary">View Information</a>--}}
-                            {{--                                            </td>--}}
-                            {{--                                        </tr>--}}
-                            {{--                                    @endforeach--}}
-                            {{--                                    </tbody>--}}
-                            {{--                                </table>--}}
-                            {{--                            </div>--}}
-
-                            {{-- ---------------------------------------- Package Data ---------------------------------------- --}}
-
+                            @if(session('insured'))
+                                <p class="alert alert-success">{{ session('insured') }}</p>
+                            @endif
                             {{-- ---------------------------------------- Package Search ---------------------------------------- --}}
 
 
@@ -121,7 +84,9 @@
 
 
                                         @error('cattle_info')
-                                        <div class="alert alert-danger" style="margin-top: 10px">Unavailable information</div>
+                                        <div class="alert alert-danger" style="margin-top: 10px">Unavailable
+                                            information
+                                        </div>
                                         @enderror
 
                                     </div>

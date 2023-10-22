@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Farmer;
 use App\Http\Controllers\Controller;
 use App\Models\CattleRegistration;
 use App\Models\Firm;
+use App\Models\Insured;
 use App\Models\Package;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -82,13 +83,22 @@ class FarmerController extends Controller
 
     public function company_insurance_packages_post()
     {
-//        $packages = Package::all();
 
 
         $inputs = \request()->validate([
             'cattle_info' => 'required',
             'insurance_period' => 'required',
         ]);
+
+
+//        -------------------------------------- Checking if the animal is already insured ---------------------------------------------
+
+        if (Insured::where('cattle_id', \request('cattle_info'))->count() > 0) {
+            session()->flash('insured', "The animal is already insured");
+            return back();
+        }
+
+//        -------------------------------------- Checking if the animal is already insured ---------------------------------------------
 
 
 //        return $inputs['cattle_info'];
