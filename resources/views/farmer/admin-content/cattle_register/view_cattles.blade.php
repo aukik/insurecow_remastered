@@ -44,7 +44,7 @@
                                         <th>Animal Type</th>
 
                                         <th>Farm Name</th>
-{{--                                        <th>Animal Color</th>--}}
+                                        {{--                                        <th>Animal Color</th>--}}
 
                                         <th>Animal Price</th>
 
@@ -65,7 +65,7 @@
                                             <td>{{ \Illuminate\Support\Str::ucfirst($cattle->animal_type) }}</td>
 
                                             <td>{{ $cattle->farm }}</td>
-{{--                                            <td>{{ $cattle->cattle_color }}</td>--}}
+                                            {{--                                            <td>{{ $cattle->cattle_color }}</td>--}}
 
                                             <td>{{ $cattle->sum_insured }}</td>
 
@@ -90,19 +90,26 @@
 
                                             {{--  ------------------------------------------ Both insurance payment and claim status check ------------------------------------------ --}}
 
-                                            @if(\App\Http\Controllers\Farmer\FarmerCattleListLogicController::insurance_detection($cattle->id) == true)
-                                                @if(\App\Http\Controllers\Farmer\FarmerCattleListLogicController::claim_detection($cattle->id) == true)
-                                                    <td>
-                                                        <a href="{{ route('claim.index', $cattle->id) }}"
-                                                           class="btn btn-success">Claim</a>
+                                            @if($cattle->animal_type == "goat")
 
-                                                    </td>
+                                                <td>Not applicable for type goat</td>
 
-                                                @else
-                                                    <td>Claimed</td>
-                                                @endif
                                             @else
-                                                <td>Not insured</td>
+                                                @if(\App\Http\Controllers\Farmer\FarmerCattleListLogicController::insurance_detection($cattle->id) == true)
+                                                    @if(\App\Http\Controllers\Farmer\FarmerCattleListLogicController::claim_detection($cattle->id) == true)
+                                                        <td>
+                                                            <a href="{{ route('claim.index', $cattle->id) }}"
+                                                               class="btn btn-success">Claim</a>
+
+                                                        </td>
+
+                                                    @else
+                                                        <td>Claimed</td>
+                                                    @endif
+                                                @else
+                                                    <td>Not insured</td>
+                                                @endif
+
                                             @endif
 
                                             {{--  ------------------------------------------ Both insurance payment and claim status check ------------------------------------------ --}}

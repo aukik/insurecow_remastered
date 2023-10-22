@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Insured;
 use App\Models\Package;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -44,6 +45,35 @@ class SslCommerzPaymentController extends Controller
         $post_data['cus_name'] = auth()->user()->name;
         $post_data['cus_email'] = auth()->user()->email;
         $post_data['cus_phone'] = auth()->user()->phone;
+
+        $post_data['cus_add1'] = 'Customer Address';
+        $post_data['cus_add2'] = "";
+        $post_data['cus_city'] = "";
+        $post_data['cus_state'] = "";
+        $post_data['cus_postcode'] = "";
+        $post_data['cus_country'] = "Bangladesh";
+        $post_data['cus_fax'] = "";
+
+        # SHIPMENT INFORMATION
+        $post_data['ship_name'] = "Store Test";
+        $post_data['ship_add1'] = "Dhaka";
+        $post_data['ship_add2'] = "Dhaka";
+        $post_data['ship_city'] = "Dhaka";
+        $post_data['ship_state'] = "Dhaka";
+        $post_data['ship_postcode'] = "1000";
+        $post_data['ship_phone'] = "";
+        $post_data['ship_country'] = "Bangladesh";
+
+        $post_data['shipping_method'] = "NO";
+        $post_data['product_name'] = "Computer";
+        $post_data['product_category'] = "Goods";
+        $post_data['product_profile'] = "physical-goods";
+
+        # OPTIONAL PARAMETERS
+        $post_data['value_a'] = "ref001";
+        $post_data['value_b'] = "ref002";
+        $post_data['value_c'] = "ref003";
+        $post_data['value_d'] = "ref004";
 
 
         if (!$cattle_info == null) {
@@ -178,7 +208,7 @@ class SslCommerzPaymentController extends Controller
         #Check order status in order tabel against the transaction id or order id.
         $order_details = DB::table('orders')
             ->where('transaction_id', $tran_id)
-            ->select('transaction_id', 'status', 'currency', 'amount')->first();
+            ->select('transaction_id', 'status', 'currency', 'amount','cattle_id','package_id','company_id','id','user_id','package_expiration_date')->first();
 
         if ($order_details->status == 'Pending') {
             $validation = $sslc->orderValidate($request->all(), $tran_id, $amount, $currency);
@@ -194,12 +224,41 @@ class SslCommerzPaymentController extends Controller
                     ->update(['status' => 'Processing']);
 
                 echo "<br >Transaction is successfully Completed";
+
+                //   --------------------------------- If Insurance is successful it will keep data into Insureds table ---------------------------------
+
+                Insured::create([
+                    'cattle_id' => $order_details->cattle_id,
+                    'package_id' => $order_details->package_id,
+                    'company_id' => $order_details->company_id,
+                    'order_id' => $order_details->id,
+                    'user_id' => $order_details->user_id,
+                    'package_expiration_date' => $order_details->package_expiration_date,
+                    'insurance_status' => "insured",
+                    'insurance_type' => "single",
+                ]);
+
+//   --------------------------------- If Insurance is successful it will keep data into Insureds table ---------------------------------
+
                 return redirect()->route('farmer_view_insurance_history');
             }
         } else if ($order_details->status == 'Processing' || $order_details->status == 'Complete') {
-            /*
-             That means through IPN Order status already updated. Now you can just show the customer that transaction is completed. No need to udate database.
-             */
+
+
+//   --------------------------------- If Insurance is successful it will keep data into Insureds table ---------------------------------
+
+            Insured::create([
+                'cattle_id' => $order_details->cattle_id,
+                'package_id' => $order_details->package_id,
+                'company_id' => $order_details->company_id,
+                'order_id' => $order_details->id,
+                'insurance_status' => "insured",
+                'insurance_type' => "single",
+            ]);
+
+//   --------------------------------- If Insurance is successful it will keep data into Insureds table ---------------------------------
+
+
             echo "Transaction is successfully Completed";
             return redirect()->route('farmer_view_insurance_history');
 

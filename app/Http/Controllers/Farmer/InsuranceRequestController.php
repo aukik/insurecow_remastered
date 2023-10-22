@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Farmer;
 
+use App\Http\Controllers\company\InsuranceRequest;
 use App\Http\Controllers\Controller;
+use App\Models\Insured;
 use App\Models\Order;
 use App\Models\Package;
 use App\Models\User;
@@ -81,38 +83,60 @@ class InsuranceRequestController extends Controller
 
 //    ------------------------ Insurance status check bought by farmer ------------------------
 
-    public static function insurance_buy_status($id)
+    public static function insurance_buy_status($cattle_id)
     {
-        $order = Order::where('insurance_request_id', $id)->orderBy('id', 'desc')->first();
+       $insured = Insured::where('cattle_id',$cattle_id)->orderBy('id', 'desc')->first();
 
-        if (!$order) {
-            return "No Transaction status";
+        $currentDate = now();
+
+        if (!$insured) {
+            return true;
         }
 
-        if ($order->status === "Processing" || $order->status === "Complete") {
-            return "Paid";
-        } else {
-            return "Not paid";
+        if ($insured && $insured->package_expiration_date > $currentDate) {
+            return false;
         }
+
+        return true;
     }
 
 
 //    ------------------------ Insurance status check bought by farmer ------------------------
 
-//    ------------------------ Insurance status check bought by farmer ------------------------
+//    ------------------------ Insurance status check bought by company ------------------------
 
-    public static function insurance_recent_attempt($id)
+    public static function insurance_buy_company($cattle_id)
     {
-        $order = Order::where('insurance_request_id', $id)->orderBy('id', 'desc')->first();
+        $insured = Insured::where('cattle_id',$cattle_id)->orderBy('id', 'desc')->first();
 
-        if (!$order) {
-            return "No Transaction status";
+        $currentDate = now();
+
+        if (!$insured) {
+            return "Not Paid";
+        }else{
+            return "paid";
         }
-
-        return $order->status;
 
 
     }
+
+
+//    ------------------------ Insurance status check bought by company ------------------------
+
+//    ------------------------ Insurance status check bought by farmer ------------------------
+
+//    public static function insurance_recent_attempt($id)
+//    {
+//        $order = Order::where('insurance_request_id', $id)->orderBy('id', 'desc')->first();
+//
+//        if (!$order) {
+//            return "No Transaction status";
+//        }
+//
+//        return $order->status;
+//
+//
+//    }
 
 
 //    ------------------------ Insurance status check bought by farmer ------------------------

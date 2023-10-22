@@ -81,7 +81,7 @@
                                                 </td>
                                             @endif
 
-                                            <td>{{ \App\Http\Controllers\Farmer\InsuranceRequestController::insurance_buy_status($history->id) }}</td>
+                                            <td>{{ \App\Http\Controllers\Farmer\InsuranceRequestController::insurance_buy_company($history->cattle_id) }}</td>
 
                                         </tr>
                                     @endforeach

@@ -53,12 +53,10 @@
 
 
                                         <th>Package Insurance Period</th>
-                                        <th>Muzzle Verification Status</th>
-                                        <th>Insurance Status</th>
-                                        <th>Insurance Payment Status</th>
-                                        <th>Transaction Status</th>
+                                        <th>Insurance For</th>
+
                                         <th>Buy Insurance</th>
-                                        {{--                                        <th>Insurance Status</th>--}}
+
                                     </tr>
                                     </thead>
 
@@ -81,47 +79,47 @@
                                             @endif
 
                                             <td>{{ $history->package_insurance_period }}</td>
-                                            <td>{{ $history->muzzle_verification == null ? "Not verified" : "Verified" }}</td>
-                                            <td>{{ $history->insurance_status }}</td>
-                                            <td>{{ \App\Http\Controllers\Farmer\InsuranceRequestController::insurance_buy_status($history->id) }}</td>
+                                            <td>{{ \App\Models\CattleRegistration::find($history->cattle_id)->cattle_name .' - '. \App\Models\CattleRegistration::find($history->cattle_id)->animal_type}}</td>
 
 
-                                            <td>{!!  \App\Http\Controllers\Farmer\InsuranceRequestController::insurance_recent_attempt($history->id) !!}</td>
+
+                                            @if(\App\Models\InsuranceRequest::where('cattle_id',$history->cattle_id)->orderBy('id','desc')->first()->insurance_status == "received")
 
 
-                                            @if(\App\Http\Controllers\Farmer\InsuranceRequestController::insurance_buy_status($history->id) != "Paid")
-                                                @if($history->insurance_status == "received")
-                                                    <td>
+                                            @if(\App\Http\Controllers\Farmer\InsuranceRequestController::insurance_buy_status($history->cattle_id))
+                                                <td>
+                                                    <form action="{{ route('pay') }}" method="post">
+                                                        {{ csrf_field() }}
+                                                        <input type="hidden" value="{{ $history->id }}"
+                                                               name="insurance_request_id">
+                                                        <input type="hidden" value="{{ $history->cattle_id }}"
+                                                               name="cattle_id">
+                                                        <input type="hidden" value="{{ $history->package_id }}"
+                                                               name="package_id">
+                                                        <input type="hidden" value="{{ $history->company_id }}"
+                                                               name="company_id">
+                                                        <input type="hidden" step=".01"
+                                                               value="{{ $history->package_insurance_period }}"
+                                                               name="package_insurance_period">
+                                                        <input class="btn btn-success h3 text-white" type="submit"
+                                                               value="Buy">
+                                                    </form>
+                                                </td>
 
-                                                        <form action="{{ route('pay') }}" method="post">
-                                                            {{ csrf_field() }}
-                                                            <input type="hidden" value="{{ $history->id }}"
-                                                                   name="insurance_request_id">
-                                                            <input type="hidden" value="{{ $history->cattle_id }}"
-                                                                   name="cattle_id">
-                                                            <input type="hidden" value="{{ $history->package_id }}"
-                                                                   name="package_id">
-                                                            <input type="hidden" value="{{ $history->company_id }}"
-                                                                   name="company_id">
-                                                            <input type="hidden" step=".01"
-                                                                   value="{{ $history->package_insurance_period }}"
-                                                                   name="package_insurance_period">
-                                                            <input class="btn btn-success h3 text-white" type="submit"
-                                                                   value="Buy">
-                                                        </form>
-                                                    </td>
-                                                @else
-                                                    <td>Pending</td>
-                                                @endif
                                             @else
                                                 <td>Insured</td>
+                                            @endif
+
+                                            @else
+                                                <td>Company response pending</td>
+
                                             @endif
 
 
 
 
 
-                                            {{--                                            <td>{{ $history->insurance_status }}</td>--}}
+
 
                                         </tr>
                                     @endforeach
