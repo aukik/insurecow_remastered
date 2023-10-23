@@ -79,46 +79,44 @@
                                             @endif
 
                                             <td>{{ $history->package_insurance_period }}</td>
-                                            <td>{{ \App\Models\CattleRegistration::find($history->cattle_id)->cattle_name .' - '. \App\Models\CattleRegistration::find($history->cattle_id)->animal_type}}</td>
 
+                                            @if ($cattleRegistration = \App\Models\CattleRegistration::find($history->cattle_id))
+                                                <td>{{ $cattleRegistration->cattle_name }} - {{ $cattleRegistration->animal_type }}</td>
+                                            @else
+                                                <td>Warning - No cattle registration data found</td>
+                                            @endif
 
 
                                             @if(\App\Models\InsuranceRequest::where('cattle_id',$history->cattle_id)->orderBy('id','desc')->first()->insurance_status == "received")
 
+                                                @if(\App\Http\Controllers\Farmer\InsuranceRequestController::insurance_buy_status($history->cattle_id))
+                                                    <td>
+                                                        <form action="{{ route('pay') }}" method="post">
+                                                            {{ csrf_field() }}
+                                                            <input type="hidden" value="{{ $history->id }}"
+                                                                   name="insurance_request_id">
+                                                            <input type="hidden" value="{{ $history->cattle_id }}"
+                                                                   name="cattle_id">
+                                                            <input type="hidden" value="{{ $history->package_id }}"
+                                                                   name="package_id">
+                                                            <input type="hidden" value="{{ $history->company_id }}"
+                                                                   name="company_id">
+                                                            <input type="hidden" step=".01"
+                                                                   value="{{ $history->package_insurance_period }}"
+                                                                   name="package_insurance_period">
+                                                            <input class="btn btn-success h3 text-white" type="submit"
+                                                                   value="Buy">
+                                                        </form>
+                                                    </td>
 
-                                            @if(\App\Http\Controllers\Farmer\InsuranceRequestController::insurance_buy_status($history->cattle_id))
-                                                <td>
-                                                    <form action="{{ route('pay') }}" method="post">
-                                                        {{ csrf_field() }}
-                                                        <input type="hidden" value="{{ $history->id }}"
-                                                               name="insurance_request_id">
-                                                        <input type="hidden" value="{{ $history->cattle_id }}"
-                                                               name="cattle_id">
-                                                        <input type="hidden" value="{{ $history->package_id }}"
-                                                               name="package_id">
-                                                        <input type="hidden" value="{{ $history->company_id }}"
-                                                               name="company_id">
-                                                        <input type="hidden" step=".01"
-                                                               value="{{ $history->package_insurance_period }}"
-                                                               name="package_insurance_period">
-                                                        <input class="btn btn-success h3 text-white" type="submit"
-                                                               value="Buy">
-                                                    </form>
-                                                </td>
-
-                                            @else
-                                                <td>Insured</td>
-                                            @endif
+                                                @else
+                                                    <td>Insured</td>
+                                                @endif
 
                                             @else
                                                 <td>Company response pending</td>
 
                                             @endif
-
-
-
-
-
 
 
                                         </tr>

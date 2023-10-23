@@ -15,6 +15,8 @@ class InsuranceRequestController extends Controller
 //    ------------------------ requesting for insurance from farmer side ------------------------
     public function request_for_insurance()
     {
+
+
         auth()->user()->farmer_req_for_ins()->create([
             'cattle_id' => request('cattle_id'),
             'package_id' => request('package_id'),

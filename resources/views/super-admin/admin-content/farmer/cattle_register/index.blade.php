@@ -15,7 +15,7 @@
                                 <div class="page-header-icon">
                                     <i data-feather="user"></i>
                                 </div>
-                                Animal Registration - Farmer
+                                Animal Registration For Farmer - Super Admin
                             </h1>
                         </div>
                     </div>
@@ -36,14 +36,6 @@
 
                             {{-- ---------------------------------------- Farmer Cow Registration ---------------------------------------- --}}
 
-                            @if(session('register'))
-                                <div class="alert alert-success" role="alert">
-                                    {{ session('register') }}. Please view the list from <a
-                                        href="{{ route('registration_verification_reports') }}" class="">&nbsp;
-                                        verification
-                                        reports</a>
-                                </div>
-                            @endif
 
                             @if(session('register_goat'))
                                 <div class="alert alert-success" role="alert">
@@ -51,7 +43,13 @@
                                 </div>
                             @endif
 
-                            <form action="{{ route('cattle_register.store') }}" method="post"
+                            @if(session('register'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ session('register') }}
+                                </div>
+                            @endif
+
+                            <form action="{{ route('register_cattle_from_super_admin_side.store') }}" method="post"
                                   enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <!-- Form Group (username)-->
@@ -87,17 +85,11 @@
                                         ><span style="color: red">*</span>
 
                                         <select class="form-select" name="animal_type" id="animal_type">
-                                            @if(auth()->user()->permission->cattle == 1)
-                                                <option value="cattle">Cattle</option>
-                                            @endif
+                                            <option value="cattle">Cattle</option>
 
-                                            @if(auth()->user()->permission->buffalo == 1)
-                                                <option value="buffalo">Buffalo</option>
-                                            @endif
+                                            <option value="buffalo">Buffalo</option>
 
-                                            @if(auth()->user()->permission->goat == 1)
-                                                <option value="goat">Goat</option>
-                                            @endif
+                                            <option value="goat">Goat</option>
                                         </select>
                                     </div>
 
@@ -345,6 +337,46 @@
 
 
                                     {{--  -------------********************************* Muzzle part -------------********************************* --}}
+
+                                    <div class="col-md-4">
+                                        <label class="small mb-1" for="inputLastName"
+                                        >Registration for Farmer</label
+                                        ><span style="color: red"></span>
+                                        <input
+                                            class="form-control"
+                                            id="inputLastName"
+                                            type="text"
+                                            placeholder=""
+                                            value="{{ $farmer->name }}"
+                                            readonly
+                                            name="user_name"
+                                            style="background-color: white"
+                                        />
+
+                                        @error('cattle_color')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label class="small mb-1" for="inputLastName"
+                                        >Farmer ID Information</label
+                                        ><span style="color: red"></span>
+                                        <input
+                                            class="form-control"
+                                            id="inputLastName"
+                                            type="text"
+                                            placeholder=""
+                                            value="{{ $farmer->id }}"
+                                            readonly
+                                            name="user_id_info"
+                                            style="background-color: white"
+                                        />
+
+                                        @error('cattle_color')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
+                                    </div>
 
 
                                 </div>

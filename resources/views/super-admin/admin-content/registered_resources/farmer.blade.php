@@ -42,9 +42,9 @@
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Phone</th>
-                                        <th>Info</th>
                                         {{--                                        <th>Role</th>--}}
-                                        <th>Registered <br> Cattle</th>
+                                        <th>Registered <br> Animals</th>
+                                        <th>Add Animal for <br>farmer</th>
                                     </tr>
                                     </thead>
 
@@ -58,12 +58,14 @@
                                             <td>{{ $user->email }}</td>
                                             <td>{{ $user->phone }}</td>
                                             {{--                                            <td>{{ $user->role }}</td>--}}
-                                            <td>
-                                                <a href="" class="btn btn-primary">View Info</a>
-                                            </td>
+
                                             <td>
                                                 <a href="{{ route('sp.registered_cattle', $user->id) }}"
-                                                   class="btn btn-primary">View Cattle</a>
+                                                   class="btn btn-primary">View Animal</a>
+                                            </td>
+
+                                            <td>
+                                                <a href="{{ route('register_cattle_from_super_admin_side', $user->id) }}" class="btn btn-primary">Add Animal</a>
                                             </td>
 
                                         </tr>

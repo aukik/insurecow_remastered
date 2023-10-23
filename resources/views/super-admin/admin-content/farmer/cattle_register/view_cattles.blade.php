@@ -15,7 +15,7 @@
                                 <div class="page-header-icon">
                                     <i data-feather="user"></i>
                                 </div>
-                                Registered Cattle - Farmer
+                                Registered Cattle - Super Admin
                             </h1>
                         </div>
                     </div>
@@ -44,13 +44,8 @@
                                         <th>Animal Type</th>
 
                                         <th>Farm Name</th>
-                                        {{--                                        <th>Animal Color</th>--}}
-
                                         <th>Animal Price</th>
-
                                         <th>View</th>
-                                        {{--                                        <th>Edit</th>--}}
-                                        {{--                                        <th>Approval Status</th>--}}
                                         <th>Animal Claim</th>
 
                                     </tr>
@@ -64,41 +59,27 @@
                                             <td>{{ $cattle->cattle_name }}</td>
                                             <td>{{ \Illuminate\Support\Str::ucfirst($cattle->animal_type) }}</td>
 
-                                            <td>{{ $cattle->farm }}</td>
-                                            {{--                                            <td>{{ $cattle->cattle_color }}</td>--}}
+                                            {{-- --------------------------------------- Farm name --------------------------------------- --}}
+
+                                            <td>
+                                                @if ($cattle->farm && $cattle->farm !== "No Farm")
+                                                    {{ \App\Models\Firm::find($cattle->farm)->farm_name }}
+                                                @else
+                                                    No Farm
+                                                @endif
+                                            </td>
+
+                                            {{-- --------------------------------------- Farm name --------------------------------------- --}}
+
 
                                             <td>{{ $cattle->sum_insured }}</td>
 
-                                            {{-- -------------------------- Dynamic condition between super admin and farmer -------------------------- --}}
 
-                                            @if(auth()->user()->role == "s")
-                                                <td>
-                                                    <a class="btn btn-outline-primary" type="button"
-                                                       href="{{ route('sp.cattle.list.single',$cattle->id)  }}">View
-                                                        Info</a>
-                                                </td>
-                                            @else
-                                                <td>
-                                                    <a class="btn btn-outline-primary" type="button"
-                                                       href="{{ route('cattle.list.single',$cattle->id)  }}">View
-                                                        Info</a>
-                                                </td>
-                                            @endif
-
-                                            {{-- -------------------------- Dynamic condition between super admin and farmer -------------------------- --}}
-
-
-                                            {{--                                            <td>--}}
-                                            {{--                                                <a class="btn btn-outline-yellow" type="button"--}}
-                                            {{--                                                   href="">Edit Info</a>--}}
-                                            {{--                                            </td>--}}
-
-                                            {{--                                            <td>Approved</td>--}}
-
-
-
-
-
+                                            <td>
+                                                <a class="btn btn-outline-primary" type="button"
+                                                   href="{{ route('sp.cattle.list.single',$cattle->id)  }}">View
+                                                    Info</a>
+                                            </td>
 
 
                                             {{--  ------------------------------------------ Both insurance payment and claim status check ------------------------------------------ --}}
@@ -111,7 +92,7 @@
                                                 @if(\App\Http\Controllers\Farmer\FarmerCattleListLogicController::insurance_detection($cattle->id) == true)
                                                     @if(\App\Http\Controllers\Farmer\FarmerCattleListLogicController::claim_detection($cattle->id) == true)
                                                         <td>
-                                                            <a href="{{ route('claim.index', $cattle->id) }}"
+                                                            <a href="{{ route('sp.claim.index', $cattle->id) }}"
                                                                class="btn btn-success">Claim</a>
 
                                                         </td>

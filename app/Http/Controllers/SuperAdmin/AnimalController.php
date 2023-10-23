@@ -9,6 +9,6 @@ class AnimalController extends Controller
 {
     public function index(){
         $cattle_list = CattleRegistration::all();
-        return view("farmer.admin-content.cattle_register.view_cattles", compact('cattle_list'));
+        return view("super-admin.admin-content.farmer.cattle_register.view_cattles", compact('cattle_list'));
     }
 }
