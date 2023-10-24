@@ -96,7 +96,7 @@
                 </a>
                 <div class="collapse" id="pagesCollapseAccount" data-bs-parent="#accordionSidenavPagesMenu">
                     <nav class="sidenav-menu-nested nav">
-                        <a class="nav-link" href="{{ route('sp.all_registered_farmers') }}">Add Animal</a>
+                        <a class="nav-link" href="{{ route('sp.all_registered_farmers') }}">Add/View Animal</a>
                     </nav>
                 </div>
             </nav>

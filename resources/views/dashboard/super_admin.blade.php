@@ -546,7 +546,7 @@
                         <div
                             class="card-footer d-flex align-items-center justify-content-between small"
                         >
-                            <a class="text-white stretched-link" href="{{ route('sp.all_registered_farmers') }}"
+                            <a class="text-white stretched-link" href="{{ route('farm_super_admin.index') }}"
                             >View Information</a
                             >
                             <div class="text-white">

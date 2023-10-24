@@ -38,8 +38,15 @@ class CompanyRequest extends Controller
 
     public function all_farmers()
     {
-        $users = User::where('role', 'f')->get();
-        return view("super-admin.admin-content.registered_resources.farmer", compact('users'));
+        if (auth()->user()->role == "c"){
+            $users = User::where('role', 'f')->where('company_id', auth()->user()->id)->get();
+            return view("company.admin-content.registered_resources.farmer", compact('users'));
+
+        }else{
+            $users = User::where('role', 'f')->get();
+            return view("super-admin.admin-content.registered_resources.farmer", compact('users'));
+        }
+
     }
 
 
