@@ -67,7 +67,31 @@ class ClaimController extends Controller
 
         $cattle_id = $inputs['cattle_id'];
 
-        $cattle_data = CattleRegistration::findOrFail($cattle_id);
+//        ----------------------------- Finding the cattle information that belongs to the farmer and farmer is belongs to that company -----------------------------
+
+//        $cattle_data = CattleRegistration::findOrFail($cattle_id);
+
+        $cattle_data = CattleRegistration::find($cattle_id);
+
+        if (!$cattle_data) {
+            return "Cattle data does not exist.";
+        }
+
+
+        //finding the farmer that belongs to the cattle
+        $user = User::find($cattle_data->user_id);
+
+        if (!$user) {
+            return "Farmer data does not exits";
+        }
+
+        if ($user->company_id != auth()->user()->id) {
+            return "Cattle data or user doesn't belong to the company.";
+        }
+
+
+//        ----------------------------- Finding the cattle information that belongs to the farmer and farmer is belongs to that company -----------------------------
+
 
         try {
             $response = Http::attach(
