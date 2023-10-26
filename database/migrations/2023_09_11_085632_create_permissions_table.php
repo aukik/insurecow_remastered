@@ -18,9 +18,12 @@ class CreatePermissionsTable extends Migration
             $table->boolean("f_cattle_reg")->default(true);
             $table->boolean("f_insurance")->default(false);
             $table->boolean("f_farm_management")->default(false);
+
             $table->boolean("c_dashboard")->default(true);
             $table->boolean("c_register_agent")->default(false);
             $table->boolean("c_insurance")->default(false);
+            $table->boolean("c_cattle_reg_and_claim")->default(false);
+
 
             $table->boolean("cattle")->default(true);
             $table->boolean("buffalo")->default(true);

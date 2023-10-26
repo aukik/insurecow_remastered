@@ -30,7 +30,7 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
 
         //    -------------------------- Registered Farmer / Agents -----------------------------
 
-        Route::get('registered', [CompanyController::class, 'registered_farmers'])->name('company.farmer_registered');
+//        Route::get('registered', [CompanyController::class, 'registered_farmers'])->name('company.farmer_registered');
 
         //    -------------------------- Registered Farmer / Agents -----------------------------
 
@@ -98,18 +98,27 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
 
     //    ----------------------------- Registered Resources -----------------------------
 
-    //    ----------------------------- creating animal page view -----------------------------
 
-    Route::get('register_cattle_from_company_side/{id}',[\App\Http\Controllers\Company\Farmer\FarmerController::class,'index'])->name('register_cattle_from_company_side');
-    Route::post('register_cattle_from_company_side/',[\App\Http\Controllers\Company\Farmer\FarmerController::class,'store'])->name('register_cattle_from_company_side.store');
+    //    ----------------------------- registered animal page view under farmer ID -----------------------------
 
-//    ----------------------------- creating animal page view -----------------------------
 
     Route::get("registered_cattle_company/{id}", [\App\Http\Controllers\Company\Farmer\RegisteredResourceController::class, "cattle_list"])->name("cp.registered_cattle");
 
+    //    ----------------------------- creating animal page view under farmer ID -----------------------------
+
+    //    ----------------------------- Animal detailed view with Animal ID -----------------------------
 
     Route::get('cattle_list_single_company/{id}', [\App\Http\Controllers\Company\Farmer\RegisteredResourceController::class, 'view_registered_cattle_single'])->name('cp.cattle.list.single');
 
+    //    ----------------------------- Animal detailed view with Animal ID -----------------------------
+
+
+    //    ----------------------------- register an animal page view and store method -----------------------------
+
+    Route::get('register_cattle_from_company_side/{id}', [\App\Http\Controllers\Company\Farmer\FarmerController::class, 'index'])->name('register_cattle_from_company_side');
+    Route::post('register_cattle_from_company_side/', [\App\Http\Controllers\Company\Farmer\FarmerController::class, 'store'])->name('register_cattle_from_company_side.store');
+
+    //    ----------------------------- register an animal page view and store method -----------------------------
 
     //    ----------------------- Claim Insurance -----------------------
 

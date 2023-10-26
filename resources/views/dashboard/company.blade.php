@@ -257,7 +257,7 @@
                         <div
                             class="card-footer d-flex align-items-center justify-content-between small"
                         >
-                            <a class="text-white stretched-link" href="{{ route('company.farmer_registered') }}"
+                            <a class="text-white stretched-link" href="{{ route('cp.all_registered_farmers') }}"
                             >View List</a
                             >
                             <div class="text-white">

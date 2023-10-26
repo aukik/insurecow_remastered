@@ -27,9 +27,9 @@
             </a>
 
 
-            <a class="nav-link" href="{{ route('company.farmer_registered') }}">
+            <a class="nav-link" href="{{ route('cp.all_registered_farmers') }}">
                 <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>
-                View Agents/Farmers
+                View Registered Farmers
             </a>
 
         @endif
