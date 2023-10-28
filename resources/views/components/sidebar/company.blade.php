@@ -64,29 +64,29 @@
 
         {{-- ---------------------------------- Register a cattle for the farmer ---------------------------------- --}}
 
-        <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
-           data-bs-target="#collapsePagesFarmer" aria-expanded="false" aria-controls="collapsePages">
-            <div class="nav-link-icon"><i data-feather="grid"></i></div>
-            Farmer
-            <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-        </a>
+{{--        <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"--}}
+{{--           data-bs-target="#collapsePagesFarmer" aria-expanded="false" aria-controls="collapsePages">--}}
+{{--            <div class="nav-link-icon"><i data-feather="grid"></i></div>--}}
+{{--            Farmer--}}
+{{--            <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>--}}
+{{--        </a>--}}
 
-        <div class="collapse" id="collapsePagesFarmer" data-bs-parent="#accordionSidenav">
-            <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPagesMenu">
-                <!-- Nested Sidenav Accordion (Pages -> Account)-->
-                <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
-                   data-bs-target="#pagesCollapseAccount" aria-expanded="false"
-                   aria-controls="pagesCollapseAccount">
-                    Animal Section
-                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                </a>
-                <div class="collapse" id="pagesCollapseAccount" data-bs-parent="#accordionSidenavPagesMenu">
-                    <nav class="sidenav-menu-nested nav">
-                        <a class="nav-link" href="{{ route('cp.all_registered_farmers') }}">Add/View Animal</a>
-                    </nav>
-                </div>
-            </nav>
-        </div>
+{{--        <div class="collapse" id="collapsePagesFarmer" data-bs-parent="#accordionSidenav">--}}
+{{--            <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPagesMenu">--}}
+{{--                <!-- Nested Sidenav Accordion (Pages -> Account)-->--}}
+{{--                <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"--}}
+{{--                   data-bs-target="#pagesCollapseAccount" aria-expanded="false"--}}
+{{--                   aria-controls="pagesCollapseAccount">--}}
+{{--                    Animal Section--}}
+{{--                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>--}}
+{{--                </a>--}}
+{{--                <div class="collapse" id="pagesCollapseAccount" data-bs-parent="#accordionSidenavPagesMenu">--}}
+{{--                    <nav class="sidenav-menu-nested nav">--}}
+{{--                        <a class="nav-link" href="{{ route('cp.all_registered_farmers') }}">Add/View Animal</a>--}}
+{{--                    </nav>--}}
+{{--                </div>--}}
+{{--            </nav>--}}
+{{--        </div>--}}
 
 
         {{-- ---------------------------------- Register a cattle for the farmer ---------------------------------- --}}

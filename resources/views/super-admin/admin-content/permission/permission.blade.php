@@ -238,6 +238,22 @@
                                                 ]</label>
                                         </div>
                                     </div>
+
+                                    <div class="row gx-3 mb-3 align-items-center">
+                                        <div class="col-auto">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="hidden" name="c_cattle_reg_and_claim"
+                                                       value="0">
+                                                <input class="form-check-input" type="checkbox"
+                                                       id="exampleFormControlSelect1"
+                                                       name="c_cattle_reg_and_claim" value="1"
+                                                       @if($permission->c_cattle_reg_and_claim == 1) checked @endif>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <label for="exampleFormControlSelect1">Company can register farmers and claim insurance</label>
+                                        </div>
+                                    </div>
                                 @endif
 
                                 <br>

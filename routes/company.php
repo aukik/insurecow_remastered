@@ -113,21 +113,25 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
     //    ----------------------------- Animal detailed view with Animal ID -----------------------------
 
 
-    //    ----------------------------- register an animal page view and store method -----------------------------
-
-    Route::get('register_cattle_from_company_side/{id}', [\App\Http\Controllers\Company\Farmer\FarmerController::class, 'index'])->name('register_cattle_from_company_side');
-    Route::post('register_cattle_from_company_side/', [\App\Http\Controllers\Company\Farmer\FarmerController::class, 'store'])->name('register_cattle_from_company_side.store');
-
-    //    ----------------------------- register an animal page view and store method -----------------------------
-
-    //    ----------------------- Claim Insurance -----------------------
-
-    Route::get("company_admin_claim_insurance_test/{id}", [\App\Http\Controllers\Company\Farmer\ClaimController::class, 'index'])->name('cp.claim.index');
-    Route::post("cp_admin_claim_insurance_test", [\App\Http\Controllers\Company\Farmer\ClaimController::class, 'store'])->name('cp.claim.store');
-
-    //    ----------------------- Claim Insurance -----------------------
+    Route::middleware('company.cattle_reg_and_claim')->group(function () {
 
 
+        //    ----------------------------- register an animal page view and store method -----------------------------
+
+        Route::get('register_cattle_from_company_side/{id}', [\App\Http\Controllers\Company\Farmer\FarmerController::class, 'index'])->name('register_cattle_from_company_side');
+        Route::post('register_cattle_from_company_side/', [\App\Http\Controllers\Company\Farmer\FarmerController::class, 'store'])->name('register_cattle_from_company_side.store');
+
+        //    ----------------------------- register an animal page view and store method -----------------------------
+
+        //    ----------------------- Claim Insurance -----------------------
+
+        Route::get("company_admin_claim_insurance_test/{id}", [\App\Http\Controllers\Company\Farmer\ClaimController::class, 'index'])->name('cp.claim.index');
+        Route::post("cp_admin_claim_insurance_test", [\App\Http\Controllers\Company\Farmer\ClaimController::class, 'store'])->name('cp.claim.store');
+
+        //    ----------------------- Claim Insurance -----------------------
+
+
+    });
 });
 
 
