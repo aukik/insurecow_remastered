@@ -20,12 +20,16 @@ class FarmController extends Controller
 
 
         if ($farms->isEmpty()) {
-            // If there are no farms, return a response with an error message.
-            return response()->json(['message' => 'No farms found for this user', 'farm_count' => $farm_count, 'data' => $farms], 404);
+
+            $defaultFarmData = (object)[
+                'id' => 1,
+                'farm_name' => 'No Farm',
+            ];
+
+            return response()->json(['farm_count' => $farm_count, 'message' => 'No farms found for this user', 'data' => [$defaultFarmData]], 404);
         }
 
-// If farms were found, return them with a success message.
-        return response()->json(['message' => 'Farms retrieved successfully', 'data' => $farms, 'farm_count' => $farm_count], 200);
+        return response()->json(['farm_count' => $farm_count, 'message' => 'Farms retrieved successfully', 'data' => $farms], 200);
     }
 
 
