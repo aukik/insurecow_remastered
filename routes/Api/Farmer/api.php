@@ -4,6 +4,7 @@ use App\Http\Controllers\API\Farmer\Authentication\AuthController;
 use App\Http\Controllers\API\Farmer\CattleRegistration\CattleRegistrationController;
 use App\Http\Controllers\API\Farmer\Claim\ClaimRegistrationController;
 use App\Http\Controllers\API\Farmer\Farm\FarmController;
+use App\Http\Controllers\API\Farmer\Profile\FarmerProfileApiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +27,13 @@ Route::post('login', [AuthController::class, 'login']);
 Route::middleware(['auth:sanctum', 'api.farmer'])->group(function () {
     Route::get('user', [AuthController::class, 'user']);
     Route::post('logout', [AuthController::class, 'logout']);
+
+
+//    -------------------------------- Farmer profile creation api --------------------------------
+
+    Route::apiResource('farmer/profile_api', FarmerProfileApiController::class);
+
+//    -------------------------------- Farmer profile creation api --------------------------------
 
 
 //    -------------------------------- claim resource api --------------------------------
