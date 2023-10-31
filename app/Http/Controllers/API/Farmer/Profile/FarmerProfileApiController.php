@@ -193,10 +193,16 @@ class FarmerProfileApiController extends Controller
     public function update(Request $request, $id)
     {
 
+
         $farmerProfile = auth()->user()->farmerProfile()->where('id', $id)->first();
 
-        if (!$farmerProfile) {
-            return response()->json(['message' => 'Farmer profile data does not exists'], 404);
+
+        if ($farmerProfile) {
+            if ($farmerProfile->user_id != auth()->user()->id) {
+                return response()->json(['message' => 'This data does not belong to the authenticated user'], 403);
+            }
+        } else {
+            return response()->json(['message' => 'Farmer profile data resource not found'], 404);
         }
 
         $inputs = [
