@@ -1,21 +1,32 @@
 <?php
 
+use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Farmer\FirmController;
 use Illuminate\Support\Facades\Route;
 
 // -------------------------------------------------------------------- Farmer --------------------------------------------------------------------
 
-Route::middleware(['auth', 'farmer'])->prefix('farmer')->group(function () {
+Route::middleware(['auth', 'farmer'])->prefix('farmer/farm_management')->group(function () {
 
     //    ----------------------------- Farm Management Middleware Block ----------------------------------
 
     Route::middleware('farmer.farm_management')->group(function () {
 
-        // --------------------- Create, view, update block ---------------------
+        // --------------------- Create and view farms ---------------------
 
         Route::resource('farm', FirmController::class);
 
-        // --------------------- Create, view, update block ---------------------
+        // --------------------- Create, and view farms ---------------------
+
+        // --------------------- farm management dashboard ---------------------
+
+        //    ----------------------------- Dashboard -----------------------------
+
+        Route::get('dashboard', [DashboardController::class, 'farm_management'])->name('fm_dashboard');
+
+//    ----------------------------- Dashboard -----------------------------
+
+        // --------------------- farm management dashboard ---------------------
     });
 
     //    ----------------------------- Farm Management Middleware Block ----------------------------------
@@ -26,7 +37,7 @@ Route::middleware(['auth', 'farmer'])->prefix('farmer')->group(function () {
 // -------------------------------------------------------------------- Farmer --------------------------------------------------------------------
 
 
-// -------------------------------------------------------------------- Farmer --------------------------------------------------------------------
+// -------------------------------------------------------------------- Farmer - From Super Admin Side --------------------------------------------------------------------
 
 Route::middleware(['auth', 'super.admin'])->prefix('superAdmin')->group(function () {
 
@@ -36,4 +47,4 @@ Route::middleware(['auth', 'super.admin'])->prefix('superAdmin')->group(function
 
 });
 
-// -------------------------------------------------------------------- Farmer --------------------------------------------------------------------
+// -------------------------------------------------------------------- Farmer - From Super Admin Side --------------------------------------------------------------------
