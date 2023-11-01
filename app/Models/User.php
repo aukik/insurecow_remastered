@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Farm_management\Animal_information;
 use Carbon\Carbon;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -156,6 +157,16 @@ class User extends Authenticatable
     }
 
 //    --------------------- farmer will be request for insurance ---------------------
+
+//    --------------------- Farm management : Animal Health ---------------------
+
+    public function animal_health()
+    {
+        return $this->hasMany(Animal_information::class);
+
+    }
+
+//    --------------------- Farm management : Animal Health ---------------------
 
 
 }

@@ -2,16 +2,29 @@
     <div class="nav accordion" id="accordionSidenav">
 
 
-        {{-- ---------------------------------- Farmer Navbar ---------------------------------- --}}
+        {{-- ---------------------------------- Farm management Sidebar ---------------------------------- --}}
 
 
         <div class="sidenav-menu-heading">Farm Management</div>
         <!-- Sidenav Link (Charts)-->
 
-        <a class="nav-link" href="">
-            <div class="nav-link-icon"><i data-feather="filter"></i></div>
-            Animal Information
+
+        {{-- --------------------------- Animal Inofrmation --------------------------- --}}
+
+        <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+           data-bs-target="#collapseFlows" aria-expanded="false" aria-controls="collapseFlows">
+            <div class="nav-link-icon"><i data-feather="align-justify"></i></div>
+            Animal Health
+            <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
         </a>
+        <div class="collapse" id="collapseFlows" data-bs-parent="#accordionSidenav">
+            <nav class="sidenav-menu-nested nav">
+                <a class="nav-link" href="{{ route('animal_information.create') }}">Create Info</a>
+                <a class="nav-link" href="{{ route('animal_information.index') }}">View Info</a>
+            </nav>
+        </div>
+
+        {{-- --------------------------- Animal Inofrmation --------------------------- --}}
 
         <a class="nav-link" href="">
             <div class="nav-link-icon"><i data-feather="filter"></i></div>
@@ -34,7 +47,7 @@
         </a>
 
 
-        {{-- ---------------------------------- Farmer Navbar ---------------------------------- --}}
+        {{-- ---------------------------------- Farm management Sidebar ---------------------------------- --}}
 
 
     </div>

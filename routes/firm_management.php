@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Farm_management\AnimalInformationController;
 use App\Http\Controllers\Farmer\FirmController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,13 +21,15 @@ Route::middleware(['auth', 'farmer'])->prefix('farmer/farm_management')->group(f
 
         // --------------------- farm management dashboard ---------------------
 
-        //    ----------------------------- Dashboard -----------------------------
-
         Route::get('dashboard', [DashboardController::class, 'farm_management'])->name('fm_dashboard');
 
-//    ----------------------------- Dashboard -----------------------------
-
         // --------------------- farm management dashboard ---------------------
+
+        // --------------------- Animal Information ---------------------
+
+        Route::resource('animal_information', AnimalInformationController::class);
+
+        // --------------------- Animal Information ---------------------
     });
 
     //    ----------------------------- Farm Management Middleware Block ----------------------------------

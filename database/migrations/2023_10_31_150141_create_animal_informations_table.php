@@ -19,7 +19,8 @@ class CreateAnimalInformationsTable extends Migration
             $table->text('medical_history')->nullable();
             $table->date('last_vaccination_date')->nullable();
             $table->boolean('is_pregnant')->default(false);
-            $table->string('cattle_id');
+            $table->string('cattle_id')->nullable();
+            $table->string('user_id')->nullable();
             $table->timestamps();
         });
     }

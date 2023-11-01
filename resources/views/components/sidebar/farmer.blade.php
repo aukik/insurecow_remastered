@@ -41,7 +41,7 @@
 
             @if(auth()->user()->permission->f_farm_management == 1)
 
-                <a class="nav-link" href="">
+                <a class="nav-link" href="{{ route('fm_dashboard') }}">
                     <div class="nav-link-icon"><i data-feather="filter"></i></div>
                     Farm Management
                 </a>
@@ -82,15 +82,15 @@
                 </a>
 
 
-{{--                <a class="nav-link" href="{{ route('claim.test') }}">--}}
-{{--                    <div class="nav-link-icon"><i data-feather="filter"></i></div>--}}
-{{--                    Claim Insurance--}}
-{{--                </a>--}}
+                {{--                <a class="nav-link" href="{{ route('claim.test') }}">--}}
+                {{--                    <div class="nav-link-icon"><i data-feather="filter"></i></div>--}}
+                {{--                    Claim Insurance--}}
+                {{--                </a>--}}
 
-                    <a class="nav-link" href="{{ route('farmer_view_insurance_history') }}">
-                        <div class="nav-link-icon"><i data-feather="filter"></i></div>
-                        Insurance requests
-                    </a>
+                <a class="nav-link" href="{{ route('farmer_view_insurance_history') }}">
+                    <div class="nav-link-icon"><i data-feather="filter"></i></div>
+                    Insurance requests
+                </a>
 
                 <a class="nav-link" href="{{ route('insurance.history.index') }}">
                     <div class="nav-link-icon"><i data-feather="filter"></i></div>
