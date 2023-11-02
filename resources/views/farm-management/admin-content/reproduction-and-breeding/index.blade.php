@@ -15,7 +15,7 @@
                                 <div class="page-header-icon">
                                     <i data-feather="user"></i>
                                 </div>
-                                Farm Management - Animal Health Information
+                                Farm Management - Food and Nutrition Information
                             </h1>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                 <div class="col-xl-12">
                     <!-- Account details card-->
                     <div class="card mb-4">
-                        <div class="card-header">Farm Management - Animal Health Information</div>
+                        <div class="card-header">Farm Management - Food and Nutrition Information</div>
                         <div class="card-body">
 
 
@@ -46,10 +46,9 @@
                                     <tr>
                                         <th>Serial</th>
                                         <th>Cattle Name</th>
-                                        <th>Health Status</th>
-                                        <th>Medical History</th>
-                                        <th>Last vaccination date</th>
-                                        <th>Pregnancy Status</th>
+                                        <th>Scheduled Data</th>
+                                        <th>Feed Consumption Record</th>
+
                                         <th>Delete Data</th>
                                     </tr>
                                     </thead>
@@ -62,13 +61,11 @@
                                             <td>
                                                 {{ auth()->user()->cattleRegister->where('id', $data->cattle_id)->first()->cattle_name ?? '<span style="color: red;">Cattle data not found</span>' }}
                                             </td>
-                                            <td>{{ $data->health_status }}</td>
-                                            <td><a href="{{ asset('storage/'.$data->medical_history) }}">Medical
-                                                    History</a></td>
-                                            <td>{{ $data->last_vaccination_date }}</td>
-                                            <td>{{ $data->is_pregnant == 1 ? "Pregnant" : "Not Pregnant" }}</td>
+                                            <td>{{ $data->schedule_date }}</td>
+                                            <td><a href="{{ asset('storage/'.$data->feed_consumption_records) }}">View Record</a></td>
+
                                             <td>
-                                                <form action="{{ route('animal_information.destroy', $data->id) }}" method="post">
+                                                <form action="{{ route('feeding_and_nutrition.destroy', $data->id) }}" method="post">
                                                     {{ csrf_field() }}
                                                     @method('delete')
                                                     <input type="submit" value="Delete" class="btn btn-danger">

@@ -3,13 +3,13 @@
 namespace App\Models;
 
 use App\Models\Farm_management\Animal_information;
+use App\Models\Farm_management\FeedingAndNutrition;
+use App\Models\Farm_management\ReproductionAndBreeding;
 use Carbon\Carbon;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use App\Models\Permission;
 
 class User extends Authenticatable
 {
@@ -167,6 +167,26 @@ class User extends Authenticatable
     }
 
 //    --------------------- Farm management : Animal Health ---------------------
+
+//    --------------------- Farm management : Feeding and nutrition ---------------------
+
+    public function feeding_and_nutrition()
+    {
+        return $this->hasMany(FeedingAndNutrition::class);
+
+    }
+
+//    --------------------- Farm management : Feeding and nutrition ---------------------
+
+//    --------------------- Farm management : Reproduction and Breeding ---------------------
+
+    public function reproduction_and_breeding()
+    {
+        return $this->hasMany(ReproductionAndBreeding::class);
+
+    }
+
+//    --------------------- Farm management : Reproduction and Breeding ---------------------
 
 
 }

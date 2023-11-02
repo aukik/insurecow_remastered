@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Farm_management\AnimalInformationController;
+use App\Http\Controllers\Farm_management\FeedingAndNutritionController;
 use App\Http\Controllers\Farmer\FirmController;
+use App\Models\Farm_management\ReproductionAndBreeding;
 use Illuminate\Support\Facades\Route;
 
 // -------------------------------------------------------------------- Farmer --------------------------------------------------------------------
@@ -30,6 +32,18 @@ Route::middleware(['auth', 'farmer'])->prefix('farmer/farm_management')->group(f
         Route::resource('animal_information', AnimalInformationController::class);
 
         // --------------------- Animal Information ---------------------
+
+        // --------------------- Feeding and nutrition ---------------------
+
+        Route::resource('feeding_and_nutrition', FeedingAndNutritionController::class);
+
+        // --------------------- Feeding and nutrition ---------------------
+
+        // --------------------- Reproduction and Breeding ---------------------
+
+        Route::resource('reproduction_and_breeding', ReproductionAndBreeding::class);
+
+        // --------------------- Reproduction and Breeding ---------------------
     });
 
     //    ----------------------------- Farm Management Middleware Block ----------------------------------
