@@ -15,7 +15,7 @@
                                 <div class="page-header-icon">
                                     <i data-feather="user"></i>
                                 </div>
-                                Farm Management - Food and Nutrition Information
+                                Farm Management - Reproduction and Breeding
                             </h1>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                 <div class="col-xl-12">
                     <!-- Account details card-->
                     <div class="card mb-4">
-                        <div class="card-header">Farm Management - Food and Nutrition Information</div>
+                        <div class="card-header">Farm Management - Reproduction and Breeding</div>
                         <div class="card-body">
 
 
@@ -46,8 +46,8 @@
                                     <tr>
                                         <th>Serial</th>
                                         <th>Cattle Name</th>
-                                        <th>Scheduled Data</th>
-                                        <th>Feed Consumption Record</th>
+                                        <th>Breeding Date</th>
+                                        <th>Fertility History</th>
 
                                         <th>Delete Data</th>
                                     </tr>
@@ -61,11 +61,11 @@
                                             <td>
                                                 {{ auth()->user()->cattleRegister->where('id', $data->cattle_id)->first()->cattle_name ?? '<span style="color: red;">Cattle data not found</span>' }}
                                             </td>
-                                            <td>{{ $data->schedule_date }}</td>
-                                            <td><a href="{{ asset('storage/'.$data->feed_consumption_records) }}">View Record</a></td>
+                                            <td>{{ $data->breeding_date }}</td>
+                                            <td><a href="{{ asset('storage/'.$data->fertility_history) }}">View Record</a></td>
 
                                             <td>
-                                                <form action="{{ route('feeding_and_nutrition.destroy', $data->id) }}" method="post">
+                                                <form action="{{ route('reproduction_and_breeding.destroy', $data->id) }}" method="post">
                                                     {{ csrf_field() }}
                                                     @method('delete')
                                                     <input type="submit" value="Delete" class="btn btn-danger">

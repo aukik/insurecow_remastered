@@ -15,7 +15,7 @@
                                 <div class="page-header-icon">
                                     <i data-feather="user"></i>
                                 </div>
-                                Farm Management - Food and Nutrition
+                                Farm Management - Reproduction and Breeding
                             </h1>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                 <div class="col-xl-12">
                     <!-- Account details card-->
                     <div class="card mb-4">
-                        <div class="card-header">Farm Management - Food and Nutrition</div>
+                        <div class="card-header">Farm Management - Reproduction and Breeding</div>
                         <div class="card-body">
 
                             @if(session('success'))
@@ -42,7 +42,7 @@
 
                             {{-- ---------------------------------------- Farm Creation ---------------------------------------- --}}
 
-                            <form action="{{ route('feeding_and_nutrition.store') }}" method="post"
+                            <form action="{{ route('reproduction_and_breeding.store') }}" method="post"
                                   enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <!-- Form Group (username)-->
@@ -73,73 +73,30 @@
                                         <div class="row gx-3 mb-3">
                                             <div class="col-md-12">
 
-                                                <label for="exampleFormControlSelect1" class="small mb-1">Scheduled
+                                                <label for="exampleFormControlSelect1" class="small mb-1">Breeding
                                                     Date</label>
 
                                                 <input
                                                     class="form-control"
                                                     id="inputLastName"
                                                     type="date"
-                                                    placeholder="Last vaccination date"
-                                                    value=""
-                                                    name="schedule_date"
+                                                    placeholder=""
+                                                    name="breeding_date"
                                                 />
                                             </div>
 
-                                        </div>
-                                    </div>
-
-
-                                </div>
-
-                                <div class="row">
-
-
-                                    <div class="col-md-6">
-                                        <div class="row gx-3 mb-3">
-                                            <!-- Form Group (last name)-->
-                                            <div class="col-md-12">
-                                                <label class="small mb-1" for="inputLastName"
-                                                >Feeding Schedule</label
-                                                >
-                                                <input
-                                                    class="form-control"
-                                                    id="inputLastName"
-                                                    type="text"
-                                                    placeholder="Feeding Schedule"
-                                                    value=""
-                                                    name="feeding_schedule"
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <div class="row gx-3 mb-3">
-                                            <!-- Form Group (last name)-->
-                                            <div class="col-md-12">
-                                                <label class="small mb-1" for="inputLastName"
-                                                >Nutrition Plan</label
-                                                >
-                                                <input
-                                                    class="form-control"
-                                                    id="inputLastName"
-                                                    type="text"
-                                                    placeholder="Nutrition Plan"
-                                                    value=""
-                                                    name="nutrition_plans"
-                                                />
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
+
 
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="row mb-3">
                                             <div class="col-md-12">
 
-                                                <label for="exampleFormControlSelect1" class="small mb-1">Feed Consumption Records [ PDF / Image file ]</label>
+                                                <label for="exampleFormControlSelect1" class="small mb-1">
+                                                    Fertilization History [ PDF / Image file ]</label>
 
                                                 <input
                                                     class="form-control"
@@ -147,7 +104,7 @@
                                                     type="file"
                                                     placeholder=""
                                                     value=""
-                                                    name="feed_consumption_records"
+                                                    name="fertility_history"
                                                 />
                                             </div>
 
@@ -157,7 +114,7 @@
 
 
                                 <button class="btn btn-primary" type="submit">
-                                    Add Health Information
+                                    Add Information
                                 </button>
                                 <br><br>
                             </form>

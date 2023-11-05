@@ -8,6 +8,11 @@
         <div class="sidenav-menu-heading">Farm Management</div>
         <!-- Sidenav Link (Charts)-->
 
+        <a class="nav-link" href="{{ route('fm_dashboard') }}">
+            <div class="nav-link-icon"><i data-feather="filter"></i></div>
+            Dashboard
+        </a>
+
 
         {{-- --------------------------- Animal Inofrmation --------------------------- --}}
 
@@ -44,11 +49,23 @@
 
         {{-- --------------------------- Feeding and nutrition --------------------------- --}}
 
+        {{-- --------------------------- Reproduction and Breeding --------------------------- --}}
 
-        <a class="nav-link" href="">
-            <div class="nav-link-icon"><i data-feather="filter"></i></div>
+        <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+           data-bs-target="#collapseBreed" aria-expanded="false" aria-controls="collapseBreed">
+            <div class="nav-link-icon"><i data-feather="align-justify"></i></div>
             Breeding
+            <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
         </a>
+        <div class="collapse" id="collapseBreed" data-bs-parent="#accordionSidenav">
+            <nav class="sidenav-menu-nested nav">
+                <a class="nav-link" href="{{ route('reproduction_and_breeding.create') }}">Create Info</a>
+                <a class="nav-link" href="{{ route('reproduction_and_breeding.index') }}">View Info</a>
+            </nav>
+        </div>
+
+        {{-- --------------------------- Reproduction and Breeding --------------------------- --}}
+
 
         <a class="nav-link" href="">
             <div class="nav-link-icon"><i data-feather="filter"></i></div>

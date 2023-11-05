@@ -16,8 +16,6 @@ class CreateReproductionAndBreedingsTable extends Migration
         Schema::create('reproduction_and_breedings', function (Blueprint $table) {
             $table->id();
             $table->date('breeding_date');
-            $table->text('breeding_records');
-            $table->text('pregnancy_information');
             $table->text('fertility_history');
             $table->text('cattle_id');
             $table->text('user_id');
