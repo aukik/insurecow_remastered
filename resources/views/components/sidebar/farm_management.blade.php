@@ -72,10 +72,10 @@
             Financial Management
         </a>
 
-        <a class="nav-link" href="">
-            <div class="nav-link-icon"><i data-feather="filter"></i></div>
-            Report and analysis
-        </a>
+{{--        <a class="nav-link" href="">--}}
+{{--            <div class="nav-link-icon"><i data-feather="filter"></i></div>--}}
+{{--            Report and analysis--}}
+{{--        </a>--}}
 
 
         {{-- ---------------------------------- Farm management Sidebar ---------------------------------- --}}
