@@ -83,7 +83,7 @@
                         <div class="card-body">
                             <div class="small text-muted">Animal Health Information</div>
                             <div class="h3">{{ $animal_health_count }}</div>
-                            <a class="text-arrow-icon small" href="{{ route('animal_information.index') }}">
+                            <a class="text-arrow-icon small" href="{{ route('animal_health_info_export') }}">
                                 View Information
                                 <i data-feather="arrow-right"></i>
                             </a>

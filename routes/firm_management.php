@@ -54,9 +54,15 @@ Route::middleware(['auth', 'farmer'])->prefix('farmer/farm_management')->group(f
 
     // --------------------- Animal Information ---------------------
 
-    Route::get('animal_health_info_export', [\App\Http\Controllers\Farm_management\Export\ExportController::class, 'animal_health_information']);
+    Route::get('animal_health_info_export', [\App\Http\Controllers\Farm_management\Export\ExportController::class, 'animal_health_information'])->name('animal_health_info_export');
 
     // --------------------- Animal Information ---------------------
+
+    // --------------------- Feeding And Nutrition ---------------------
+
+
+
+    // --------------------- Feeding And Nutrition ---------------------
 
 
 //   ---------------------------------------------------------------------------------------------------- Export Data ----------------------------------------------------------------------------------------------------
