@@ -84,7 +84,7 @@
                             <div class="small text-muted">Animal Health Information</div>
                             <div class="h3">{{ $animal_health_count }}</div>
                             <a class="text-arrow-icon small" href="{{ route('animal_health_info_export') }}">
-                                View Information
+                                Export Data
                                 <i data-feather="arrow-right"></i>
                             </a>
                         </div>
@@ -97,8 +97,8 @@
                         <div class="card-body">
                             <div class="small text-muted">Feeding and nutrition</div>
                             <div class="h3">{{ $feeding_and_nutrition_count }}</div>
-                            <a class="text-arrow-icon small" href="{{ route('feeding_and_nutrition.index') }}">
-                                View Information
+                            <a class="text-arrow-icon small" href="{{ route('feed_consumption_records.export') }}">
+                                Export Data
                                 <i data-feather="arrow-right"></i>
                             </a>
                         </div>
@@ -112,7 +112,7 @@
                             <div class="small text-muted">Breeding Information</div>
                             <div class="h3">{{ $breeding_information_count }}</div>
                             <a class="text-arrow-icon small" href="{{ route('reproduction_and_breeding.index') }}">
-                                View Information
+                                Export Data
                                 <i data-feather="arrow-right"></i>
                             </a>
                         </div>

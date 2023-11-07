@@ -172,8 +172,8 @@
 
                                         <select class="form-control" id="exampleFormControlSelect2" name="role">
                                             <option selected disabled>Select a role</option>
-                                            <option value="fa">Field Agent</option>
                                             <option value="f">Farmer</option>
+                                            <option value="fa">Field Agent</option>
                                         </select>
 
 

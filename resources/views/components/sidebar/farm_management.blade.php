@@ -42,8 +42,8 @@
         </a>
         <div class="collapse" id="collapseFeed" data-bs-parent="#accordionSidenav">
             <nav class="sidenav-menu-nested nav">
-                <a class="nav-link" href="{{ route('animal_information.create') }}">Create Info</a>
-                <a class="nav-link" href="{{ route('animal_information.index') }}">View Info</a>
+                <a class="nav-link" href="{{ route('feeding_and_nutrition.create') }}">Create Info</a>
+                <a class="nav-link" href="{{ route('feeding_and_nutrition.index') }}">View Info</a>
             </nav>
         </div>
 

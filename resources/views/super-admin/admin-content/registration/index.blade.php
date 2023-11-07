@@ -142,9 +142,9 @@
                                                 <select class="form-control" id="exampleFormControlSelect2" name="role">
                                                     <option disabled selected>Select a role</option>
                                                     <option value="c">Company</option>
-                                                    <option value="b">Bank</option>
-                                                    <option value="n">NGO</option>
-                                                    <option value="m">MFI</option>
+{{--                                                    <option value="b">Bank</option>--}}
+{{--                                                    <option value="n">NGO</option>--}}
+{{--                                                    <option value="m">MFI</option>--}}
                                                     <option value="f">Farmer</option>
                                                 </select>
 
