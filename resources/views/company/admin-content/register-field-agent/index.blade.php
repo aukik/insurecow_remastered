@@ -96,7 +96,7 @@
                                             class="form-control"
                                             id="inputLastName"
                                             type="email"
-                                            placeholder="Enter Phone Number"
+                                            placeholder="Enter Email Address"
                                             value=""
                                             name="email"
                                         />
@@ -118,7 +118,7 @@
                                             class="form-control"
                                             id="inputLastName"
                                             type="password"
-                                            placeholder="Enter Phone Number"
+                                            placeholder="Enter Password"
                                             value=""
                                             name="password"
                                         />
@@ -135,7 +135,7 @@
                                             class="form-control"
                                             id="inputLastName"
                                             type="text"
-                                            placeholder="Enter Phone Number"
+                                            placeholder="Enter Address"
                                             value=""
                                             name="address"
                                         />

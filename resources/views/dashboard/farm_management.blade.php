@@ -111,7 +111,7 @@
                         <div class="card-body">
                             <div class="small text-muted">Breeding Information</div>
                             <div class="h3">{{ $breeding_information_count }}</div>
-                            <a class="text-arrow-icon small" href="{{ route('reproduction_and_breeding.index') }}">
+                            <a class="text-arrow-icon small" href="{{ route('reproduction_and_breeding.export') }}">
                                 Export Data
                                 <i data-feather="arrow-right"></i>
                             </a>
