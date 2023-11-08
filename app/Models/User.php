@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Farm_management\Animal_information;
 use App\Models\Farm_management\FeedingAndNutrition;
+use App\Models\Farm_management\financial\Expense;
 use App\Models\Farm_management\ReproductionAndBreeding;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -187,6 +188,16 @@ class User extends Authenticatable
     }
 
 //    --------------------- Farm management : Reproduction and Breeding ---------------------
+
+//    --------------------- Farm management : expenses ---------------------
+
+    public function expense()
+    {
+        return $this->hasMany(Expense::class);
+
+    }
+
+//    --------------------- Farm management : expenses ---------------------
 
 
 }

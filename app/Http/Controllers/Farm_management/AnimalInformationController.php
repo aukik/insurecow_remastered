@@ -110,6 +110,11 @@ class AnimalInformationController extends Controller
      */
     public function destroy(Animal_information $animal_information): \Illuminate\Http\RedirectResponse
     {
+
+        if ($animal_information->user_id != auth()->user()->id){
+            return "Invalid request";
+        }
+
         $animal_information->delete();
         session()->flash("success", "Animal health data deleted successfully");
         return back();

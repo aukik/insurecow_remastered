@@ -66,16 +66,35 @@
 
         {{-- --------------------------- Reproduction and Breeding --------------------------- --}}
 
+        {{-- --------------------------- Expense Data --------------------------- --}}
+
+
+        <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+           data-bs-target="#expense" aria-expanded="false" aria-controls="expense">
+            <div class="nav-link-icon"><i data-feather="align-justify"></i></div>
+            Expenses
+            <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+        </a>
+        <div class="collapse" id="expense" data-bs-parent="#accordionSidenav">
+            <nav class="sidenav-menu-nested nav">
+                <a class="nav-link" href="{{ route('expense.create') }}">Create Info</a>
+                <a class="nav-link" href="{{ route('expense.index') }}">View Info</a>
+            </nav>
+        </div>
+
+
+        {{-- --------------------------- Expense Data --------------------------- --}}
+
 
         <a class="nav-link" href="">
             <div class="nav-link-icon"><i data-feather="filter"></i></div>
             Financial Management
         </a>
 
-{{--        <a class="nav-link" href="">--}}
-{{--            <div class="nav-link-icon"><i data-feather="filter"></i></div>--}}
-{{--            Report and analysis--}}
-{{--        </a>--}}
+        {{--        <a class="nav-link" href="">--}}
+        {{--            <div class="nav-link-icon"><i data-feather="filter"></i></div>--}}
+        {{--            Report and analysis--}}
+        {{--        </a>--}}
 
 
         {{-- ---------------------------------- Farm management Sidebar ---------------------------------- --}}

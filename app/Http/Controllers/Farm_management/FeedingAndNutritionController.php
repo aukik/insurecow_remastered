@@ -107,8 +107,13 @@ class FeedingAndNutritionController extends Controller
      */
     public function destroy(FeedingAndNutrition $feedingAndNutrition)
     {
+
+        if ($feedingAndNutrition->user_id != auth()->user()->id){
+            return "Invalid request";
+        }
+
         $feedingAndNutrition->delete();
-        session()->flash("success", "Animal health data deleted successfully");
+        session()->flash("success", "Feeding and nutrition data deleted successfully");
         return back();
     }
 }

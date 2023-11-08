@@ -101,10 +101,16 @@ class ReproductionAndBreedingController extends Controller
      * Remove the specified resource from storage.
      *
      * @param \App\Models\Farm_management\ReproductionAndBreeding $reproductionAndBreeding
-     * @return \Illuminate\Http\Response
+     * @return string
      */
     public function destroy(ReproductionAndBreeding $reproductionAndBreeding)
     {
-        //
+        if ($reproductionAndBreeding->user_id != auth()->user()->id) {
+            return "Invalid request";
+        }
+
+        $reproductionAndBreeding->delete();
+        session()->flash("success", "Reproduction and breeding data deleted successfully");
+        return back();
     }
 }
