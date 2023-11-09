@@ -82,6 +82,7 @@
                                                     type="date"
                                                     placeholder=""
                                                     name="breeding_date"
+                                                    required
                                                 />
                                             </div>
 
@@ -105,6 +106,7 @@
                                                     placeholder=""
                                                     value=""
                                                     name="fertility_history"
+                                                    required
                                                 />
                                             </div>
 

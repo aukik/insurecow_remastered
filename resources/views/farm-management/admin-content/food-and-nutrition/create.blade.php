@@ -83,6 +83,7 @@
                                                     placeholder="Last vaccination date"
                                                     value=""
                                                     name="schedule_date"
+                                                    required
                                                 />
                                             </div>
 
@@ -109,6 +110,7 @@
                                                     placeholder="Feeding Schedule"
                                                     value=""
                                                     name="feeding_schedule"
+                                                    required
                                                 />
                                             </div>
                                         </div>
@@ -128,6 +130,7 @@
                                                     placeholder="Nutrition Plan"
                                                     value=""
                                                     name="nutrition_plans"
+                                                    required
                                                 />
                                             </div>
                                         </div>
@@ -148,6 +151,7 @@
                                                     placeholder=""
                                                     value=""
                                                     name="feed_consumption_records"
+                                                    required
                                                 />
                                             </div>
 
