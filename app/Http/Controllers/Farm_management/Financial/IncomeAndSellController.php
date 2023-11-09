@@ -97,10 +97,16 @@ class IncomeAndSellController extends Controller
      * Remove the specified resource from storage.
      *
      * @param \App\Models\Farm_management\financial\IncomeAndSell $incomeAndSell
-     * @return \Illuminate\Http\Response
+     * @return string
      */
     public function destroy(IncomeAndSell $incomeAndSell)
     {
-        //
+        if ($incomeAndSell->user_id != auth()->user()->id) {
+            return "Invalid request";
+        }
+
+        $incomeAndSell->delete();
+        session()->flash("success", "Expense data deleted successfully");
+        return back();
     }
 }

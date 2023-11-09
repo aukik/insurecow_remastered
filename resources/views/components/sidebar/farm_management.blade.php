@@ -106,6 +106,25 @@
 
         {{-- --------------------------- Income And Sells --------------------------- --}}
 
+        {{-- --------------------------- Budget and Forecasting --------------------------- --}}
+
+
+        <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+           data-bs-target="#budget_and_forecasting" aria-expanded="false" aria-controls="budget_and_forecasting">
+            <div class="nav-link-icon"><i data-feather="align-justify"></i></div>
+            Budget & Forecasting
+            <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+        </a>
+        <div class="collapse" id="budget_and_forecasting" data-bs-parent="#accordionSidenav">
+            <nav class="sidenav-menu-nested nav">
+                <a class="nav-link" href="{{ route('budget-and-forecasting.create') }}">Create Info</a>
+                <a class="nav-link" href="{{ route('budget-and-forecasting.index') }}">View Info</a>
+            </nav>
+        </div>
+
+
+        {{-- --------------------------- Budget and Forecasting --------------------------- --}}
+
 
         <a class="nav-link" href="{{ route('profit-and-loss-report') }}">
             <div class="nav-link-icon"><i data-feather="filter"></i></div>

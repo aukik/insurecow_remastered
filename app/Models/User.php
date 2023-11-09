@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Farm_management\Animal_information;
 use App\Models\Farm_management\FeedingAndNutrition;
+use App\Models\Farm_management\financial\BudgetingAndForecasting;
 use App\Models\Farm_management\financial\Expense;
 use App\Models\Farm_management\financial\IncomeAndSell;
 use App\Models\Farm_management\ReproductionAndBreeding;
@@ -209,6 +210,16 @@ class User extends Authenticatable
 
 
 //    --------------------- Farm management : Income and sells ---------------------
+
+//    --------------------- Farm management : Budget and forecasting ---------------------
+
+    public function budget_and_forecasting()
+    {
+        return $this->hasMany(BudgetingAndForecasting::class);
+    }
+
+
+//    --------------------- Farm management : Budget and forecasting ---------------------
 
 
 }

@@ -91,6 +91,13 @@ Route::middleware(['auth', 'farmer'])->prefix('farmer/farm_management')->group(f
 
 //   ---------------------------------------------------------- Income And Sell ---------------------------------------------------------
 
+//   ---------------------------------------------------------- Budget and Forecasting ---------------------------------------------------------
+
+    Route::resource('budget-and-forecasting', \App\Http\Controllers\Farm_management\Financial\BudgetingAndForecastingController::class);
+
+
+//   ---------------------------------------------------------- Budget and Forecasting ---------------------------------------------------------
+
 //   ---------------------------------------------------------- Profit And loss calculation ----------------------------------------------------------
 
     Route::get('/profit-and-loss-report', [ProfitAndLossController::class, 'generateReport'])->name('profit-and-loss-report');
