@@ -3,6 +3,7 @@
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Farm_management\AnimalInformationController;
 use App\Http\Controllers\Farm_management\FeedingAndNutritionController;
+use App\Http\Controllers\Farm_management\Financial\ProfitAndLossController;
 use App\Http\Controllers\Farm_management\ReproductionAndBreedingController;
 use App\Http\Controllers\Farmer\FirmController;
 use App\Models\Farm_management\ReproductionAndBreeding;
@@ -82,6 +83,19 @@ Route::middleware(['auth', 'farmer'])->prefix('farmer/farm_management')->group(f
     Route::resource('expense', \App\Http\Controllers\Farm_management\Financial\ExpenseController::class);
 
 //   ---------------------------------------------------------- expense ----------------------------------------------------------
+
+//   ---------------------------------------------------------- Income And Sell ----------------------------------------------------------
+
+    Route::resource('incomeAndSell', \App\Http\Controllers\Farm_management\Financial\IncomeAndSellController::class);
+
+
+//   ---------------------------------------------------------- Income And Sell ---------------------------------------------------------
+
+//   ---------------------------------------------------------- Profit And loss calculation ----------------------------------------------------------
+
+    Route::get('/profit-and-loss-report', [ProfitAndLossController::class, 'generateReport'])->name('profit-and-loss-report');
+
+//   ---------------------------------------------------------- Profit And loss calculation ----------------------------------------------------------
 
 //   ---------------------------------------------------------------------------------------------------- financial ----------------------------------------------------------------------------------------------------
 

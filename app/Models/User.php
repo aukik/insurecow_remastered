@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Farm_management\Animal_information;
 use App\Models\Farm_management\FeedingAndNutrition;
 use App\Models\Farm_management\financial\Expense;
+use App\Models\Farm_management\financial\IncomeAndSell;
 use App\Models\Farm_management\ReproductionAndBreeding;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -198,6 +199,16 @@ class User extends Authenticatable
     }
 
 //    --------------------- Farm management : expenses ---------------------
+
+//    --------------------- Farm management : Income and sells ---------------------
+
+    public function income_and_sells()
+    {
+        return $this->hasMany(IncomeAndSell::class);
+    }
+
+
+//    --------------------- Farm management : Income and sells ---------------------
 
 
 }

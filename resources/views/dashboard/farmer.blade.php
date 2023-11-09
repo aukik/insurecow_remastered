@@ -14,7 +14,7 @@
                                 <div class="page-header-icon">
                                     <i data-feather="activity"></i>
                                 </div>
-                                Dashboard
+                                Farmer Dashboard
                             </h1>
                             {{--                            <div class="page-header-subtitle">--}}
                             {{--                                Example dashboard overview and content summary--}}

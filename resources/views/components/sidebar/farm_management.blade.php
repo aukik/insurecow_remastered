@@ -86,15 +86,42 @@
         {{-- --------------------------- Expense Data --------------------------- --}}
 
 
-        <a class="nav-link" href="">
-            <div class="nav-link-icon"><i data-feather="filter"></i></div>
-            Financial Management
+
+        {{-- --------------------------- Income And Sells --------------------------- --}}
+
+
+        <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+           data-bs-target="#incomeAndSell" aria-expanded="false" aria-controls="incomeAndSell">
+            <div class="nav-link-icon"><i data-feather="align-justify"></i></div>
+            Income and Sells
+            <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
         </a>
+        <div class="collapse" id="incomeAndSell" data-bs-parent="#accordionSidenav">
+            <nav class="sidenav-menu-nested nav">
+                <a class="nav-link" href="{{ route('incomeAndSell.create') }}">Create Info</a>
+                <a class="nav-link" href="{{ route('incomeAndSell.index') }}">View Info</a>
+            </nav>
+        </div>
+
+
+        {{-- --------------------------- Income And Sells --------------------------- --}}
+
+
+        <a class="nav-link" href="{{ route('profit-and-loss-report') }}">
+            <div class="nav-link-icon"><i data-feather="filter"></i></div>
+            Profit / Loss Calculation
+        </a>
+
 
         {{--        <a class="nav-link" href="">--}}
         {{--            <div class="nav-link-icon"><i data-feather="filter"></i></div>--}}
-        {{--            Report and analysis--}}
+        {{--            Financial Management--}}
         {{--        </a>--}}
+
+        <a class="nav-link" href="{{ route('f.dashboard') }}">
+            <div class="nav-link-icon"><i data-feather="filter"></i></div>
+            Farmer Dashboard
+        </a>
 
 
         {{-- ---------------------------------- Farm management Sidebar ---------------------------------- --}}
