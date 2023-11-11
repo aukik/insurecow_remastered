@@ -101,14 +101,17 @@ class BudgetingAndForecastingController extends Controller
      * @param \App\Models\Farm_management\financial\BudgetingAndForecasting $budgetingAndForecasting
      * @return string
      */
-    public function destroy(BudgetingAndForecasting $budgetingAndForecasting)
+    public function destroy($id)
     {
-//        if ($budgetingAndForecasting->user_id != auth()->user()->id) {
-//            return "Invalid request";
-//        }
-//
-//        $budgetingAndForecasting->delete();
-//        session()->flash("success", "Expense data deleted successfully");
-//        return back();
+
+        $budgetingAndForecasting = BudgetingAndForecasting::find($id);
+
+        if ($budgetingAndForecasting->user_id != auth()->user()->id) {
+            return "Invalid request";
+        }
+
+        $budgetingAndForecasting->delete();
+        session()->flash("success", "Expense data deleted successfully");
+        return back();
     }
 }
