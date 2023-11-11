@@ -15,7 +15,7 @@
                                 <div class="page-header-icon">
                                     <i data-feather="user"></i>
                                 </div>
-                                Farm Management - Expense Data
+                                Farm Management - Budget and Forecasting
                             </h1>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                 <div class="col-xl-12">
                     <!-- Account details card-->
                     <div class="card mb-4">
-                        <div class="card-header">Farm Management - Expense Data</div>
+                        <div class="card-header">Farm Management - Budget and Forecasting</div>
                         <div class="card-body">
 
 
