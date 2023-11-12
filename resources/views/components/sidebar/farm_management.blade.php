@@ -86,6 +86,26 @@
         {{-- --------------------------- Expense Data --------------------------- --}}
 
 
+        {{-- --------------------------- Expense Data --------------------------- --}}
+
+
+        <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+           data-bs-target="#expenseWA" aria-expanded="false" aria-controls="expenseWA">
+            <div class="nav-link-icon"><i data-feather="align-justify"></i></div>
+            Expenses [WA]
+            <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+        </a>
+        <div class="collapse" id="expenseWA" data-bs-parent="#accordionSidenav">
+            <nav class="sidenav-menu-nested nav">
+                <a class="nav-link" href="{{ route('expense_weight_average.create') }}">Create Info</a>
+                <a class="nav-link" href="{{ route('expense.index') }}">View Info</a>
+            </nav>
+        </div>
+
+
+        {{-- --------------------------- Expense Data --------------------------- --}}
+
+
 
         {{-- --------------------------- Income And Sells --------------------------- --}}
 

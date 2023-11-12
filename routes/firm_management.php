@@ -84,6 +84,12 @@ Route::middleware(['auth', 'farmer'])->prefix('farmer/farm_management')->group(f
 
 //   ---------------------------------------------------------- expense ----------------------------------------------------------
 
+    //   ---------------------------------------------------------- expense ----------------------------------------------------------
+
+    Route::resource('expense_weight_average', \App\Http\Controllers\Farm_management\Financial\ExpenseWeightAverage::class);
+
+//   ---------------------------------------------------------- expense ----------------------------------------------------------
+
 //   ---------------------------------------------------------- Income And Sell ----------------------------------------------------------
 
     Route::resource('incomeAndSell', \App\Http\Controllers\Farm_management\Financial\IncomeAndSellController::class);

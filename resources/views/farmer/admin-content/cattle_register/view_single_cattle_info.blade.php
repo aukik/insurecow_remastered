@@ -3,12 +3,12 @@
 @section('content')
     <main>
         <header
-            class="page-header page-header-compact page-header-light border-bottom bg-white mb-4"
+                class="page-header page-header-compact page-header-light border-bottom bg-white mb-4"
         >
             <div class="container-xl px-4">
                 <div class="page-header-content">
                     <div
-                        class="row pt-3"
+                            class="row pt-3"
                     >
                         <div class="col-auto mb-3">
                             <h1 class="page-header-title">
@@ -131,6 +131,15 @@
                                     ><span style="color: red"></span>
 
                                     <p>{{ $cattle->sum_insured }}</p>
+
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label class="small mb-1 fw-bold" for="inputLastName"
+                                    >Cattle Unique ID</label
+                                    ><span style="color: red"></span>
+
+                                    <p>{{ pathinfo($cattle->muzzle_of_cow, PATHINFO_FILENAME)  }}</p>
 
                                 </div>
                             </div>
