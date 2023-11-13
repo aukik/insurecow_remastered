@@ -19,6 +19,12 @@ class CompanyRequest extends Controller
         return view("super-admin.admin-content.history.index", compact('users'));
     }
 
+    public function company_history()
+    {
+        $users = User::where('company_id', auth()->user()->id)->get();
+        return view("company.admin-content.enlisted-permission.index", compact('users'));
+    }
+
 //    ----------------------------- Registered Resources -----------------------------
 
 
@@ -38,11 +44,11 @@ class CompanyRequest extends Controller
 
     public function all_farmers()
     {
-        if (auth()->user()->role == "c"){
+        if (auth()->user()->role == "c") {
             $users = User::where('role', 'f')->where('company_id', auth()->user()->id)->get();
             return view("company.admin-content.registered_resources.farmer", compact('users'));
 
-        }else{
+        } else {
             $users = User::where('role', 'f')->get();
             return view("super-admin.admin-content.registered_resources.farmer", compact('users'));
         }

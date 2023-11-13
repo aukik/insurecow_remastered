@@ -6,7 +6,7 @@ use App\Models\Permission;
 use App\Models\User;
 use Illuminate\Http\Request;
 
-class PermissionController extends Controller
+class CompanyPermissionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,6 +15,7 @@ class PermissionController extends Controller
      */
     public function index()
     {
+        //
     }
 
     /**
@@ -41,32 +42,41 @@ class PermissionController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\Models\Permission $permission
+     * @param int $id
      * @return string
      */
     public function show($id)
     {
+//        $permission = User::findOrFail($id)->permission;
+//        $specific_user = User::findOrFail($id);
 
+        $specific_user = User::findOrFail($id);
+        $permission = $specific_user->permission;
 
-        $permission = User::findOrFail($id)->permission;
-        $specific_user =  User::findOrFail($id);
+        if ($specific_user && $permission) {
+            // Check if the user belongs to the same company
+            if ($specific_user->company_id != auth()->user()->id) {
+                return "Invalid operation: User does not belong to the company.";
+            }
 
-
-        if ($permission == null) {
-            return "Invalid Action";
+        } else {
+            return "Invalid operation: User or permission not found.";
         }
 
-        return view("super-admin.admin-content.permission.permission", compact('permission','specific_user'));
+//        if ($permission == null) {
+//            return "Invalid Action";
+//        }
 
+        return view("company.admin-content.permission.permission", compact('permission', 'specific_user'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Models\Permission $permission
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Permission $permission)
+    public function edit($id)
     {
         //
     }
@@ -75,11 +85,35 @@ class PermissionController extends Controller
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Permission $permission
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return string
      */
-    public function update(Request $request, Permission $permission)
+    public function update(Request $request, $id)
     {
+
+//        $permission = Permission::findOrFail($id);
+//        $user = User::find($permission->user_id);
+//        return $user->company_id;
+//        return auth()->user()->id;
+
+
+        $permission = Permission::findOrFail($id);
+
+        if ($permission && $permission->user_id) {
+            $user = User::find($permission->user_id);
+
+            if ($user) {
+                // Check if the user belongs to the same company
+                if ($user->company_id != auth()->user()->id) {
+                    return "Invalid operation: User does not belong to the company.";
+                }
+            } else {
+                return "Invalid operation: User not found.";
+            }
+        } else {
+            return "Invalid operation: Permission not found.";
+        }
+
         $inputs = \request()->validate([
             'f_cattle_reg' => 'nullable',
             'f_insurance' => 'nullable',
@@ -101,18 +135,17 @@ class PermissionController extends Controller
         }
 
         $permission->update($inputs);
-        session()->flash("permission","Permission updated");
+        session()->flash("permission", "Permission updated");
         return back();
-
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Models\Permission $permission
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Permission $permission)
+    public function destroy($id)
     {
         //
     }

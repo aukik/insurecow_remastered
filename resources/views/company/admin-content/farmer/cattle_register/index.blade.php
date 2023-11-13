@@ -216,12 +216,12 @@
 
                                     <div class="col-md-4">
                                         <label class="small mb-1" for="inputLastName"
-                                        >Animal Weight</label
+                                        >Animal Weight [Kg]</label
                                         ><span style="color: red">*</span>
                                         <input
                                             class="form-control"
                                             id="inputLastName"
-                                            type="text"
+                                            type="number"
                                             placeholder=""
                                             value="{{ old('weight') }}"
                                             name="weight"

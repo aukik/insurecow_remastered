@@ -268,6 +268,35 @@
                     </div>
                 </div>
 
+                <div class="col-lg-6 col-xl-3 mb-4">
+                    <div class="card bg-success text-white h-100">
+                        <div class="card-body">
+                            <div
+                                class="d-flex justify-content-between align-items-center"
+                            >
+                                <div class="me-3">
+                                    <div class="text-white-75 small">Enlisted Permission</div>
+                                    <div class="text-lg fw-bold">{{ $farmer_count }}</div>
+                                </div>
+                                <i
+                                    class="feather-xl text-white-50"
+                                    data-feather="check-square"
+                                ></i>
+                            </div>
+                        </div>
+                        <div
+                            class="card-footer d-flex align-items-center justify-content-between small"
+                        >
+                            <a class="text-white stretched-link" href="{{ route('cp.user_history') }}"
+                            >View List</a
+                            >
+                            <div class="text-white">
+                                <i class="fas fa-angle-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
             <!-- Example Charts for Dashboard Demo-->
 {{--            <div class="row">--}}

@@ -15,7 +15,7 @@
                                 <div class="page-header-icon">
                                     <i data-feather="user"></i>
                                 </div>
-                                Registered Farmers
+                                User History - Super Admin
                             </h1>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                 <div class="col-xl-12">
                     <!-- Account details card-->
                     <div class="card mb-4">
-                        <div class="card-header">Registered Farmers</div>
+                        <div class="card-header">User History</div>
                         <div class="card-body">
 
                             {{--                            <div class="card-header">Extended DataTables</div>--}}
@@ -39,37 +39,36 @@
                                 <table id="datatablesSimple">
                                     <thead>
                                     <tr>
-                                        <th>Serial</th>
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Phone</th>
-                                        {{--                                        <th>Role</th>--}}
-                                        <th>Registered <br> Animals</th>
-                                        <th>Add Animal for <br>farmer</th>
+                                        <th>Role</th>
+                                        <th>Registered At</th>
+                                        <th>Permission</th>
                                     </tr>
                                     </thead>
 
                                     <tbody>
 
-                                    <?php $id = 0 ?>
+
                                     @foreach($users as $user)
 
                                         <tr>
-                                            <td>{{ $id+=1 }}</td>
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
                                             <td>{{ $user->phone }}</td>
-                                            {{--                                            <td>{{ $user->role }}</td>--}}
+                                            <td>{{ $user->role }}</td>
+                                            <td>{{ $user->created_at->format('d-m-y') }}</td>
 
-                                            <td>
-                                                <a href="{{ route('cp.registered_cattle', $user->id) }}"
-                                                   class="btn btn-primary">View Animal</a>
-                                            </td>
+                                            @if($user->role != "s")
+                                                <td>
+                                                    <a href="{{ route('company_permission.show', $user->id) }}" class="">Set
+                                                        Permission</a>
+                                                </td>
+                                            @else
+                                                <td></td>
+                                            @endif
 
-                                            <td>
-                                                <a href="{{ route('register_cattle_from_company_side', $user->id) }}"
-                                                   class="btn btn-primary">Add Animal</a>
-                                            </td>
 
                                         </tr>
 
@@ -78,6 +77,11 @@
                                 </table>
                             </div>
 
+                            {{-- ---------------------------------------- Company Request Data ---------------------------------------- --}}
+
+
+
+                            {{-- ---------------------------------------- Register Company/NGO/Bank ---------------------------------------- --}}
 
                         </div>
                     </div>

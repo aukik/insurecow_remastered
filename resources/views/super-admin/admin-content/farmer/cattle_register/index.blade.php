@@ -221,7 +221,7 @@
                                         <input
                                             class="form-control"
                                             id="inputLastName"
-                                            type="text"
+                                            type="number"
                                             placeholder=""
                                             value="{{ old('weight') }}"
                                             name="weight"

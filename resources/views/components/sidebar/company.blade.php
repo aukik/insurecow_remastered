@@ -60,6 +60,11 @@
 
         @endif
 
+        <a class="nav-link" href="{{ route('cp.user_history') }}">
+            <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>
+            Enlisted
+        </a>
+
         {{-- ---------------------------------- Single Side Navbar ---------------------------------- --}}
 
         {{-- ---------------------------------- Register a cattle for the farmer ---------------------------------- --}}

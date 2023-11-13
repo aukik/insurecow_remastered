@@ -17,6 +17,19 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
     });
 
 
+    //    ----------------------------- Company permission provided to farmers  -----------------------------
+
+    Route::resource("company_permission", \App\Http\Controllers\CompanyPermissionController::class);
+
+//    ----------------------------- Company permission provided to farmers -----------------------------
+
+    //    ----------------------------- History -----------------------------
+
+    Route::get("company_history", [CompanyRequest::class, "company_history"])->name("cp.user_history");
+
+//    ----------------------------- History -----------------------------
+
+
     //    ----------------------------- Register Field Agent Middleware Block ----------------------------------
 
 
