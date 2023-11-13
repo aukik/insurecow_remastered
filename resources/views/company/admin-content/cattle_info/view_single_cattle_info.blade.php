@@ -71,33 +71,7 @@
                                 </div>
 
                             </div>
-                            <div class="row gx-3 mb-3">
 
-                                <div class="col-md-4">
-                                    <label class="small mb-1 fw-bold" for="inputLastName"
-                                    >Animal Age</label
-                                    ><span style="color: red"></span>
-                                    <p>{{ $cattle->age }}</p>
-                                </div>
-
-                                <div class="col-md-4">
-                                    <label class="small mb-1 fw-bold" for="inputLastName"
-                                    >Animal Color</label
-                                    ><span style="color: red"></span>
-                                    <p>{{ $cattle->cattle_color }}</p>
-
-                                </div>
-
-                                <div class="col-md-4">
-                                    <label class="small mb-1 fw-bold" for="inputLastName"
-                                    >Animal Weight</label
-                                    ><span style="color: red"></span>
-
-                                    <p>{{ $cattle->weight }}</p>
-
-                                </div>
-
-                            </div>
 
                             <div class="row gx-3 mb-3">
 
@@ -131,6 +105,14 @@
                                     ><span style="color: red"></span>
 
                                     <p>{{ $cattle->sum_insured }}</p>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label class="small mb-1 fw-bold" for="inputLastName"
+                                    >Cattle Unique ID</label
+                                    ><span style="color: red"></span>
+
+                                    <p>{{ pathinfo($cattle->muzzle_of_cow, PATHINFO_FILENAME)  }}</p>
 
                                 </div>
                             </div>
@@ -177,6 +159,8 @@
                                              style="width: 150px; max-height: 90px">
                                     </div>
                                 </div>
+
+
 
                             </div>
 
