@@ -157,7 +157,7 @@
 
 
                                 <button class="btn btn-primary" type="submit">
-                                    Add Health Information
+                                    Add Expense Information
                                 </button>
                                 <br><br>
                             </form>

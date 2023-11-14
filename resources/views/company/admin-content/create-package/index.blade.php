@@ -116,7 +116,7 @@
                                 <div class="row gx-3 mb-3">
                                     <div class="col-md-4">
                                         <label class="small mb-1" for="inputLastName"
-                                        >Discount [OF %]</label
+                                        >OFF %</label
                                         >
                                         <input
                                             class="form-control"
@@ -130,7 +130,7 @@
 
                                     <div class="col-md-4">
                                         <label class="small mb-1" for="inputLastName"
-                                        >Rate [CTL]</label
+                                        >CTL %</label
                                         >
                                         <input
                                             class="form-control"
@@ -144,7 +144,7 @@
 
                                     <div class="col-md-4">
                                         <label class="small mb-1" for="inputLastName"
-                                        >Vat</label
+                                        >Vat %</label
                                         >
                                         <input
                                             class="form-control"

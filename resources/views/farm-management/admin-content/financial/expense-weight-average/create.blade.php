@@ -42,7 +42,7 @@
 
                             {{-- ---------------------------------------- Farm Creation ---------------------------------------- --}}
 
-                            <form action="{{ route('expense.store') }}" method="post"
+                            <form action="{{ route('expense_weight_average.store') }}" method="post"
                                   enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <!-- Form Group (username)-->
@@ -66,6 +66,28 @@
                                             </div>
                                         </div>
                                     </div>
+
+
+
+
+                                    <script>
+                                        // Get the current date in the format YYYY-MM-DD
+                                        function getCurrentDate() {
+                                            const today = new Date();
+                                            const year = today.getFullYear();
+                                            let month = today.getMonth() + 1;
+                                            let day = today.getDate();
+
+                                            // Add leading zero if month or day is a single digit
+                                            month = month < 10 ? '0' + month : month;
+                                            day = day < 10 ? '0' + day : day;
+
+                                            return `${year}-${month}-${day}`;
+                                        }
+
+                                        // Set the default value of the input field to the current date
+                                        document.getElementById('expense_date').value = getCurrentDate();
+                                    </script>
 
                                     <div class="col-md-6">
                                         <div class="row gx-3 mb-3">
@@ -121,42 +143,8 @@
                                 </div>
 
 
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="row gx-3 mb-3">
-                                            <div class="col-md-12">
-                                                <label for="category" class="small mb-1">Expense Category</label>
-
-
-                                                <select
-                                                    class="form-select"
-                                                    id="category"
-                                                    name="category"
-                                                    required>
-
-                                                    <option value="">Select Category</option>
-
-
-                                                    <option value="Feed">Feed</option>
-                                                    <option value="Veterinary care">Veterinary care</option>
-                                                    <option value="Medications">Medications</option>
-                                                    <option value="Breeding">Breeding</option>
-                                                    <option value="Supplies">Supplies</option>
-                                                    <option value="Equipment">Equipment</option>
-                                                    <option value="Transportation">Transportation</option>
-                                                    <option value="Registration and fees">Registration and fees</option>
-                                                    <option value="Insurance">Insurance</option>
-                                                    <option value="Labor">Labor</option>
-                                                    <option value="Other">Other</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
                                 <button class="btn btn-primary" type="submit">
-                                    Add Health Information
+                                    Add Expense Information
                                 </button>
                                 <br><br>
                             </form>

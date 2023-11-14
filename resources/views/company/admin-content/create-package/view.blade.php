@@ -48,11 +48,11 @@
                                         <th>Insurance Period</th>
                                         <th>Policy</th>
                                         <th>Coverage</th>
-                                        <th>Discount [OFF %]</th>
+                                        <th>OFF %</th>
                                         <th>Rate [CTL %]</th>
-                                        <th>Vat [ % ]</th>
+                                        <th>Vat  % </th>
                                         <th>Package Status</th>
-                                        <th>Actions</th>
+{{--                                        <th>Actions</th>--}}
                                         <th>Edit</th>
                                     </tr>
                                     </thead>
@@ -65,7 +65,7 @@
                                         <tr>
                                             <td>{{ $package->package_name }}</td>
                                             <td>{{ $package->insurance_period }}</td>
-                                            <td><a href="{{ asset('storage/'.$package->policy)  }}">Policy File</a></td>
+                                            <td><a href="{{ asset('storage/'.$package->policy)  }}">File</a></td>
                                             <td>
                                                 @foreach (json_decode($package->coverage) as $item)
                                                     @if ($item === 'ac')
@@ -86,22 +86,22 @@
                                             <td>{{ $package->rate }}%</td>
                                             <td>{{ $package->vat }}%</td>
                                             <td>{{ $package->package_status }}</td>
-                                            <td>
+{{--                                            <td>--}}
 
-                                                <a href="{{ route('package_status', $package->id) }}">
-                                                    <button
-                                                        class="btn @if($package->package_status == 'active' ) btn-primary @else btn-danger @endif ">
-                                                        Status Mode
-                                                    </button>
-                                                </a>
+{{--                                                <a href="{{ route('package_status', $package->id) }}">--}}
+{{--                                                    <button--}}
+{{--                                                        class="btn @if($package->package_status == 'active' ) btn-primary @else btn-danger @endif ">--}}
+{{--                                                        Status Mode--}}
+{{--                                                    </button>--}}
+{{--                                                </a>--}}
 
-                                            </td>
+{{--                                            </td>--}}
 
                                             <td>
                                                 <a href="{{ route('package.edit', $package->id) }}">
                                                     <button
                                                         class="btn btn-primary">
-                                                        Edit Package
+                                                        Edit
                                                     </button>
                                                 </a>
                                             </td>
