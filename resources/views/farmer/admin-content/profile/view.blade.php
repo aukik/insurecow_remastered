@@ -342,7 +342,7 @@
                                     <div class="form-control">
 
 
-                                        @if(!$profile->loan_investment == null)
+                                        @if(!$profile->chairman_certificate == null)
                                             <img src="{{ asset('storage/'.$profile->chairman_certificate) }}"
                                                  style="width: 150px; max-height: 90px">
                                         @else

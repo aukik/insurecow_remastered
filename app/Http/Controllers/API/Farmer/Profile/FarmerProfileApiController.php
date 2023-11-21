@@ -24,9 +24,10 @@ class FarmerProfileApiController extends Controller
             $farmerProfileData->chairman_certificate = asset('storage/' . $farmerProfileData->chairman_certificate);
             $farmerProfileData->image = asset('storage/' . $farmerProfileData->image);
 
-            return response()->json(['message' => 'Farmer data', 'profile_data' => $farmerProfileData], 200);
+            return response()->json(['message' => 'Farmer data', 'profile_state' => 1, 'profile_data' => $farmerProfileData], 200);
+        } else {
+            return response()->json(['message' => 'Farmer profile data not found', 'profile_state' => 0], 200);
         }
-
     }
 
     /**
@@ -97,7 +98,8 @@ class FarmerProfileApiController extends Controller
         if (request()->hasFile('loan_investment')) {
             $inputs['loan_investment'] = \request('loan_investment')->store('images');
         } else {
-            return "Its not a file type, Invalid data type for loan_investment file type";
+            $inputs['loan_investment'] = null;
+//            return "Its not a file type, Invalid data type for loan_investment file type";
         }
 
         if (request()->hasFile('nid_front')) {
@@ -115,25 +117,63 @@ class FarmerProfileApiController extends Controller
         if (request()->hasFile('chairman_certificate')) {
             $inputs['chairman_certificate'] = \request('chairman_certificate')->store('images');
         } else {
-            return "Its not a file type, Invalid data type for chairman_certificate file type";
+            $inputs['chairman_certificate'] = null;
+//            return "Its not a file type, Invalid data type for chairman_certificate file type";
         }
 
 
 //      ------------------------------ validation ------------------------------
 
+//        $missingFields = [];
+//
+//        foreach ($inputs as $field => $value) {
+//            if (empty($value)) {
+//                $missingFields[] = $field;
+//            } elseif (in_array($field, ['nid_front', 'nid_back', 'loan_investment', 'chairman_certificate', 'image']) && is_null(\request()->file($field))) {
+//                $missingFields[] = 'File required for ' . $field;
+//            } elseif (in_array($field, ['nid_front', 'nid_back']) && !in_array(\request()->file($field)->getClientOriginalExtension(), ['jpeg', 'jpg', 'png'])) {
+//                $missingFields[] = 'Invalid file type for ' . $field;
+//            } elseif ($field === 'loan_investment' && !in_array(\request()->file($field)->getClientOriginalExtension(), ['jpeg', 'jpg', 'png', 'pdf', 'txt'])) {
+//                $missingFields[] = 'Invalid file type for ' . $field;
+//            } elseif (in_array($field, ['chairman_certificate', 'image']) && !in_array(\request()->file($field)->getClientOriginalExtension(), ['jpeg', 'jpg', 'png', 'pdf', 'txt'])) {
+//                $missingFields[] = 'Invalid file type for ' . $field;
+//            }
+//        }
+//
+//        if (!empty($missingFields)) {
+//            $response = [
+//                'error' => 'Missing or invalid required fields',
+//                'missing_fields' => $missingFields
+//            ];
+//
+//            return response()->json($response, 400); // Return a JSON error response with a 400 status code
+//        }
+
+
         $missingFields = [];
 
         foreach ($inputs as $field => $value) {
-            if (empty($value)) {
+            if (empty($value) && !in_array($field, ['loan_investment', 'chairman_certificate'])) {
                 $missingFields[] = $field;
-            } elseif (in_array($field, ['nid_front', 'nid_back', 'loan_investment', 'chairman_certificate', 'image']) && is_null(\request()->file($field))) {
-                $missingFields[] = 'File required for ' . $field;
-            } elseif (in_array($field, ['nid_front', 'nid_back']) && !in_array(\request()->file($field)->getClientOriginalExtension(), ['jpeg', 'jpg', 'png'])) {
-                $missingFields[] = 'Invalid file type for ' . $field;
-            } elseif ($field === 'loan_investment' && !in_array(\request()->file($field)->getClientOriginalExtension(), ['jpeg', 'jpg', 'png', 'pdf', 'txt'])) {
-                $missingFields[] = 'Invalid file type for ' . $field;
-            } elseif (in_array($field, ['chairman_certificate', 'image']) && !in_array(\request()->file($field)->getClientOriginalExtension(), ['jpeg', 'jpg', 'png', 'pdf', 'txt'])) {
-                $missingFields[] = 'Invalid file type for ' . $field;
+            } elseif (in_array($field, ['nid_front', 'nid_back', 'loan_investment', 'chairman_certificate', 'image']) && !is_null(\request()->file($field))) {
+                if (in_array($field, ['nid_front', 'nid_back'])) {
+                    $fileExtension = \request()->file($field)->getClientOriginalExtension();
+                    if (!in_array($fileExtension, ['jpeg', 'jpg', 'png'])) {
+                        $missingFields[] = 'Invalid file type for ' . $field;
+                    }
+                } elseif (in_array($field, ['loan_investment', 'chairman_certificate', 'image'])) {
+                    $fileExtension = \request()->file($field)->getClientOriginalExtension();
+
+                    if ($field === 'image') {
+                        $allowedExtensions = ['jpeg', 'jpg', 'png'];
+                    } else {
+                        $allowedExtensions = ['jpeg', 'jpg', 'png', 'pdf', 'txt'];
+                    }
+
+                    if (!in_array($fileExtension, $allowedExtensions)) {
+                        $missingFields[] = 'Invalid file type for ' . $field;
+                    }
+                }
             }
         }
 
