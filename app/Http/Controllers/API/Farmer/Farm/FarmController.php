@@ -53,11 +53,29 @@ class FarmController extends Controller
         $inputs['buffalo'] = $request->input('buffalo');
         $inputs['farm_address'] = $request->input('farm_address');
 
+//
+//        $missingFields = [];
+//
+//        foreach ($inputs as $field => $value) {
+//            if (empty($value)) {
+//                $missingFields[] = $field;
+//            }
+//        }
+//
+//        if (!empty($missingFields)) {
+//            $response = [
+//                'error' => 'Missing required fields',
+//                'missing_fields' => $missingFields
+//            ];
+//
+//            return response()->json($response, 400); // Return a JSON error response with a 400 status code
+//        }
+
 
         $missingFields = [];
 
         foreach ($inputs as $field => $value) {
-            if (empty($value)) {
+            if (!isset($value) || $value === '') {
                 $missingFields[] = $field;
             }
         }
