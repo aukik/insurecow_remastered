@@ -44,6 +44,12 @@ Route::middleware(['auth:sanctum', 'api.farmer'])->group(function () {
 
 //    -------------------------------- claim resource api --------------------------------
 
+//    -------------------------------- Insurance Check api --------------------------------
+
+    Route::get('farmer/check_insurance_status/{cattle_id}', [\App\Http\Controllers\API\Farmer\Insurance\InsuranceController::class,'checkInsurance']);
+
+//    -------------------------------- Insurance Check api --------------------------------
+
 
 //    -------------------------------- claim status check --------------------------------
 
