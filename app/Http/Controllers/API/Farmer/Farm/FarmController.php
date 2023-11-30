@@ -46,6 +46,9 @@ class FarmController extends Controller
      */
     public function store(Request $request)
     {
+
+        return response()->json(['test_data',$request->all()],200);
+
         $inputs = [];
         $inputs['farm_name'] = $request->input('farm_name');
         $inputs['cattle'] = $request->input('cattle');
