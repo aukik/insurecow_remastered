@@ -188,12 +188,12 @@ class ClaimRegistrationController extends Controller
 //
 //        return $claim_report;
 
-        $claim_report = auth()->user()->cattle_reg_report()->where('verification_report', 'success')->where('cattle_id', $cattle_id)->first();
+        $claim_report = auth()->user()->cattle_reg_report()->where('verification_report', 'success')->where('operation', 'claim')->where('cattle_id', $cattle_id)->first();
 
         if ($claim_report) {
             $formatted_claim_report = [
                 'claim_report_id' => $claim_report->id,
-                'verification_report' => $claim_report->verification_report,
+                'report_status' => $claim_report->verification_report,
                 'farmers_user_id' => $claim_report->user_id,
                 'animal_data' => app(CattleRegistrationController::class)->show($claim_report->cattle_id)->getData()->data ?? null,
             ];

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\API\Farmer\CattleRegistration;
 use App\Http\Controllers\Controller;
 use App\Jobs\Farmer\CattleRegistrationProcess;
 use App\Models\CattleRegistration;
+use App\Models\CattleRegReport;
+use App\Models\Insured;
 use Illuminate\Http\Request;
 
 class CattleRegistrationController extends Controller
@@ -29,7 +31,10 @@ class CattleRegistrationController extends Controller
             'sum_insured' => $animal->sum_insured,
             'unique_id' => $animal->unique_id,
             'insured_by' => $animal->insured_by,
-            'insurance_status' => $animal->insurance_status,
+
+            'insurance_status' => Insured::where('cattle_id', $animal->id)->first() ? 'Insured' : 'Not Insured',
+            'claim_status' => CattleRegReport::where('verification_report', 'success')->where('operation', 'claim')->where('cattle_id', $animal->id)->first() ? 'Claimed' : 'Not Claimed',
+
             'insurance_date' => $animal->insurance_date,
             'insurance_expire_date' => $animal->insurance_expire_date,
             'is_claimed' => $animal->is_claimed,
