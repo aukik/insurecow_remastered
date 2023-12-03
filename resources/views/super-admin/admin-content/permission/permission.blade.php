@@ -217,8 +217,8 @@
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <label for="exampleFormControlSelect1">Registering Agent [ Company Sided
-                                                Permission</label>
+                                            <label for="exampleFormControlSelect1">Registering Farmer [ Company Sided
+                                                Permission ]</label>
                                         </div>
                                     </div>
 
