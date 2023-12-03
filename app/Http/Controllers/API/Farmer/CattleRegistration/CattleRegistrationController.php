@@ -37,7 +37,7 @@ class CattleRegistrationController extends Controller
 
             'insurance_date' => $animal->insurance_date,
             'insurance_expire_date' => $animal->insurance_expire_date,
-            'is_claimed' => $animal->is_claimed,
+            'is_claimed' => CattleRegReport::where('verification_report', 'success')->where('operation', 'claim')->where('cattle_id', $animal->id)->first() ? 1 : 0,
             'user_id' => $animal->user_id,
             'created_at' => $animal->created_at,
             'updated_at' => $animal->updated_at,

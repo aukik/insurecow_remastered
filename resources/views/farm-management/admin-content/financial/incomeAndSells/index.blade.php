@@ -15,7 +15,7 @@
                                 <div class="page-header-icon">
                                     <i data-feather="user"></i>
                                 </div>
-                                Farm Management - Expense Data
+                                Farm Management - Income / Sells Data
                             </h1>
                         </div>
                     </div>
