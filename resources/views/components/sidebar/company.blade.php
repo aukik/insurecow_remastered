@@ -23,7 +23,7 @@
 
             <a class="nav-link" href="{{ route('farmer_register.index') }}">
                 <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>
-                Register Agent/Farmer
+                Register Farmer
             </a>
 
 
