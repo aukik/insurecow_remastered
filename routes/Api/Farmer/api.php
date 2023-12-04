@@ -33,7 +33,9 @@ Route::middleware(['auth:sanctum', 'api.farmer'])->group(function () {
 
     Route::apiResource('farmer/profile_api', FarmerProfileApiController::class);
 
-//    Route::post('farmer/profile_api_store', [FarmerProfileApiController::class,'store']);
+    Route::post('farmer/profile_api_store', [FarmerProfileApiController::class, 'store']);
+    Route::get('farmer/profile_api_view_data', [FarmerProfileApiController::class, 'index']);
+    Route::put('farmer/profile_api_update_data', [FarmerProfileApiController::class, 'update']);
 
 //    -------------------------------- Farmer profile creation api --------------------------------
 
@@ -48,7 +50,7 @@ Route::middleware(['auth:sanctum', 'api.farmer'])->group(function () {
 
 //    -------------------------------- Insurance Check api --------------------------------
 
-    Route::get('farmer/check_insurance_status/{cattle_id}', [\App\Http\Controllers\API\Farmer\Insurance\InsuranceController::class,'checkInsurance']);
+    Route::get('farmer/check_insurance_status/{cattle_id}', [\App\Http\Controllers\API\Farmer\Insurance\InsuranceController::class, 'checkInsurance']);
 
 //    -------------------------------- Insurance Check api --------------------------------
 
@@ -71,9 +73,9 @@ Route::middleware(['auth:sanctum', 'api.farmer'])->group(function () {
 
     Route::apiResource('farmer/farm_api', FarmController::class);
 
-    Route::post('farmer/farm_data_store_api', [FarmController::class,'store']);
-    Route::post('farmer/farm_data_view_api', [FarmController::class,'index']);
-    Route::post('farmer/farm_data_single_view/{farm_id}', [FarmController::class,'show']);
+    Route::post('farmer/farm_data_store_api', [FarmController::class, 'store']);
+    Route::post('farmer/farm_data_view_api', [FarmController::class, 'index']);
+    Route::post('farmer/farm_data_single_view/{farm_id}', [FarmController::class, 'show']);
 
 
 //    -------------------------------- farms --------------------------------
