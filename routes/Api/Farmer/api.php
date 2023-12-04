@@ -33,6 +33,8 @@ Route::middleware(['auth:sanctum', 'api.farmer'])->group(function () {
 
     Route::apiResource('farmer/profile_api', FarmerProfileApiController::class);
 
+//    Route::post('farmer/profile_api_store', [FarmerProfileApiController::class,'store']);
+
 //    -------------------------------- Farmer profile creation api --------------------------------
 
 
@@ -68,6 +70,8 @@ Route::middleware(['auth:sanctum', 'api.farmer'])->group(function () {
 //    -------------------------------- farms --------------------------------
 
     Route::apiResource('farmer/farm_api', FarmController::class);
+
+    Route::post('farmer/farm_data_store_api', [FarmController::class,'store']);
 
 
 //    -------------------------------- farms --------------------------------
