@@ -72,6 +72,8 @@ Route::middleware(['auth:sanctum', 'api.farmer'])->group(function () {
     Route::apiResource('farmer/farm_api', FarmController::class);
 
     Route::post('farmer/farm_data_store_api', [FarmController::class,'store']);
+    Route::post('farmer/farm_data_view_api', [FarmController::class,'index']);
+    Route::post('farmer/farm_data_single_view/{farm_id}', [FarmController::class,'show']);
 
 
 //    -------------------------------- farms --------------------------------
