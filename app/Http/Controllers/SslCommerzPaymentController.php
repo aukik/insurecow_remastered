@@ -43,7 +43,7 @@ class SslCommerzPaymentController extends Controller
 
         # CUSTOMER INFORMATION
         $post_data['cus_name'] = auth()->user()->name;
-        $post_data['cus_email'] = auth()->user()->email;
+        $post_data['cus_email'] = auth()->user()->email ?? auth()->user()->phone;
         $post_data['cus_phone'] = auth()->user()->phone;
 
         $post_data['cus_add1'] = 'Customer Address';
@@ -80,7 +80,7 @@ class SslCommerzPaymentController extends Controller
 
             $expired_date = User::addYearsAndMonths($inputs['package_insurance_period']);
 
-            $package = Package::where('insurance_period', '=', \request('package_id'))->first();
+            $package = Package::find(\request('package_id'))->first();
 
             $amount = User::calculateTotalCost($cattle_info->sum_insured, $package->rate, $package->discount, $package->vat);
 
@@ -208,7 +208,7 @@ class SslCommerzPaymentController extends Controller
         #Check order status in order tabel against the transaction id or order id.
         $order_details = DB::table('orders')
             ->where('transaction_id', $tran_id)
-            ->select('transaction_id', 'status', 'currency', 'amount','cattle_id','package_id','company_id','id','user_id','package_expiration_date')->first();
+            ->select('transaction_id', 'status', 'currency', 'amount', 'cattle_id', 'package_id', 'company_id', 'id', 'user_id', 'package_expiration_date')->first();
 
         if ($order_details->status == 'Pending') {
             $validation = $sslc->orderValidate($request->all(), $tran_id, $amount, $currency);
@@ -282,7 +282,7 @@ class SslCommerzPaymentController extends Controller
             $update_product = DB::table('orders')
                 ->where('transaction_id', $tran_id)
                 ->update(['status' => 'Failed']);
-            echo "Transaction is Falied";
+            echo "Transaction is Failed";
         } else if ($order_details->status == 'Processing' || $order_details->status == 'Complete') {
             echo "Transaction is already Successful";
         } else {
