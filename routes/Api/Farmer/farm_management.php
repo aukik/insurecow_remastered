@@ -7,6 +7,7 @@ use App\Http\Controllers\API\Farmer\Farm_management\ExpenseController;
 use App\Http\Controllers\API\Farmer\Farm_management\ExpenseWeightAverageController;
 use App\Http\Controllers\API\Farmer\Farm_management\FeedingAndNutritionController;
 use App\Http\Controllers\API\Farmer\Farm_management\IncomeAndSellsController;
+use App\Http\Controllers\Farm_management\Financial\ProfitAndLossController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -68,5 +69,12 @@ Route::middleware(['auth:sanctum', 'api.farmer'])->prefix('farm_management')->gr
     Route::delete("delete_budget_and_forecasting_information/{id}", [BudgetAndForecastingController::class, 'destroy']);
 
     //    ------------------------------------------------ Budget And Forecasting ------------------------------------------------
+
+    //    ------------------------------------------------ Profit and loss calculation ------------------------------------------------
+
+    Route::get('/profit-and-loss-report_api', [ProfitAndLossController::class, 'generateReportViaApi']);
+
+
+    //    ------------------------------------------------ Profit and loss calculation ------------------------------------------------
 
 });
