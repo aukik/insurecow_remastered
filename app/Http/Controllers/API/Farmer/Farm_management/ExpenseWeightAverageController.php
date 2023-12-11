@@ -3,12 +3,11 @@
 namespace App\Http\Controllers\API\Farmer\Farm_management;
 
 use App\Http\Controllers\Controller;
-use App\Models\Farm_management\financial\Expense;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 
-class ExpenseController extends Controller
+class ExpenseWeightAverageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -36,19 +35,18 @@ class ExpenseController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
     {
+
         try {
             $validator = Validator::make($request->all(), [
-                'cattle_id' => 'required',
+                'item_name' => 'required',
                 'expense_date' => 'required',
                 'description' => 'required',
                 'amount' => 'required',
-                'category' => 'required',
-                'item_name' => 'required',
             ]);
 
             if ($validator->fails()) {
@@ -57,24 +55,33 @@ class ExpenseController extends Controller
 
             $inputs = $validator->validated();
 
-            $cattleData = auth()->user()->cattleRegister->where('id', $inputs['cattle_id'])->first();
+            $animal_data = auth()->user()->cattleRegister;
+            $sum_of_animals_weight = auth()->user()->cattleRegister->sum('weight');
 
-            if (!$cattleData) {
-                return response()->json(['error' => 'Cattle data does not exist'], 404);
+            $calculated_data = $inputs['amount'] / $sum_of_animals_weight;
+
+            foreach ($animal_data as $data) {
+
+                $inputs['amount'] = $data->weight * $calculated_data;
+                $inputs['category'] = "Expense Weight Average";
+                $inputs['cattle_id'] = $data->id;
+
+                auth()->user()->expense()->create($inputs);
             }
 
-            auth()->user()->expense()->create($inputs);
 
-            return response()->json(['message' => 'Expense data added successfully'], 201);
+            return response()->json(['message' => 'Expense weight average data added successfully'], 201);
         } catch (ValidationException $e) {
             return response()->json(['error' => $e->validator->errors()], 422);
         }
+
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -85,7 +92,7 @@ class ExpenseController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -96,8 +103,8 @@ class ExpenseController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -108,23 +115,11 @@ class ExpenseController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\JsonResponse
+     * @param int $id
+     * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $data = Expense::find($id);
-
-        if (!$data) {
-            return response()->json(['message' => 'Expense data does not exists'], 200);
-        }
-
-        if ($data->user_id != auth()->user()->id) {
-            return response()->json(['error' => 'Invalid request'], 403); // 403 Forbidden
-        }
-
-        $data->delete();
-
-        return response()->json(['message' => 'Expense data deleted successfully'], 200);
+        //
     }
 }

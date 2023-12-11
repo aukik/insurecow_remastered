@@ -3,12 +3,12 @@
 namespace App\Http\Controllers\API\Farmer\Farm_management;
 
 use App\Http\Controllers\Controller;
-use App\Models\Farm_management\financial\Expense;
+use App\Models\Farm_management\financial\BudgetingAndForecasting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
 
-class ExpenseController extends Controller
+class BudgetAndForecastingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,10 +17,9 @@ class ExpenseController extends Controller
      */
     public function index()
     {
-        $animalData = auth()->user()->expense;
+        $animal_data = auth()->user()->budget_and_forecasting;
 
-        // Assuming $formattedAnimalData is a collection or an array
-        return response()->json(['expense_data' => $animalData], 200);
+        return response()->json(['data' => $animal_data], 200);
     }
 
     /**
@@ -36,7 +35,7 @@ class ExpenseController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
@@ -44,11 +43,12 @@ class ExpenseController extends Controller
         try {
             $validator = Validator::make($request->all(), [
                 'cattle_id' => 'required',
-                'expense_date' => 'required',
-                'description' => 'required',
-                'amount' => 'required',
-                'category' => 'required',
-                'item_name' => 'required',
+                'budget_name' => 'required',
+                'start_date' => 'required',
+                'end_date' => 'required',
+                'total_income' => 'required',
+                'total_expenses' => 'required',
+                'net_profit' => 'required',
             ]);
 
             if ($validator->fails()) {
@@ -63,9 +63,9 @@ class ExpenseController extends Controller
                 return response()->json(['error' => 'Cattle data does not exist'], 404);
             }
 
-            auth()->user()->expense()->create($inputs);
+            auth()->user()->budget_and_forecasting()->create($inputs);
 
-            return response()->json(['message' => 'Expense data added successfully'], 201);
+            return response()->json(['message' => 'Budget and forecasting data added successfully'], 201);
         } catch (ValidationException $e) {
             return response()->json(['error' => $e->validator->errors()], 422);
         }
@@ -74,7 +74,7 @@ class ExpenseController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -85,7 +85,7 @@ class ExpenseController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -96,8 +96,8 @@ class ExpenseController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -108,15 +108,15 @@ class ExpenseController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\JsonResponse
      */
     public function destroy($id)
     {
-        $data = Expense::find($id);
+        $data = BudgetingAndForecasting::find($id);
 
         if (!$data) {
-            return response()->json(['message' => 'Expense data does not exists'], 200);
+            return response()->json(['message' => 'Budget and forecasting data does not exists'], 200);
         }
 
         if ($data->user_id != auth()->user()->id) {
@@ -125,6 +125,6 @@ class ExpenseController extends Controller
 
         $data->delete();
 
-        return response()->json(['message' => 'Expense data deleted successfully'], 200);
+        return response()->json(['message' => 'Budget and forecasting data deleted successfully'], 200);
     }
 }

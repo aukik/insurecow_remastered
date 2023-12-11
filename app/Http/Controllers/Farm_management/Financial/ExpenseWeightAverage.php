@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Farm_management\Financial;
 
 use App\Http\Controllers\Controller;
+use App\Models\Farm_management\financial\Expense;
 use Illuminate\Http\Request;
 
 class ExpenseWeightAverage extends Controller
@@ -58,7 +59,7 @@ class ExpenseWeightAverage extends Controller
             auth()->user()->expense()->create($inputs);
         }
 
-        session()->flash("success","Expense data based on weight average added successfully");
+        session()->flash("success", "Expense data based on weight average added successfully");
         return back();
 
 
@@ -102,10 +103,22 @@ class ExpenseWeightAverage extends Controller
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy($id)
     {
-        //
+        $data = Expense::find($id);
+
+        if (!$data) {
+            return response()->json(['message' => 'Expense data does not exists'], 200);
+        }
+
+        if ($data->user_id != auth()->user()->id) {
+            return response()->json(['error' => 'Invalid request'], 403); // 403 Forbidden
+        }
+
+        $data->delete();
+
+        return response()->json(['message' => 'Expense weight average data deleted successfully'], 200);
     }
 }
