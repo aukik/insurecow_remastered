@@ -100,8 +100,8 @@ class FarmerController extends Controller
 
 //        -------------------------------------- Checking if the animal is already insured ---------------------------------------------
 
+//    --------------- Insurance Packages search by company offers ---------------
 
-//        return $inputs['cattle_info'];
 
         $cattle_info = auth()->user()->cattleRegister()->where('insured_by', 0)->where('insurance_status', 0)->where('id', \request('cattle_info'))->first();
 
@@ -115,13 +115,12 @@ class FarmerController extends Controller
             return "Not Applicable for the operation";
         }
 
-
-    }
-
 //    --------------- Insurance Packages search by company offers ---------------
 
 
-//    --------------- View insurance Package by company offers ---------------
+    }
+
+
     public function company_insurance_packages_single($package_id, $cattle_info)
     {
 

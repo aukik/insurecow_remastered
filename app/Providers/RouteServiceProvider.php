@@ -45,6 +45,7 @@ class RouteServiceProvider extends ServiceProvider
                     function ($router) {
                         require base_path('routes/Api/Farmer/api.php');
                         require base_path('routes/Api/Farmer/farm_management.php');
+                        require base_path('routes/Api/Farmer/insurance.php');
 
                     }
                 );
