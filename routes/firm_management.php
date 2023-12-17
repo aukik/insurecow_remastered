@@ -2,11 +2,12 @@
 
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Farm_management\AnimalInformationController;
+use App\Http\Controllers\Farm_management\AssetManagementController;
+use App\Http\Controllers\Farm_management\DailyExpenseManagementController;
 use App\Http\Controllers\Farm_management\FeedingAndNutritionController;
 use App\Http\Controllers\Farm_management\Financial\ProfitAndLossController;
 use App\Http\Controllers\Farm_management\ReproductionAndBreedingController;
 use App\Http\Controllers\Farmer\FirmController;
-use App\Models\Farm_management\ReproductionAndBreeding;
 use Illuminate\Support\Facades\Route;
 
 // -------------------------------------------------------------------- Farmer --------------------------------------------------------------------
@@ -46,6 +47,19 @@ Route::middleware(['auth', 'farmer'])->prefix('farmer/farm_management')->group(f
         Route::resource('reproduction_and_breeding', ReproductionAndBreedingController::class);
 
         // --------------------- Reproduction and Breeding ---------------------
+
+
+        // --------------------- Asset Management ---------------------
+
+        Route::resource('asset_management', AssetManagementController::class);
+
+        // --------------------- Asset Management ---------------------
+
+        // --------------------- Daily Expense ---------------------
+
+        Route::resource('daily_expense', DailyExpenseManagementController::class);
+
+        // --------------------- Daily Expense ---------------------
     });
 
     //    ----------------------------- Farm Management Middleware Block ----------------------------------

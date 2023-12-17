@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use App\Models\Farm_management\Animal_information;
+use App\Models\Farm_management\AssetManagement;
+use App\Models\Farm_management\DailyExpenseManagement;
 use App\Models\Farm_management\FeedingAndNutrition;
 use App\Models\Farm_management\financial\BudgetingAndForecasting;
 use App\Models\Farm_management\financial\Expense;
@@ -220,6 +222,23 @@ class User extends Authenticatable
 
 
 //    --------------------- Farm management : Budget and forecasting ---------------------
+
+//    --------------------- Farm management : Asset Management ---------------------
+
+    public function asset_management()
+    {
+        return $this->hasMany(AssetManagement::class);
+    }
+//    --------------------- Farm management : Asset Management ---------------------
+
+//    --------------------- Farm management : Daily Expense Management ---------------------
+
+    public function daily_expense()
+    {
+        return $this->hasMany(DailyExpenseManagement::class);
+    }
+
+//    --------------------- Farm management : Daily Expense Management ---------------------
 
 
 }

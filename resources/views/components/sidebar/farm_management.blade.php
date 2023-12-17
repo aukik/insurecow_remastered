@@ -85,8 +85,27 @@
 
         {{-- --------------------------- Expense Data --------------------------- --}}
 
+        {{-- --------------------------- Daily Expenses --------------------------- --}}
 
-        {{-- --------------------------- Expense Data --------------------------- --}}
+
+        <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+           data-bs-target="#dailyExpense" aria-expanded="false" aria-controls="dailyExpense">
+            <div class="nav-link-icon"><i data-feather="align-justify"></i></div>
+            Daily Expense
+            <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+        </a>
+        <div class="collapse" id="dailyExpense" data-bs-parent="#accordionSidenav">
+            <nav class="sidenav-menu-nested nav">
+                <a class="nav-link" href="{{ route('daily_expense.create') }}">Create Info</a>
+                <a class="nav-link" href="{{ route('daily_expense.index') }}">View Info</a>
+            </nav>
+        </div>
+
+
+        {{-- --------------------------- Daily Expenses --------------------------- --}}
+
+
+        {{-- --------------------------- Expense Weight Average --------------------------- --}}
 
 
         <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
@@ -103,7 +122,26 @@
         </div>
 
 
-        {{-- --------------------------- Expense Data --------------------------- --}}
+        {{-- --------------------------- Expense Weight Average --------------------------- --}}
+
+        {{-- --------------------------- Asset Management --------------------------- --}}
+
+
+        <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+           data-bs-target="#asset_management" aria-expanded="false" aria-controls="asset_management">
+            <div class="nav-link-icon"><i data-feather="align-justify"></i></div>
+            Asset Management
+            <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+        </a>
+        <div class="collapse" id="asset_management" data-bs-parent="#accordionSidenav">
+            <nav class="sidenav-menu-nested nav">
+                <a class="nav-link" href="{{ route('asset_management.create') }}">Create Info</a>
+                <a class="nav-link" href="{{ route('asset_management.index') }}">View Info</a>
+            </nav>
+        </div>
+
+
+        {{-- --------------------------- Asset Management --------------------------- --}}
 
 
 

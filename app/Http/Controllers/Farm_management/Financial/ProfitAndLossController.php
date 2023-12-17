@@ -20,8 +20,9 @@ class ProfitAndLossController extends Controller
 
         $income = auth()->user()->income_and_sells()->whereBetween('created_at', [$startDate, $endDate])->sum('amount');
         $expenses = auth()->user()->expense()->whereBetween('created_at', [$startDate, $endDate])->sum('amount');
+        $daily_expenses = auth()->user()->daily_expense()->whereBetween('created_at', [$startDate, $endDate])->sum('amount');
 
-        $profitOrLoss = $income - $expenses;
+        $profitOrLoss = $income - ($expenses + $daily_expenses);
 
         return view('farm-management.admin-content.profit-and-loss-report.index', compact('startDate', 'endDate', 'income', 'expenses', 'profitOrLoss'));
     }
