@@ -15,7 +15,7 @@
                                 <div class="page-header-icon">
                                     <i data-feather="user"></i>
                                 </div>
-                                Animal Registration For Farmer - Super Admin
+                                Animal Registration For Farmer - Company
                             </h1>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                 <div class="col-xl-12">
                     <!-- Account details card-->
                     <div class="card mb-4">
-                        <div class="card-header"> Animal Registration</div>
+                        <div class="card-header">Animal Registration - Company</div>
                         <div class="card-body">
 
                             {{-- ---------------------------------------- Farmer Cow Registration ---------------------------------------- --}}
@@ -324,6 +324,20 @@
 
                                     {{--  -------------********************************* Muzzle part -------------********************************* --}}
 
+
+                                    <div class="col-md-4">
+                                        <label class="small mb-1" for="inputLastName"
+                                        >Animal Gender Type</label
+                                        ><span style="color: red">*</span>
+
+                                        <label for="cattle_type"></label><select class="form-select" name="cattle_type"
+                                                                                 id="cattle_type">
+                                            <option value="milking_cow">Milking Cow</option>
+                                            <option value="meat_cow">Meat Cow</option>
+                                            <option value="calf">calf</option>
+                                        </select>
+                                    </div>
+
                                     <div class="col-md-4" id="muzzle_of_cow">
                                         <label class="small mb-1" for="inputOrgName"
                                         >Muzzle Of Animal</label
@@ -359,13 +373,13 @@
                                     </div>
 
                                     <div class="col-md-4">
-                                        <label class="small mb-1" for="inputLastName"
+                                        <label class="small mb-1" for="inputLastName" style="display: none"
                                         >Farmer ID Information</label
                                         ><span style="color: red"></span>
                                         <input
                                             class="form-control"
                                             id="inputLastName"
-                                            type="text"
+                                            type="hidden"
                                             placeholder=""
                                             value="{{ $farmer->id }}"
                                             readonly

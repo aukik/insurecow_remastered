@@ -322,6 +322,19 @@
 
                                 <div class="row gx-3 mb-3">
 
+                                    <div class="col-md-4">
+                                        <label class="small mb-1" for="inputLastName"
+                                        >Animal Gender Type</label
+                                        ><span style="color: red">*</span>
+
+                                        <label for="cattle_type"></label><select class="form-select" name="cattle_type"
+                                                                                 id="cattle_type">
+                                            <option value="milking_cow">Milking Cow</option>
+                                            <option value="meat_cow">Meat Cow</option>
+                                            <option value="calf">calf</option>
+                                        </select>
+                                    </div>
+
                                     {{--  -------------********************************* Muzzle part -------------********************************* --}}
 
                                     <div class="col-md-4" id="muzzle_of_cow">
@@ -360,12 +373,12 @@
 
                                     <div class="col-md-4">
                                         <label class="small mb-1" for="inputLastName"
-                                        >Farmer ID Information</label
+                                               style="display: none">Farmer ID Information</label
                                         ><span style="color: red"></span>
                                         <input
                                             class="form-control"
                                             id="inputLastName"
-                                            type="text"
+                                            type="hidden"
                                             placeholder=""
                                             value="{{ $farmer->id }}"
                                             readonly
