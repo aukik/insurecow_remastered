@@ -66,6 +66,25 @@
 
         {{-- --------------------------- Reproduction and Breeding --------------------------- --}}
 
+        {{-- --------------------------- Income And Sells --------------------------- --}}
+
+
+        <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+           data-bs-target="#incomeAndSell" aria-expanded="false" aria-controls="incomeAndSell">
+            <div class="nav-link-icon"><i data-feather="align-justify"></i></div>
+            Income and Sells
+            <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+        </a>
+        <div class="collapse" id="incomeAndSell" data-bs-parent="#accordionSidenav">
+            <nav class="sidenav-menu-nested nav">
+                <a class="nav-link" href="{{ route('incomeAndSell.create') }}">Create Info</a>
+                <a class="nav-link" href="{{ route('incomeAndSell.index') }}">View Info</a>
+            </nav>
+        </div>
+
+
+        {{-- --------------------------- Income And Sells --------------------------- --}}
+
         {{-- --------------------------- Expense Data --------------------------- --}}
 
 
@@ -145,25 +164,6 @@
 
 
 
-        {{-- --------------------------- Income And Sells --------------------------- --}}
-
-
-        <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
-           data-bs-target="#incomeAndSell" aria-expanded="false" aria-controls="incomeAndSell">
-            <div class="nav-link-icon"><i data-feather="align-justify"></i></div>
-            Income and Sells
-            <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-        </a>
-        <div class="collapse" id="incomeAndSell" data-bs-parent="#accordionSidenav">
-            <nav class="sidenav-menu-nested nav">
-                <a class="nav-link" href="{{ route('incomeAndSell.create') }}">Create Info</a>
-                <a class="nav-link" href="{{ route('incomeAndSell.index') }}">View Info</a>
-            </nav>
-        </div>
-
-
-        {{-- --------------------------- Income And Sells --------------------------- --}}
-
         {{-- --------------------------- Budget and Forecasting --------------------------- --}}
 
 
@@ -183,11 +183,23 @@
 
         {{-- --------------------------- Budget and Forecasting --------------------------- --}}
 
+        {{-- --------------------------- Profit and loss report --------------------------- --}}
 
         <a class="nav-link" href="{{ route('profit-and-loss-report') }}">
             <div class="nav-link-icon"><i data-feather="filter"></i></div>
             Profit / Loss Calculation
         </a>
+
+        {{-- --------------------------- Profit and loss report --------------------------- --}}
+
+        {{-- --------------------------- Profit and loss report - Individual Animal --------------------------- --}}
+
+        <a class="nav-link" href="{{ route('profit-and-loss-report-individual') }}">
+            <div class="nav-link-icon"><i data-feather="filter"></i></div>
+            Indiv. P/L Calculation
+        </a>
+
+        {{-- --------------------------- Profit and loss report - Individual Animal --------------------------- --}}
 
 
         {{--        <a class="nav-link" href="">--}}

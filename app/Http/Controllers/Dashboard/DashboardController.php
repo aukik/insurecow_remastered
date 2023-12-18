@@ -46,7 +46,18 @@ class DashboardController extends Controller
         $feeding_and_nutrition_count = auth()->user()->feeding_and_nutrition()->count();
         $breeding_information_count = auth()->user()->reproduction_and_breeding()->count();
 
-        return view("dashboard.farm_management", compact('firms_count','animal_health_count','feeding_and_nutrition_count','breeding_information_count'));
+//  ---------------------------------------------- Profit or loss - Business State ----------------------------------------------
+
+        $total_income = auth()->user()->income_and_sells()->sum('amount') ?? 0;
+        $total_expense = auth()->user()->expense()->sum('amount') ?? 0;
+        $total_daily_expenses = auth()->user()->daily_expense()->sum('amount') ?? 0;
+
+        $total_profit_or_loss = $total_income - ($total_expense + $total_daily_expenses);
+
+//  ---------------------------------------------- Profit or loss - Business State ----------------------------------------------
+
+
+        return view("dashboard.farm_management", compact('firms_count','animal_health_count','feeding_and_nutrition_count','breeding_information_count','total_income','total_expense','total_daily_expenses','total_profit_or_loss'));
     }
 
     public function field_agent()

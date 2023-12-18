@@ -15,7 +15,7 @@
                                 <div class="page-header-icon">
                                     <i data-feather="user"></i>
                                 </div>
-                                Farm Management - Profit or loss calculation
+                                Farm Management - Profit or loss calculation for individual animal
                             </h1>
                         </div>
                     </div>
@@ -26,9 +26,10 @@
         <div class="container-xl px-4 mt-4">
 
             <div class="card mb-4">
-                <div class="card-header">Farm Management - Profit or loss calculation</div>
+                <div class="card-header">Farm Management - Profit or loss calculation for individual animal</div>
                 <div class="card-body">
-                    <form action="{{ route('profit-and-loss-report') }}" method="get">
+                    <form action="{{ route('profit-and-loss-report-individual') }}" method="get">
+
 
                         <div class="row">
                             <div class="col-md-6">
@@ -45,13 +46,39 @@
                             </div>
                         </div>
 
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row gx-3 mb-3">
+                                    <div class="col-md-12">
+
+                                        <label for="exampleFormControlSelect1" class="small mb-1">Animal
+                                            Name</label>
+
+                                        <select class="form-select" id="exampleFormControlSelect1"
+                                                name="cattle_id">
+                                            @foreach($animal_data as $data)
+                                                <option
+                                                    value="{{ $data->id }}">{{ $data->cattle_name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
 
                         <button type="submit" class="btn btn-primary">Generate Report</button>
                     </form>
 
                     <br>
 
-                    @if (isset($startDate) && isset($endDate) && isset($income_data) && isset($expenses_data))
+                    @if (isset($startDate) && isset($endDate) && isset($animal_information_name) && isset($income_data) && isset($expenses_data))
+
+                        <p><span
+                                style="color: red">Report For :</span> {{ $animal_information_name->first()->cattle_name }}
+                        </p>
+
                         <p>Period: {{ $startDate }} - {{ $endDate }}</p>
 
                         <table class="table">
@@ -88,12 +115,9 @@
                             </tbody>
                         </table>
 
-                        <br><br>
-
                         <hr>
 
                         <br>
-
                         {{--  ------------------------- Income Structure ------------------------- --}}
 
                         <h4>Income Data Report</h4>
@@ -110,17 +134,18 @@
 
                             <tbody>
 
+                                <?php $id1 = 0 ?>
 
-                           <?php $id1 = 0 ?>
-
-                            @foreach($income_data as $data_income)
+                            @foreach($income_data as $data)
                                 <tr>
                                     <td>{{ $id1 += 1 }}</td>
-                                    <td>{{ $data_income->record_date }}</td>
-                                    <td>{{ $data_income->description }}</td>
-                                    <td>{{ $data_income->amount }}</td>
+
+                                    <td>{{ $data->record_date }}</td>
+                                    <td>{{ $data->description }}</td>
+                                    <td>{{ $data->amount }}</td>
                                 </tr>
                             @endforeach
+
                             </tbody>
                         </table>
 
@@ -149,13 +174,13 @@
                                 <?php $id2 = 0 ?>
 
 
-                            @foreach($expenses_data as $data_expense)
+                            @foreach($expenses_data as $data)
                                 <tr>
                                     <td>{{ $id2 += 1 }}</td>
-                                    <td>{{ $data_expense->expense_date }}</td>
-                                    <td>{{ $data_expense->description }}</td>
+                                    <td>{{ $data->expense_date }}</td>
+                                    <td>{{ $data->description }}</td>
                                     {{--                                <td>{{ $data->item_name }}</td>--}}
-                                    <td>{{ $data_expense->amount }}</td>
+                                    <td>{{ $data->amount }}</td>
                                 </tr>
                             @endforeach
 
@@ -165,44 +190,6 @@
 
                         {{--  ------------------------- Expense Structure ------------------------- --}}
 
-                        <br><br>
-                        {{--  ------------------------- Daily Expense Data ------------------------- --}}
-
-                        <h4>Daily Expense Report</h4>
-
-
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th>Serial</th>
-                                <th>Expense Date</th>
-                                <th>Description</th>
-{{--                                <th>item_name</th>--}}
-                                <th>Amount</th>
-                            </tr>
-                            </thead>
-
-                            <tbody>
-
-                                <?php $id3 = 0 ?>
-
-
-                            @foreach($daily_expenses_data as $daily_data)
-                                <tr>
-
-                                    <td>{{ $id3 += 1 }}</td>
-                                    <td>{{ $daily_data->expense_date }}</td>
-                                    <td>{{ $daily_data->description }}</td>
-                                    {{--                                <td>{{ $data->item_name }}</td>--}}
-                                    <td>{{ $daily_data->amount }}</td>
-                                </tr>
-                            @endforeach
-
-                            </tbody>
-                        </table>
-
-
-                        {{--  ------------------------- Daily Expense Data ------------------------- --}}
                     @else
                         <p>Please select a start date and end date to generate a profit and loss report.</p>
                     @endif

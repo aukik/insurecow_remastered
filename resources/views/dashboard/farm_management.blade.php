@@ -24,6 +24,62 @@
         <!-- Main page content-->
         <div class="container-xl px-4" style="margin-top: 2%">
 
+
+            <div class="row">
+
+                <h3>Report - Economy Format</h3>
+
+                <div class="col-lg-4 mb-4">
+                    <div class="card h-100 border-start-lg border-start-success">
+                        <div class="card-body">
+                            <div class="small text-muted">Total Income</div>
+                            <div class="h3">{{ $total_income ?? 0}}/-</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mb-4">
+                    <div class="card h-100 border-start-lg border-start-success">
+                        <div class="card-body">
+                            <div class="small text-muted">Total Expense</div>
+                            <div class="h3">{{ $total_expense ?? 0 }}/-</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mb-4">
+                    <div class="card h-100 border-start-lg border-start-success">
+                        <div class="card-body">
+                            <div class="small text-muted">Daily Expenses</div>
+                            <div class="h3">{{ $total_daily_expenses ?? 0 }}/-</div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-4 mb-4">
+                    <div class="card h-100 border-start-lg border-start-success">
+                        <div class="card-body">
+                            <div class="small text-muted">Current Business State [Amount]</div>
+                            <div class="h3">{{ $total_profit_or_loss ?? 0 }}/-</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mb-4">
+                    <div class="card h-100 border-start-lg border-start-success">
+                        <div class="card-body">
+                            <div class="small text-muted">Current Business State [Status]</div>
+                            <div class="h3"
+                                 style="color: {{ $total_profit_or_loss > 0 ? 'green' : ($total_profit_or_loss < 0 ? 'red' : 'blue') }}">
+                                {{ $total_profit_or_loss > 0 ? 'Profit' : ($total_profit_or_loss < 0 ? 'Loss' : 'No Profit or Loss') }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
             <h3>Report - List Format</h3>
 
 
