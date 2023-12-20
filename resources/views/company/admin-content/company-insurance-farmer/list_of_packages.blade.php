@@ -94,6 +94,8 @@
                                                    class="btn btn-primary">Select</a>
                                             </td>
                                         </tr>
+
+                                        <br>
                                     @endforeach
                                     </tbody>
                                 </table>
