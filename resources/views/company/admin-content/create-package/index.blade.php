@@ -31,7 +31,7 @@
                 <div class="col-xl-12">
                     <!-- Account details card-->
                     <div class="card mb-4">
-                        <div class="card-header">Register Field Agent / Farmer - Company</div>
+                        <div class="card-header">Create Package - Company</div>
                         <div class="card-body">
 
                             {{-- ---------------------------------------- Register Company/NGO/Bank  ---------------------------------------- --}}

@@ -12,10 +12,6 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
-    Route::get('test', function () {
-        return "Company";
-    });
-
 
     //    ----------------------------- Company permission provided to farmers  -----------------------------
 
@@ -145,9 +141,19 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
 
 
     });
+
+//    -------------------------------------------------------------- Company will be able to insurance farmers --------------------------------------------------------------
+
+    Route::get('search_company', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class,'search_company'])->name('company.insurance_search_get');
+    Route::post('search_company', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class,'total_insurance_packages'])->name('company.insurance_search_post');
+
+
+//    -------------------------------------------------------------- Company will be able to insurance farmers --------------------------------------------------------------
+
 });
 
 
 
 
 // -------------------------------------------------------------------- Company --------------------------------------------------------------------
+

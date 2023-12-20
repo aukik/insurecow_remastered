@@ -32,7 +32,8 @@
                                 <input type="hidden" value="{{ $company->id }}" name="company_id">
                                 <input type="hidden" step=".01" value="{{ $package->insurance_period }}"
                                        name="package_insurance_period">
-                                <input class="btn btn-success h3 text-white" type="submit" value="Request For Insurance">
+                                <input class="btn btn-success h3 text-white" type="submit"
+                                       value="Request For Insurance">
                             </form>
 
                             {{-- ------------------------------------- Buy Insurance ------------------------------------------- --}}
@@ -120,10 +121,10 @@
                             </tr>
                             {{-- --------------------------- Insurane Policy --------------------------- --}}
 
-                            {{-- --------------------------- Discount --------------------------- --}}
+                            {{-- --------------------------- OFF --------------------------- --}}
                             <tr class="border-bottom">
                                 <td>
-                                    <div class="fw-bold">Discount [ OFF% ]</div>
+                                    <div class="fw-bold">OFF%</div>
                                     {{--                                    <div class="small text-muted d-none d-md-block">-</div>--}}
                                 </td>
                                 <td class="text-end fw-bold"></td>

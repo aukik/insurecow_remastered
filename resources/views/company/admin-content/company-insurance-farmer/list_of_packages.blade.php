@@ -15,7 +15,7 @@
                                 <div class="page-header-icon">
                                     <i data-feather="user"></i>
                                 </div>
-                                View All Packages - Company
+                                Insurance Packages By Companies - Company
                             </h1>
                         </div>
                     </div>
@@ -27,45 +27,48 @@
             <!-- Account page navigation-->
             <div class="row">
 
-                @if(session('success'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('success') }}
-                    </div>
-                @endif
 
                 <div class="col-xl-12">
                     <!-- Account details card-->
                     <div class="card mb-4">
-                        <div class="card-header">View All Packages - Company</div>
+                        <div class="card-header">Insurance Packages By Companies - Company</div>
                         <div class="card-body">
 
-                            {{--                            <div class="card-header">Extended DataTables</div>--}}
+                            {{-- ---------------------------------------- Package Data ---------------------------------------- --}}
+
                             <div class="card-body">
                                 <table id="datatablesSimple">
                                     <thead>
                                     <tr>
+                                        <th>Serial</th>
                                         <th>Package Name</th>
+                                        <th>Company Name</th>
+                                        {{--                                        <th>Company Logo</th>--}}
                                         <th>Insurance Period</th>
-                                        <th>Policy</th>
-                                        <th>Coverage</th>
-                                        <th>OFF %</th>
-                                        <th>Rate [CTL %]</th>
-                                        <th>Vat  % </th>
-                                        <th>Package Status</th>
-{{--                                        <th>Actions</th>--}}
-                                        <th>Edit</th>
+                                        <th>Insurance Coverage</th>
+
+                                        <th>OF</th>
+                                        <th>CTL</th>
+                                        <th>Vat</th>
+
+{{--                                        <th>Price</th>--}}
+
+{{--                                        <th>Package Status</th>--}}
+{{--                                        <th>Action</th>--}}
                                     </tr>
                                     </thead>
 
                                     <tbody>
-
-
+                                    <?php $id = 0 ?>
                                     @foreach($packages as $package)
-
                                         <tr>
+                                            <td>{{ $id += 1 }}</td>
                                             <td>{{ $package->package_name }}</td>
+                                            <td>{{ \App\Models\User::whereId($package->user_id)->first()->name ?? null }}</td>
+                                            {{--                                            <td><img--}}
+                                            {{--                                                    src="{{ asset('storage/'.\App\Models\FarmerProfile::whereId($package->user_id)->first()->image) }}"--}}
+                                            {{--                                                    alt="" style="width: 120px"></td>--}}
                                             <td>{{ $package->insurance_period }}</td>
-                                            <td><a href="{{ asset('storage/'.$package->policy)  }}">File</a></td>
                                             <td>
                                                 @foreach (json_decode($package->coverage) as $item)
                                                     @if ($item === 'ac')
@@ -81,43 +84,23 @@
                                                     @endif
                                                 @endforeach
                                             </td>
-                                            {{--                                            <td>{{ json_decode($package->coverage) }}</td>--}}
                                             <td>{{ $package->discount }}%</td>
                                             <td>{{ $package->rate }}%</td>
                                             <td>{{ $package->vat }}%</td>
-                                            <td>{{ $package->package_status }}</td>
+{{--                                            <td>{{ \App\Models\User::calculateTotalCost($cattle_info->sum_insured,$package->rate,$package->discount,$package->vat)  }}</td>--}}
+{{--                                            <td>{{ $package->package_status }}</td>--}}
 {{--                                            <td>--}}
-
-{{--                                                <a href="{{ route('package_status', $package->id) }}">--}}
-{{--                                                    <button--}}
-{{--                                                        class="btn @if($package->package_status == 'active' ) btn-primary @else btn-danger @endif ">--}}
-{{--                                                        Status Mode--}}
-{{--                                                    </button>--}}
-{{--                                                </a>--}}
-
+{{--                                                <a href="{{ route('single.insurance.packages',[$package->id,$cattle_info->id]) }}"--}}
+{{--                                                   class="btn btn-primary">View Package</a>--}}
 {{--                                            </td>--}}
-
-                                            <td>
-                                                <a href="{{ route('package.edit', $package->id) }}">
-                                                    <button
-                                                        class="btn btn-primary">
-                                                        Edit
-                                                    </button>
-                                                </a>
-                                            </td>
-
                                         </tr>
-
                                     @endforeach
                                     </tbody>
                                 </table>
                             </div>
 
-                            {{-- ---------------------------------------- Company Request Data ---------------------------------------- --}}
+                            {{-- ---------------------------------------- Package Data ---------------------------------------- --}}
 
-
-
-                            {{-- ---------------------------------------- Register Company/NGO/Bank ---------------------------------------- --}}
 
                         </div>
                     </div>
@@ -125,4 +108,5 @@
             </div>
         </div>
     </main>
+
 @endsection

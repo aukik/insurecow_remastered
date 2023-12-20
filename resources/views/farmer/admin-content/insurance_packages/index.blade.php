@@ -15,7 +15,7 @@
                                 <div class="page-header-icon">
                                     <i data-feather="user"></i>
                                 </div>
-                                Insurance Packages - Farmer
+                                Search Insurance Packages - Farmer
                             </h1>
                         </div>
                     </div>
