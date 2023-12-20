@@ -35,6 +35,14 @@
                         <div class="card-body">
 
 
+                            <style>
+                                .fixed-height-image {
+                                    height: 200px; /* Set the desired fixed height for the images */
+                                    width: auto; /* Let the width adjust automatically to maintain the aspect ratio */
+                                    max-width: 100%; /* Ensure the image doesn't exceed the container width */
+                                }
+                            </style>
+
                             @if(session('insured'))
                                 <p class="alert alert-success">{{ session('insured') }}</p>
                             @endif
@@ -47,7 +55,7 @@
                                     <div class="col-md-3">
                                         <div class="card" style="width: auto;">
 
-                                            <img class="card-img-top"
+                                            <img class="card-img-top fixed-height-image"
                                                  src="{{ asset('storage/'. ($company->company_logo ? $company->company_logo : 'https://wallpapers.com/images/featured/flower-pictures-unpxbv1q9kxyqr1d.jpg')) }}"
                                                  alt="Card image cap">
 
