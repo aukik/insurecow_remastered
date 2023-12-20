@@ -54,7 +54,7 @@
 {{--                                        <th>Price</th>--}}
 
 {{--                                        <th>Package Status</th>--}}
-{{--                                        <th>Action</th>--}}
+                                        <th>Action</th>
                                     </tr>
                                     </thead>
 
@@ -89,10 +89,10 @@
                                             <td>{{ $package->vat }}%</td>
 {{--                                            <td>{{ \App\Models\User::calculateTotalCost($cattle_info->sum_insured,$package->rate,$package->discount,$package->vat)  }}</td>--}}
 {{--                                            <td>{{ $package->package_status }}</td>--}}
-{{--                                            <td>--}}
-{{--                                                <a href="{{ route('single.insurance.packages',[$package->id,$cattle_info->id]) }}"--}}
-{{--                                                   class="btn btn-primary">View Package</a>--}}
-{{--                                            </td>--}}
+                                            <td>
+                                                <a href=""
+                                                   class="btn btn-primary">Select</a>
+                                            </td>
                                         </tr>
                                     @endforeach
                                     </tbody>

@@ -57,7 +57,7 @@
 
                                             <img class="card-img-top fixed-height-image"
                                                  src="{{ asset('storage/'. ($company->company_logo ? $company->company_logo : 'https://wallpapers.com/images/featured/flower-pictures-unpxbv1q9kxyqr1d.jpg')) }}"
-                                                 alt="Card image cap">
+                                                 alt="Image not found">
 
                                             <div class="card-body">
                                                 <h5 class="card-title">{{ $company->name }}</h5>
