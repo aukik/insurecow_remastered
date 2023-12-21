@@ -66,9 +66,8 @@
 
 
                                                 <form action="{{ route('company.insurance_search_post') }}"
-                                                      method="post"
+                                                      method="get"
                                                       enctype="multipart/form-data">
-                                                    {{ csrf_field() }}
                                                     <!-- Form Group (username)-->
 
 

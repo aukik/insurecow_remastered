@@ -90,8 +90,8 @@
 {{--                                            <td>{{ \App\Models\User::calculateTotalCost($cattle_info->sum_insured,$package->rate,$package->discount,$package->vat)  }}</td>--}}
 {{--                                            <td>{{ $package->package_status }}</td>--}}
                                             <td>
-                                                <a href=""
-                                                   class="btn btn-primary">Select</a>
+                                                <a href="{{ route('company.single_package_result_view', $package->id) }}"
+                                                   class="btn btn-primary">View</a>
                                             </td>
                                         </tr>
 

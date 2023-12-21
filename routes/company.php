@@ -145,7 +145,38 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
 //    -------------------------------------------------------------- Company will be able to insurance farmers --------------------------------------------------------------
 
     Route::get('search_company', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class,'search_company'])->name('company.insurance_search_get');
-    Route::post('search_company', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class,'total_insurance_packages'])->name('company.insurance_search_post');
+    Route::get('search_company_post', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class,'total_insurance_packages'])->name('company.insurance_search_post');
+
+
+//    ------------------------------------------ Single package result view from packages ------------------------------------------
+
+    Route::get('single_package_result_view/{package}', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class,'single_package_result_view'])->name('company.single_package_result_view');
+
+
+//    ------------------------------------------ Single package result view from packages ------------------------------------------
+
+//    ------------------------------------------ Single animal select for insurance by company ------------------------------------------
+
+    Route::get('single_animal_insurance_package_form/{package}', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class,'single_animal_select'])->name('company.single_animal_select_package');
+
+
+//    ------------------------------------------ Single animal select for insurance by company ------------------------------------------
+
+//    ------------------------------------------ farmers cattle list filter from company side ------------------------------------------
+
+    Route::get('farmers_cattle_list_filter/{cattle_info}', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class,'animal_list_filter'])->name('company.animal_list_filter');
+
+//    ------------------------------------------ farmers cattle list filter from company side ------------------------------------------
+
+
+//    ------------------------------------------ Insurance calculation for the animal ------------------------------------------
+
+    Route::get('farmer_insurance_calculation/{cattle_info}/{package_info}', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class,'insurance_calculation'])->name('company.insurance_calculation_for_animal');
+
+//    ------------------------------------------ Insurance calculation for the animal ------------------------------------------
+
+
+
 
 
 //    -------------------------------------------------------------- Company will be able to insurance farmers --------------------------------------------------------------
