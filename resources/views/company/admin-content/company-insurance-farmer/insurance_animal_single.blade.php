@@ -108,7 +108,7 @@
 
                                 <br>
 
-                                <p>{{ $package }}</p>
+{{--                                <p>{{ $package }}</p>--}}
 
                                 <button class="btn btn-primary" type="submit">
                                     Request For Insurance
