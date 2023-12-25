@@ -175,6 +175,23 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
 
 //    ------------------------------------------ Insurance calculation for the animal ------------------------------------------
 
+//    ------------------------------------------ requesting for the animal for insurance from company side ------------------------------------------
+
+    Route::post('insurance_request_sent_from_company', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class,'request_for_insurance'])->name('company.insurance_request_sent_from_company');
+
+//    ------------------------------------------ requesting for the animal for insurance from company side ------------------------------------------
+
+    //    ----------------------- Company insurance requests -----------------------
+
+    Route::get('company_insurance_requests_data', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class, 'view_insurance_history'])->name('company.view_insurance_history');
+
+    //    ----------------------- Company insurance requests -----------------------
+
+    //    ----------------------- Company Transaction History -----------------------
+
+    Route::get('company_transaction_history_data', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class, 'insurance_history'])->name('company.transaction_history_data');
+
+    //    ----------------------- Company Transaction History -----------------------
 
 
 
@@ -183,6 +200,17 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
 
 });
 
+// -------------------------------------------------------------------- Payment Gateway --------------------------------------------------------------------
+
+
+
+
+Route::post('/company_pay', [\App\Http\Controllers\CompanySslCommerzPaymentController::class, 'index'])->name("company_pay");
+Route::post('/company_pay-via-ajax', [\App\Http\Controllers\CompanySslCommerzPaymentController::class, 'payViaAjax']);
+
+
+
+// -------------------------------------------------------------------- Payment Gateway --------------------------------------------------------------------
 
 
 

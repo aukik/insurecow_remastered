@@ -71,6 +71,26 @@
         {{--  ------------------------------------- Company can insure farmers ------------------------------------- --}}
 
 
+        {{--  ------------------------------------- Company Insurance Requests ------------------------------------- --}}
+
+        <a class="nav-link" href="{{ route('company.view_insurance_history') }}">
+            <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>
+            Cattle Ins. Requests
+        </a>
+
+        {{--  ------------------------------------- Company Insurance Requests ------------------------------------- --}}
+
+
+        {{--  ------------------------------------- Company Insurance Transactions ------------------------------------- --}}
+
+        <a class="nav-link" href="">
+            <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>
+            Cattle Ins. Transactions
+        </a>
+
+        {{--  ------------------------------------- Company Insurance Transactions ------------------------------------- --}}
+
+
         <a class="nav-link" href="{{ route('cp.user_history') }}">
             <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>
             Enlisted

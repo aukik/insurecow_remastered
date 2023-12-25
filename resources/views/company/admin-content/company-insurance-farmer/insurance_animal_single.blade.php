@@ -35,28 +35,36 @@
                         <div class="card-body">
 
 
-                            @if(session('insured'))
-                                <p class="alert alert-success">{{ session('insured') }}</p>
+                            @if(session('success'))
+                                <p class="alert alert-success">{{ session('success') }}</p>
                             @endif
                             {{-- ---------------------------------------- Package Search ---------------------------------------- --}}
 
 
-                            <form>
+                            <form action="{{ route('company.insurance_request_sent_from_company') }}" method="post" enctype="multipart/form-data">
+
+                                {{ csrf_field() }}
 
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="row gx-3 mb-3">
 
+
+                                            {{-- ------------------------------ Cattle ID ------------------------------ --}}
+
                                             <label class="small mb-1" for="inputLastName"
                                             >Select Farmer</label
                                             >
 
-                                            <select class="form-control" id="farmer_list">
+                                            <select class="form-control" id="farmer_list" name="user_id">
                                                 <option disabled selected>Select Farmer</option>
                                                 @foreach($farmer_list as $farmer)
                                                     <option value="{{ $farmer->id }}">{{ $farmer->name }}</option>
                                                 @endforeach
                                             </select>
+
+                                            {{-- ------------------------------ Cattle ID ------------------------------ --}}
+
 
                                         </div>
                                     </div>
@@ -67,28 +75,63 @@
                                             >Select Animal</label
                                             >
                                             <select class="form-control" id="animal_list"
-                                                    name="cattle_info">
+                                                    name="cattle_id">
                                                 <option disabled selected>Select Cattle Data</option>
                                             </select>
                                         </div>
                                     </div>
 
+                                    {{-- ------------------------------ Insurance Period ------------------------------ --}}
+
+
                                     <div class="col-md-6">
 
-                                        <label class="small mb-1" for="inputLastName"
+                                        <label class="small mb-1" for="inputLastName" style="display: none;"
                                         >Insurance Period</label
                                         >
 
-                                        <input class="form-control" value="{{ $package->insurance_period }}" readonly>
+                                        <input class="form-control" value="{{ $package->insurance_period }}" readonly name="package_insurance_period" type="hidden">
                                     </div>
+
+                                    {{-- ------------------------------ Insurance Period ------------------------------ --}}
+
+                                    {{-- ------------------------------ Package ID ------------------------------ --}}
+
 
                                     <div class="col-md-6">
 
-                                        <label class="small mb-1" for="inputLastName"
+                                        <label class="small mb-1" for="inputLastName" style="display: none;"
+                                        >Package ID</label
+                                        >
+
+                                        <input class="form-control" value="{{ $package->id }}" readonly name="package_id" type="hidden">
+                                    </div>
+
+                                    {{-- ------------------------------ Package ID ------------------------------ --}}
+
+                                    {{-- ------------------------------ Company ID - The Insurance company where the animal is about to insured ------------------------------ --}}
+
+                                    <div class="col-md-6">
+                                        <br>
+
+                                        <label class="small mb-1" for="inputLastName" style="display: none;"
+                                        >Package - Company ID</label
+                                        >
+
+                                        <input class="form-control" value="{{ $package->user_id }}" readonly name="company_id" type="hidden">
+                                    </div>
+
+                                    {{-- ------------------------------ Company ID - The Insurance company where the animal is about to insured ------------------------------ --}}
+
+
+                                    <div class="col-md-6">
+                                        <br>
+
+                                        <label class="small mb-1" for="inputLastName" style="display: none;"
                                         >Cattle Sum Insured</label
                                         >
 
-                                        <input class="form-control" readonly id="cattle_sum_insurance">
+                                        <input class="form-control" readonly id="cattle_sum_insurance" type="hidden">
                                     </div>
 
                                 </div>
@@ -98,21 +141,61 @@
                                 <div class="row">
                                     <div class="col-md-6">
 
-                                        <label class="small mb-1" for="inputLastName"
+                                        <label class="small mb-1" for="inputLastName" style="display: none;"
                                         >Insurance Price</label
                                         >
 
-                                        <input class="form-control" readonly id="cattle_insurance_price">
+                                        <input class="form-control" readonly id="cattle_insurance_price" type="hidden">
                                     </div>
                                 </div>
 
                                 <br>
 
-{{--                                <p>{{ $package }}</p>--}}
+                                {{--                                <p>{{ $package }}</p>--}}
 
-                                <button class="btn btn-primary" type="submit">
-                                    Request For Insurance
-                                </button>
+                                {{--   -------------------------------------------------------- Insurance Table Data -------------------------------------------------------- --}}
+
+                                <div class="insurance_price_table_data_info" style="display: none">
+
+
+                                    <h4>Insurance Price Details</h4>
+
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>Insurance Period</th>
+                                            <th>Rate</th>
+                                            <th>OFF</th>
+                                            <th>VAT</th>
+                                            <th>Sum Insured</th>
+                                            <th>Insurance Price</th>
+
+                                        </tr>
+
+
+                                        </thead>
+
+                                        <tbody>
+                                        <tr>
+                                            <th>{{ $package->insurance_period }}</th>
+                                            <th>{{ $package->rate }}%</th>
+                                            <th>{{ $package->discount }}%</th>
+                                            <th>{{ $package->vat }}%</th>
+                                            <th id="sum_insured_data">Sum Insured</th>
+                                            <th id="insurance_price_data">Insurance Price</th>
+
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <button class="btn btn-primary" type="submit">
+                                        Request For Insurance
+                                    </button>
+                                </div>
+
+
+                                {{--   -------------------------------------------------------- Insurance Table Data -------------------------------------------------------- --}}
+
                             </form>
 
 
@@ -195,6 +278,11 @@
             let cattle_sum_insurance = document.querySelector("#cattle_sum_insurance");
             let cattle_insurance_price = document.querySelector("#cattle_insurance_price");
 
+            let cattle_sum_insured_table_text = document.querySelector("#sum_insured_data");
+            let cattle_insurance_price_table_text = document.querySelector("#insurance_price_data");
+
+            let insurance_price_table_data_info = document.querySelector(".insurance_price_table_data_info");
+
 
             animal_list_select.addEventListener("change", function () {
                 // Get the selected option
@@ -208,7 +296,12 @@
                     console.log(res);
 
                     cattle_sum_insurance.value = res.data.sum_insured;
-                    cattle_insurance_price.value = res.data.insurance_cost;
+                    cattle_insurance_price.value = Math.ceil(res.data.insurance_cost);
+
+                    cattle_sum_insured_table_text.innerHTML = res.data.sum_insured+"/-";
+                    cattle_insurance_price_table_text.innerHTML = Math.ceil(res.data.insurance_cost) +"/-";
+
+                    insurance_price_table_data_info.style.display = "block";
                 });
             });
 

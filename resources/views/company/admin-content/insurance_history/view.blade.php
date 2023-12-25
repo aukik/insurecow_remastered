@@ -41,12 +41,12 @@
                                     <tr>
                                         <th>Serial</th>
                                         <th>Package Info</th>
-                                        <th>Company Name</th>
+{{--                                        <th>Company Name</th>--}}
                                         <th>Farmer Name</th>
                                         <th>Cattle Info</th>
                                         <th>Premium Policy</th>
                                         <th>Package Insurance Period</th>
-                                        <th>Muzzle Verification Status</th>
+{{--                                        <th>Muzzle Verification Status</th>--}}
                                         <th>Insurance Status</th>
                                         <th>Send Quotation</th>
                                         <th>Payment History</th>
@@ -60,7 +60,7 @@
                                         <tr>
                                             <td>{{ $id += 1 }}</td>
                                             <td>{!!  \App\Http\Controllers\Farmer\InsuranceRequestController::package_id($history->package_id) !!}</td>
-                                            <td>{!!  \App\Http\Controllers\Farmer\InsuranceRequestController::company_data($history->company_id) !!}</td>
+{{--                                            <td>{!!  \App\Http\Controllers\Farmer\InsuranceRequestController::company_data($history->company_id) !!}</td>--}}
                                             <td>{!!  \App\Http\Controllers\Farmer\InsuranceRequestController::farmer_name($history->user_id) !!}</td>
                                             <td><a href="{{ route('company_view_cattle_info', $history->id) }}">Cattle
                                                     Info</a></td>
@@ -68,7 +68,7 @@
                                                 <a href="{!! asset("storage/".\App\Http\Controllers\Farmer\InsuranceRequestController::package_policy($history->package_id))  !!}">Package
                                                     Policy</a></td>
                                             <td>{{ $history->package_insurance_period }}</td>
-                                            <td>{{ $history->muzzle_verification == null ? "Not verified" : "Verified" }}</td>
+{{--                                            <td>{{ $history->muzzle_verification == null ? "Not verified" : "Verified" }}</td>--}}
                                             <td>{{ $history->insurance_status }}</td>
 
                                             @if($history->insurance_status == "received")

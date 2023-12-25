@@ -22,7 +22,7 @@ class CreateInsuranceRequestsTable extends Migration
 //            $table->string('muzzle_image')->nullable();
 //            $table->string('muzzle_verification')->nullable();
             $table->string('insurance_status')->nullable();
-//            $table->string('insurance_expire_date')->nullable();
+            $table->string('insurance_requested_company_id')->nullable();
             $table->string('user_id')->nullable();
 
             $table->timestamps();

@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Company\Farmer;
 use App\Http\Controllers\API\Farmer\Insurance\InsuranceController;
 use App\Http\Controllers\Controller;
 use App\Models\CattleRegistration;
+use App\Models\InsuranceRequest;
 use App\Models\Insured;
+use App\Models\Order;
 use App\Models\Package;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -95,6 +97,62 @@ class CompanyCanInsureFarmerController extends Controller
     }
 
 //    ------------------------------------------ total Insurance calculation of the animal ------------------------------------------
+
+//    ------------------------ requesting for the animal for insurance from company side ------------------------
+    public function request_for_insurance()
+    {
+
+        $inputs = \request()->validate([
+            'cattle_id' => 'required',
+            'package_id' => 'required',
+            'company_id' => 'required',
+            'package_insurance_period' => 'required',
+        ]);
+
+        $inputs['insurance_status'] = "requested";
+
+        $farmer_id = CattleRegistration::find($inputs['cattle_id'])->user_id;
+
+        if (!$farmer_id) {
+            return "Farmer information not found";
+        }
+
+        if (User::find($farmer_id)->company_id != auth()->user()->id) {
+            return "User does not belong to the company";
+        }
+
+        $inputs['user_id'] = $farmer_id;
+        $inputs['insurance_requested_company_id'] = auth()->user()->id;
+
+        InsuranceRequest::create($inputs);
+
+        session()->flash('success', 'Request sent successfully');
+        return back();
+    }
+
+//    ------------------------ requesting for the animal for insurance from company side ------------------------
+
+//    ------------------------ View Insurance History ------------------------
+
+    public function view_insurance_history()
+    {
+        $insurance_history = InsuranceRequest::where('insurance_requested_company_id', auth()->id())->get();
+        return view('company.admin-content.company-insurance-farmer.insurance_history.view', compact('insurance_history'));
+    }
+
+//    ------------------------ View Insurance History ------------------------
+
+//    --------------- Insurance Transaction History ---------------
+
+
+    public function insurance_history()
+    {
+        $insurance_history = Order::where('insurance_requested_company_id', auth()->id())->where('status', 'Processing')->orWhere('status', 'Complete')->get();
+        return view("farmer.admin-content.insurance_payment_history.view", compact('insurance_history'));
+    }
+
+
+//    --------------- Insurance Transaction History ---------------
 
 
 }

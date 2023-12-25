@@ -15,7 +15,12 @@
                                 <div class="page-header-icon">
                                     <i data-feather="user"></i>
                                 </div>
-                                Farmer - Insurance Payment History
+                                @if(auth()->user()->role == "f")
+                                    Farmer - Insurance Payment History
+                                @else
+                                    Company - Insurance Payment History
+                                @endif
+
                             </h1>
                         </div>
                     </div>
@@ -31,7 +36,14 @@
                 <div class="col-xl-12">
                     <!-- Account details card-->
                     <div class="card mb-4">
-                        <div class="card-header">Farmer - Insurance Payment History</div>
+                        <div class="card-header">
+                            @if(auth()->user()->role == "f")
+                                Farmer - Insurance Payment History
+                            @else
+                                Company - Insurance Payment History
+                            @endif
+
+                        </div>
                         <div class="card-body">
 
                             {{--                            <div class="card-header">Extended DataTables</div>--}}
@@ -43,10 +55,11 @@
                                         <th>Transaction ID</th>
                                         <th>Amount</th>
                                         <th>Currency</th>
-                                        <th>cattle_id</th>
-                                        <th>company_id</th>
+                                        <th>cattle Info</th>
+                                        <th>Farmer Name</th>
+                                        <th>Insured to</th>
                                         <th>Status</th>
-                                        <th>Action</th>
+{{--                                        <th>Action</th>--}}
 
                                     </tr>
                                     </thead>
@@ -59,14 +72,16 @@
                                             <td>{{ $history->transaction_id }}</td>
                                             <td>{{ $history->amount }}</td>
                                             <td>{{ $history->currency }}</td>
-                                            <td>{{ $history->cattle_id }}</td>
-                                            <td>{{ $history->company_id }}</td>
+                                            <td>{{ \App\Models\CattleRegistration::find($history->cattle_id)->cattle_name ?? "Animal data not found"}}
+                                                - {{ \App\Models\CattleRegistration::find($history->cattle_id)->cattle_type ?? "Animal type not found"}}</td>
+                                            <td>{{ \App\Models\User::find($history->user_id)->name ?? "Data Not Found" }}</td>
+                                            <td>{{ \App\Models\User::find($history->company_id)->name ?? "Data Not Found"}}</td>
                                             <td>{{ $history->status }}</td>
 
 
-                                            <td>
-                                                <button class="btn btn-success" type="button">View</button>
-                                            </td>
+{{--                                            <td>--}}
+{{--                                                <button class="btn btn-success" type="button">View</button>--}}
+{{--                                            </td>--}}
                                         </tr>
                                     @endforeach
                                     </tbody>
