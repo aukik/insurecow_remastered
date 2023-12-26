@@ -20,7 +20,9 @@ class CreateInsuranceRequestsTable extends Migration
             $table->string('company_id')->nullable();
             $table->decimal('package_insurance_period',2,1)->nullable();
 //            $table->string('muzzle_image')->nullable();
-//            $table->string('muzzle_verification')->nullable();
+
+            $table->string('insurance_cost')->nullable();
+
             $table->string('insurance_status')->nullable();
             $table->string('insurance_requested_company_id')->nullable();
             $table->string('user_id')->nullable();

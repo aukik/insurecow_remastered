@@ -41,12 +41,12 @@
                                     <tr>
                                         <th>Serial</th>
                                         <th>Package Info</th>
-{{--                                        <th>Company Name</th>--}}
+                                        {{--                                        <th>Company Name</th>--}}
                                         <th>Farmer Name</th>
                                         <th>Cattle Info</th>
                                         <th>Premium Policy</th>
                                         <th>Package Insurance Period</th>
-{{--                                        <th>Muzzle Verification Status</th>--}}
+                                        <th>Insurance Cost</th>
                                         <th>Insurance Status</th>
                                         <th>Send Quotation</th>
                                         <th>Payment History</th>
@@ -56,19 +56,43 @@
 
                                     <tbody>
                                     <?php $id = 0 ?>
+
                                     @foreach($insurance_history as $history)
                                         <tr>
                                             <td>{{ $id += 1 }}</td>
                                             <td>{!!  \App\Http\Controllers\Farmer\InsuranceRequestController::package_id($history->package_id) !!}</td>
-{{--                                            <td>{!!  \App\Http\Controllers\Farmer\InsuranceRequestController::company_data($history->company_id) !!}</td>--}}
+                                            {{--                                            <td>{!!  \App\Http\Controllers\Farmer\InsuranceRequestController::company_data($history->company_id) !!}</td>--}}
                                             <td>{!!  \App\Http\Controllers\Farmer\InsuranceRequestController::farmer_name($history->user_id) !!}</td>
-                                            <td><a href="{{ route('company_view_cattle_info', $history->id) }}">Cattle
+                                            <td><a href="{{ route('company_view_cattle_info', $history->cattle_id) }}">Cattle
                                                     Info</a></td>
                                             <td>
                                                 <a href="{!! asset("storage/".\App\Http\Controllers\Farmer\InsuranceRequestController::package_policy($history->package_id))  !!}">Package
                                                     Policy</a></td>
-                                            <td>{{ $history->package_insurance_period }}</td>
-{{--                                            <td>{{ $history->muzzle_verification == null ? "Not verified" : "Verified" }}</td>--}}
+
+                                            {{-- -------------------------- Insurance Period -------------------------- --}}
+
+                                            <td>
+                                                @if($history->package_insurance_period == 0.5)
+                                                    6 months
+                                                @elseif($history->package_insurance_period == 1)
+                                                    1 year
+                                                @elseif($history->package_insurance_period == 1.5)
+                                                    1 year 5 months
+                                                @elseif($history->package_insurance_period == 2.0)
+                                                    2 years
+                                                @elseif($history->package_insurance_period == 2.5)
+                                                    2 years 5 months
+                                                @elseif($history->package_insurance_period == 3.0)
+                                                    3 Years
+                                                @elseif($history->package_insurance_period > 3.0)
+                                                    More than 3 years
+                                                @endif
+                                            </td>
+
+                                            {{-- -------------------------- Insurance Period -------------------------- --}}
+
+
+                                            <td>{{ $history->insurance_cost }}/-</td>
                                             <td>{{ $history->insurance_status }}</td>
 
                                             @if($history->insurance_status == "received")

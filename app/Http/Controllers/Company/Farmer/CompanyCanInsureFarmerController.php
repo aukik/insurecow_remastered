@@ -106,6 +106,7 @@ class CompanyCanInsureFarmerController extends Controller
             'cattle_id' => 'required',
             'package_id' => 'required',
             'company_id' => 'required',
+            'insurance_cost' => 'required',
             'package_insurance_period' => 'required',
         ]);
 

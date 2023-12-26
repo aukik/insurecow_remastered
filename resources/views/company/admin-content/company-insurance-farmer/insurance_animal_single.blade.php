@@ -123,6 +123,8 @@
 
                                     {{-- ------------------------------ Company ID - The Insurance company where the animal is about to insured ------------------------------ --}}
 
+                                    {{-- ------------------------------ Company Sum Insured Cost ------------------------------ --}}
+
 
                                     <div class="col-md-6">
                                         <br>
@@ -134,9 +136,14 @@
                                         <input class="form-control" readonly id="cattle_sum_insurance" type="hidden">
                                     </div>
 
+                                    {{-- ------------------------------ Company Sum Insured Cost ------------------------------ --}}
+
+
                                 </div>
 
                                 <br>
+
+                                {{-- ------------------------------ Company Sum Insured Cost ------------------------------ --}}
 
                                 <div class="row">
                                     <div class="col-md-6">
@@ -145,9 +152,11 @@
                                         >Insurance Price</label
                                         >
 
-                                        <input class="form-control" readonly id="cattle_insurance_price" type="hidden">
+                                        <input class="form-control" readonly id="cattle_insurance_price" type="hidden" name="insurance_cost">
                                     </div>
                                 </div>
+
+                                {{-- ------------------------------ Company Sum Insured Cost ------------------------------ --}}
 
                                 <br>
 

@@ -58,6 +58,7 @@
                                         <th>cattle Info</th>
                                         <th>Farmer Name</th>
                                         <th>Insured By</th>
+                                        <th>Expiration Date</th>
                                         <th>Status</th>
 {{--                                        <th>Action</th>--}}
 
@@ -76,6 +77,7 @@
                                                 - {{ \App\Models\CattleRegistration::find($history->cattle_id)->cattle_type ?? "Animal type not found"}}</td>
                                             <td>{{ \App\Models\User::find($history->user_id)->name ?? "Data Not Found" }}</td>
                                             <td>{{ \App\Models\User::find($history->company_id)->name ?? "Data Not Found"}}</td>
+                                            <td>{{ $history->package_expiration_date }}</td>
                                             <td>{{ $history->status }}</td>
 
 

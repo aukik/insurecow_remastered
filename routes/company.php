@@ -87,6 +87,13 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
         Route::get("view_cattle_info/{id}", [InsuranceRequest::class, 'view_cattle_info'])->name('company_view_cattle_info');
 
         //    -------------------------- View Cattle Info -----------------------------
+
+        //    ----------------------- Company Transaction History -----------------------
+
+//        Route::get('company_transaction_history_data', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class, 'insurance_transaction_history'])->name('company.transaction_history_data');
+        Route::get('company_transaction_history_with_package_data', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class, 'insurance_transaction_history_with_package'])->name('company.transaction_history_with_package_data');
+
+        //    ----------------------- Company Transaction History -----------------------
     });
 
 
@@ -147,6 +154,12 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
     Route::middleware('company.without_premium_insurance')->group(function () {
 
 
+        //    -------------------------- View Cattle Info -----------------------------
+
+        Route::get("view_cattle_info_2/{id}", [InsuranceRequest::class, 'view_cattle_info'])->name('company_view_cattle_info_2');
+
+        //    -------------------------- View Cattle Info -----------------------------
+
         Route::get('search_company', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class, 'search_company'])->name('company.insurance_search_get');
         Route::get('search_company_post', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class, 'total_insurance_packages'])->name('company.insurance_search_post');
 
@@ -193,7 +206,6 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
         //    ----------------------- Company Transaction History -----------------------
 
         Route::get('company_transaction_history_data', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class, 'insurance_transaction_history'])->name('company.transaction_history_data');
-        Route::get('company_transaction_history_with_package_data', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class, 'insurance_transaction_history_with_package'])->name('company.transaction_history_with_package_data');
 
         //    ----------------------- Company Transaction History -----------------------
 

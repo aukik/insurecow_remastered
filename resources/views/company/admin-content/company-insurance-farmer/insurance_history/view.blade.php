@@ -47,12 +47,15 @@
                                         <th>Serial</th>
                                         <th>Package Info</th>
                                         <th>Company Name</th>
+                                        <th>Cattle Info</th>
+
                                         <th>Farmer Name</th>
 
 
                                         <th>Premium Policy</th>
 
 
+                                        <th>Insurance Cost</th>
                                         <th>Package Insurance Period</th>
                                         <th>Insurance For</th>
 
@@ -68,6 +71,8 @@
                                             <td>{{ $id += 1 }}</td>
                                             <td>{!!  \App\Http\Controllers\Farmer\InsuranceRequestController::package_id($history->package_id) !!}</td>
                                             <td>{!!  \App\Http\Controllers\Farmer\InsuranceRequestController::company_data($history->company_id) !!}</td>
+                                            <td><a href="{{ route('company_view_cattle_info_2', $history->cattle_id) }}">Cattle
+                                                    Info</a></td>
 
                                             @if ($cattleRegistration = \App\Models\CattleRegistration::find($history->cattle_id))
                                                 <td>{{ \App\Models\User::find($cattleRegistration->user_id)->name }}</td>
@@ -85,10 +90,34 @@
                                                 <td>-</td>
                                             @endif
 
-                                            <td>{{ $history->package_insurance_period }}</td>
+                                            <td>{{ $history->insurance_cost }}/-</td>
+
+                                            {{-- ---------------------------- Insurance Period ---------------------------- --}}
+
+                                            <td>
+                                                @if($history->package_insurance_period == 0.5)
+                                                    6 months
+                                                @elseif($history->package_insurance_period == 1)
+                                                    1 year
+                                                @elseif($history->package_insurance_period == 1.5)
+                                                    1 year 5 months
+                                                @elseif($history->package_insurance_period == 2.0)
+                                                    2 years
+                                                @elseif($history->package_insurance_period == 2.5)
+                                                    2 years 5 months
+                                                @elseif($history->package_insurance_period == 3.0)
+                                                    3 Years
+                                                @elseif($history->package_insurance_period > 3.0)
+                                                    More than 3 years
+                                                @endif
+                                            </td>
+
+                                            {{-- ---------------------------- Insurance Period ---------------------------- --}}
+
 
                                             @if ($cattleRegistration = \App\Models\CattleRegistration::find($history->cattle_id))
-                                                <td>{{ $cattleRegistration->cattle_name }} - {{ $cattleRegistration->animal_type }}</td>
+                                                <td>{{ $cattleRegistration->cattle_name }}
+                                                    - {{ $cattleRegistration->animal_type }}</td>
                                             @else
                                                 <td>Warning - No cattle registration data found</td>
                                             @endif

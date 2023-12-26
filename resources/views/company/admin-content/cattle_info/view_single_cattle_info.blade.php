@@ -79,7 +79,7 @@
                                     <label class="small mb-1 fw-bold" for="inputLastName"
                                     >Animal Age</label
                                     ><span style="color: red"></span>
-                                    <p>{{ $cattle->age }}</p>
+                                    <p>{{ $cattle->age }} Years</p>
                                 </div>
 
                                 <div class="col-md-4">
@@ -95,7 +95,7 @@
                                     >Animal Weight</label
                                     ><span style="color: red"></span>
 
-                                    <p>{{ $cattle->weight }}</p>
+                                    <p>{{ $cattle->weight }} kg</p>
 
                                 </div>
 
