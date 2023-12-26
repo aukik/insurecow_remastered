@@ -58,6 +58,15 @@
                 Insurance Requests
             </a>
 
+            {{--  ------------------------------------- Comapny with package - Insurance Transactions ------------------------------------- --}}
+
+            <a class="nav-link" href="{{ route('company.transaction_history_with_package_data') }}">
+                <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>
+                Insurance Transactions
+            </a>
+
+            {{--  ------------------------------------- Comapny with package - Insurance Transactions ------------------------------------- --}}
+
         @endif
 
 
