@@ -176,6 +176,16 @@
                                     </div>
 
                                     <div class="col-md-4">
+                                        <p style="font-weight: bold">
+                                            <span
+                                                style="color: #0a3622">Animal Unique ID :</span> {{ pathinfo(session('data')->muzzle_of_cow,PATHINFO_FILENAME) }}
+                                        </p>
+                                    </div>
+
+
+{{--                                    <p>{{ pathinfo($cattle->muzzle_of_cow, PATHINFO_FILENAME)  }}</p>--}}
+
+                                    <div class="col-md-4">
 
                                     </div>
 
