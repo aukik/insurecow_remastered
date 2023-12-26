@@ -52,45 +52,46 @@
                             <div class="row">
 
                                 @foreach($companies as $company)
-                                    <div class="col-md-3">
-                                        <div class="card" style="width: auto;">
+                                    @if($company->permission->c_insurance == 1)
+                                        <div class="col-md-3">
+                                            <div class="card" style="width: auto;">
 
-                                            <img class="card-img-top fixed-height-image"
-                                                 src="{{ asset('storage/'. ($company->company_logo ? $company->company_logo : 'https://wallpapers.com/images/featured/flower-pictures-unpxbv1q9kxyqr1d.jpg')) }}"
-                                                 alt="Image not found">
+                                                <img class="card-img-top fixed-height-image"
+                                                     src="{{ asset('storage/'. ($company->company_logo ? $company->company_logo : 'https://wallpapers.com/images/featured/flower-pictures-unpxbv1q9kxyqr1d.jpg')) }}"
+                                                     alt="Image not found">
 
-                                            <div class="card-body">
-                                                <h5 class="card-title">{{ $company->name }}</h5>
-                                                {{--                                                <p class="card-text">Email : {{ $company->email }}</p>--}}
-                                                {{--                                                <p class="card-text">Phone : {{ $company->phone }}</p>--}}
-
-
-                                                <form action="{{ route('company.insurance_search_post') }}"
-                                                      method="get"
-                                                      enctype="multipart/form-data">
-                                                    <!-- Form Group (username)-->
+                                                <div class="card-body">
+                                                    <h5 class="card-title">{{ $company->name }}</h5>
+                                                    {{--                                                <p class="card-text">Email : {{ $company->email }}</p>--}}
+                                                    {{--                                                <p class="card-text">Phone : {{ $company->phone }}</p>--}}
 
 
-                                                    <!-- Form Row-->
-                                                    <div class="row gx-3 mb-3">
-                                                        <!-- Form Group (first name)-->
-
-                                                        <input type="hidden" name="company_id"
-                                                               value="{{ $company->id }}">
-
-                                                    </div>
+                                                    <form action="{{ route('company.insurance_search_post') }}"
+                                                          method="get"
+                                                          enctype="multipart/form-data">
+                                                        <!-- Form Group (username)-->
 
 
-                                                    <button class="btn btn-primary" type="submit">
-                                                        Search Package
-                                                    </button>
-                                                </form>
+                                                        <!-- Form Row-->
+                                                        <div class="row gx-3 mb-3">
+                                                            <!-- Form Group (first name)-->
 
-                                                {{--                                                <a href="#" class="btn btn-primary">Search Package</a>--}}
+                                                            <input type="hidden" name="company_id"
+                                                                   value="{{ $company->id }}">
+
+                                                        </div>
+
+
+                                                        <button class="btn btn-primary" type="submit">
+                                                            Search Package
+                                                        </button>
+                                                    </form>
+
+                                                    {{--                                                <a href="#" class="btn btn-primary">Search Package</a>--}}
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-
+                                    @endif
                                 @endforeach
                             </div>
 
