@@ -58,12 +58,13 @@
                                     <?php $id = 0 ?>
 
                                     @foreach($insurance_history as $history)
+
                                         <tr>
                                             <td>{{ $id += 1 }}</td>
                                             <td>{!!  \App\Http\Controllers\Farmer\InsuranceRequestController::package_id($history->package_id) !!}</td>
                                             {{--                                            <td>{!!  \App\Http\Controllers\Farmer\InsuranceRequestController::company_data($history->company_id) !!}</td>--}}
                                             <td>{!!  \App\Http\Controllers\Farmer\InsuranceRequestController::farmer_name($history->user_id) !!}</td>
-                                            <td><a href="{{ route('company_view_cattle_info', $history->cattle_id) }}">Cattle
+                                            <td><a href="{{ route('company_view_cattle_info', $history->id) }}">Cattle
                                                     Info</a></td>
                                             <td>
                                                 <a href="{!! asset("storage/".\App\Http\Controllers\Farmer\InsuranceRequestController::package_policy($history->package_id))  !!}">Package

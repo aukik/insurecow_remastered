@@ -28,7 +28,7 @@ class InsuranceRequest extends Controller
 
         $insurance_request_info = \App\Models\InsuranceRequest::findOrFail($id);
 
-        $cattle = CattleRegistration::findoRFail($insurance_request_info->cattle_id);
+        $cattle = CattleRegistration::findOrFail($insurance_request_info->cattle_id);
 
         if ($cattle != null) {
             return view('company.admin-content.cattle_info.view_single_cattle_info', compact('cattle'));

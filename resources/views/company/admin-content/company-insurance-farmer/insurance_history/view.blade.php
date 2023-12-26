@@ -68,10 +68,12 @@
                                     <?php $id = 0 ?>
                                     @foreach($insurance_history as $history)
                                         <tr>
+
+
                                             <td>{{ $id += 1 }}</td>
                                             <td>{!!  \App\Http\Controllers\Farmer\InsuranceRequestController::package_id($history->package_id) !!}</td>
                                             <td>{!!  \App\Http\Controllers\Farmer\InsuranceRequestController::company_data($history->company_id) !!}</td>
-                                            <td><a href="{{ route('company_view_cattle_info_2', $history->cattle_id) }}">Cattle
+                                            <td><a href="{{ route('company_view_cattle_info_2', $history->id) }}">Cattle
                                                     Info</a></td>
 
                                             @if ($cattleRegistration = \App\Models\CattleRegistration::find($history->cattle_id))
