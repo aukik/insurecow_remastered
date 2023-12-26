@@ -118,6 +118,29 @@
                                 <hr style="color: #0a3622; font-weight: bold">
 
                                 <div class="row">
+
+                                    <div class="col-md-4">
+                                        <p style="font-weight: bold">
+                                            <span
+                                                style="color: #0a3622">Farmer Name :</span> {{ \App\Models\User::find(session('data')->user_id)->name ?? "Name not found" }}
+                                        </p>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <p style="font-weight: bold">
+                                            <span
+                                                style="color: #0a3622">Farmer Address :</span> {{ \App\Models\User::find(session('data')->user_id)->address ?? "Address not found" }}
+                                        </p>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <p style="font-weight: bold">
+                                            <span
+                                                style="color: #0a3622">Farmer Phone No :</span> {{ \App\Models\User::find(session('data')->user_id)->phone ?? "Number not found" }}
+                                        </p>
+                                    </div>
+
+
                                     <div class="col-md-4">
                                         <p style="font-weight: bold">
                                             <span
