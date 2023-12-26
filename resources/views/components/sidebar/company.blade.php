@@ -83,7 +83,7 @@
 
         {{--  ------------------------------------- Company Insurance Transactions ------------------------------------- --}}
 
-        <a class="nav-link" href="">
+        <a class="nav-link" href="{{ route('company.transaction_history_data') }}">
             <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>
             Cattle Ins. Transactions
         </a>

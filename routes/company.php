@@ -189,7 +189,7 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
 
     //    ----------------------- Company Transaction History -----------------------
 
-    Route::get('company_transaction_history_data', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class, 'insurance_history'])->name('company.transaction_history_data');
+    Route::get('company_transaction_history_data', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class, 'insurance_transaction_history'])->name('company.transaction_history_data');
 
     //    ----------------------- Company Transaction History -----------------------
 

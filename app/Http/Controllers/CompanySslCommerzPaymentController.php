@@ -245,7 +245,7 @@ class CompanySslCommerzPaymentController extends Controller
 
 //   --------------------------------- If Insurance is successful it will keep data into Insureds table ---------------------------------
 
-                return redirect()->route('farmer_view_insurance_history');
+                return redirect()->route('company.view_insurance_history');
             }
         } else if ($order_details->status == 'Processing' || $order_details->status == 'Complete') {
 
@@ -265,7 +265,7 @@ class CompanySslCommerzPaymentController extends Controller
 
 
             echo "Transaction is successfully Completed";
-            return redirect()->route('company.view_insurance_history');
+            return redirect()->back();
 
         } else {
             #That means something wrong happened. You can redirect customer to your product page.

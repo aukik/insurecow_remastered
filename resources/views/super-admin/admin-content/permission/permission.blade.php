@@ -89,7 +89,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-auto">
-                                                    <label for="exampleFormControlSelect1">Farmer Insurance [ Farmer
+                                                    <label for="exampleFormControlSelect1">Animal Insurance [ Farmer
                                                         Sided
                                                         Permission ]</label>
                                                 </div>
@@ -234,7 +234,7 @@
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <label for="exampleFormControlSelect1">Insurance [ Company Sided Permission
+                                            <label for="exampleFormControlSelect1">Apply For Insurance [ Company Sided Permission
                                                 ]</label>
                                         </div>
                                     </div>

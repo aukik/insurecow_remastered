@@ -179,7 +179,7 @@ class SslCommerzPaymentController extends Controller
                 'status' => 'Pending',
                 'address' => $post_data['cus_add1'],
                 'transaction_id' => $post_data['tran_id'],
-                'currency' => $post_data['currency']
+                'currency' => $post_data['currency'],
             ]);
 
         $sslc = new SslCommerzNotification();
@@ -240,6 +240,10 @@ class SslCommerzPaymentController extends Controller
 
 //   --------------------------------- If Insurance is successful it will keep data into Insureds table ---------------------------------
 
+                if (auth()->user()->role == "c") {
+                    return redirect()->route('company.view_insurance_history');
+                }
+
                 return redirect()->route('farmer_view_insurance_history');
             }
         } else if ($order_details->status == 'Processing' || $order_details->status == 'Complete') {
@@ -260,6 +264,11 @@ class SslCommerzPaymentController extends Controller
 
 
             echo "Transaction is successfully Completed";
+
+            if (auth()->user()->role == "c") {
+                return redirect()->route('company.view_insurance_history');
+            }
+
             return redirect()->route('farmer_view_insurance_history');
 
         } else {
