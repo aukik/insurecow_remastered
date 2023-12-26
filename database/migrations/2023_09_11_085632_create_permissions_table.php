@@ -21,7 +21,14 @@ class CreatePermissionsTable extends Migration
 
             $table->boolean("c_dashboard")->default(true);
             $table->boolean("c_register_agent")->default(false);
+
+//            ------------------------ Insurance Company with packages ------------------------
+
             $table->boolean("c_insurance")->default(false);
+
+//            ------------------------ Insurance Company with packages ------------------------
+
+
             $table->boolean("c_cattle_reg_and_claim")->default(false);
 
 

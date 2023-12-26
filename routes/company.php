@@ -142,60 +142,64 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
 
     });
 
-//    -------------------------------------------------------------- Company will be able to insurance farmers --------------------------------------------------------------
+//    ------------------------------------------------------------------------------------------------ Company will be able to insurance farmers ---------------------------------------------------------------------------------------
 
-    Route::get('search_company', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class, 'search_company'])->name('company.insurance_search_get');
-    Route::get('search_company_post', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class, 'total_insurance_packages'])->name('company.insurance_search_post');
+    Route::middleware('company.without_premium_insurance')->group(function () {
+
+
+        Route::get('search_company', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class, 'search_company'])->name('company.insurance_search_get');
+        Route::get('search_company_post', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class, 'total_insurance_packages'])->name('company.insurance_search_post');
 
 
 //    ------------------------------------------ Single package result view from packages ------------------------------------------
 
-    Route::get('single_package_result_view/{package}', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class, 'single_package_result_view'])->name('company.single_package_result_view');
+        Route::get('single_package_result_view/{package}', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class, 'single_package_result_view'])->name('company.single_package_result_view');
 
 
 //    ------------------------------------------ Single package result view from packages ------------------------------------------
 
 //    ------------------------------------------ Single animal select for insurance by company ------------------------------------------
 
-    Route::get('single_animal_insurance_package_form/{package}', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class, 'single_animal_select'])->name('company.single_animal_select_package');
+        Route::get('single_animal_insurance_package_form/{package}', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class, 'single_animal_select'])->name('company.single_animal_select_package');
 
 
 //    ------------------------------------------ Single animal select for insurance by company ------------------------------------------
 
 //    ------------------------------------------ farmers cattle list filter from company side ------------------------------------------
 
-    Route::get('farmers_cattle_list_filter/{cattle_info}', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class, 'animal_list_filter'])->name('company.animal_list_filter');
+        Route::get('farmers_cattle_list_filter/{cattle_info}', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class, 'animal_list_filter'])->name('company.animal_list_filter');
 
 //    ------------------------------------------ farmers cattle list filter from company side ------------------------------------------
 
 
 //    ------------------------------------------ Insurance calculation for the animal ------------------------------------------
 
-    Route::get('farmer_insurance_calculation/{cattle_info}/{package_info}', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class, 'insurance_calculation'])->name('company.insurance_calculation_for_animal');
+        Route::get('farmer_insurance_calculation/{cattle_info}/{package_info}', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class, 'insurance_calculation'])->name('company.insurance_calculation_for_animal');
 
 //    ------------------------------------------ Insurance calculation for the animal ------------------------------------------
 
 //    ------------------------------------------ requesting for the animal for insurance from company side ------------------------------------------
 
-    Route::post('insurance_request_sent_from_company', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class, 'request_for_insurance'])->name('company.insurance_request_sent_from_company');
+        Route::post('insurance_request_sent_from_company', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class, 'request_for_insurance'])->name('company.insurance_request_sent_from_company');
 
 //    ------------------------------------------ requesting for the animal for insurance from company side ------------------------------------------
 
-    //    ----------------------- Company insurance requests -----------------------
+        //    ----------------------- Company insurance requests -----------------------
 
-    Route::get('company_insurance_requests_data', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class, 'view_insurance_history'])->name('company.view_insurance_history');
+        Route::get('company_insurance_requests_data', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class, 'view_insurance_history'])->name('company.view_insurance_history');
 
-    //    ----------------------- Company insurance requests -----------------------
+        //    ----------------------- Company insurance requests -----------------------
 
-    //    ----------------------- Company Transaction History -----------------------
+        //    ----------------------- Company Transaction History -----------------------
 
-    Route::get('company_transaction_history_data', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class, 'insurance_transaction_history'])->name('company.transaction_history_data');
-    Route::get('company_transaction_history_with_package_data', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class, 'insurance_transaction_history_with_package'])->name('company.transaction_history_with_package_data');
+        Route::get('company_transaction_history_data', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class, 'insurance_transaction_history'])->name('company.transaction_history_data');
+        Route::get('company_transaction_history_with_package_data', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class, 'insurance_transaction_history_with_package'])->name('company.transaction_history_with_package_data');
 
-    //    ----------------------- Company Transaction History -----------------------
+        //    ----------------------- Company Transaction History -----------------------
 
+    });
 
-//    -------------------------------------------------------------- Company will be able to insurance farmers --------------------------------------------------------------
+//    --------------------------------------------------------------------------------------------------- Company will be able to insurance farmers --------------------------------------------------------------------------------------------
 
 });
 

@@ -87,6 +87,7 @@ class PermissionController extends Controller
             'c_dashboard' => 'nullable',
             'c_register_agent' => 'nullable',
             'c_insurance' => 'nullable',
+            'c_without_insurance' => 'nullable',
             'c_cattle_reg_and_claim' => 'nullable',
             'cattle' => 'nullable',
             'buffalo' => 'nullable',

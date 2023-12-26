@@ -70,42 +70,51 @@
         @endif
 
 
-        {{--  ------------------------------------- Company can insure farmers ------------------------------------- --}}
+        {{--  -------------------------------------------------------------- Company can insure farmers block -------------------------------------------------------------- --}}
 
-        <a class="nav-link" href="{{ route('company.insurance_search_get') }}">
-            <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>
-            Cattle Insurance
-        </a>
+        @if(auth()->user()->permission->c_without_insurance == 1)
 
-        {{--  ------------------------------------- Company can insure farmers ------------------------------------- --}}
+            {{--  ------------------------------------- Company can insure farmers ------------------------------------- --}}
 
+            <a class="nav-link" href="{{ route('company.insurance_search_get') }}">
+                <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>
+                Cattle Insurance
+            </a>
 
-        {{--  ------------------------------------- Company Insurance Requests ------------------------------------- --}}
-
-        <a class="nav-link" href="{{ route('company.view_insurance_history') }}">
-            <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>
-            Cattle Ins. Requests
-        </a>
-
-        {{--  ------------------------------------- Company Insurance Requests ------------------------------------- --}}
+            {{--  ------------------------------------- Company can insure farmers ------------------------------------- --}}
 
 
-        {{--  ------------------------------------- Company Insurance Transactions ------------------------------------- --}}
+            {{--  ------------------------------------- Company Insurance Requests ------------------------------------- --}}
 
-        <a class="nav-link" href="{{ route('company.transaction_history_data') }}">
-            <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>
-            Cattle Ins. Transactions
-        </a>
+            <a class="nav-link" href="{{ route('company.view_insurance_history') }}">
+                <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>
+                Cattle Ins. Requests
+            </a>
 
-        {{--  ------------------------------------- Company Insurance Transactions ------------------------------------- --}}
+            {{--  ------------------------------------- Company Insurance Requests ------------------------------------- --}}
 
 
-        <a class="nav-link" href="{{ route('cp.user_history') }}">
-            <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>
-            Enlisted
-        </a>
+            {{--  ------------------------------------- Company Insurance Transactions ------------------------------------- --}}
 
-        {{-- ---------------------------------- Single Side Navbar ---------------------------------- --}}
+            <a class="nav-link" href="{{ route('company.transaction_history_data') }}">
+                <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>
+                Cattle Ins. Transactions
+            </a>
+
+            {{--  ------------------------------------- Company Insurance Transactions ------------------------------------- --}}
+
+
+            <a class="nav-link" href="{{ route('cp.user_history') }}">
+                <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>
+                Enlisted
+            </a>
+
+            {{-- ---------------------------------- Single Side Navbar ---------------------------------- --}}
+
+        @endif
+
+        {{--  -------------------------------------------------------------- Company can insure farmers block -------------------------------------------------------------- --}}
+
 
         {{-- ---------------------------------- Register a cattle for the farmer ---------------------------------- --}}
 

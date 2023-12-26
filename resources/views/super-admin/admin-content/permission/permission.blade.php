@@ -118,7 +118,9 @@
 
                                         <div class="col-md-7">
 
-                                            <div style="color: #0a3622; font-weight: bold">Animal Registration Permission</div>
+                                            <div style="color: #0a3622; font-weight: bold">Animal Registration
+                                                Permission
+                                            </div>
                                             <hr style="color: #0a3622; font-weight: bold">
 
                                             <div class="row gx-3 mb-3 align-items-center">
@@ -182,7 +184,6 @@
 
                                 @if($permission->role == "c")
 
-
                                     <div style="color: #0a3622; font-weight: bold">Panel Permission</div>
                                     <hr style="color: #0a3622; font-weight: bold">
 
@@ -234,15 +235,33 @@
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <label for="exampleFormControlSelect1">Apply For Insurance [ Company Sided Permission
-                                                ]</label>
+                                            <label for="exampleFormControlSelect1">Company Will be able to create
+                                                Insurance Packages</label>
                                         </div>
                                     </div>
 
                                     <div class="row gx-3 mb-3 align-items-center">
                                         <div class="col-auto">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="hidden" name="c_cattle_reg_and_claim"
+                                                <input class="form-check-input" type="hidden" name="c_without_insurance"
+                                                       value="0">
+                                                <input class="form-check-input" type="checkbox"
+                                                       id="exampleFormControlSelect1"
+                                                       name="c_without_insurance" value="1"
+                                                       @if($permission->c_without_insurance == 1) checked @endif>
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <label for="exampleFormControlSelect1">Company will be able to insure
+                                                animals to another company</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="row gx-3 mb-3 align-items-center">
+                                        <div class="col-auto">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="hidden"
+                                                       name="c_cattle_reg_and_claim"
                                                        value="0">
                                                 <input class="form-check-input" type="checkbox"
                                                        id="exampleFormControlSelect1"
@@ -251,7 +270,8 @@
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <label for="exampleFormControlSelect1">Company can register farmers and claim insurance</label>
+                                            <label for="exampleFormControlSelect1">Company can register farmers and
+                                                claim insurance</label>
                                         </div>
                                     </div>
                                 @endif

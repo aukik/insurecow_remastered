@@ -5,6 +5,7 @@ namespace App\Http;
 use App\Http\Middleware\Company\CattleRegistrationAndClaimMiddleware;
 use App\Http\Middleware\Company\PremiumInsuranceMiddleware;
 use App\Http\Middleware\Company\RegisterAgentMiddleware;
+use App\Http\Middleware\Company\WithoutPremiumInsuranceMiddleware;
 use App\Http\Middleware\CompanyMiddleware;
 use App\Http\Middleware\Farmer\ApplyForInsuranceMiddleware;
 use App\Http\Middleware\Farmer\CattleRegistrationMiddleware;
@@ -86,7 +87,10 @@ class Kernel extends HttpKernel
 
 
         'company.register_agent' => RegisterAgentMiddleware::class,
+
         'company.premium_insurance' => PremiumInsuranceMiddleware::class,
+        'company.without_premium_insurance' => WithoutPremiumInsuranceMiddleware::class,
+
         'company.cattle_reg_and_claim' => CattleRegistrationAndClaimMiddleware::class,
         'farmer.cattle_reg' => CattleRegistrationMiddleware::class,
         'farmer.insurance' => ApplyForInsuranceMiddleware::class,
