@@ -80,6 +80,13 @@ Route::middleware(['auth:sanctum', 'api.farmer'])->group(function () {
 
 //    -------------------------------- farms --------------------------------
 
+//    -------------------------------- Farmer - Insurance Transactions --------------------------------
+
+    Route::get('farmer/insurance_transactions', [\App\Http\Controllers\API\Farmer\Insurance\TransactionController::class,'insurance_transaction']);
+
+
+//    -------------------------------- Farmer - Insurance Transactions --------------------------------
+
 
 });
 
