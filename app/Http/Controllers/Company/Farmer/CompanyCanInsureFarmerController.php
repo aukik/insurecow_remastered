@@ -48,7 +48,7 @@ class CompanyCanInsureFarmerController extends Controller
 
 //    ------------------------------------------ Single package result view from packages ------------------------------------------
 
-//    ------------------------------------------ Single animal select with farmers list ------------------------------------------
+//    ------------------------------------------ Single animal select with farmers list [ Digital Payment ] ------------------------------------------
 
     public function single_animal_select(Package $package)
     {
@@ -61,7 +61,22 @@ class CompanyCanInsureFarmerController extends Controller
     }
 
 
-//    ------------------------------------------ Single animal select with farmers list ------------------------------------------
+//    ------------------------------------------ Single animal select with farmers list [ Digital Payment ] ------------------------------------------
+
+//    ------------------------------------------ Single animal select with farmers list [ Cash Payment ] ------------------------------------------
+
+    public function single_animal_select_cash(Package $package)
+    {
+//
+//        $farmer_list = User::where('company_id', auth()->user()->id)->get();
+//
+//        return view("company.admin-content.company-insurance-farmer.insurance_animal_single", compact('package', 'farmer_list'));
+
+        return $package;
+
+    }
+
+//    ------------------------------------------ Single animal select with farmers list [ Cash Payment ] ------------------------------------------
 
 //    ------------------------------------------ farmers user list filter from company side ------------------------------------------
 

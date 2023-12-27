@@ -15,7 +15,7 @@
                                 <div class="page-header-icon">
                                     <i data-feather="user"></i>
                                 </div>
-                                Insurance For Animal - Company
+                                Insurance For Animal [ Digital Payment ] - Company
                             </h1>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                 <div class="col-xl-12">
                     <!-- Account details card-->
                     <div class="card mb-4">
-                        <div class="card-header">Insurance For Animal - Company</div>
+                        <div class="card-header">Insurance For Animal [ Digital Payment ] - Company</div>
                         <div class="card-body">
 
 

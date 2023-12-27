@@ -26,18 +26,21 @@
 
                             {{-- ------------------------------------- Buy Insurance ------------------------------------------- --}}
 
-{{--                            <form action="{{ route('farmer_insurance_request') }}" method="post">--}}
-{{--                                {{ csrf_field() }}--}}
-{{--                                <input type="hidden" value="{{ $cattle_info->id }}" name="cattle_id">--}}
-{{--                                <input type="hidden" value="{{ $package->id }}" name="package_id">--}}
-{{--                                <input type="hidden" value="{{ $company->id }}" name="company_id">--}}
-{{--                                <input type="hidden" step=".01" value="{{ $package->insurance_period }}"--}}
-{{--                                       name="package_insurance_period">--}}
-{{--                                <input class="btn btn-success h3 text-white" type="submit"--}}
-{{--                                       value="Request For Insurance">--}}
-{{--                            </form>--}}
 
-                            <a href="{{ route('company.single_animal_select_package', $package) }}" class="btn btn-success h3 text-white">Select Package</a>
+                            {{-- ----------- Digital Payment ----------- --}}
+
+                            <a href="{{ route('company.single_animal_select_package', $package) }}"
+                               class="btn btn-success h3 text-white">Select Package [Digital Payment]</a>
+
+                            {{-- ----------- Digital Payment ----------- --}}
+
+                            {{-- ----------- Cash Payment ----------- --}}
+
+                            <a href="{{ route('company.single_animal_select_package_cash', $package) }}"
+                               class="btn btn-success h3 text-white">Select Package [Cash Payment]</a>
+
+                            {{-- ----------- Cash Payment ----------- --}}
+
 
                             {{-- ------------------------------------- Buy Insurance ------------------------------------------- --}}
 

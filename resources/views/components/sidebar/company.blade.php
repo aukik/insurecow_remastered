@@ -78,7 +78,7 @@
 
             <a class="nav-link" href="{{ route('company.insurance_search_get') }}">
                 <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>
-                Cattle Insurance
+                Animal Insurance
             </a>
 
             {{--  ------------------------------------- Company can insure farmers ------------------------------------- --}}
@@ -88,7 +88,7 @@
 
             <a class="nav-link" href="{{ route('company.view_insurance_history') }}">
                 <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>
-                Cattle Ins. Requests
+                Animal Ins. Requests
             </a>
 
             {{--  ------------------------------------- Company Insurance Requests ------------------------------------- --}}
@@ -98,7 +98,7 @@
 
             <a class="nav-link" href="{{ route('company.transaction_history_data') }}">
                 <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>
-                Cattle Ins. Transactions
+                Animal Ins. Transactions
             </a>
 
             {{--  ------------------------------------- Company Insurance Transactions ------------------------------------- --}}

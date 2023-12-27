@@ -171,12 +171,19 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
 
 //    ------------------------------------------ Single package result view from packages ------------------------------------------
 
-//    ------------------------------------------ Single animal select for insurance by company ------------------------------------------
+//    ------------------------------------------------------------ Single animal select for insurance by company [For digital payment] --------------------------------------------------------------------
 
         Route::get('single_animal_insurance_package_form/{package}', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class, 'single_animal_select'])->name('company.single_animal_select_package');
 
 
-//    ------------------------------------------ Single animal select for insurance by company ------------------------------------------
+//    ------------------------------------------------------------- Single animal select for insurance by company [For digital payment] --------------------------------------------------------------------
+
+//    ------------------------------------------------------------- Single animal select for insurance by company [For cash payment] --------------------------------------------------------------------
+
+        Route::get('single_animal_insurance_package_form_cash/{package}', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class, 'single_animal_select_cash'])->name('company.single_animal_select_package_cash');
+
+
+//    ------------------------------------------------------------- Single animal select for insurance by company [For cash payment] --------------------------------------------------------------------
 
 //    ------------------------------------------ farmers cattle list filter from company side ------------------------------------------
 
