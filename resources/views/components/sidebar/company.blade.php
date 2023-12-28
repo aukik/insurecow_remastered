@@ -84,14 +84,23 @@
             {{--  ------------------------------------- Company can insure farmers ------------------------------------- --}}
 
 
-            {{--  ------------------------------------- Company Insurance Requests ------------------------------------- --}}
+            {{--  ------------------------------------- Company Insurance Requests [Digital] ------------------------------------- --}}
 
             <a class="nav-link" href="{{ route('company.view_insurance_history') }}">
                 <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>
-                Animal Ins. Requests
+                Animal Ins. Requests [Digital]
             </a>
 
-            {{--  ------------------------------------- Company Insurance Requests ------------------------------------- --}}
+            {{--  ------------------------------------- Company Insurance Requests [Digital] ------------------------------------- --}}
+
+            {{--  ------------------------------------- Company Insurance Requests [Cash] ------------------------------------- --}}
+
+            <a class="nav-link" href="">
+                <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>
+                Animal Ins. Requests [Cash]
+            </a>
+
+            {{--  ------------------------------------- Company Insurance Requests [Cash] ------------------------------------- --}}
 
 
             {{--  ------------------------------------- Company Insurance Transactions ------------------------------------- --}}

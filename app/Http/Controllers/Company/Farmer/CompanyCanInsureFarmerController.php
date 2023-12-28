@@ -63,20 +63,19 @@ class CompanyCanInsureFarmerController extends Controller
 
 //    ------------------------------------------ Single animal select with farmers list [ Digital Payment ] ------------------------------------------
 
-//    ------------------------------------------ Single animal select with farmers list [ Cash Payment ] ------------------------------------------
+//    ------------------------------------------ Single animal select with farmers list [ Cash Payment ], rest is on Insurance Cash request controller ------------------------------------------
 
     public function single_animal_select_cash(Package $package)
     {
 //
-//        $farmer_list = User::where('company_id', auth()->user()->id)->get();
-//
-//        return view("company.admin-content.company-insurance-farmer.insurance_animal_single", compact('package', 'farmer_list'));
+        $farmer_list = User::where('company_id', auth()->user()->id)->get();
 
-        return $package;
+        return view("company.admin-content.company-insurance-farmer.insurance_animal_single_cash_payment", compact('package', 'farmer_list'));
+
 
     }
 
-//    ------------------------------------------ Single animal select with farmers list [ Cash Payment ] ------------------------------------------
+//    ------------------------------------------ Single animal select with farmers list [ Cash Payment ], rest is on Insurance Cash request controller ------------------------------------------
 
 //    ------------------------------------------ farmers user list filter from company side ------------------------------------------
 

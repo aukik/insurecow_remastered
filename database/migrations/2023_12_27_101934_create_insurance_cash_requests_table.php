@@ -24,8 +24,11 @@ class CreateInsuranceCashRequestsTable extends Migration
             $table->string('routing_no')->nullable();
             $table->text('instruction')->nullable();
             $table->string('insurance_cost')->nullable();
+            $table->string('cattle_sum_insurance')->nullable();
             $table->string('transaction_type')->nullable();
             $table->string('transaction_attachment')->nullable();
+            $table->string('package_insurance_period')->nullable();
+
             $table->string('status')->nullable(); // it will be accepted or rejected
 
             $table->string('cattle_id')->nullable();

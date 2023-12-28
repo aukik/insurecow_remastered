@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 27, 2023 at 01:03 PM
+-- Generation Time: Dec 28, 2023 at 12:28 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -601,8 +601,10 @@ CREATE TABLE `insurance_cash_requests` (
   `routing_no` varchar(255) DEFAULT NULL,
   `instruction` text DEFAULT NULL,
   `insurance_cost` varchar(255) DEFAULT NULL,
+  `cattle_sum_insurance` varchar(255) DEFAULT NULL,
   `transaction_type` varchar(255) DEFAULT NULL,
   `transaction_attachment` varchar(255) DEFAULT NULL,
+  `package_insurance_period` varchar(255) DEFAULT NULL,
   `status` varchar(255) DEFAULT NULL,
   `cattle_id` varchar(255) DEFAULT NULL,
   `package_id` varchar(255) DEFAULT NULL,
@@ -612,6 +614,13 @@ CREATE TABLE `insurance_cash_requests` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `insurance_cash_requests`
+--
+
+INSERT INTO `insurance_cash_requests` (`id`, `company_name`, `from_ac`, `to_ac`, `to_ac_name`, `bank_name`, `branch_name`, `routing_no`, `instruction`, `insurance_cost`, `cattle_sum_insurance`, `transaction_type`, `transaction_attachment`, `package_insurance_period`, `status`, `cattle_id`, `package_id`, `company_id`, `insurance_requested_company_id`, `user_id`, `created_at`, `updated_at`) VALUES
+(1, 'WeGro', 'tyt', 'tt', 'Pheonix Insurance', 'tt', 'hh', 'tt', 'tt', '2092', NULL, 'Cash', 'images/aJXdOvVxyqwfIOEHgIK2qJFaJ2AU8z28jsbQVKNf.pdf', '0.5', 'requested', '1', '2', '55', '54', '58', '2023-12-28 03:21:11', '2023-12-28 03:21:11');
 
 -- --------------------------------------------------------
 
@@ -743,7 +752,7 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (62, '2023_09_01_170436_create_orders_table', 32),
 (63, '2023_12_26_113736_add_permission_for_package_without_insurance_company', 33),
 (64, '2023_10_08_072704_create_insurance_requests_table', 34),
-(67, '2023_12_27_101934_create_insurance_cash_requests_table', 35);
+(72, '2023_12_27_101934_create_insurance_cash_requests_table', 35);
 
 -- --------------------------------------------------------
 
@@ -1369,7 +1378,7 @@ ALTER TABLE `income_and_sells`
 -- AUTO_INCREMENT for table `insurance_cash_requests`
 --
 ALTER TABLE `insurance_cash_requests`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `insurance_claims`
@@ -1399,7 +1408,7 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT for table `orders`

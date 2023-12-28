@@ -198,11 +198,18 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
 
 //    ------------------------------------------ Insurance calculation for the animal ------------------------------------------
 
-//    ------------------------------------------ requesting for the animal for insurance from company side ------------------------------------------
+//    ------------------------------------------ requesting for the animal for insurance from company side [Digital] ------------------------------------------
 
         Route::post('insurance_request_sent_from_company', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class, 'request_for_insurance'])->name('company.insurance_request_sent_from_company');
 
-//    ------------------------------------------ requesting for the animal for insurance from company side ------------------------------------------
+//    ------------------------------------------ requesting for the animal for insurance from company side [Digital] ------------------------------------------
+
+//    ------------------------------------------ requesting for the animal for insurance from company side [Cash] ------------------------------------------
+
+        Route::post('insurance_request_sent_from_company_cash', [\App\Http\Controllers\Company\Farmer\InsuranceCashRequestController::class, 'request_for_insurance_cash'])->name('company.insurance_request_sent_from_company_cash');
+
+
+//    ------------------------------------------ requesting for the animal for insurance from company side [Cash] ------------------------------------------
 
         //    ----------------------- Company insurance requests -----------------------
 

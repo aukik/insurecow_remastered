@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class InsuranceCashRequest extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
 }
