@@ -57,7 +57,7 @@
 
 
                                             <label class="small mb-1" for="inputLastName"
-                                            >Select Farmer</label
+                                            >Select Farmer <span style="color: red">*</span></label
                                             >
 
                                             <select class="form-control" id="farmer_list" name="user_id">
@@ -79,7 +79,7 @@
                                     <div class="col-md-6">
                                         <div class="row gx-3 mb-3">
                                             <label class="small mb-1" for="inputLastName"
-                                            >Select Animal</label
+                                            >Select Animal<span style="color: red">*</span></label
                                             >
                                             <select class="form-control" id="animal_list"
                                                     name="cattle_id">
@@ -98,11 +98,11 @@
 
 
                                             <label class="small mb-1" for="inputLastName"
-                                            >From A/C Name</label
+                                            >From A/C Name<span style="color: red">*</span></label
                                             >
 
                                             <input class="form-control"
-                                                   name="company_name" value="{{ auth()->user()->name }}">
+                                                   name="company_name" value="{{ auth()->user()->name }}" readonly style="background-color: white">
                                         </div>
                                     </div>
 
@@ -117,11 +117,11 @@
 
 
                                             <label class="small mb-1" for="inputLastName"
-                                            >From A/C</label
+                                            >From A/C<span style="color: red">*</span></label
                                             >
 
                                             <input class="form-control"
-                                                   name="from_ac">
+                                                   name="from_ac" required>
                                         </div>
                                     </div>
 
@@ -135,12 +135,12 @@
 
 
                                             <label class="small mb-1" for="inputLastName"
-                                            >To A/C Name</label
+                                            >To A/C Name<span style="color: red">*</span></label
                                             >
 
                                             <input class="form-control"
                                                    name="to_ac_name"
-                                                   value="{{ \App\Models\User::find($package->user_id)->name ?? "Company name not found" }}">
+                                                   value="{{ \App\Models\User::find($package->user_id)->name ?? "Company name not found" }}" readonly style="background-color: white" required>
                                         </div>
                                     </div>
 
@@ -153,10 +153,10 @@
 
 
                                             <label class="small mb-1" for="inputLastName"
-                                            >To A/C</label
+                                            >To A/C<span style="color: red">*</span></label
                                             >
 
-                                            <input class="form-control" name="to_ac">
+                                            <input class="form-control" name="to_ac" required>
                                         </div>
                                     </div>
 
@@ -169,11 +169,11 @@
 
 
                                             <label class="small mb-1" for="inputLastName"
-                                            >Bank Name</label
+                                            >Bank Name<span style="color: red">*</span></label
                                             >
 
                                             <input class="form-control" value=""
-                                                   name="bank_name">
+                                                   name="bank_name" required>
                                         </div>
                                     </div>
 
@@ -186,11 +186,11 @@
 
 
                                             <label class="small mb-1" for="inputLastName"
-                                            >Branch Name</label
+                                            >Branch Name<span style="color: red">*</span></label
                                             >
 
                                             <input class="form-control" value=""
-                                                   name="branch_name">
+                                                   name="branch_name" required>
                                         </div>
                                     </div>
 
@@ -203,11 +203,11 @@
 
 
                                             <label class="small mb-1" for="inputLastName"
-                                            >Routing No</label
+                                            >Routing No<span style="color: red">*</span></label
                                             >
 
                                             <input class="form-control" value=""
-                                                   name="routing_no">
+                                                   name="routing_no" required>
                                         </div>
                                     </div>
 
@@ -237,13 +237,15 @@
 
 
                                             <label class="small mb-1" for="inputLastName"
-                                            >Insurance Amount</label
+                                            >Insurance Amount<span style="color: red">*</span></label
                                             >
 
                                             <input class="form-control" value=""
-                                                   name="insurance_cost">
+                                                   name="insurance_cost" required type="number" id="insurance_cost_input" min="0">
                                         </div>
                                     </div>
+
+
 
                                     {{-- ------------------------------ Insurance Amount ------------------------------ --}}
 
@@ -254,7 +256,7 @@
 
 
                                             <label class="small mb-1" for="inputLastName"
-                                            >Transaction Type</label
+                                            >Transaction Type<span style="color: red">*</span></label
                                             >
 
 
@@ -277,7 +279,7 @@
 
 
                                             <label class="small mb-1" for="inputLastName"
-                                            >Transaction Attachment</label
+                                            >Transaction Attachment<span style="color: red">*</span></label
                                             >
 
 
@@ -370,8 +372,7 @@
                                         >Insurance Price</label
                                         >
 
-                                        <input class="form-control" readonly id="cattle_insurance_price" type="hidden"
-                                               name="insurance_cost">
+                                        <input class="form-control" readonly id="cattle_insurance_price" type="hidden">
                                     </div>
                                 </div>
 

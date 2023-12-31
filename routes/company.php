@@ -211,11 +211,17 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
 
 //    ------------------------------------------ requesting for the animal for insurance from company side [Cash] ------------------------------------------
 
-        //    ----------------------- Company insurance requests -----------------------
+        //    ----------------------- Company insurance requests - Insurance Requested Company [ Digital Transaction Requests ] -----------------------
 
         Route::get('company_insurance_requests_data', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class, 'view_insurance_history'])->name('company.view_insurance_history');
 
-        //    ----------------------- Company insurance requests -----------------------
+        //    ----------------------- Company insurance requests - Insurance Requested Company [ Digital Transaction Requests ] -----------------------
+
+        //    ----------------------- Company insurance requests - Insurance Requested Company [ Cash Transaction Requests ] -----------------------
+
+        Route::get('company_insurance_requests_data_cash', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class, 'view_insurance_history_cash'])->name('company.view_insurance_history_cash');
+
+        //    ----------------------- Company insurance requests - Insurance Requested Company [ Cash Transaction Requests ] -----------------------
 
         //    ----------------------- Company Transaction History -----------------------
 

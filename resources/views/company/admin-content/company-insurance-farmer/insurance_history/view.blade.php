@@ -15,7 +15,7 @@
                                 <div class="page-header-icon">
                                     <i data-feather="user"></i>
                                 </div>
-                                Company - Insurance History
+                                Company - Insurance History [ Digital Transactions ]
                             </h1>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                 <div class="col-xl-12">
                     <!-- Account details card-->
                     <div class="card mb-4">
-                        <div class="card-header">Company - Insurance History</div>
+                        <div class="card-header">Company - Insurance History [ Digital Transactions ]</div>
                         <div class="card-body">
 
                             @if(session('success'))

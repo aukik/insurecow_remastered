@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Company\Farmer;
 use App\Http\Controllers\API\Farmer\Insurance\InsuranceController;
 use App\Http\Controllers\Controller;
 use App\Models\CattleRegistration;
+use App\Models\InsuranceCashRequest;
 use App\Models\InsuranceRequest;
 use App\Models\Insured;
 use App\Models\Order;
@@ -147,7 +148,7 @@ class CompanyCanInsureFarmerController extends Controller
 
 //    ------------------------ requesting for the animal for insurance from company side ------------------------
 
-//    ------------------------ View Insurance History ------------------------
+//    ------------------------ View Insurance History - Insurance Requested Company - [Digital Transactions] ------------------------
 
     public function view_insurance_history()
     {
@@ -155,7 +156,17 @@ class CompanyCanInsureFarmerController extends Controller
         return view('company.admin-content.company-insurance-farmer.insurance_history.view', compact('insurance_history'));
     }
 
-//    ------------------------ View Insurance History ------------------------
+//    ------------------------ View Insurance History - Insurance Requested Company - [Digital Transactions] ------------------------
+
+//    ------------------------ View Insurance History - Insurance Requested Company - [Cash Transactions] ------------------------
+
+    public function view_insurance_history_cash()
+    {
+        $insurance_history = InsuranceCashRequest::where('insurance_requested_company_id', auth()->id())->get();
+        return view('company.admin-content.company-insurance-farmer.insurance_history.insurance_requested_company_cash_requests', compact('insurance_history'));
+    }
+
+//    ------------------------ View Insurance History - Insurance Requested Company - [Cash Transactions] ------------------------
 
 //    --------------- Insurance Transaction History ---------------
 

@@ -11,10 +11,12 @@ use App\Models\User;
 class InsuranceCashRequestController extends Controller
 {
 
-// ---------------------------------- Request for Insurance [ Cash Transaction ] ----------------------------------
+// ---------------------------------- Request for Insurance [ Cash Transaction ], company requesting to insurance company ----------------------------------
 
     public function request_for_insurance_cash()
     {
+
+
         $inputs = \request()->validate([
             'company_name' => 'nullable',
             'from_ac' => 'nullable',
@@ -26,7 +28,7 @@ class InsuranceCashRequestController extends Controller
             'instruction' => 'nullable',
             'cattle_sum_insurance' => 'nullable',
             'transaction_type' => 'nullable',
-            'transaction_attachment' => 'nullable|mimes:jpeg,jpg,png,pdf',
+            'transaction_attachment' => 'required|mimes:jpeg,jpg,png,pdf',
 
 
             'cattle_id' => 'required',
@@ -43,6 +45,9 @@ class InsuranceCashRequestController extends Controller
         if (!$farmer_id) {
             return "Farmer information not found";
         }
+
+        $inputs['cattle_sum_insurance'] = CattleRegistration::find($inputs['cattle_id'])->sum_insured;
+
 
         if (User::find($farmer_id)->company_id != auth()->user()->id) {
             return "User does not belong to the company";
@@ -62,6 +67,6 @@ class InsuranceCashRequestController extends Controller
         return back();
     }
 
-// ---------------------------------- Request for Insurance [ Cash Transaction ] ----------------------------------
+// ---------------------------------- Request for Insurance [ Cash Transaction ], company requesting to insurance company ----------------------------------
 
 }
