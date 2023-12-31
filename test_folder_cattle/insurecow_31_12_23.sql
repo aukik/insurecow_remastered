@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 28, 2023 at 12:28 PM
+-- Generation Time: Dec 31, 2023 at 12:45 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -620,7 +620,7 @@ CREATE TABLE `insurance_cash_requests` (
 --
 
 INSERT INTO `insurance_cash_requests` (`id`, `company_name`, `from_ac`, `to_ac`, `to_ac_name`, `bank_name`, `branch_name`, `routing_no`, `instruction`, `insurance_cost`, `cattle_sum_insurance`, `transaction_type`, `transaction_attachment`, `package_insurance_period`, `status`, `cattle_id`, `package_id`, `company_id`, `insurance_requested_company_id`, `user_id`, `created_at`, `updated_at`) VALUES
-(1, 'WeGro', 'tyt', 'tt', 'Pheonix Insurance', 'tt', 'hh', 'tt', 'tt', '2092', NULL, 'Cash', 'images/aJXdOvVxyqwfIOEHgIK2qJFaJ2AU8z28jsbQVKNf.pdf', '0.5', 'requested', '1', '2', '55', '54', '58', '2023-12-28 03:21:11', '2023-12-28 03:21:11');
+(9, 'WeGro', 'yugy', 'uygu', 'Pheonix Insurance', 'yguyg', 'yguyg', 'gyu', 'gyugy', '1', '121230', 'Cash', 'images/r0UkbopaiRUMZeEwXAD53lkMAs8qDBJkwSDTLCvZ.pdf', '0.5', 'requested', '1', '2', '55', '54', '58', '2023-12-31 03:16:17', '2023-12-31 03:16:17');
 
 -- --------------------------------------------------------
 
@@ -1378,7 +1378,7 @@ ALTER TABLE `income_and_sells`
 -- AUTO_INCREMENT for table `insurance_cash_requests`
 --
 ALTER TABLE `insurance_cash_requests`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `insurance_claims`
