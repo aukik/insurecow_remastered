@@ -46,14 +46,21 @@
                                     <tr>
                                         <th>Serial</th>
                                         <th>Package Info</th>
-                                        <th>Company Insured to</th>
-                                        <th>From A/C</th>
-                                        <th>To A/C</th>
-                                        <th>Bank Name</th>
-                                        <th>Branch Name</th>
-                                        <th>Routing No</th>
+                                        <th>Insured to</th>
+                                        <th>Inc. Requested By</th>
+                                        {{--                                        <th>From A/C</th>--}}
+                                        {{--                                        <th>To A/C</th>--}}
+                                        {{--                                        <th>Bank Name</th>--}}
+                                        {{--                                        <th>Branch Name</th>--}}
+                                        {{--                                        <th>Routing No</th>--}}
                                         <th>Attachment</th>
                                         <th>Status</th>
+
+                                        @if(auth()->user()->permission->c_insurance == 1)
+                                            <th>Action</th>
+                                            <th>Action</th>
+                                        @endif
+
 
                                     </tr>
                                     </thead>
@@ -67,14 +74,45 @@
                                             <td>{{ $id += 1 }}</td>
                                             <td>{!!  \App\Http\Controllers\Farmer\InsuranceRequestController::package_id($history->package_id) !!}</td>
                                             <td>{!!  \App\Http\Controllers\Farmer\InsuranceRequestController::company_data($history->company_id) !!}</td>
-                                            <td>{{ $history->from_ac }}</td>
-                                            <td>{{ $history->to_ac }}</td>
-                                            <td>{{ $history->bank_name }}</td>
-                                            <td>{{ $history->branch_name }}</td>
-                                            <td>{{ $history->routing_no }}</td>
-                                            <td><a href="{{ asset('storage/'.$history->transaction_attachment)  }}">File</a></td>
-                                            <td>{{ $history->status }}</td>
+                                            <td>{!!  \App\Http\Controllers\Farmer\InsuranceRequestController::company_data($history->insurance_requested_company_id) !!}</td>
+                                            {{--                                            <td>{{ $history->from_ac }}</td>--}}
+                                            {{--                                            <td>{{ $history->to_ac }}</td>--}}
+                                            {{--                                            <td>{{ $history->bank_name }}</td>--}}
+                                            {{--                                            <td>{{ $history->branch_name }}</td>--}}
+                                            {{--                                            <td>{{ $history->routing_no }}</td>--}}
+                                            <td>
+                                                <a href="{{ asset('storage/'.$history->transaction_attachment)  }}">File</a>
+                                            </td>
+                                            <td>
 
+                                                @if($insured = \App\Models\Insured::where('cattle_id',$history->cattle_id)->first())
+                                                    Insured
+                                                @else
+                                                    {{ $history->status }}
+                                                @endif
+                                            </td>
+
+
+                                            {{--   ------------------- Applicable for insurance with package based company ------------------- --}}
+
+                                            @if(auth()->user()->permission->c_insurance == 1)
+                                                @if($history->status == "accepted" || $history->status == "rejected")
+
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                @else
+
+                                                    <td>
+                                                        <a href="{{ route('company_insurance_acceptance', [$history->id,'a']) }}"
+                                                           class="btn btn-primary">Accept</a></td>
+                                                    <td>
+                                                        <a href="{{ route('company_insurance_acceptance', [$history->id,'r']) }}"
+                                                           class="btn btn-danger">Reject</a></td>
+                                                @endif
+
+                                            @endif
+
+                                            {{--   ------------------- Applicable for insurance with package based company ------------------- --}}
 
                                         </tr>
                                     @endforeach

@@ -249,6 +249,44 @@
 
                                     {{-- ------------------------------ Insurance Amount ------------------------------ --}}
 
+                                    {{-- ------------------------------ Insurance Date ------------------------------ --}}
+
+                                    <div class="col-md-6">
+                                        <div class="row gx-3 mb-3">
+
+
+                                            <label class="small mb-1" for="inputLastName"
+                                            >Insurance Date<span style="color: red">*</span></label
+                                            >
+
+                                            <input class="form-control" value=""
+                                                   name="insurance_date" required type="date">
+                                        </div>
+                                    </div>
+
+
+
+                                    {{-- ------------------------------ Insurance Date ------------------------------ --}}
+
+                                    {{-- ------------------------------ Insurance Expiration Date ------------------------------ --}}
+
+                                    <div class="col-md-6">
+                                        <div class="row gx-3 mb-3">
+
+
+                                            <label class="small mb-1" for="inputLastName"
+                                            >Insurance Expiration Date<span style="color: red">*</span></label
+                                            >
+
+                                            <input class="form-control" value=""
+                                                   name="insurance_expiration_date" required type="date">
+                                        </div>
+                                    </div>
+
+
+
+                                    {{-- ------------------------------ Insurance Expiration Date ------------------------------ --}}
+
                                     {{-- ------------------------------ Transaction Type ------------------------------ --}}
 
                                     <div class="col-md-6">

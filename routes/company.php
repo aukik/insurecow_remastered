@@ -70,11 +70,24 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
 
         //    -------------------------- Package Status -----------------------------
 
-        //    -------------------------- View Insurance requests from farmers -----------------------------
+        //    -------------------------- View Insurance requests from farmers and company [Digital] -----------------------------
 
         Route::get("company_insurance_requests", [InsuranceRequest::class, 'view_insurance_history'])->name('company_view_insurance_history');
 
-        //    -------------------------- View Insurance requests from farmers -----------------------------
+        //    -------------------------- View Insurance requests from farmers and company [Digital] -----------------------------
+
+        //    -------------------------- View Insurance requests from farmers and company [Cash] -----------------------------
+
+        Route::get("company_insurance_requests_cash", [InsuranceRequest::class, 'view_insurance_history_cash'])->name('company_view_insurance_history_cash');
+
+        //    -------------------------- View Insurance requests from farmers and company [Cash] -----------------------------
+
+        //    ------------------------ Insurance Acceptance or rejection from Insurance company - with package ------------------------
+
+        Route::get('company_insurance_acceptance/{id}/{acceptance}', [InsuranceRequest::class, 'company_insurance_request_acceptance'])->name('company_insurance_acceptance');
+
+        //    ------------------------ Insurance Acceptance or rejection from Insurance company - with package ------------------------
+
 
         //    -------------------------- Send request to farmer -----------------------------
 

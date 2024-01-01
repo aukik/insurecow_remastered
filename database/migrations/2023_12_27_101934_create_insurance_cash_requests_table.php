@@ -29,6 +29,9 @@ class CreateInsuranceCashRequestsTable extends Migration
             $table->string('transaction_attachment')->nullable();
             $table->string('package_insurance_period')->nullable();
 
+            $table->date('insurance_date')->nullable();
+            $table->date('insurance_expiration_date')->nullable();
+
             $table->string('status')->nullable(); // it will be accepted or rejected
 
             $table->string('cattle_id')->nullable();

@@ -28,6 +28,10 @@ class InsuranceCashRequestController extends Controller
             'instruction' => 'nullable',
             'cattle_sum_insurance' => 'nullable',
             'transaction_type' => 'nullable',
+
+            'insurance_date' => 'nullable|date',
+            'insurance_expiration_date' => 'nullable|date',
+
             'transaction_attachment' => 'required|mimes:jpeg,jpg,png,pdf',
 
 

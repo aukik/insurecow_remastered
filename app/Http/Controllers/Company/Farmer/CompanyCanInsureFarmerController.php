@@ -173,7 +173,7 @@ class CompanyCanInsureFarmerController extends Controller
 
     public function insurance_transaction_history()
     {
-        $insurance_history = Order::where('insurance_requested_company_id', auth()->id())->where('status', 'Processing')->orWhere('status', 'Complete')->get();
+        $insurance_history = Order::where('insurance_requested_company_id', auth()->id())->where('status', 'Processing')->orWhere('status', 'Complete')->orWhere('status', 'Cash')->get();
         return view("farmer.admin-content.insurance_payment_history.view", compact('insurance_history'));
     }
 
@@ -185,7 +185,7 @@ class CompanyCanInsureFarmerController extends Controller
 
     public function insurance_transaction_history_with_package()
     {
-        $insurance_history = Order::where('company_id', auth()->id())->where('status', 'Processing')->orWhere('status', 'Complete')->get();
+        $insurance_history = Order::where('company_id', auth()->id())->where('status', 'Processing')->orWhere('status', 'Complete')->orWhere('status', 'Cash')->get();
         return view("company.admin-content.insurance_payment_history.view", compact('insurance_history'));
     }
 
