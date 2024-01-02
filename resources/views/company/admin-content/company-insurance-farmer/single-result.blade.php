@@ -27,17 +27,18 @@
                             {{-- ------------------------------------- Buy Insurance ------------------------------------------- --}}
 
 
+
                             {{-- ----------- Digital Payment ----------- --}}
 
                             <a href="{{ route('company.single_animal_select_package', $package) }}"
-                               class="btn btn-success h3 text-white">Select Package [Digital Payment]</a>
+                               class="btn btn-success h3 text-white">Digital Payment</a>
 
                             {{-- ----------- Digital Payment ----------- --}}
 
                             {{-- ----------- Cash Payment ----------- --}}
 
                             <a href="{{ route('company.single_animal_select_package_cash', $package) }}"
-                               class="btn btn-success h3 text-white">Select Package [Cash Payment]</a>
+                               class="btn btn-success h3 text-white">Cash Payment</a>
 
                             {{-- ----------- Cash Payment ----------- --}}
 

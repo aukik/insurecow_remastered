@@ -7,6 +7,7 @@ use App\Models\CattleRegistration;
 use App\Models\InsuranceCashRequest;
 use App\Models\Insured;
 use App\Models\Order;
+use App\Models\Package;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -35,6 +36,7 @@ class InsuranceRequest extends Controller
 
 //    ------------------------ View Insurance History [Cash] ------------------------
 
+
     //    ------------------------ View Cattle Info ------------------------
 
     public function view_cattle_info($id)
@@ -55,6 +57,40 @@ class InsuranceRequest extends Controller
 
 //    ------------------------ View Cattle Info ------------------------
 
+//    ------------------------ View cattle, package and other Info - Insurance Cash Request ------------------------
+
+    public function view_other_info($id)
+    {
+        $insurance_request_info = \App\Models\InsuranceCashRequest::findOrFail($id);
+
+        $cattle = CattleRegistration::find($insurance_request_info->cattle_id);
+        $package = Package::find($insurance_request_info->package_id);
+        $farmer = User::find($insurance_request_info->user_id);
+
+
+        return view('company.admin-content.cash_insurance_full_info.view_single_cattle_info', compact('insurance_request_info', 'cattle', 'package', 'farmer'));
+    }
+
+
+//    ------------------------ View cattle, package and other Info - Insurance Cash Request ------------------------
+
+//    ------------------------ View cattle, package and other Info - Company with inc package - Insurance Cash Request ------------------------
+
+    public function view_other_info_2($id)
+    {
+        $insurance_request_info = \App\Models\InsuranceCashRequest::findOrFail($id);
+
+        $cattle = CattleRegistration::find($insurance_request_info->cattle_id);
+        $package = Package::find($insurance_request_info->package_id);
+        $farmer = User::find($insurance_request_info->user_id);
+
+
+        return view('company.admin-content.cash_insurance_full_info.view_single_cattle_info', compact('insurance_request_info', 'cattle', 'package', 'farmer'));
+    }
+
+
+//    ------------------------ View cattle, package and other Info - Company with inc package - Insurance Cash Request ------------------------
+
 //    ------------------------ Send policy to farmer ------------------------
 
 
@@ -71,6 +107,55 @@ class InsuranceRequest extends Controller
 
 
 //    ------------------------ Send policy to farmer ------------------------
+
+
+//    ------------------------ View Insurance Acceptance Form [Cash] ------------------------
+
+    public function view_insurance_acceptance_form($id)
+    {
+        $insurance_request = InsuranceCashRequest::find($id);
+        $package = Package::find($insurance_request->package_id);
+        return view("company.admin-content.company-insurance-farmer.insurance_premium_side.insurance_animal_single_cash_payment_update_premium_side", compact('insurance_request', 'package'));
+    }
+//    ------------------------ View Insurance Acceptance Form [Cash] ------------------------
+
+//    ------------------------------------------------- View Insurance Acceptance Form Update [Cash] -------------------------------------------------------
+
+    public function view_insurance_acceptance_form_update($id)
+    {
+
+        $insurance_cash_request = InsuranceCashRequest::find($id);
+
+        $inputs = \request()->validate([
+            'company_name' => 'nullable',
+            'from_ac' => 'nullable',
+            'to_ac' => 'nullable',
+            'to_ac_name' => 'nullable',
+            'bank_name' => 'nullable',
+            'branch_name' => 'nullable',
+            'routing_no' => 'nullable',
+            'instruction' => 'nullable',
+            'cattle_sum_insurance' => 'nullable',
+            'transaction_type' => 'nullable',
+            'insurance_date' => 'nullable|date',
+            'insurance_expiration_date' => 'nullable|date',
+            'transaction_attachment' => 'nullable|mimes:jpeg,jpg,png,pdf',
+        ]);
+
+        $insurance_cash_request->update($inputs);
+
+        $transaction_acceptation = \request('transaction_acceptation');
+
+        if ($transaction_acceptation == "a") {
+            $this->company_insurance_request_acceptance($insurance_cash_request->id, 'a');
+        } elseif ($transaction_acceptation == "r") {
+            $this->company_insurance_request_acceptance($insurance_cash_request->id, 'r');
+        }
+
+    }
+
+//    ------------------------------------------------- View Insurance Acceptance Form Update [Cash] ------------------------------------------------------
+
 
 //    ------------------------ Insurance Acceptance or rejection from Insurance company - with package ------------------------
     public function company_insurance_request_acceptance($id, $acceptance)
@@ -143,7 +228,7 @@ class InsuranceRequest extends Controller
             // ---------------------------- Pushing the data to Insured table ----------------------------
 
             session()->flash("success", "Animal Insured Successfully");
-            return back();
+            return redirect()->route("company_view_insurance_history_cash");
         } elseif ($acceptance == 'r') {
 
             $insurance_request->update([
@@ -151,7 +236,7 @@ class InsuranceRequest extends Controller
             ]);
 
             session()->flash("success", "Animal Insurance Unapproved");
-            return back();
+            return redirect()->route("company_view_insurance_history_cash");
 
         }
 

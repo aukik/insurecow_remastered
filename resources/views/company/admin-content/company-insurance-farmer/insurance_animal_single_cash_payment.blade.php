@@ -102,7 +102,8 @@
                                             >
 
                                             <input class="form-control"
-                                                   name="company_name" value="{{ auth()->user()->name }}" readonly style="background-color: white">
+                                                   name="company_name" value="{{ auth()->user()->name }}" readonly
+                                                   style="background-color: white">
                                         </div>
                                     </div>
 
@@ -140,7 +141,8 @@
 
                                             <input class="form-control"
                                                    name="to_ac_name"
-                                                   value="{{ \App\Models\User::find($package->user_id)->name ?? "Company name not found" }}" readonly style="background-color: white" required>
+                                                   value="{{ \App\Models\User::find($package->user_id)->name ?? "Company name not found" }}"
+                                                   readonly style="background-color: white" required>
                                         </div>
                                     </div>
 
@@ -148,85 +150,85 @@
 
                                     {{-- ------------------------------ To A/C ------------------------------ --}}
 
-                                    <div class="col-md-6">
-                                        <div class="row gx-3 mb-3">
+                                    {{--                                    <div class="col-md-6">--}}
+                                    {{--                                        <div class="row gx-3 mb-3">--}}
 
 
-                                            <label class="small mb-1" for="inputLastName"
-                                            >To A/C<span style="color: red">*</span></label
-                                            >
+                                    {{--                                            <label class="small mb-1" for="inputLastName"--}}
+                                    {{--                                            >To A/C<span style="color: red">*</span></label--}}
+                                    {{--                                            >--}}
 
-                                            <input class="form-control" name="to_ac" required>
-                                        </div>
-                                    </div>
+                                    {{--                                            <input class="form-control" name="to_ac" required>--}}
+                                    {{--                                        </div>--}}
+                                    {{--                                    </div>--}}
 
                                     {{-- ------------------------------ To A/C ------------------------------ --}}
 
                                     {{-- ------------------------------ Bank Name ------------------------------ --}}
 
-                                    <div class="col-md-6">
-                                        <div class="row gx-3 mb-3">
+                                    {{--                                    <div class="col-md-6">--}}
+                                    {{--                                        <div class="row gx-3 mb-3">--}}
 
 
-                                            <label class="small mb-1" for="inputLastName"
-                                            >Bank Name<span style="color: red">*</span></label
-                                            >
+                                    {{--                                            <label class="small mb-1" for="inputLastName"--}}
+                                    {{--                                            >Bank Name<span style="color: red">*</span></label--}}
+                                    {{--                                            >--}}
 
-                                            <input class="form-control" value=""
-                                                   name="bank_name" required>
-                                        </div>
-                                    </div>
+                                    {{--                                            <input class="form-control" value=""--}}
+                                    {{--                                                   name="bank_name" required>--}}
+                                    {{--                                        </div>--}}
+                                    {{--                                    </div>--}}
 
                                     {{-- ------------------------------ Bank Name ------------------------------ --}}
 
                                     {{-- ------------------------------ Branch Name ------------------------------ --}}
 
-                                    <div class="col-md-6">
-                                        <div class="row gx-3 mb-3">
+                                    {{--                                    <div class="col-md-6">--}}
+                                    {{--                                        <div class="row gx-3 mb-3">--}}
 
 
-                                            <label class="small mb-1" for="inputLastName"
-                                            >Branch Name<span style="color: red">*</span></label
-                                            >
+                                    {{--                                            <label class="small mb-1" for="inputLastName"--}}
+                                    {{--                                            >Branch Name<span style="color: red">*</span></label--}}
+                                    {{--                                            >--}}
 
-                                            <input class="form-control" value=""
-                                                   name="branch_name" required>
-                                        </div>
-                                    </div>
+                                    {{--                                            <input class="form-control" value=""--}}
+                                    {{--                                                   name="branch_name" required>--}}
+                                    {{--                                        </div>--}}
+                                    {{--                                    </div>--}}
 
                                     {{-- ------------------------------ Branch Name ------------------------------ --}}
 
                                     {{-- ------------------------------ Routing No ------------------------------ --}}
 
-                                    <div class="col-md-6">
-                                        <div class="row gx-3 mb-3">
+                                    {{--                                    <div class="col-md-6">--}}
+                                    {{--                                        <div class="row gx-3 mb-3">--}}
 
 
-                                            <label class="small mb-1" for="inputLastName"
-                                            >Routing No<span style="color: red">*</span></label
-                                            >
+                                    {{--                                            <label class="small mb-1" for="inputLastName"--}}
+                                    {{--                                            >Routing No<span style="color: red">*</span></label--}}
+                                    {{--                                            >--}}
 
-                                            <input class="form-control" value=""
-                                                   name="routing_no" required>
-                                        </div>
-                                    </div>
+                                    {{--                                            <input class="form-control" value=""--}}
+                                    {{--                                                   name="routing_no" required>--}}
+                                    {{--                                        </div>--}}
+                                    {{--                                    </div>--}}
 
                                     {{-- ------------------------------ Routing No ------------------------------ --}}
 
                                     {{-- ------------------------------ Instruction ------------------------------ --}}
 
-                                    <div class="col-md-6">
-                                        <div class="row gx-3 mb-3">
+                                    {{--                                    <div class="col-md-6">--}}
+                                    {{--                                        <div class="row gx-3 mb-3">--}}
 
 
-                                            <label class="small mb-1" for="inputLastName"
-                                            >Instruction</label
-                                            >
+                                    {{--                                            <label class="small mb-1" for="inputLastName"--}}
+                                    {{--                                            >Instruction</label--}}
+                                    {{--                                            >--}}
 
-                                            <input class="form-control" value=""
-                                                   name="instruction">
-                                        </div>
-                                    </div>
+                                    {{--                                            <input class="form-control" value=""--}}
+                                    {{--                                                   name="instruction">--}}
+                                    {{--                                        </div>--}}
+                                    {{--                                    </div>--}}
 
                                     {{-- ------------------------------ Instruction ------------------------------ --}}
 
@@ -241,10 +243,10 @@
                                             >
 
                                             <input class="form-control" value=""
-                                                   name="insurance_cost" required type="number" id="insurance_cost_input" min="0">
+                                                   name="insurance_cost" required type="number"
+                                                   id="insurance_cost_input" min="0">
                                         </div>
                                     </div>
-
 
 
                                     {{-- ------------------------------ Insurance Amount ------------------------------ --}}
@@ -259,11 +261,10 @@
                                             >Insurance Date<span style="color: red">*</span></label
                                             >
 
-                                            <input class="form-control" value=""
+                                            <input class="form-control" value="<?= date('Y-m-d'); ?>"
                                                    name="insurance_date" required type="date">
                                         </div>
                                     </div>
-
 
 
                                     {{-- ------------------------------ Insurance Date ------------------------------ --}}
@@ -278,11 +279,11 @@
                                             >Insurance Expiration Date<span style="color: red">*</span></label
                                             >
 
-                                            <input class="form-control" value=""
+                                            <input class="form-control"
+                                                   value="{{ \App\Models\User::addYearsAndMonths($package->insurance_period)->format('Y-m-d') }}"
                                                    name="insurance_expiration_date" required type="date">
                                         </div>
                                     </div>
-
 
 
                                     {{-- ------------------------------ Insurance Expiration Date ------------------------------ --}}
@@ -420,8 +421,8 @@
                                 <br>
 
 
-                                <input type="submit" value="Send Insurance Request" class="btn btn-primary" style="margin-top: -10%">
-
+                                <input type="submit" value="Send Insurance Request" class="btn btn-primary"
+                                       style="margin-top: -100px; margin-left: -7px">
 
                                 {{-- -------------------------------------------------------- Insurance Table Data
                                 -------------------------------------------------------- --}}
@@ -559,6 +560,8 @@
 
             let insurance_price_table_data_info = document.querySelector(".insurance_price_table_data_info");
 
+            let insurance_cost_input = document.querySelector("#insurance_cost_input");
+
 
             animal_list_select.addEventListener("change", function () {
                 // Get the selected option
@@ -575,6 +578,9 @@
 
                     cattle_sum_insured_table_text.innerHTML = res.data.sum_insured + "/-";
                     cattle_insurance_price_table_text.innerHTML = Math.ceil(res.data.insurance_cost) + "/-";
+
+                    insurance_cost_input.value = Math.ceil(res.data.insurance_cost);
+
 
                     insurance_price_table_data_info.style.display = "none";
                 });

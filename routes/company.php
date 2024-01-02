@@ -58,6 +58,12 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
 
     Route::middleware('company.premium_insurance')->group(function () {
 
+        //    -------------------------- View cattle, package and other Info - Insurance Cash Request - Company with insurance-----------------------------
+
+        Route::get("view_other_info_1/{id}", [InsuranceRequest::class, 'view_other_info_2'])->name('company_other_info_1');
+
+        //    -------------------------- View cattle, package and other Info - Insurance Cash Request - Company with insurance -----------------------------
+
         //    -------------------------- Package Creation -----------------------------
 
         Route::resource('package', PackageController::class);
@@ -81,6 +87,21 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
         Route::get("company_insurance_requests_cash", [InsuranceRequest::class, 'view_insurance_history_cash'])->name('company_view_insurance_history_cash');
 
         //    -------------------------- View Insurance requests from farmers and company [Cash] -----------------------------
+
+        //    -------------------------- Single insurance history page update view - Acceptance or reject [Cash] -----------------------------
+
+        Route::get("company_view_insurance_acceptance_form/{id}", [InsuranceRequest::class, 'view_insurance_acceptance_form'])->name('company_view_insurance_acceptance_form');
+        Route::put("company_view_insurance_acceptance_form_update/{id}", [InsuranceRequest::class, 'view_insurance_acceptance_form_update'])->name('company_view_insurance_acceptance_form_update');
+
+
+
+
+
+
+
+
+
+        //    -------------------------- Single insurance history page update view - Acceptance or reject [Cash] -----------------------------
 
         //    ------------------------ Insurance Acceptance or rejection from Insurance company - with package ------------------------
 
@@ -172,6 +193,12 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
         Route::get("view_cattle_info_2/{id}", [InsuranceRequest::class, 'view_cattle_info'])->name('company_view_cattle_info_2');
 
         //    -------------------------- View Cattle Info -----------------------------
+
+        //    -------------------------- View cattle, package and other Info - Insurance Cash Request -----------------------------
+
+        Route::get("view_other_info_2/{id}", [InsuranceRequest::class, 'view_other_info'])->name('company_other_info_2');
+
+        //    -------------------------- View cattle, package and other Info - Insurance Cash Request -----------------------------
 
         Route::get('search_company', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class, 'search_company'])->name('company.insurance_search_get');
         Route::get('search_company_post', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class, 'total_insurance_packages'])->name('company.insurance_search_post');

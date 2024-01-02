@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 01, 2024 at 07:09 PM
+-- Generation Time: Jan 02, 2024 at 12:55 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -617,6 +617,13 @@ CREATE TABLE `insurance_cash_requests` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `insurance_cash_requests`
+--
+
+INSERT INTO `insurance_cash_requests` (`id`, `company_name`, `from_ac`, `to_ac`, `to_ac_name`, `bank_name`, `branch_name`, `routing_no`, `instruction`, `insurance_cost`, `cattle_sum_insurance`, `transaction_type`, `transaction_attachment`, `package_insurance_period`, `insurance_date`, `insurance_expiration_date`, `status`, `cattle_id`, `package_id`, `company_id`, `insurance_requested_company_id`, `user_id`, `created_at`, `updated_at`) VALUES
+(5, 'WeGro', '423423423', '2', 'Pheonix Insurance', '2', '2', '2', '2', '1766', '102330', 'Cash', 'images/E6to8X4XDvhyd6MA3hZyjIyXWBXynHpLfGL6AViX.pdf', '0.5', '2024-01-02', '2024-06-02', 'requested', '2', '2', '55', '54', '59', '2024-01-02 04:08:27', '2024-01-02 04:34:40');
+
 -- --------------------------------------------------------
 
 --
@@ -685,8 +692,7 @@ CREATE TABLE `insureds` (
 --
 
 INSERT INTO `insureds` (`id`, `cattle_id`, `package_id`, `company_id`, `order_id`, `user_id`, `insurance_status`, `insurance_type`, `package_expiration_date`, `created_at`, `updated_at`) VALUES
-(14, '33', '2', '55', '9', '89', 'insured', 'single', '2024-05-26', '2023-12-26 17:43:10', '2023-12-26 17:43:10'),
-(21, '2', '2', '2', '18', '59', 'insured', 'single', '2024-01-02', '2024-01-01 12:01:33', '2024-01-01 12:01:33');
+(14, '33', '2', '55', '9', '89', 'insured', 'single', '2024-05-26', '2023-12-26 17:43:10', '2023-12-26 17:43:10');
 
 -- --------------------------------------------------------
 
@@ -1374,7 +1380,7 @@ ALTER TABLE `income_and_sells`
 -- AUTO_INCREMENT for table `insurance_cash_requests`
 --
 ALTER TABLE `insurance_cash_requests`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `insurance_claims`
@@ -1392,7 +1398,7 @@ ALTER TABLE `insurance_requests`
 -- AUTO_INCREMENT for table `insureds`
 --
 ALTER TABLE `insureds`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `jobs`
@@ -1410,7 +1416,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `packages`

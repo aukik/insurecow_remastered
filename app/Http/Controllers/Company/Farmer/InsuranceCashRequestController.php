@@ -32,7 +32,7 @@ class InsuranceCashRequestController extends Controller
             'insurance_date' => 'nullable|date',
             'insurance_expiration_date' => 'nullable|date',
 
-            'transaction_attachment' => 'required|mimes:jpeg,jpg,png,pdf',
+            'transaction_attachment' => 'nullable|mimes:jpeg,jpg,png,pdf',
 
 
             'cattle_id' => 'required',
