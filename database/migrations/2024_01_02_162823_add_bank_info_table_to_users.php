@@ -30,7 +30,11 @@ class AddBankInfoTableToUsers extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            Schema::dropIfExists('users');
+            $table->dropColumn('account');
+            $table->dropColumn('bank_name');
+            $table->dropColumn('branch_name');
+            $table->dropColumn('routing_no');
+            $table->dropColumn('instruction');
         });
     }
 }

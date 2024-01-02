@@ -27,6 +27,8 @@ class AddCashPaymentAttachmentToTable extends Migration
     public function down()
     {
         Schema::table('insurance_requests', function (Blueprint $table) {
+            $table->dropColumn('attachment');
+            $table->dropColumn('transaction_type');
         });
     }
 }
