@@ -15,7 +15,7 @@
                                 <div class="page-header-icon">
                                     <i data-feather="user"></i>
                                 </div>
-                                Company - Insurance History [ Digital Transactions ]
+                                Company - Insurance History
                             </h1>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                 <div class="col-xl-12">
                     <!-- Account details card-->
                     <div class="card mb-4">
-                        <div class="card-header">Company - Insurance History [ Digital Transactions ]</div>
+                        <div class="card-header">Company - Insurance History</div>
                         <div class="card-body">
 
                             @if(session('success'))
@@ -60,6 +60,7 @@
                                         <th>Insurance For</th>
 
                                         <th>Buy Insurance</th>
+                                        <th>Cash Transaction</th>
 
                                     </tr>
                                     </thead>
@@ -156,6 +157,11 @@
 
                                             @endif
 
+
+
+                                            <td>
+                                                <a href="{{ route('company_insurance_requests_data_add_attachment',$history->id) }}" class="btn btn-primary">Buy</a>
+                                            </td>
 
                                         </tr>
                                     @endforeach

@@ -257,6 +257,14 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
 
         //    ----------------------- Company insurance requests - Insurance Requested Company [ Digital Transaction Requests ] -----------------------
 
+        //    ----------------------- Company insurance requests - Add and update attachment -----------------------
+
+        Route::get('company_insurance_requests_data_add_attachment/{id}', [\App\Http\Controllers\Company\CashTransactionController::class, 'attachment_page'])->name('company_insurance_requests_data_add_attachment');
+        Route::put('company_insurance_requests_data_add_attachment/{id}', [\App\Http\Controllers\Company\CashTransactionController::class, 'attachment_page_update'])->name('company_insurance_requests_data_add_attachment_update');
+
+
+        //    ----------------------- Company insurance requests - Add and update attachment -----------------------
+
         //    ----------------------- Company insurance requests - Insurance Requested Company [ Cash Transaction Requests ] -----------------------
 
         Route::get('company_insurance_requests_data_cash', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class, 'view_insurance_history_cash'])->name('company.view_insurance_history_cash');
