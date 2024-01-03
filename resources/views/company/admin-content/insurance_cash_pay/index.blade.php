@@ -43,34 +43,47 @@
                             @endif
 
 
-                            <form action="{{ route('company_insurance_requests_data_add_attachment_update', $insurance_request->id) }}" method="post"
-                                  enctype="multipart/form-data">
+                            <form
+                                action="{{ route('company_insurance_requests_data_add_attachment_update', $insurance_request->id) }}"
+                                method="post"
+                                enctype="multipart/form-data">
                                 @method('put')
                                 {{ csrf_field() }}
 
-                                <div class="row gx-3 mb-3">
+                                <div class="row">
                                     <div class="col-md-6">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >Add Attachment</label
-                                        >
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="file"
-                                            placeholder=""
-                                            value=""
-                                            name="attachment"
-                                        />
+                                        <div class="row gx-3 mb-3">
+                                            <label class="small mb-1" for="inputLastName"
+                                            >Add Attachment</label
+                                            >
+                                            <input
+                                                class="form-control"
+                                                id="inputLastName"
+                                                type="file"
+                                                placeholder=""
+                                                value=""
+                                                name="attachment"
+                                            />
+                                        </div>
                                     </div>
+
+                                    <div class="col-md-6">
+                                        <div class="row gx-3 mb-3">
+                                            <label class="small mb-1" for="inputLastName"
+                                            >Transaction Type</label>
+
+                                            <select class="form-select" name="transaction_type">
+                                                <option value="cash">Cash</option>
+                                                <option value="cheque">Cheque</option>
+                                                <option value="bank">Bank</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
                                 </div>
 
-
-
-
-
-
                                 <button class="btn btn-primary" type="submit">
-                                    Save changes
+                                    Submit
                                 </button>
                             </form>
 

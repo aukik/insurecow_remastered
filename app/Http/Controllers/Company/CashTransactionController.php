@@ -9,24 +9,26 @@ class CashTransactionController extends Controller
 {
 // -------------------------- Add Attachment -----------------------------
 
-    public function attachment_page($id)
+    public function transaction_view($id, $type)
     {
         $insurance_request = \App\Models\InsuranceRequest::find($id);
-        return view("company.admin-content.insurance_cash_pay.index", compact('insurance_request'));
+        $type_data = $type;
+
+        return view("company.admin-content.cart_and_payment.transaction_page", compact('insurance_request','type_data'));
     }
 
 // -------------------------- Add Attachment -----------------------------
 
 
-// -------------------------- Update Attachment -----------------------------
+// -------------------------- Transaction view -----------------------------
 
     public function attachment_page_update(Request $request, $id)
     {
-
         return $id;
         $insuranceRequest->update(\request()->all());
 
+
     }
 
-// -------------------------- Update Attachment -----------------------------
+// -------------------------- Transaction view -----------------------------
 }

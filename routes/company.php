@@ -94,13 +94,6 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
         Route::put("company_view_insurance_acceptance_form_update/{id}", [InsuranceRequest::class, 'view_insurance_acceptance_form_update'])->name('company_view_insurance_acceptance_form_update');
 
 
-
-
-
-
-
-
-
         //    -------------------------- Single insurance history page update view - Acceptance or reject [Cash] -----------------------------
 
         //    ------------------------ Insurance Acceptance or rejection from Insurance company - with package ------------------------
@@ -257,10 +250,25 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
 
         //    ----------------------- Company insurance requests - Insurance Requested Company [ Digital Transaction Requests ] -----------------------
 
+        //    ---------------------------------------------------------------------------------------------------------------- Cart Page view - Company without insurance page -----------------------------------------------------------------------------------------------------------------------
+
+        Route::get('company_without_insurance_cart/{id}', [\App\Http\Controllers\Company\CartController::class, 'cart'])->name('company_without_insurance_cart');
+
+        //    ----------------------- Transaction view -----------------------
+
+        Route::get('company_insurance_transaction_page/{id}/{type}', [\App\Http\Controllers\Company\CashTransactionController::class, 'transaction_view'])->name('company_insurance_transaction_view');
+
+
+
+        //    ----------------------- Transaction view -----------------------
+
+
+        //    ---------------------------------------------------------------------------------------------------------------- Cart Page view - Company without insurance page ----------------------------------------------------------------------------------------------------------------------
+
         //    ----------------------- Company insurance requests - Add and update attachment -----------------------
 
-        Route::get('company_insurance_requests_data_add_attachment/{id}', [\App\Http\Controllers\Company\CashTransactionController::class, 'attachment_page'])->name('company_insurance_requests_data_add_attachment');
-        Route::put('company_insurance_requests_data_add_attachment/{id}', [\App\Http\Controllers\Company\CashTransactionController::class, 'attachment_page_update'])->name('company_insurance_requests_data_add_attachment_update');
+//        Route::get('company_insurance_requests_data_add_attachment/{id}', [\App\Http\Controllers\Company\CashTransactionController::class, 'attachment_page'])->name('company_insurance_requests_data_add_attachment');
+//        Route::put('company_insurance_requests_data_add_attachment/{id}', [\App\Http\Controllers\Company\CashTransactionController::class, 'attachment_page_update'])->name('company_insurance_requests_data_add_attachment_update');
 
 
         //    ----------------------- Company insurance requests - Add and update attachment -----------------------

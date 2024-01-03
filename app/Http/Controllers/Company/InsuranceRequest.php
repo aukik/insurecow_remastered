@@ -152,6 +152,8 @@ class InsuranceRequest extends Controller
             $this->company_insurance_request_acceptance($insurance_cash_request->id, 'r');
         }
 
+        return redirect()->route("company_view_insurance_history_cash");
+
     }
 
 //    ------------------------------------------------- View Insurance Acceptance Form Update [Cash] ------------------------------------------------------

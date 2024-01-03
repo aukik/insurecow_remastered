@@ -106,7 +106,7 @@
                                             <input class="form-control"
                                                    name="to_ac_name"
                                                    value="{{ \App\Models\User::find($insurance_request->company_id)->name ?? "Name not found" }}"
-                                                   readonly style="background-color: white" required>
+                                                   readonly style="background-color: white">
                                         </div>
                                     </div>
 
@@ -122,7 +122,7 @@
                                             >To A/C<span style="color: red">*</span></label
                                             >
 
-                                            <input class="form-control" name="to_ac" required
+                                            <input class="form-control" name="to_ac"
                                                    value="{{ $insurance_request->to_ac }}">
                                         </div>
                                     </div>
@@ -140,7 +140,7 @@
                                             >
 
                                             <input class="form-control"
-                                                   name="bank_name" required
+                                                   name="bank_name"
                                                    value="{{ $insurance_request->bank_name }}">
                                         </div>
                                     </div>
@@ -158,7 +158,7 @@
                                             >
 
                                             <input class="form-control" value="{{ $insurance_request->branch_name }}"
-                                                   name="branch_name" required>
+                                                   name="branch_name">
                                         </div>
                                     </div>
 
@@ -175,7 +175,7 @@
                                             >
 
                                             <input class="form-control" value="{{ $insurance_request->routing_no }}"
-                                                   name="routing_no" required>
+                                                   name="routing_no">
                                         </div>
                                     </div>
 
@@ -209,7 +209,7 @@
                                             >
 
                                             <input class="form-control" value="{{ $insurance_request->insurance_cost }}"
-                                                   name="insurance_cost" required type="number"
+                                                   name="insurance_cost" type="number"
                                                    id="insurance_cost_input" min="0">
                                         </div>
                                     </div>

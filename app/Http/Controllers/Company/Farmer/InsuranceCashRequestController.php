@@ -68,7 +68,7 @@ class InsuranceCashRequestController extends Controller
         InsuranceCashRequest::create($inputs);
 
         session()->flash('success', 'Request sent successfully');
-        return back();
+        return redirect()->route('company.view_insurance_history_cash');
     }
 
 // ---------------------------------- Request for Insurance [ Cash Transaction ], company requesting to insurance company ----------------------------------

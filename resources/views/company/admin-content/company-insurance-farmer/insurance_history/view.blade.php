@@ -60,7 +60,8 @@
                                         <th>Insurance For</th>
 
                                         <th>Buy Insurance</th>
-                                        <th>Cash Transaction</th>
+
+                                        <th>View</th>
 
                                     </tr>
                                     </thead>
@@ -126,6 +127,9 @@
                                             @endif
 
 
+
+                                            {{-- ----------------------------------------------- Buy Insurance Code Structure ----------------------------------------------- --}}
+
                                             @if(\App\Models\InsuranceRequest::where('cattle_id',$history->cattle_id)->orderBy('id','desc')->first()->insurance_status == "received")
 
                                                 @if(\App\Http\Controllers\Farmer\InsuranceRequestController::insurance_buy_status($history->cattle_id))
@@ -154,13 +158,14 @@
 
                                             @else
                                                 <td>Company response pending</td>
-
                                             @endif
 
+                                            {{-- ----------------------------------------------- Buy Insurance Code Structure ----------------------------------------------- --}}
 
 
                                             <td>
-                                                <a href="{{ route('company_insurance_requests_data_add_attachment',$history->id) }}" class="btn btn-primary">Buy</a>
+                                                <a href="{{ route('company_without_insurance_cart',$history->id) }}"
+                                                   class="btn btn-primary">View</a>
                                             </td>
 
                                         </tr>
