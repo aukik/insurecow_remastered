@@ -42,6 +42,62 @@
                             @endif
 
 
+                                {{-- ---------------------------------------- Insurance company Information ---------------------------------------- --}}
+
+
+                                <style>
+                                    .insurance-info {
+                                        border: 1px solid #ccc;
+                                        border-radius: 5px;
+                                        padding: 15px;
+                                        margin: 15px 0;
+                                    }
+
+                                    .insurance-info h3 {
+                                        color: #333;
+                                    }
+
+                                    .insurance-info ul {
+                                        list-style-type: none;
+                                        padding: 0;
+                                    }
+
+                                    .insurance-info li {
+                                        margin-bottom: 10px;
+                                    }
+                                </style>
+
+
+                                <div class="insurance-info">
+
+                                    <label class="small mb-1" for="inputLastName">To,</label>
+
+                                    <h3>Insurance Company Information</h3>
+                                    <ul>
+                                        <li><strong>Company
+                                                Name:</strong> {{ \App\Models\User::find($insurance_request->company_id)->name }}
+                                        </li>
+                                        <li><strong>Account
+                                                Info:</strong> {{ \App\Models\User::find($insurance_request->company_id)->ac_info }}
+                                        </li>
+                                        <li><strong>Bank
+                                                Name:</strong> {{ \App\Models\User::find($insurance_request->company_id)->bank_name }}
+                                        </li>
+                                        <li><strong>Branch
+                                                Name:</strong> {{ \App\Models\User::find($insurance_request->company_id)->branch_name }}
+                                        </li>
+                                        <li><strong>Account
+                                                Number:</strong> {{ \App\Models\User::find($insurance_request->company_id)->account }}
+                                        </li>
+                                        <li><strong>Routing
+                                                No:</strong> {{ \App\Models\User::find($insurance_request->company_id)->routing_no }}
+                                        </li>
+                                    </ul>
+                                </div>
+
+
+                                {{-- ---------------------------------------- Insurance company Information ---------------------------------------- --}}
+
                             <label class="small mb-1" for="inputLastName">From,</label>
 
                             {{-- ---------------------------------------- Cash Transaction  ---------------------------------------- --}}
@@ -51,7 +107,7 @@
                                     <h4>Cash Transaction</h4>
                                     <hr>
 
-                                    <form action="" method="post"
+                                    <form action="{{ route('company_insurance_requests_data_add_attachment_update',$insurance_request) }}" method="post"
                                           enctype="multipart/form-data">
                                         {{ csrf_field() }}
                                         @method('put')
@@ -71,7 +127,7 @@
                                                         type="text"
                                                         placeholder="Enter Package Name"
                                                         value=""
-                                                        name=""
+                                                        name="cash_agent_name"
                                                     />
                                                 </div>
 
@@ -89,7 +145,7 @@
                                                         type="text"
                                                         placeholder="Enter Package Name"
                                                         value=""
-                                                        name=""
+                                                        name="cash_agent_branch_name"
                                                     />
                                                 </div>
                                             </div>
@@ -106,27 +162,27 @@
                                                         type="text"
                                                         placeholder="Enter Package Name"
                                                         value=""
-                                                        name=""
+                                                        name="cash_agent_id"
                                                     />
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-6">
-                                                <div class="row gx-3 mb-3">
+{{--                                            <div class="col-md-6">--}}
+{{--                                                <div class="row gx-3 mb-3">--}}
 
-                                                    <label class="small mb-1" for="inputLastName"
-                                                    >Date</label
-                                                    >
-                                                    <input
-                                                        class="form-control"
-                                                        id="inputLastName"
-                                                        type="date"
-                                                        placeholder="Enter Package Name"
-                                                        value=""
-                                                        name=""
-                                                    />
-                                                </div>
-                                            </div>
+{{--                                                    <label class="small mb-1" for="inputLastName"--}}
+{{--                                                    >Date</label--}}
+{{--                                                    >--}}
+{{--                                                    <input--}}
+{{--                                                        class="form-control"--}}
+{{--                                                        id="inputLastName"--}}
+{{--                                                        type="date"--}}
+{{--                                                        placeholder="Enter Package Name"--}}
+{{--                                                        value=""--}}
+{{--                                                        name=""--}}
+{{--                                                    />--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
 
                                             <div class="col-md-6">
                                                 <div class="row gx-3 mb-3">
@@ -140,7 +196,7 @@
                                                         type="number"
                                                         placeholder=""
                                                         value=""
-                                                        name=""
+                                                        name="amount"
                                                     />
                                                 </div>
                                             </div>
@@ -154,10 +210,10 @@
                                                     <input
                                                         class="form-control"
                                                         id="inputLastName"
-                                                        type="date"
+                                                        type="number"
                                                         placeholder="Enter Package Name"
                                                         value=""
-                                                        name=""
+                                                        name="cash_phone"
                                                     />
                                                 </div>
                                             </div>
@@ -174,13 +230,28 @@
                                                         type="file"
                                                         placeholder=""
                                                         value=""
-                                                        name=""
+                                                        name="attachment"
                                                     />
                                                 </div>
                                             </div>
 
-                                        </div>
+{{--                                            <div class="col-md-6">--}}
+{{--                                                <div class="row gx-3 mb-3">--}}
 
+{{--                                                    <input--}}
+{{--                                                        class="form-control"--}}
+{{--                                                        id="inputLastName"--}}
+{{--                                                        type="text"--}}
+{{--                                                        placeholder="Transaction Type"--}}
+{{--                                                        value="cash"--}}
+{{--                                                        name="transaction_type"--}}
+{{--                                                        readonly--}}
+{{--                                                    />--}}
+
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+
+                                        </div>
 
                                         <button class="btn btn-primary" type="submit">
                                             Submit
@@ -202,7 +273,7 @@
                                     <h4>Cheque Transaction</h4>
                                     <hr>
 
-                                    <form action="" method="post"
+                                    <form action="{{ route('company_insurance_requests_data_add_attachment_update',$insurance_request) }}" method="post"
                                           enctype="multipart/form-data">
                                         {{ csrf_field() }}
                                         @method('put')
@@ -222,7 +293,7 @@
                                                         type="text"
                                                         placeholder=""
                                                         value=""
-                                                        name=""
+                                                        name="cheque_bank_name"
                                                     />
                                                 </div>
 
@@ -240,7 +311,7 @@
                                                         type="text"
                                                         placeholder=""
                                                         value=""
-                                                        name=""
+                                                        name="cheque_branch_name"
                                                     />
                                                 </div>
                                             </div>
@@ -257,7 +328,7 @@
                                                         type="number"
                                                         placeholder=""
                                                         value=""
-                                                        name=""
+                                                        name="amount"
                                                     />
                                                 </div>
                                             </div>
@@ -275,10 +346,26 @@
                                                         type="file"
                                                         placeholder=""
                                                         value=""
-                                                        name=""
+                                                        name="attachment"
                                                     />
                                                 </div>
                                             </div>
+
+{{--                                            <div class="col-md-6">--}}
+{{--                                                <div class="row gx-3 mb-3">--}}
+
+{{--                                                    <input--}}
+{{--                                                        class="form-control"--}}
+{{--                                                        id="inputLastName"--}}
+{{--                                                        type="text"--}}
+{{--                                                        placeholder="Transaction Type"--}}
+{{--                                                        value="cheque"--}}
+{{--                                                        name="transaction_type"--}}
+{{--                                                        readonly--}}
+{{--                                                    />--}}
+
+{{--                                                </div>--}}
+{{--                                            </div>--}}
 
 
                                         </div>
@@ -304,7 +391,7 @@
                                     <h4>Bank Transaction</h4>
                                     <hr>
 
-                                    <form action="" method="post"
+                                    <form action="{{ route('company_insurance_requests_data_add_attachment_update',$insurance_request) }}" method="post"
                                           enctype="multipart/form-data">
                                         {{ csrf_field() }}
                                         @method('put')
@@ -324,7 +411,7 @@
                                                         type="text"
                                                         placeholder=""
                                                         value=""
-                                                        name=""
+                                                        name="bank_ac_name"
                                                     />
                                                 </div>
 
@@ -342,7 +429,7 @@
                                                         type="text"
                                                         placeholder=""
                                                         value=""
-                                                        name=""
+                                                        name="bank_ac_number"
                                                     />
                                                 </div>
                                             </div>
@@ -359,7 +446,7 @@
                                                         type="number"
                                                         placeholder=""
                                                         value=""
-                                                        name=""
+                                                        name="amount"
                                                     />
                                                 </div>
                                             </div>
@@ -376,7 +463,7 @@
                                                         type="text"
                                                         placeholder=""
                                                         value=""
-                                                        name=""
+                                                        name="bank_name"
                                                     />
                                                 </div>
                                             </div>
@@ -393,7 +480,7 @@
                                                         type="text"
                                                         placeholder=""
                                                         value=""
-                                                        name=""
+                                                        name="transaction_number"
                                                     />
                                                 </div>
                                             </div>
@@ -411,10 +498,26 @@
                                                         type="file"
                                                         placeholder=""
                                                         value=""
-                                                        name=""
+                                                        name="attachment"
                                                     />
                                                 </div>
                                             </div>
+
+{{--                                            <div class="col-md-6">--}}
+{{--                                                <div class="row gx-3 mb-3">--}}
+
+{{--                                                    <input--}}
+{{--                                                        class="form-control"--}}
+{{--                                                        id="inputLastName"--}}
+{{--                                                        type="text"--}}
+{{--                                                        placeholder="Transaction Type"--}}
+{{--                                                        value="bank"--}}
+{{--                                                        name="transaction_type"--}}
+{{--                                                        readonly--}}
+{{--                                                    />--}}
+
+{{--                                                </div>--}}
+{{--                                            </div>--}}
 
 
                                         </div>
@@ -432,62 +535,6 @@
 
                             <br>
 
-
-                            {{-- ---------------------------------------- Insurance company Information ---------------------------------------- --}}
-
-
-                            <style>
-                                .insurance-info {
-                                    border: 1px solid #ccc;
-                                    border-radius: 5px;
-                                    padding: 15px;
-                                    margin: 15px 0;
-                                }
-
-                                .insurance-info h3 {
-                                    color: #333;
-                                }
-
-                                .insurance-info ul {
-                                    list-style-type: none;
-                                    padding: 0;
-                                }
-
-                                .insurance-info li {
-                                    margin-bottom: 10px;
-                                }
-                            </style>
-
-
-                            <div class="insurance-info">
-
-                                <label class="small mb-1" for="inputLastName">To,</label>
-
-                                <h3>Insurance Company Information</h3>
-                                <ul>
-                                    <li><strong>Company
-                                            Name:</strong> {{ \App\Models\User::find($insurance_request->company_id)->name }}
-                                    </li>
-                                    <li><strong>Account
-                                            Info:</strong> {{ \App\Models\User::find($insurance_request->company_id)->ac_info }}
-                                    </li>
-                                    <li><strong>Bank
-                                            Name:</strong> {{ \App\Models\User::find($insurance_request->company_id)->bank_name }}
-                                    </li>
-                                    <li><strong>Branch
-                                            Name:</strong> {{ \App\Models\User::find($insurance_request->company_id)->branch_name }}
-                                    </li>
-                                    <li><strong>Account
-                                            Number:</strong> {{ \App\Models\User::find($insurance_request->company_id)->account }}
-                                    </li>
-                                    <li><strong>Routing
-                                            No:</strong> {{ \App\Models\User::find($insurance_request->company_id)->routing_no }}
-                                    </li>
-                                </ul>
-                            </div>
-
-
-                            {{-- ---------------------------------------- Insurance company Information ---------------------------------------- --}}
 
                         </div>
                     </div>

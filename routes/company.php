@@ -58,6 +58,21 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
 
     Route::middleware('company.premium_insurance')->group(function () {
 
+
+        //    ----------------------  Company with package will accept or reject request after viewing -----------------------
+
+
+        Route::get('company_insurance_request_view_with_package_v2/{id}', [\App\Http\Controllers\Company\CashTransactionController::class, 'detailed_view'])->name('company_insurance_detailed_view_with_package_v2');
+
+        //    ----------------------- Company with package will accept or reject request after viewing -----------------------
+
+        //    ----------------------- Company with package - Insurance acceptation or rejection -----------------------
+
+        Route::get('insurance_request_acceptation_v2/{id}/{acceptance}', [InsuranceRequest::class,'company_insurance_request_acceptance'])->name("insurance_request_acceptation_v2");
+
+
+        //    ----------------------- Company with package - Insurance acceptation or rejection -----------------------
+
         //    -------------------------- View cattle, package and other Info - Insurance Cash Request - Company with insurance-----------------------------
 
         Route::get("view_other_info_1/{id}", [InsuranceRequest::class, 'view_other_info_2'])->name('company_other_info_1');
@@ -257,10 +272,12 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
         //    ----------------------- Transaction view -----------------------
 
         Route::get('company_insurance_transaction_page/{id}/{type}', [\App\Http\Controllers\Company\CashTransactionController::class, 'transaction_view'])->name('company_insurance_transaction_view');
-
+        Route::put('company_insurance_transaction_page/{id}', [\App\Http\Controllers\Company\CashTransactionController::class, 'attachment_page_update'])->name('company_insurance_requests_data_add_attachment_update');
 
 
         //    ----------------------- Transaction view -----------------------
+
+
 
 
         //    ---------------------------------------------------------------------------------------------------------------- Cart Page view - Company without insurance page ----------------------------------------------------------------------------------------------------------------------

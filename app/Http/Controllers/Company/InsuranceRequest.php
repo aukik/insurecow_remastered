@@ -163,11 +163,16 @@ class InsuranceRequest extends Controller
     public function company_insurance_request_acceptance($id, $acceptance)
     {
 
-        $insurance_request = InsuranceCashRequest::find($id);
+        $insurance_request = \App\Models\InsuranceRequest::find($id);
+
+        $package = Package::find($insurance_request->package_id);
+
+        $expiration_date = User::addYearsAndMonths($package->insurance_period);
+
 
         if ($acceptance == 'a') {
             $insurance_request->update([
-                'status' => "accepted"
+                'insurance_request_status' => "accepted"
             ]);
 
             if (!$insurance_request) {
@@ -196,8 +201,8 @@ class InsuranceRequest extends Controller
                 'name' => User::find($insurance_request->insurance_requested_company_id)->name ?? "Name not found",
                 'email' => User::find($insurance_request->insurance_requested_company_id)->email ?? "Email not found",
                 'phone' => User::find($insurance_request->insurance_requested_company_id)->phone ?? "Number not found",
-                'amount' => $insurance_request->insurance_cost,
-                'status' => "Cash",
+                'amount' => $insurance_request->amount,
+                'status' => $insurance_request->transaction_type,
                 'transaction_id' => Str::random(16),
                 'currency' => 'BDT',
                 "cattle_id" => $insurance_request->cattle_id,
@@ -206,9 +211,9 @@ class InsuranceRequest extends Controller
                 "insurance_request_id" => $insurance_request->id,
                 "insurance_requested_company_id" => $insurance_request->insurance_requested_company_id,
                 "user_id" => $insurance_request->user_id,
-                "package_expiration_date" => $insurance_request->insurance_expiration_date,
-                "created_at" => $insurance_request->insurance_date,
-                "updated_at" => $insurance_request->insurance_date,
+                "package_expiration_date" => $expiration_date,
+                "created_at" => now(),
+                "updated_at" => now(),
 
             ]);
 
@@ -224,21 +229,21 @@ class InsuranceRequest extends Controller
                 "order_id" => $order->id,
                 "insurance_status" => "insured",
                 "insurance_type" => "single",
-                "package_expiration_date" => $insurance_request->insurance_expiration_date,
+                "package_expiration_date" => $expiration_date,
             ]);
 
             // ---------------------------- Pushing the data to Insured table ----------------------------
 
             session()->flash("success", "Animal Insured Successfully");
-            return redirect()->route("company_view_insurance_history_cash");
+            return redirect()->route("company_view_insurance_history");
         } elseif ($acceptance == 'r') {
 
             $insurance_request->update([
-                'status' => "rejected"
+                'insurance_request_status' => "rejected"
             ]);
 
             session()->flash("success", "Animal Insurance Unapproved");
-            return redirect()->route("company_view_insurance_history_cash");
+            return redirect()->route("company_view_insurance_history");
 
         }
 

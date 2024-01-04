@@ -20,8 +20,8 @@ class AddCashPaymentAttachmentToTable extends Migration
             $table->string('cash_agent_name')->nullable();
             $table->string('cash_agent_branch_name')->nullable();
             $table->string('cash_agent_id')->nullable();
-            $table->date('cash_amount')->nullable();
-            $table->date('cash_phone')->nullable();
+            $table->string('cash_amount')->nullable();
+            $table->string('cash_phone')->nullable();
 
 //  ----------------------------- Cash -----------------------------
 

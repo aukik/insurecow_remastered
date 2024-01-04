@@ -50,6 +50,7 @@
                                         <th>Insurance Status</th>
                                         <th>Send Quotation</th>
                                         <th>Payment History</th>
+                                        <th>View</th>
                                         {{--                                        <th>Insurance Status</th>--}}
                                     </tr>
                                     </thead>
@@ -107,7 +108,7 @@
                                             @endif
 
                                             <td>{{ \App\Http\Controllers\Farmer\InsuranceRequestController::insurance_buy_company($history->cattle_id) }}</td>
-
+                                            <td><a href="{{ route('company_insurance_detailed_view_with_package_v2',$history->id) }}">View</a></td>
                                         </tr>
                                     @endforeach
                                     </tbody>
