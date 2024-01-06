@@ -59,8 +59,6 @@
                                         <th>Package Insurance Period</th>
                                         <th>Insurance For</th>
 
-                                        <th>Buy Insurance</th>
-
                                         <th>View</th>
 
                                     </tr>
@@ -127,46 +125,16 @@
                                             @endif
 
 
-
-                                            {{-- ----------------------------------------------- Buy Insurance Code Structure ----------------------------------------------- --}}
-
-                                            @if(\App\Models\InsuranceRequest::where('cattle_id',$history->cattle_id)->orderBy('id','desc')->first()->insurance_status == "received")
-
-                                                @if(\App\Http\Controllers\Farmer\InsuranceRequestController::insurance_buy_status($history->cattle_id))
-                                                    <td>
-                                                        <form action="{{ route('company_pay') }}" method="post">
-                                                            {{ csrf_field() }}
-                                                            <input type="hidden" value="{{ $history->id }}"
-                                                                   name="insurance_request_id">
-                                                            <input type="hidden" value="{{ $history->cattle_id }}"
-                                                                   name="cattle_id">
-                                                            <input type="hidden" value="{{ $history->package_id }}"
-                                                                   name="package_id">
-                                                            <input type="hidden" value="{{ $history->company_id }}"
-                                                                   name="company_id">
-                                                            <input type="hidden" step=".01"
-                                                                   value="{{ $history->package_insurance_period }}"
-                                                                   name="package_insurance_period">
-                                                            <input class="btn btn-success h3 text-white" type="submit"
-                                                                   value="Buy">
-                                                        </form>
-                                                    </td>
-
-                                                @else
-                                                    <td>Insured</td>
-                                                @endif
-
-                                            @else
-                                                <td>Company response pending</td>
-                                            @endif
-
-                                            {{-- ----------------------------------------------- Buy Insurance Code Structure ----------------------------------------------- --}}
-
+                                            {{--  ---------------------------------------- Condition adding [ Insurance checking ] ---------------------------------- --}}
 
                                             <td>
                                                 <a href="{{ route('company_without_insurance_cart',$history->id) }}"
                                                    class="btn btn-primary">View</a>
                                             </td>
+
+
+                                            {{--  ---------------------------------------- Condition adding [ Insurance checking ] ---------------------------------- --}}
+
 
                                         </tr>
                                     @endforeach

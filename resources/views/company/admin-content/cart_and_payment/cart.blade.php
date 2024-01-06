@@ -274,7 +274,7 @@
                                             value="{{ route('company_insurance_transaction_view', [$insurance_request->id, 'bank']) }}">
                                             Bank Transaction
                                         </option>
-                                        <option value="#">Digital Transaction</option>
+                                        <option value="{{ route('company_insurance_transaction_view', [$insurance_request->id, 'digital']) }}">Digital Transaction</option>
                                     </select>
 
                                     {{-- ------------------------------------------ Transaction type selection code ------------------------------------------ --}}

@@ -167,6 +167,10 @@ class InsuranceRequest extends Controller
 
         $package = Package::find($insurance_request->package_id);
 
+        if (!$package){
+            return "Package information not found";
+        }
+
         $expiration_date = User::addYearsAndMonths($package->insurance_period);
 
 
@@ -205,6 +209,7 @@ class InsuranceRequest extends Controller
                 'status' => $insurance_request->transaction_type,
                 'transaction_id' => Str::random(16),
                 'currency' => 'BDT',
+                'insurance_type' => 'single',
                 "cattle_id" => $insurance_request->cattle_id,
                 "package_id" => $insurance_request->package_id,
                 "company_id" => $insurance_request->company_id,
@@ -229,6 +234,8 @@ class InsuranceRequest extends Controller
                 "order_id" => $order->id,
                 "insurance_status" => "insured",
                 "insurance_type" => "single",
+                "insurance_request_id" => $insurance_request->id,
+                "insurance_requested_company_id" => $insurance_request->insurance_requested_company_id,
                 "package_expiration_date" => $expiration_date,
             ]);
 

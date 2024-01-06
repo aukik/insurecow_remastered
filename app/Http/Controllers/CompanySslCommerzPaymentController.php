@@ -26,13 +26,16 @@ class CompanySslCommerzPaymentController extends Controller
     public function index(Request $request)
     {
 
+
         $inputs = \request()->validate([
             'cattle_id' => 'required',
             'package_id' => 'required',
             'company_id' => 'required',
             'package_insurance_period' => 'required',
+            'insurance_requested_company_id' => 'required',
             'insurance_request_id' => 'required',
         ]);
+
 
 //        $users_id = auth()->user()->id;
 //        $cattle_info = auth()->user()->cattleRegister()->where('id', \request('cattle_id'))->first();
@@ -106,6 +109,7 @@ class CompanySslCommerzPaymentController extends Controller
                     'cattle_id' => $inputs['cattle_id'],
                     'package_id' => $inputs['package_id'],
                     'company_id' => $inputs['company_id'],
+                    "insurance_type" => "single",
                     'insurance_requested_company_id' => auth()->user()->id, //company which one is currently insuring the animal
                     'user_id' => $users_id,
                     'package_expiration_date' => $expired_date,
@@ -232,6 +236,7 @@ class CompanySslCommerzPaymentController extends Controller
 
                 //   --------------------------------- If Insurance is successful it will keep data into Insureds table ---------------------------------
 
+
                 Insured::create([
                     'cattle_id' => $order_details->cattle_id,
                     'package_id' => $order_details->package_id,
@@ -240,6 +245,7 @@ class CompanySslCommerzPaymentController extends Controller
                     'user_id' => $order_details->user_id,
                     'package_expiration_date' => $order_details->package_expiration_date,
                     'insurance_status' => "insured",
+                    "insurance_requested_company_id" => $order_details->insurance_requested_company_id,
                     'insurance_type' => "single",
                 ]);
 
@@ -257,6 +263,7 @@ class CompanySslCommerzPaymentController extends Controller
                 'package_id' => $order_details->package_id,
                 'company_id' => $order_details->company_id,
                 'order_id' => $order_details->id,
+                "insurance_requested_company_id" => $order_details->insurance_requested_company_id,
                 'insurance_status' => "insured",
                 'insurance_type' => "single",
             ]);

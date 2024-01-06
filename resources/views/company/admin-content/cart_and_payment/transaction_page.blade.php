@@ -533,6 +533,35 @@
                             @endif
                             {{-- ---------------------------------------- Bank Transaction ---------------------------------------- --}}
 
+                            {{-- ---------------------------------------- Digital Transaction ---------------------------------------- --}}
+
+                                @if($type_data == "digital")
+
+                                    <h4>Digital Transaction</h4>
+
+                                    <form action="{{ route('company_pay') }}" method="post">
+                                        {{ csrf_field() }}
+                                        <input type="hidden" value="{{ $insurance_request->id }}"
+                                               name="insurance_request_id">
+                                        <input type="hidden" value="{{ $insurance_request->cattle_id }}"
+                                               name="cattle_id">
+                                        <input type="hidden" value="{{ $insurance_request->package_id }}"
+                                               name="package_id">
+                                        <input type="hidden" value="{{ $insurance_request->company_id }}"
+                                               name="company_id">
+                                        <input type="hidden" value="{{ $insurance_request->insurance_requested_company_id }}"
+                                               name="insurance_requested_company_id">
+                                        <input type="hidden" step=".01"
+                                               value="{{ $insurance_request->package_insurance_period }}"
+                                               name="package_insurance_period">
+                                        <input class="btn btn-success h3 text-white" type="submit"
+                                               value="Buy">
+                                    </form>
+                                @endif
+
+
+                            {{-- ---------------------------------------- Digital Transaction ---------------------------------------- --}}
+
                             <br>
 
 
