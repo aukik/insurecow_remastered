@@ -195,7 +195,7 @@
                                                         id="inputLastName"
                                                         type="number"
                                                         placeholder=""
-                                                        value=""
+                                                        value="{{ $insurance_request->insurance_cost ?? 0 }}"
                                                         name="amount"
                                                     />
                                                 </div>
@@ -331,7 +331,7 @@
                                                         id="inputLastName"
                                                         type="number"
                                                         placeholder=""
-                                                        value=""
+                                                        value="{{ $insurance_request->insurance_cost ?? 0 }}"
                                                         name="amount"
                                                     />
                                                 </div>
@@ -450,7 +450,7 @@
                                                         id="inputLastName"
                                                         type="number"
                                                         placeholder=""
-                                                        value=""
+                                                        value="{{ $insurance_request->insurance_cost ?? 0 }}"
                                                         name="amount"
                                                     />
                                                 </div>

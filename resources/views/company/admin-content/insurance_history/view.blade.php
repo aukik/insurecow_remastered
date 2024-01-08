@@ -24,10 +24,20 @@
         </header>
         <!-- Main page content-->
         <div class="container-xl px-4 mt-4">
+
+
+            {{-- ------------------------------------------- Success Alert ------------------------------------------- --}}
+
+            @if(session('success'))
+                <div class="alert alert-success">
+                    Decision successfully inserted
+                </div>
+            @endif
+
+            {{-- ------------------------------------------- Success Alert ------------------------------------------- --}}
+
             <!-- Account page navigation-->
             <div class="row">
-
-
                 <div class="col-xl-12">
                     <!-- Account details card-->
                     <div class="card mb-4">
@@ -108,7 +118,26 @@
                                             @endif
 
                                             <td>{{ \App\Http\Controllers\Farmer\InsuranceRequestController::insurance_buy_company($history->cattle_id) }}</td>
-                                            <td><a href="{{ route('company_insurance_detailed_view_with_package_v2',$history->id) }}">View</a></td>
+
+
+                                            {{-- --------------------------- Insurance status wise operation from company side --------------------------- --}}
+
+                                            @if($history->insurance_request_status != null)
+                                                @if($history->insurance_request_status == "pending")
+                                                    <td>
+                                                        <a href="{{ route('company_insurance_detailed_view_with_package_v2',$history->id) }}" class="btn btn-primary">View</a>
+                                                    </td>
+                                                @else
+                                                    <td>{{ $history->insurance_request_status }}</td>
+                                                @endif
+
+                                            @else
+                                                <td>-</td>
+                                            @endif
+
+                                            {{-- --------------------------- Insurance status wise operatio from company side --------------------------- --}}
+
+
                                         </tr>
                                     @endforeach
                                     </tbody>

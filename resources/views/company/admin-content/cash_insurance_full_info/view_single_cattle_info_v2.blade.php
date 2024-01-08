@@ -38,7 +38,7 @@
                         {{--                        </div>--}}
 
                         <div class="card-header d-flex flex-wrap justify-content-between align-items-center">
-                            View Detailed Info - Company Insurance Request Cash Format
+                            View Detailed Info - Company Insurance Request
 
                         </div>
 
@@ -122,7 +122,8 @@
                                             <label class="small mb-1 fw-bold" for="inputLastName"
                                             >Attachment</label
                                             ><span style="color: red"></span>
-                                            <a href="{{ asset('storage/'. $insurance_request_info->attachment)  }}">Attachment File</a>
+                                            <a href="{{ asset('storage/'. $insurance_request_info->attachment)  }}">Attachment
+                                                File</a>
                                         </div>
 
                                     </div>
@@ -178,7 +179,8 @@
                                             <label class="small mb-1 fw-bold" for="inputLastName"
                                             >Attachment</label
                                             ><span style="color: red"></span>
-                                            <a href="{{ asset('storage/'. $insurance_request_info->attachment)  }}">Attachment File</a>
+                                            <a href="{{ asset('storage/'. $insurance_request_info->attachment)  }}">Attachment
+                                                File</a>
                                         </div>
 
                                     </div>
@@ -248,7 +250,8 @@
                                             <label class="small mb-1 fw-bold" for="inputLastName"
                                             >Attachment</label
                                             ><span style="color: red"></span>
-                                            <a href="{{ asset('storage/'. $insurance_request_info->attachment)  }}">Attachment File</a>
+                                            <a href="{{ asset('storage/'. $insurance_request_info->attachment)  }}">Attachment
+                                                File</a>
                                         </div>
 
                                     </div>
@@ -498,10 +501,17 @@
 
                             <hr>
 
-                            <div>
-                                <a href="{{ route('company_insurance_acceptance',[$insurance_request_info->id,'a']) }}" class="btn btn-success">Accept</a>
-                                <a href="{{ route('company_insurance_acceptance',[$insurance_request_info->id,'r']) }}" class="btn btn-danger">Reject</a>
-                            </div>
+                            @if($insurance_request_info->insurance_request_status == "pending")
+                                <div>
+                                    <a href="{{ route('company_insurance_acceptance',[$insurance_request_info->id,'a']) }}"
+                                       class="btn btn-success">Accept</a>
+                                    <a href="{{ route('company_insurance_acceptance',[$insurance_request_info->id,'r']) }}"
+                                       class="btn btn-danger">Reject</a>
+                                </div>
+                            @endif
+
+
+
 
                             {{-- ------------------------------------------------------- Insurance Acception or Rejection ----------------------------------------------------- --}}
 

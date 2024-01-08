@@ -209,7 +209,7 @@ class SslCommerzPaymentController extends Controller
         #Check order status in order tabel against the transaction id or order id.
         $order_details = DB::table('orders')
             ->where('transaction_id', $tran_id)
-            ->select('transaction_id', 'status', 'currency', 'amount', 'cattle_id', 'package_id', 'company_id', 'id', 'user_id', 'package_expiration_date', 'insurance_requested_company_id', 'insurance_request_id')->first();
+            ->select('transaction_id', 'status', 'currency', 'amount', 'cattle_id', 'package_id', 'company_id', 'id', 'user_id', 'package_expiration_date', 'insurance_requested_company_id', 'insurance_request_id','created_at','updated_at')->first();
 
         if ($order_details->status == 'Pending') {
             $validation = $sslc->orderValidate($request->all(), $tran_id, $amount, $currency);
@@ -232,10 +232,13 @@ class SslCommerzPaymentController extends Controller
 
 
                 $insurance_request = \App\Models\InsuranceRequest::where('id', $order_details->insurance_request_id)->update([
-                    'transaction_type' => 'digital'
+                    'transaction_type' => 'digital',
+                    'insurance_request_status' => 'accepted',
                 ]);
 
                 //   --------------------------------- Insurance Request Transaction type Update ---------------------------------
+
+//   --------------------------------- If Insurance is successful it will keep data into Insureds table ---------------------------------
 
 
                 Insured::create([
@@ -252,6 +255,17 @@ class SslCommerzPaymentController extends Controller
                 ]);
 
 //   --------------------------------- If Insurance is successful it will keep data into Insureds table ---------------------------------
+
+//   --------------------------------- Order table date update ---------------------------------
+
+                $update_product = DB::table('orders')
+                    ->where('transaction_id', $tran_id)
+                    ->update([
+                        "created_at" => now(),
+                        "updated_at" => now(),
+                    ]);
+
+//   --------------------------------- Order table date update ---------------------------------
 
                 if (auth()->user()->role == "c") {
                     return redirect()->route('company.view_insurance_history');

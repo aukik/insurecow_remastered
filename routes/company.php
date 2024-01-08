@@ -91,15 +91,15 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
 
         //    -------------------------- Package Status -----------------------------
 
-        //    -------------------------- View Insurance requests from farmers and company [Digital] -----------------------------
+        //    -------------------------- View Insurance requests from farmers and company [Main] -----------------------------
 
         Route::get("company_insurance_requests", [InsuranceRequest::class, 'view_insurance_history'])->name('company_view_insurance_history');
 
-        //    -------------------------- View Insurance requests from farmers and company [Digital] -----------------------------
+        //    -------------------------- View Insurance requests from farmers and company [Main] -----------------------------
 
         //    -------------------------- View Insurance requests from farmers and company [Cash] -----------------------------
 
-        Route::get("company_insurance_requests_cash", [InsuranceRequest::class, 'view_insurance_history_cash'])->name('company_view_insurance_history_cash');
+//        Route::get("company_insurance_requests_cash", [InsuranceRequest::class, 'view_insurance_history_cash'])->name('company_view_insurance_history_cash');
 
         //    -------------------------- View Insurance requests from farmers and company [Cash] -----------------------------
 

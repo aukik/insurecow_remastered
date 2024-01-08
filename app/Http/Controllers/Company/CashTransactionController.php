@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Company;
 
 use App\Http\Controllers\Controller;
 use App\Models\CattleRegistration;
+use App\Models\Insured;
 use App\Models\Package;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -12,14 +13,15 @@ class CashTransactionController extends Controller
 {
 // -------------------------- Detailed View - Insurance with package -----------------------------
 
-    public function detailed_view($id){
+    public function detailed_view($id)
+    {
         $insurance_request_info = \App\Models\InsuranceRequest::find($id);
         $cattle = CattleRegistration::find($insurance_request_info->cattle_id);
-        $package  = Package::find($insurance_request_info->package_id);
-        $farmer  = User::find($insurance_request_info->user_id);
+        $package = Package::find($insurance_request_info->package_id);
+        $farmer = User::find($insurance_request_info->user_id);
 
 
-        return view("company.admin-content.cash_insurance_full_info.view_single_cattle_info_v2", compact('insurance_request_info','cattle','package','farmer'));
+        return view("company.admin-content.cash_insurance_full_info.view_single_cattle_info_v2", compact('insurance_request_info', 'cattle', 'package', 'farmer'));
     }
 
 
@@ -32,7 +34,19 @@ class CashTransactionController extends Controller
         $insurance_request = \App\Models\InsuranceRequest::find($id);
         $type_data = $type;
 
-        return view("company.admin-content.cart_and_payment.transaction_page", compact('insurance_request', 'type_data'));
+// ---------------------- State checking ----------------------
+
+        $insured = Insured::where('cattle_id', $insurance_request->cattle_id)->orderBy('id', 'desc')->first();
+
+        if (!$insured || $insured->package_expiration_date < now()) {
+            return view("company.admin-content.cart_and_payment.transaction_page", compact('insurance_request', 'type_data'));
+        } else {
+            return "The animal is already insured";
+        }
+
+// ---------------------- State checking ----------------------
+
+
     }
 
 // -------------------------- Add Attachment -----------------------------
@@ -58,7 +72,7 @@ class CashTransactionController extends Controller
             'cash_phone' => 'nullable',
             'cheque_bank_name' => 'nullable',
             'cheque_branch_name' => 'nullable',
-            'amount' => 'nullable',
+            'amount' => 'nullable|numeric',
             'bank_ac_name' => 'nullable',
             'bank_ac_number' => 'nullable',
             'bank_name' => 'nullable',
@@ -103,7 +117,7 @@ class CashTransactionController extends Controller
 
 
         $insurance_request->update($inputs);
-        session()->flash("success","insurance requested successfully");
+        session()->flash("success", "insurance requested successfully");
         return redirect()->route("company.view_insurance_history");
 
 

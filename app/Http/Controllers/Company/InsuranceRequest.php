@@ -165,6 +165,14 @@ class InsuranceRequest extends Controller
 
         $insurance_request = \App\Models\InsuranceRequest::find($id);
 
+        if (!$insurance_request){
+            return "Insurance request not found";
+        }
+
+        if ($insurance_request->insurance_request_status != "pending"){
+            return "Insurance request expired";
+        }
+
         $package = Package::find($insurance_request->package_id);
 
         if (!$package){

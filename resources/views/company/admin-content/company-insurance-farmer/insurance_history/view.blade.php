@@ -127,17 +127,28 @@
 
                                             {{--  ---------------------------------------- Condition adding [ Insurance checking ] ---------------------------------- --}}
 
-                                            @if($history->insurance_status == "received")
-                                                @if(\App\Models\Insured::where('insurance_request_id',$history->id)->count() == 0)
-                                                    <td>
-                                                        <a href="{{ route('company_without_insurance_cart',$history->id) }}"
-                                                           class="btn btn-primary">View</a>
-                                                    </td>
-                                                @else
-                                                    <td>Insured</td>
-                                                @endif
+
+                                            {{--                                            @if($history->insurance_status == "received")--}}
+                                            {{--                                                @if(\App\Models\Insured::where('insurance_request_id',$history->id)->count() == 0)--}}
+                                            {{--                                                    <td>--}}
+                                            {{--                                                        <a href="{{ route('company_without_insurance_cart',$history->id) }}"--}}
+                                            {{--                                                           class="btn btn-primary">View</a>--}}
+                                            {{--                                                    </td>--}}
+                                            {{--                                                @else--}}
+                                            {{--                                                    <td>Insured</td>--}}
+                                            {{--                                                @endif--}}
+                                            {{--                                            @else--}}
+                                            {{--                                                <td>-</td>--}}
+                                            {{--                                            @endif--}}
+
+                                            @if($history->insurance_request_status == null)
+                                                <td>
+                                                    <a href="{{ route('company_without_insurance_cart',$history->id) }}"
+                                                       class="btn btn-primary">View</a>
+                                                </td>
+
                                             @else
-                                                <td>-</td>
+                                                <td>{{ $history->insurance_request_status }}</td>
                                             @endif
 
                                             {{--  ---------------------------------------- Condition adding [ Insurance checking ] ---------------------------------- --}}

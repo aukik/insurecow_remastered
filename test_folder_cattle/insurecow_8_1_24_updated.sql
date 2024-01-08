@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 02, 2024 at 12:55 PM
+-- Generation Time: Jan 08, 2024 at 11:09 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `insurecow`
+-- Database: `insurecow_6_1_24`
 --
 
 -- --------------------------------------------------------
@@ -657,15 +657,36 @@ CREATE TABLE `insurance_requests` (
   `insurance_requested_company_id` varchar(255) DEFAULT NULL,
   `user_id` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `cash_agent_name` varchar(255) DEFAULT NULL,
+  `cash_agent_branch_name` varchar(255) DEFAULT NULL,
+  `cash_agent_id` varchar(255) DEFAULT NULL,
+  `cash_amount` varchar(255) DEFAULT NULL,
+  `cash_phone` varchar(255) DEFAULT NULL,
+  `cheque_bank_name` varchar(255) DEFAULT NULL,
+  `cheque_branch_name` varchar(255) DEFAULT NULL,
+  `amount` varchar(255) DEFAULT NULL,
+  `bank_ac_name` varchar(255) DEFAULT NULL,
+  `bank_ac_number` varchar(255) DEFAULT NULL,
+  `bank_name` varchar(255) DEFAULT NULL,
+  `transaction_number` varchar(255) DEFAULT NULL,
+  `insured_to_ac_info` varchar(255) DEFAULT NULL,
+  `insured_to_account` varchar(255) DEFAULT NULL,
+  `insured_to_bank_name` varchar(255) DEFAULT NULL,
+  `insured_to_branch_name` varchar(255) DEFAULT NULL,
+  `insured_to_routing_no` varchar(255) DEFAULT NULL,
+  `insured_to_instruction` varchar(255) DEFAULT NULL,
+  `attachment` varchar(255) DEFAULT NULL,
+  `transaction_type` varchar(255) DEFAULT NULL,
+  `insurance_request_status` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `insurance_requests`
 --
 
-INSERT INTO `insurance_requests` (`id`, `cattle_id`, `package_id`, `company_id`, `package_insurance_period`, `insurance_cost`, `insurance_status`, `insurance_requested_company_id`, `user_id`, `created_at`, `updated_at`) VALUES
-(2, '33', '2', '55', 0.5, '1501', 'received', '54', '89', '2023-12-26 17:42:09', '2023-12-26 17:42:24');
+INSERT INTO `insurance_requests` (`id`, `cattle_id`, `package_id`, `company_id`, `package_insurance_period`, `insurance_cost`, `insurance_status`, `insurance_requested_company_id`, `user_id`, `created_at`, `updated_at`, `cash_agent_name`, `cash_agent_branch_name`, `cash_agent_id`, `cash_amount`, `cash_phone`, `cheque_bank_name`, `cheque_branch_name`, `amount`, `bank_ac_name`, `bank_ac_number`, `bank_name`, `transaction_number`, `insured_to_ac_info`, `insured_to_account`, `insured_to_bank_name`, `insured_to_branch_name`, `insured_to_routing_no`, `insured_to_instruction`, `attachment`, `transaction_type`, `insurance_request_status`) VALUES
+(2, '33', '2', '55', 0.5, '1501', 'received', '54', '89', '2023-12-26 17:42:09', '2023-12-26 17:42:24', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'digital', 'accepted');
 
 -- --------------------------------------------------------
 
@@ -682,6 +703,8 @@ CREATE TABLE `insureds` (
   `user_id` varchar(255) DEFAULT NULL,
   `insurance_status` varchar(255) DEFAULT NULL,
   `insurance_type` varchar(255) DEFAULT NULL,
+  `insurance_request_id` varchar(255) DEFAULT NULL,
+  `insurance_requested_company_id` varchar(255) DEFAULT NULL,
   `package_expiration_date` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -691,8 +714,8 @@ CREATE TABLE `insureds` (
 -- Dumping data for table `insureds`
 --
 
-INSERT INTO `insureds` (`id`, `cattle_id`, `package_id`, `company_id`, `order_id`, `user_id`, `insurance_status`, `insurance_type`, `package_expiration_date`, `created_at`, `updated_at`) VALUES
-(14, '33', '2', '55', '9', '89', 'insured', 'single', '2024-05-26', '2023-12-26 17:43:10', '2023-12-26 17:43:10');
+INSERT INTO `insureds` (`id`, `cattle_id`, `package_id`, `company_id`, `order_id`, `user_id`, `insurance_status`, `insurance_type`, `insurance_request_id`, `insurance_requested_company_id`, `package_expiration_date`, `created_at`, `updated_at`) VALUES
+(1, '33', '2', '55', '9', '89', 'inusred', 'single', '2', '54', '2024-05-26', '2023-12-26 17:43:10', '2023-12-26 17:43:10');
 
 -- --------------------------------------------------------
 
@@ -741,7 +764,6 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (33, '2023_09_21_065611_create_cattle_reg_reports_table', 15),
 (34, '2023_10_02_060053_create_firms_table', 16),
 (35, '2023_08_06_103725_create_cattle_registrations_table', 17),
-(43, '2023_10_22_065746_create_insureds_table', 20),
 (45, '2023_09_11_085632_create_permissions_table', 22),
 (48, '2023_10_31_150141_create_animal_informations_table', 23),
 (50, '2023_11_02_091905_create_feeding_and_nutrition_table', 24),
@@ -751,10 +773,13 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (58, '2023_11_09_115537_create_budgeting_and_forecastings_table', 29),
 (59, '2023_12_17_125718_create_asset_management_table', 30),
 (60, '2023_12_17_135057_create_daily_expense_management_table', 30),
-(62, '2023_09_01_170436_create_orders_table', 32),
 (63, '2023_12_26_113736_add_permission_for_package_without_insurance_company', 33),
 (64, '2023_10_08_072704_create_insurance_requests_table', 34),
-(74, '2023_12_27_101934_create_insurance_cash_requests_table', 35);
+(74, '2023_12_27_101934_create_insurance_cash_requests_table', 35),
+(75, '2024_01_02_162823_add_bank_info_table_to_users', 36),
+(76, '2024_01_02_172034_add_cash_payment_attachment_to_table', 36),
+(77, '2023_09_01_170436_create_orders_table', 37),
+(79, '2023_10_22_065746_create_insureds_table', 38);
 
 -- --------------------------------------------------------
 
@@ -772,6 +797,7 @@ CREATE TABLE `orders` (
   `address` varchar(255) DEFAULT NULL,
   `transaction_id` varchar(255) DEFAULT NULL,
   `currency` varchar(255) DEFAULT NULL,
+  `insurance_type` varchar(255) DEFAULT NULL,
   `cattle_id` varchar(255) DEFAULT NULL,
   `package_id` varchar(255) DEFAULT NULL,
   `company_id` varchar(255) DEFAULT NULL,
@@ -787,8 +813,8 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `name`, `email`, `phone`, `amount`, `status`, `address`, `transaction_id`, `currency`, `cattle_id`, `package_id`, `company_id`, `user_id`, `insurance_request_id`, `insurance_requested_company_id`, `package_expiration_date`, `created_at`, `updated_at`) VALUES
-(9, 'WeGrow', 'info@wegrow.global', '01322891563', '1000.155', 'Processing', 'Customer Address', '658b1084cc2cd', 'BDT', '33', '2', '55', '89', '2', '54', '2024-05-26', '2023-12-26 05:32:03', '2023-12-26 05:32:03');
+INSERT INTO `orders` (`id`, `name`, `email`, `phone`, `amount`, `status`, `address`, `transaction_id`, `currency`, `insurance_type`, `cattle_id`, `package_id`, `company_id`, `user_id`, `insurance_request_id`, `insurance_requested_company_id`, `package_expiration_date`, `created_at`, `updated_at`) VALUES
+(1, 'WeGrow', 'info@wegrow.global', '01322891563', '1000.155', 'Processing', 'Customer Address', '658b1084cc2cd', 'BDT', 'single', '33', '2', '55', '89', '2', '54', '2024-05-26', '2023-12-26 05:32:03', '2023-12-26 05:32:03');
 
 -- --------------------------------------------------------
 
@@ -1045,67 +1071,73 @@ CREATE TABLE `users` (
   `agent_id` varchar(255) DEFAULT NULL,
   `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `ac_info` varchar(255) DEFAULT NULL,
+  `account` varchar(255) DEFAULT NULL,
+  `bank_name` varchar(255) DEFAULT NULL,
+  `branch_name` varchar(255) DEFAULT NULL,
+  `routing_no` varchar(255) DEFAULT NULL,
+  `instruction` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `phone`, `email_verified_at`, `password`, `address`, `nid`, `dob`, `company_website`, `company_logo`, `role`, `company_id`, `agent_employee_id`, `agent_id`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Tahmid Ferdous', 'tahmid.tf1@gmail.com', '01828665566', NULL, '$2y$10$cJOfvdj70Jwse52t8Ac9teGFiG1j.6RdzrrLQs2.rA6xCNMzuNLee', NULL, NULL, NULL, NULL, NULL, 's', NULL, NULL, NULL, NULL, '2023-09-04 00:13:07', '2023-09-04 00:13:07'),
-(54, 'WeGro', 'info@wegrow.global', '01322891563', NULL, '$2y$10$CHvoxeUw2ywr6orsvXyy2ecQIEuLIMnjtJUxHCik9q3AA2NDhXOHq', 'Dhaka, Bangladesh', NULL, NULL, NULL, 'images/Chf9yryuaHSzEch0INVtE6WxrW6JXw6NEBiROY6f.jpg', 'c', NULL, NULL, NULL, NULL, '2023-12-04 11:32:48', '2023-12-04 11:32:48'),
-(55, 'Pheonix Insurance', 'mail@phoenixinsurance.com', '01828665511', NULL, '$2y$10$XrYrWHJTpAB8pfBnt8bEM.8tXpaB51VLDOhDhUXzV0nfRcA57iWVy', 'Dhaka Bangladesh', NULL, NULL, NULL, 'images/GhAzMie2k0wON0o5VTM86RKG1LmkHoexJpt61gQG.jpg', 'c', NULL, NULL, NULL, NULL, '2023-12-04 11:41:08', '2023-12-04 11:41:08'),
-(56, 'Test Company', 'test_compnay@g.com', '01828665513', NULL, '$2y$10$HDqtn0OFXyQ1NEd7wNx.QeadJmlBBWP1jZojg6MV2J8D4HBb7FhEC', 'Test', NULL, NULL, NULL, 'images/6VMjys9NL13rO8n4V7iCxKkBbqPAEeUTEfmONMdY.jpg', 'c', NULL, NULL, NULL, NULL, '2023-12-04 12:01:15', '2023-12-04 12:01:15'),
-(57, 'Test Farmer', NULL, '01828665514', NULL, '$2y$10$XI7/.SYrZ/xCtBk4FdPIu.ox2/U2vhoxqN.nlRK4o7FJqZYfua1am', 'Test', NULL, NULL, NULL, 'images/ojlFjE2adeFL10FB0W1g8EsMaZCJ14afMU6IBw6r.jpg', 'f', '56', '11111', NULL, NULL, '2023-12-04 12:03:02', '2023-12-04 12:03:02'),
-(58, 'Marzina', NULL, '01725196318', NULL, '$2y$10$3t/bHgqtF.dJr5DqZK.rb.L2OPOgUhM1AOnID1bfsoMz06rqwtC1e', 'Gojiyabari. Khatiyamari dhunat bogura', NULL, NULL, NULL, 'images/rLbreixfu1dTXRn1m4l3MHvQ7ynwFHKYgvR9Eqf7.jpg', 'f', '54', '2696402489439', NULL, NULL, '2023-12-04 19:08:42', '2023-12-04 19:08:42'),
-(59, 'Runa begum', NULL, '01740211898', NULL, '$2y$10$a6a23SJ1MuAWp5kgaRfUKe.CgMjOo8PPhOO9jrE/V3YU.g7s155Lq', 'Rampura .mothurapur.dhunat.bogura', NULL, NULL, NULL, 'images/z0EMcHhoOuHUKhdGWN359638LtPp0Pun5eSVdxCb.jpg', 'f', '54', '1932905696', NULL, NULL, '2023-12-04 19:10:04', '2023-12-04 19:10:04'),
-(60, 'Alamgir Hossain', NULL, '01725320659', NULL, '$2y$10$UFnWchFmOBLSkXH4DWmDuu37CQqM1CkOg50117E.vBVIrXTE/Txdq', 'Gojiyabari.khatiyamari. gopalnogar.dhunat.bogura', NULL, NULL, NULL, 'images/71HM1LMDifOi4PRLGyAAG616ohyj4W0KxBZXDEOv.jpg', 'f', '54', '3733613321', NULL, NULL, '2023-12-04 19:11:20', '2023-12-04 19:11:20'),
-(61, 'Md Omar Faruk', NULL, '01328137667', NULL, '$2y$10$LV6pmeJr7rb2QEq9t3CGcuUIKk7VHCmxt1OimnoXyQSj5PIONxySS', 'Natabari dhunat bogura', NULL, NULL, NULL, 'images/mrewJRbNylqJ8u0uMw0BmTFWXl2U9U1e32BOt50F.jpg', 'f', '54', '2832900290', NULL, NULL, '2023-12-04 19:12:35', '2023-12-04 19:12:35'),
-(62, 'Sabina Yesmin', NULL, '01794798960', NULL, '$2y$10$BUQ4h7all48XkxwMbAFQr.rZeEFAMUlUVCKPR9SgiB0uHwAJKjcri', 'Kokhsabari.gosaibari dhunat bogura', NULL, NULL, NULL, 'images/cKtMq4cXmekI1i398zROiN8je0mhNv3cyUenTSxG.jpg', 'f', '54', '7772910621', NULL, NULL, '2023-12-04 19:13:36', '2023-12-04 19:13:36'),
-(63, 'Anarul Mia', NULL, '01313308387', NULL, '$2y$10$iR3K3GK1FgobOX4EZEbi..DpXx/q8l2ayITueKUnqavcYcZC7DKZm', 'West Jhinia, Jhinia, Dahband, Sundarganj, Gaibandha', NULL, NULL, NULL, 'images/AudzFgO4f3njbEHAhZGr6qxtse3MzdCPIhiTwjR7.jpg', 'f', '54', '3270398591', NULL, NULL, '2023-12-06 10:29:38', '2023-12-06 10:29:38'),
-(64, 'MST Lucky Begum', NULL, '01717674628', NULL, '$2y$10$6Zad6Mw0hjrl9L35R3DjNOU3mBKOAqpZ6HuXBnt3auJ.nAn/gtouK', 'South Dhumaitari, Jhinia, Sundarganj, Gaibandha', NULL, NULL, NULL, 'images/IWmrhMV5C7smwmaXihWoGXWBtI6XoYg1smGLnUlw.jpg', 'f', '54', '8670325128', NULL, NULL, '2023-12-06 10:35:40', '2023-12-06 10:35:40'),
-(65, 'MD Sobuj Mia', NULL, '01717226628', NULL, '$2y$10$aL.r58n6yq0Rz/i4XCnU7O.rxHNUazRDU6KbGDX.t3ZhOrPtEJRya', 'West Jhinia, Jhinia, Dahband, Sundarganj, Gaibandha', NULL, NULL, NULL, 'images/G3euLpxCFRiiCVAivLAxiftU8Am0AQagXPpZjuwh.jpg', 'f', '54', '3720422868', NULL, NULL, '2023-12-06 10:43:14', '2023-12-06 10:43:14'),
-(66, 'MD Sofikul Islam', NULL, '01714256620', NULL, '$2y$10$4T/LmBe6TLwcZXWA2f8KEuvdjj8bQGXjPLpE26aIJHnz/W87pNXda', 'South Dhumaitari, Jhinia, Sundarganj, Gaibandha', NULL, NULL, NULL, 'images/3SayrEVkiK16N0w8ntgpCvaVGh9VjIwZlRZoNevB.jpg', 'f', '54', '5550818305', NULL, NULL, '2023-12-06 10:55:57', '2023-12-06 10:55:57'),
-(67, 'MST Shefali Begum', NULL, '01746419445', NULL, '$2y$10$lVoAzb9FAhzjA0qko4EGzeoQ8Bvu5N.u1BefkiW1buTmocOAO5PYa', 'West Jhinia, Jhinia, Dahband, Sundarganj, Gaibandha', NULL, NULL, NULL, 'images/661IG8x4Wf1htOe9aBSDhnUBMq0L2Dq5KC5c2A8p.jpg', 'f', '54', '6870389290', NULL, NULL, '2023-12-06 10:59:06', '2023-12-06 10:59:06'),
-(68, 'Mst Nurnahar', NULL, '01714747190', NULL, '$2y$10$vk/wjHAlFcS4txnQtOOUM.MZsePY5MmYUxfUt3lkwtAQUaSh4eaC6', 'Boirampur badarganj', NULL, NULL, NULL, 'images/pMKFvHRRtr93sVm00deR2Ul5AGvlghlmnFxz7GtC.jpg', 'f', '54', '20062717743145500', NULL, NULL, '2023-12-07 18:08:10', '2023-12-07 18:08:10'),
-(69, 'Mst Bilkis Begum', NULL, '01796003050', NULL, '$2y$10$A5gm7EMzMDZKkNa2CVHUCuPU2bt3reCr17MwsLyEfKvtnZSbetSim', 'Nataram /shonkorpur', NULL, NULL, NULL, 'images/jiS30U5JeHTqfH1xZEdSltFVhq59HkAyAKTLi3sZ.jpg', 'f', '54', '8510363152357', NULL, NULL, '2023-12-10 09:34:58', '2023-12-10 09:34:58'),
-(70, 'Mehedi Hassan', NULL, '01946286322', NULL, '$2y$10$U62ZTaF6mYIeqBNh4TnsbuTD/EOahqdqKBrL5eXoDbLr8cCFBDJii', 'Somospur,Pairahat,Abhaynagar,Jeshore.', NULL, NULL, NULL, 'images/FsW5BXFHG0WapgtPdJWbdnNvXTIjiRdqkTL08bkE.jpg', 'f', '54', '3264092259', NULL, NULL, '2023-12-10 09:42:27', '2023-12-10 09:42:27'),
-(71, 'Md Mizanur Rahman', NULL, '01816648845', NULL, '$2y$10$RGUFytsU0YW5KOUjyadOt.jIWG22pBCzG0y6eag7T2wusmouG.B4m', 'Boirampur badarganj', NULL, NULL, NULL, 'images/Mcy6VFz2xDIDDo0aGajp3yGurbBpOHIBd8fZwZP5.jpg', 'f', '54', '123456789', NULL, NULL, '2023-12-11 06:56:04', '2023-12-11 06:56:04'),
-(72, 'MD Soriful Islam', NULL, '01986919205', NULL, '$2y$10$fDC1G8ISHBd.R2RasXPrPOCmP5MXC.QrExbccJHPpbvGkj51K9D/O', 'Kota payra hat avoynagor Jessore', NULL, NULL, NULL, 'images/ire3IYA6aj1PY5rFH3ZEgIYE2ZXbHuQf4YRibukN.jpg', 'f', '54', '4654307539', NULL, NULL, '2023-12-11 07:05:54', '2023-12-11 07:05:54'),
-(73, 'Hasanur Rohoman', NULL, '01917038415', NULL, '$2y$10$IGFl2InuPbCBF1ufljtzYOtt3CsgEOSbm2YLB9NuQ3kbNBn0Qo1Mi', 'Goradair,Pairahat,Abhaynagar,Jeshore', NULL, NULL, NULL, 'images/qYp9GXqEqip64qz9XDwzOUFAD50eFUrVxTqE59g0.jpg', 'f', '54', '3295215242', NULL, NULL, '2023-12-11 07:16:51', '2023-12-11 07:16:51'),
-(74, 'Md Imdad Hossain', NULL, '01717995132', NULL, '$2y$10$Wll7DQjRepZAqPnF.3gjw.nsoGyzHITzheq5r1O8slwlnGrCoJ8Ju', 'Balidah,Pachakori,Abhaynagar,Jeshore', NULL, NULL, NULL, 'images/WxIyZASYDclSLPC8dfMZqZyo4KOroc4u4G9XUJQV.jpg', 'f', '54', '4116183663011', NULL, NULL, '2023-12-11 07:26:47', '2023-12-11 07:26:47'),
-(75, 'Rikabul', NULL, '01322084326', NULL, '$2y$10$CPWZU0jvIbgZiV2BYVMlUO70CrHCxAZGPlhdvp310ERCQt1HDATwG', 'Kota payra avoynagor Jessore', NULL, NULL, NULL, 'images/Wa77Smt5acD5FbHRsCb5p9W3RsK6eyubaCrsS1jo.jpg', 'f', '54', '9558395019', NULL, NULL, '2023-12-11 08:54:50', '2023-12-11 08:54:50'),
-(76, 'Khandokar moinul Islam', NULL, '01723337393', NULL, '$2y$10$SZYRgjALKQMLrOvxo5gv6.Ct0Gv50NNEnCtiDmTHKFwqUKllyTq1e', 'Kota payra avoynagor Jessore', NULL, NULL, NULL, 'images/cjwLFJMpKYbKpmWBfXY4NYFwmqgibg6pvcu6CpoF.jpg', 'f', '54', '6423324158', NULL, NULL, '2023-12-11 08:59:56', '2023-12-11 08:59:56'),
-(77, 'Manum billah', NULL, '01935308475', NULL, '$2y$10$lidelAviVPXi.GiJyX19HOqiEkF/eO2LcV2u0qu.IsYy4fGKvd.kS', 'Kota payra avoynagor', NULL, NULL, NULL, 'images/DGZ8tMlJ4I1qN0R7krle3F3uh20ocsDJxLsVcO3N.jpg', 'f', '54', '2854232523', NULL, NULL, '2023-12-11 09:07:31', '2023-12-11 09:07:31'),
-(78, 'Mohan Kumar Mitra', NULL, '01315332567', NULL, '$2y$10$/5nIqbrDUgXQllLnlDenX.Jt.SGmiUAl3i6ioMfnVz38QKTLoVyo2', 'nehalpur manirampur Jessore', NULL, NULL, NULL, 'images/C6B9RqTCFvRwHa9cD0NmPiZ3RUHFcbzIGDwS8M5V.jpg', 'f', '54', '19914116183000100', NULL, NULL, '2023-12-11 09:17:00', '2023-12-11 09:17:00'),
-(79, 'Mst shapla Begum', NULL, '01774205433', NULL, '$2y$10$ClCvotVFbf8itCgWKirlbOgyXAQMBr4B5mYSIX4Sacby2fiN/DEaS', 'Kalopara,Bodorgonj', NULL, NULL, NULL, 'images/ysESGcjUw1N9SliFxRYKv9dHqJ47n9lJT9krfw6U.jpg', 'f', '54', '8510316320642', NULL, NULL, '2023-12-11 09:21:23', '2023-12-11 09:21:23'),
-(80, 'Mst Nalo My', NULL, '01739113371', NULL, '$2y$10$Wq6QnSeE7HSZxZDEU.cxTOBouEncJbAZYTGT3h0rlrBZNN/TfJqRe', 'Kalopara,Bodorgonj', NULL, NULL, NULL, 'images/W89gVh91ebHUvUUqRA8zHSmIttDwc0AE2Xfvtj6B.jpg', 'f', '54', '8510316321055', NULL, NULL, '2023-12-11 09:32:26', '2023-12-11 09:32:26'),
-(81, 'Salma Begum', NULL, '01922666985', NULL, '$2y$10$1SR0fZhi0H3e6z55LOhVK.CCcXW8yslzZNE2jsFOVIyl55ZnLDX7C', 'Balidha pachakori Monirampur Jessore', NULL, NULL, NULL, 'images/4vCrD7FlHfr5MaU06dPaQywRxQPcMs8PgHRuCSBj.jpg', 'f', '54', '4116183659148', NULL, NULL, '2023-12-11 10:43:20', '2023-12-11 10:43:20'),
-(82, 'MD. Atiar Rahman', NULL, '01738401840', NULL, '$2y$10$a43RYKIdCG8YCYZDNX4aAuU69xOsVz0qh09sMVdv0YR6ddLZKn2Cm', 'East Baidyanath, Sonora, Sundarganj, Gaibandha', NULL, NULL, NULL, 'images/umLVGgb5zjTKpfL9g6Cux6ysFRZvLEhkQFREHMRN.jpg', 'f', '54', '8669703277', NULL, NULL, '2023-12-11 10:44:00', '2023-12-11 10:44:00'),
-(83, 'Mst Jahanara Khatun', NULL, '01738653247', NULL, '$2y$10$fOyekofNob4N0EOMERyETeEWfNre2fTOE5AbHI6gTO7OQirrAx9BW', 'Kalopara, Bodorgonj', NULL, NULL, NULL, 'images/Tz9RQ1BFQdacnlgxWlbe2RuoBa0zKRFRt6PVWjwX.jpg', 'f', '54', '19918510316000000', NULL, NULL, '2023-12-11 10:48:19', '2023-12-11 10:48:19'),
-(84, 'MST. Rahima Begum', NULL, '01764986750', NULL, '$2y$10$T1WX1qvWq/fuuy0qy4pliOaiNZaW5k/UbcqazjpSfsI9v4cv/uVR2', 'Baidyanath, Sonora, Sundarganj, Gaibandha', NULL, NULL, NULL, 'images/wilmLzUjggJzvNOCKfYqbrKfKmRiwxy269UF2dcL.jpg', 'f', '54', '9219182831114', NULL, NULL, '2023-12-11 10:49:14', '2023-12-11 10:49:14'),
-(85, 'Joynur Begum', NULL, '01837954880', NULL, '$2y$10$Fu4YG4Ut/.c6t3jzVRXMWe6DatUGMR2hcXcPkyt5F9ZZtHtYHMB62', 'Balidha pachakori Monirampur Jessore', NULL, NULL, NULL, 'images/vJM2mbFhQnJX6xpMbXqaVo4qwwxwnSnaMkMYKDFZ.jpg', 'f', '54', '4116183659171', NULL, NULL, '2023-12-11 10:51:40', '2023-12-11 10:51:40'),
-(86, 'MD Momdel Hossain', NULL, '01767414772', NULL, '$2y$10$HWy5VIiHJeWab8ZZ0MQp5.CUk.mGfz5o2z9UZighEw1YGLVVhRDFe', 'Buirumpur', NULL, NULL, NULL, 'images/fRwxJmsMuj5RF9Lo9m5x594GsTMdwX5dG76Va8Ke.jpg', 'f', '54', '8510316319683', NULL, NULL, '2023-12-11 14:54:27', '2023-12-11 14:54:27'),
-(87, 'Mst Aduri Begum', NULL, '01796770372', NULL, '$2y$10$piXmUC5tVQ06RU2n2XGs3.SmLvNtrywkiyGif8JvaM0x2/ZnPRkyS', 'Kalopara, Hazipara', NULL, NULL, NULL, 'images/evX0jVTthbHFwhwqcZW1r2BY0TGFqULhjVYhb9a6.jpg', 'f', '54', '8510316324914', NULL, NULL, '2023-12-11 14:55:44', '2023-12-11 14:55:44'),
-(88, 'MD Shahin Mia', NULL, '01753206862', NULL, '$2y$10$hVYUIlEhRAyu.mhf/7O6pea980H8FFnCkaOZllDD591PjqzqgH6Rq', 'Hasupara, kalopara', NULL, NULL, NULL, 'images/ETPVEIQVan7g5YGo34PVLlKFcDw3D4uON5Hs0KqF.jpg', 'f', '54', '19928510316000000', NULL, NULL, '2023-12-11 14:56:35', '2023-12-11 14:56:35'),
-(89, 'MD Shafiar Rahman', NULL, '01315734807', NULL, '$2y$10$udFvPUn3GmbObaOrLzp1Q.OYQ2xv3sv/vHuCUs/mtA3Uh14dGwtGS', 'Buirumpur,Miapara', NULL, NULL, NULL, 'images/6ErXrnYK3Xh0ylDovMo08hO3mpFhQGCgY82TH9gz.jpg', 'f', '54', '8510316319393', NULL, NULL, '2023-12-11 14:57:44', '2023-12-11 14:57:44'),
-(90, 'MD Nurujjaman Haque', NULL, '01750830108', NULL, '$2y$10$dORgr2nzHlyHHsoJ4VGpdeb7pY9rpwzdxdzfVLPqBmUQOAvKOouqu', 'Potimari,kalopara', NULL, NULL, NULL, 'images/EkeGY1cA79MeGMnBkcD5hXF0ntXerHpYGTjXabKY.jpg', 'f', '54', '8510316323592', NULL, NULL, '2023-12-11 14:58:31', '2023-12-11 14:58:31'),
-(91, 'Monitosh Kumar Mondol', NULL, '01320445229', NULL, '$2y$10$45sLvgT7Srbo.3sjCPixaeyGKP/Oe8Uria2uL3x2GS8wqYACRhpCe', 'Kadirpara,Pairahat,Abhaynagar,Jeshore,', NULL, NULL, NULL, 'images/deUAMHLajxVozcd3R4iZJYiVwGcMAOwRaXuP5waJ.jpg', 'f', '54', '1494966896', NULL, NULL, '2023-12-12 06:31:40', '2023-12-12 06:31:40'),
-(92, 'Monirul Islam', NULL, '01929622309', NULL, '$2y$10$1P5L05j0O1n4sDjybdVVNuVywSXwS/PS5l7739DkhvE5Ftk7fdqdW', 'Somospur,Pairahat,Abhaynagar,Jeshore,', NULL, NULL, NULL, 'images/TvxyrsrYAq3e7PHnFOu7qfZcB8yBZoPJkIvANQjf.jpg', 'f', '54', '7331877519', NULL, NULL, '2023-12-12 06:37:36', '2023-12-12 06:37:36'),
-(93, 'Most Rabeya parvin', NULL, '01740407497', NULL, '$2y$10$FUCL2iWFo22tP.Fyf.W8eO.W1QgDtdiZdDkZLZCuFLuWOSobB9BVW', 'Hatkholapara', NULL, NULL, NULL, 'images/hICdZnli7DWRU1XA97zRy9eDHUy1Pw3ZTpMkG6wL.jpg', 'f', '54', '1950780874', NULL, NULL, '2023-12-12 06:42:38', '2023-12-12 06:42:38'),
-(94, 'Mst Faruma khatun', NULL, '01767044925', NULL, '$2y$10$PuGNyn56NpwHZbB3iLeZhuVnKbQftetn8pxWXQ/k59mMrJ2Op6zzK', 'Putimari', NULL, NULL, NULL, 'images/WVTdKvibxKzlOxcHQfX3IBYQ8ODYV7wLBBKG3vZO.jpg', 'f', '54', '8510316324384', NULL, NULL, '2023-12-12 06:48:46', '2023-12-12 06:48:46'),
-(95, 'MD Aminul Haque', NULL, '01761863109', NULL, '$2y$10$7PgOoIHEkHdIxb3nybwPvuXco9f3LynJvtraCD3bdnWj45wAbwcPy', 'Hatkholapara', NULL, NULL, NULL, 'images/IchXT6LzkDdl3t03t9yULwd4ENr4AAEhrv8j3SOw.jpg', 'f', '54', '8510316325020', NULL, NULL, '2023-12-12 06:54:37', '2023-12-12 06:54:37'),
-(96, 'MD Farukh Hossain', NULL, '01722668206', NULL, '$2y$10$UYEo14qrgHVGRYbTuo75beidCWyb5uIaB6/dYEdW4qyHmskNCx.KW', 'Hatkholapara', NULL, NULL, NULL, 'images/564DYq647PNvppG4VsAT39uUFmN36hl07W1Pp35x.jpg', 'f', '54', '8510316325051', NULL, NULL, '2023-12-12 06:59:16', '2023-12-12 06:59:16'),
-(97, 'Rabiul Islam', NULL, '01917338351', NULL, '$2y$10$psR.ODsuZkX9Nx6gr0itl.5aTRJZDdJrFa.B/0ninges.ZuyYbESa', 'Dokhin Dhumitari , Jhinina , Sundarganj , Gaibandha Dokhin Dhumitari', NULL, NULL, NULL, 'images/2jXK4rFT6YiVfo5WYdR8A2JGLiO8vluvDOlK52Ek.jpg', 'f', '54', '3219131942697', NULL, NULL, '2023-12-12 07:05:38', '2023-12-12 07:05:38'),
-(98, 'MD. Ranu. Mia', NULL, '01738043141', NULL, '$2y$10$LJwZXYEfowXw79mzzLGFoucQRtFcv0WAmiNT88rrNYK9TI.HA3HbG', 'Parigung', NULL, NULL, NULL, 'images/kIZOkKLDwNlsvDsnFc9zAoX11PbFSPMIYPLWz8dt.jpg', 'f', '54', '8517682593088', NULL, NULL, '2023-12-12 07:10:42', '2023-12-12 07:10:42'),
-(99, 'MD. Moonaf Ali', NULL, '01750091837', NULL, '$2y$10$Uibpca3pTjRemEUp9lFh.OYIya5Wq9Z030rwAB/ucMXLnPKM4RIbG', 'Ramatpur', NULL, NULL, NULL, 'images/NgPkvk5e6SELueusqSY8eWHV8cpcYN1XCOCA409f.jpg', 'f', '54', '3734273984', NULL, NULL, '2023-12-12 07:22:32', '2023-12-12 07:22:32'),
-(100, 'MD. Atiqur Rahman', NULL, '01722200096', NULL, '$2y$10$BEDLuj9uWgvIcxkpvTIi9eOhQEI55ejd2e2GATN98oe4GcnpKoO.6', 'Ramanutpur', NULL, NULL, NULL, 'images/mbcjcEcK3EVt8htYHmSxfhD0KpCggeEOruM709yl.jpg', 'f', '54', '8517682593322', NULL, NULL, '2023-12-12 07:28:05', '2023-12-12 07:28:05'),
-(101, 'Shahida Begum', NULL, '01785373918', NULL, '$2y$10$sMYJlVN6G607ezJsvO.8Ae.hGCJ.wmj1fUvH7AgwVCjRTSlqBcZFy', 'East Sonora, Sonora, Sundarganj, Gaibandha.', NULL, NULL, NULL, 'images/ThHJRQA5wF3JOMPYqp5j1sXfsp0vA1nlei53qVV5.jpg', 'f', '54', '1919378987', NULL, NULL, '2023-12-14 06:43:48', '2023-12-14 06:43:48'),
-(102, 'Saburon Nesa', NULL, '01752703743', NULL, '$2y$10$v0DsVfWX17ZR.eZVR4fl/OIRn67GAqdG1zSUncqcapavX.b2NobEm', 'Balidha pachakori Monirampur', NULL, NULL, NULL, 'images/mqfMysoVqWQwVjefUyA2hWlfAb2TLw2OswuLJjxr.jpg', 'f', '54', '4116183659733', NULL, NULL, '2023-12-17 05:15:48', '2023-12-17 05:15:48'),
-(103, 'Mojibul Rahman', 'abcd@gmail.com', '01959938009', NULL, '$2y$10$d6r4I5aLYH.vxr9vJv1C4.XHIiqYi4Y7RRG7cJue/Iisnn1mC0U4C', 'Shukarabd, Dhaka Bangladesh', NULL, NULL, NULL, 'images/9Ugk8rcihIusKuvwgm05B1WRACdqTuOCsAQlLzv2.png', 'f', '56', '12345678', NULL, NULL, '2023-12-17 06:37:52', '2023-12-17 06:37:52'),
-(104, 'Shompod Agro', 'shompod@gmail.com', '01959938008', NULL, '$2y$10$EukB0wo0ZbxcZ3KfTp52D.ZUlXiYqsLCQloKygvgyx5z9HeZ32/GO', 'Raja Clinic, 5 No Word, Gangni, Meherpur', NULL, NULL, NULL, 'images/Kh6aRREQWDhEAu3qKquYNTdC6KsEVTruEk6Iw49m.jpg', 'c', NULL, NULL, NULL, NULL, '2023-12-19 08:35:42', '2023-12-19 08:35:42'),
-(105, 'Sompod', NULL, '02959938010', NULL, '$2y$10$vu8ELvcU9M.JnuGCKidAZeHkfsE5kO/3/4xhp0TOItMfRaACli47G', 'Raja Clinic, 5 No Word, Gangni, Meherpur', NULL, NULL, NULL, 'images/hgyLtWauG4YIdpbeN0QUqSuijgiCNEtZff99XLNv.jpg', 'f', '104', '001', NULL, NULL, '2023-12-19 08:46:25', '2023-12-19 08:46:25');
+INSERT INTO `users` (`id`, `name`, `email`, `phone`, `email_verified_at`, `password`, `address`, `nid`, `dob`, `company_website`, `company_logo`, `role`, `company_id`, `agent_employee_id`, `agent_id`, `remember_token`, `created_at`, `updated_at`, `ac_info`, `account`, `bank_name`, `branch_name`, `routing_no`, `instruction`) VALUES
+(1, 'Tahmid Ferdous', 'tahmid.tf1@gmail.com', '01828665566', NULL, '$2y$10$cJOfvdj70Jwse52t8Ac9teGFiG1j.6RdzrrLQs2.rA6xCNMzuNLee', NULL, NULL, NULL, NULL, NULL, 's', NULL, NULL, NULL, NULL, '2023-09-04 00:13:07', '2023-09-04 00:13:07', NULL, NULL, NULL, NULL, NULL, NULL),
+(54, 'WeGro', 'info@wegrow.global', '01322891563', NULL, '$2y$10$CHvoxeUw2ywr6orsvXyy2ecQIEuLIMnjtJUxHCik9q3AA2NDhXOHq', 'Dhaka, Bangladesh', NULL, NULL, NULL, 'images/Chf9yryuaHSzEch0INVtE6WxrW6JXw6NEBiROY6f.jpg', 'c', NULL, NULL, NULL, NULL, '2023-12-04 11:32:48', '2023-12-04 11:32:48', NULL, NULL, NULL, NULL, NULL, NULL),
+(55, 'Pheonix Insurance', 'mail@phoenixinsurance.com', '01828665511', NULL, '$2y$10$XrYrWHJTpAB8pfBnt8bEM.8tXpaB51VLDOhDhUXzV0nfRcA57iWVy', 'Dhaka Bangladesh', NULL, NULL, NULL, 'images/GhAzMie2k0wON0o5VTM86RKG1LmkHoexJpt61gQG.jpg', 'c', NULL, NULL, NULL, NULL, '2023-12-04 11:41:08', '2023-12-04 11:41:08', '1', '1', '1', '1', '1', '1'),
+(56, 'Test Company', 'test_compnay@g.com', '01828665513', NULL, '$2y$10$HDqtn0OFXyQ1NEd7wNx.QeadJmlBBWP1jZojg6MV2J8D4HBb7FhEC', 'Test', NULL, NULL, NULL, 'images/6VMjys9NL13rO8n4V7iCxKkBbqPAEeUTEfmONMdY.jpg', 'c', NULL, NULL, NULL, NULL, '2023-12-04 12:01:15', '2023-12-04 12:01:15', NULL, NULL, NULL, NULL, NULL, NULL),
+(57, 'Test Farmer', NULL, '01828665514', NULL, '$2y$10$XI7/.SYrZ/xCtBk4FdPIu.ox2/U2vhoxqN.nlRK4o7FJqZYfua1am', 'Test', NULL, NULL, NULL, 'images/ojlFjE2adeFL10FB0W1g8EsMaZCJ14afMU6IBw6r.jpg', 'f', '56', '11111', NULL, NULL, '2023-12-04 12:03:02', '2023-12-04 12:03:02', NULL, NULL, NULL, NULL, NULL, NULL),
+(58, 'Marzina', NULL, '01725196318', NULL, '$2y$10$3t/bHgqtF.dJr5DqZK.rb.L2OPOgUhM1AOnID1bfsoMz06rqwtC1e', 'Gojiyabari. Khatiyamari dhunat bogura', NULL, NULL, NULL, 'images/rLbreixfu1dTXRn1m4l3MHvQ7ynwFHKYgvR9Eqf7.jpg', 'f', '54', '2696402489439', NULL, NULL, '2023-12-04 19:08:42', '2023-12-04 19:08:42', NULL, NULL, NULL, NULL, NULL, NULL),
+(59, 'Runa begum', NULL, '01740211898', NULL, '$2y$10$a6a23SJ1MuAWp5kgaRfUKe.CgMjOo8PPhOO9jrE/V3YU.g7s155Lq', 'Rampura .mothurapur.dhunat.bogura', NULL, NULL, NULL, 'images/z0EMcHhoOuHUKhdGWN359638LtPp0Pun5eSVdxCb.jpg', 'f', '54', '1932905696', NULL, NULL, '2023-12-04 19:10:04', '2023-12-04 19:10:04', NULL, NULL, NULL, NULL, NULL, NULL),
+(60, 'Alamgir Hossain', NULL, '01725320659', NULL, '$2y$10$UFnWchFmOBLSkXH4DWmDuu37CQqM1CkOg50117E.vBVIrXTE/Txdq', 'Gojiyabari.khatiyamari. gopalnogar.dhunat.bogura', NULL, NULL, NULL, 'images/71HM1LMDifOi4PRLGyAAG616ohyj4W0KxBZXDEOv.jpg', 'f', '54', '3733613321', NULL, NULL, '2023-12-04 19:11:20', '2023-12-04 19:11:20', NULL, NULL, NULL, NULL, NULL, NULL),
+(61, 'Md Omar Faruk', NULL, '01328137667', NULL, '$2y$10$LV6pmeJr7rb2QEq9t3CGcuUIKk7VHCmxt1OimnoXyQSj5PIONxySS', 'Natabari dhunat bogura', NULL, NULL, NULL, 'images/mrewJRbNylqJ8u0uMw0BmTFWXl2U9U1e32BOt50F.jpg', 'f', '54', '2832900290', NULL, NULL, '2023-12-04 19:12:35', '2023-12-04 19:12:35', NULL, NULL, NULL, NULL, NULL, NULL),
+(62, 'Sabina Yesmin', NULL, '01794798960', NULL, '$2y$10$BUQ4h7all48XkxwMbAFQr.rZeEFAMUlUVCKPR9SgiB0uHwAJKjcri', 'Kokhsabari.gosaibari dhunat bogura', NULL, NULL, NULL, 'images/cKtMq4cXmekI1i398zROiN8je0mhNv3cyUenTSxG.jpg', 'f', '54', '7772910621', NULL, NULL, '2023-12-04 19:13:36', '2023-12-04 19:13:36', NULL, NULL, NULL, NULL, NULL, NULL),
+(63, 'Anarul Mia', NULL, '01313308387', NULL, '$2y$10$iR3K3GK1FgobOX4EZEbi..DpXx/q8l2ayITueKUnqavcYcZC7DKZm', 'West Jhinia, Jhinia, Dahband, Sundarganj, Gaibandha', NULL, NULL, NULL, 'images/AudzFgO4f3njbEHAhZGr6qxtse3MzdCPIhiTwjR7.jpg', 'f', '54', '3270398591', NULL, NULL, '2023-12-06 10:29:38', '2023-12-06 10:29:38', NULL, NULL, NULL, NULL, NULL, NULL),
+(64, 'MST Lucky Begum', NULL, '01717674628', NULL, '$2y$10$6Zad6Mw0hjrl9L35R3DjNOU3mBKOAqpZ6HuXBnt3auJ.nAn/gtouK', 'South Dhumaitari, Jhinia, Sundarganj, Gaibandha', NULL, NULL, NULL, 'images/IWmrhMV5C7smwmaXihWoGXWBtI6XoYg1smGLnUlw.jpg', 'f', '54', '8670325128', NULL, NULL, '2023-12-06 10:35:40', '2023-12-06 10:35:40', NULL, NULL, NULL, NULL, NULL, NULL),
+(65, 'MD Sobuj Mia', NULL, '01717226628', NULL, '$2y$10$aL.r58n6yq0Rz/i4XCnU7O.rxHNUazRDU6KbGDX.t3ZhOrPtEJRya', 'West Jhinia, Jhinia, Dahband, Sundarganj, Gaibandha', NULL, NULL, NULL, 'images/G3euLpxCFRiiCVAivLAxiftU8Am0AQagXPpZjuwh.jpg', 'f', '54', '3720422868', NULL, NULL, '2023-12-06 10:43:14', '2023-12-06 10:43:14', NULL, NULL, NULL, NULL, NULL, NULL),
+(66, 'MD Sofikul Islam', NULL, '01714256620', NULL, '$2y$10$4T/LmBe6TLwcZXWA2f8KEuvdjj8bQGXjPLpE26aIJHnz/W87pNXda', 'South Dhumaitari, Jhinia, Sundarganj, Gaibandha', NULL, NULL, NULL, 'images/3SayrEVkiK16N0w8ntgpCvaVGh9VjIwZlRZoNevB.jpg', 'f', '54', '5550818305', NULL, NULL, '2023-12-06 10:55:57', '2023-12-06 10:55:57', NULL, NULL, NULL, NULL, NULL, NULL),
+(67, 'MST Shefali Begum', NULL, '01746419445', NULL, '$2y$10$lVoAzb9FAhzjA0qko4EGzeoQ8Bvu5N.u1BefkiW1buTmocOAO5PYa', 'West Jhinia, Jhinia, Dahband, Sundarganj, Gaibandha', NULL, NULL, NULL, 'images/661IG8x4Wf1htOe9aBSDhnUBMq0L2Dq5KC5c2A8p.jpg', 'f', '54', '6870389290', NULL, NULL, '2023-12-06 10:59:06', '2023-12-06 10:59:06', NULL, NULL, NULL, NULL, NULL, NULL),
+(68, 'Mst Nurnahar', NULL, '01714747190', NULL, '$2y$10$vk/wjHAlFcS4txnQtOOUM.MZsePY5MmYUxfUt3lkwtAQUaSh4eaC6', 'Boirampur badarganj', NULL, NULL, NULL, 'images/pMKFvHRRtr93sVm00deR2Ul5AGvlghlmnFxz7GtC.jpg', 'f', '54', '20062717743145500', NULL, NULL, '2023-12-07 18:08:10', '2023-12-07 18:08:10', NULL, NULL, NULL, NULL, NULL, NULL),
+(69, 'Mst Bilkis Begum', NULL, '01796003050', NULL, '$2y$10$A5gm7EMzMDZKkNa2CVHUCuPU2bt3reCr17MwsLyEfKvtnZSbetSim', 'Nataram /shonkorpur', NULL, NULL, NULL, 'images/jiS30U5JeHTqfH1xZEdSltFVhq59HkAyAKTLi3sZ.jpg', 'f', '54', '8510363152357', NULL, NULL, '2023-12-10 09:34:58', '2023-12-10 09:34:58', NULL, NULL, NULL, NULL, NULL, NULL),
+(70, 'Mehedi Hassan', NULL, '01946286322', NULL, '$2y$10$U62ZTaF6mYIeqBNh4TnsbuTD/EOahqdqKBrL5eXoDbLr8cCFBDJii', 'Somospur,Pairahat,Abhaynagar,Jeshore.', NULL, NULL, NULL, 'images/FsW5BXFHG0WapgtPdJWbdnNvXTIjiRdqkTL08bkE.jpg', 'f', '54', '3264092259', NULL, NULL, '2023-12-10 09:42:27', '2023-12-10 09:42:27', NULL, NULL, NULL, NULL, NULL, NULL),
+(71, 'Md Mizanur Rahman', NULL, '01816648845', NULL, '$2y$10$RGUFytsU0YW5KOUjyadOt.jIWG22pBCzG0y6eag7T2wusmouG.B4m', 'Boirampur badarganj', NULL, NULL, NULL, 'images/Mcy6VFz2xDIDDo0aGajp3yGurbBpOHIBd8fZwZP5.jpg', 'f', '54', '123456789', NULL, NULL, '2023-12-11 06:56:04', '2023-12-11 06:56:04', NULL, NULL, NULL, NULL, NULL, NULL),
+(72, 'MD Soriful Islam', NULL, '01986919205', NULL, '$2y$10$fDC1G8ISHBd.R2RasXPrPOCmP5MXC.QrExbccJHPpbvGkj51K9D/O', 'Kota payra hat avoynagor Jessore', NULL, NULL, NULL, 'images/ire3IYA6aj1PY5rFH3ZEgIYE2ZXbHuQf4YRibukN.jpg', 'f', '54', '4654307539', NULL, NULL, '2023-12-11 07:05:54', '2023-12-11 07:05:54', NULL, NULL, NULL, NULL, NULL, NULL),
+(73, 'Hasanur Rohoman', NULL, '01917038415', NULL, '$2y$10$IGFl2InuPbCBF1ufljtzYOtt3CsgEOSbm2YLB9NuQ3kbNBn0Qo1Mi', 'Goradair,Pairahat,Abhaynagar,Jeshore', NULL, NULL, NULL, 'images/qYp9GXqEqip64qz9XDwzOUFAD50eFUrVxTqE59g0.jpg', 'f', '54', '3295215242', NULL, NULL, '2023-12-11 07:16:51', '2023-12-11 07:16:51', NULL, NULL, NULL, NULL, NULL, NULL),
+(74, 'Md Imdad Hossain', NULL, '01717995132', NULL, '$2y$10$Wll7DQjRepZAqPnF.3gjw.nsoGyzHITzheq5r1O8slwlnGrCoJ8Ju', 'Balidah,Pachakori,Abhaynagar,Jeshore', NULL, NULL, NULL, 'images/WxIyZASYDclSLPC8dfMZqZyo4KOroc4u4G9XUJQV.jpg', 'f', '54', '4116183663011', NULL, NULL, '2023-12-11 07:26:47', '2023-12-11 07:26:47', NULL, NULL, NULL, NULL, NULL, NULL),
+(75, 'Rikabul', NULL, '01322084326', NULL, '$2y$10$CPWZU0jvIbgZiV2BYVMlUO70CrHCxAZGPlhdvp310ERCQt1HDATwG', 'Kota payra avoynagor Jessore', NULL, NULL, NULL, 'images/Wa77Smt5acD5FbHRsCb5p9W3RsK6eyubaCrsS1jo.jpg', 'f', '54', '9558395019', NULL, NULL, '2023-12-11 08:54:50', '2023-12-11 08:54:50', NULL, NULL, NULL, NULL, NULL, NULL),
+(76, 'Khandokar moinul Islam', NULL, '01723337393', NULL, '$2y$10$SZYRgjALKQMLrOvxo5gv6.Ct0Gv50NNEnCtiDmTHKFwqUKllyTq1e', 'Kota payra avoynagor Jessore', NULL, NULL, NULL, 'images/cjwLFJMpKYbKpmWBfXY4NYFwmqgibg6pvcu6CpoF.jpg', 'f', '54', '6423324158', NULL, NULL, '2023-12-11 08:59:56', '2023-12-11 08:59:56', NULL, NULL, NULL, NULL, NULL, NULL),
+(77, 'Manum billah', NULL, '01935308475', NULL, '$2y$10$lidelAviVPXi.GiJyX19HOqiEkF/eO2LcV2u0qu.IsYy4fGKvd.kS', 'Kota payra avoynagor', NULL, NULL, NULL, 'images/DGZ8tMlJ4I1qN0R7krle3F3uh20ocsDJxLsVcO3N.jpg', 'f', '54', '2854232523', NULL, NULL, '2023-12-11 09:07:31', '2023-12-11 09:07:31', NULL, NULL, NULL, NULL, NULL, NULL),
+(78, 'Mohan Kumar Mitra', NULL, '01315332567', NULL, '$2y$10$/5nIqbrDUgXQllLnlDenX.Jt.SGmiUAl3i6ioMfnVz38QKTLoVyo2', 'nehalpur manirampur Jessore', NULL, NULL, NULL, 'images/C6B9RqTCFvRwHa9cD0NmPiZ3RUHFcbzIGDwS8M5V.jpg', 'f', '54', '19914116183000100', NULL, NULL, '2023-12-11 09:17:00', '2023-12-11 09:17:00', NULL, NULL, NULL, NULL, NULL, NULL),
+(79, 'Mst shapla Begum', NULL, '01774205433', NULL, '$2y$10$ClCvotVFbf8itCgWKirlbOgyXAQMBr4B5mYSIX4Sacby2fiN/DEaS', 'Kalopara,Bodorgonj', NULL, NULL, NULL, 'images/ysESGcjUw1N9SliFxRYKv9dHqJ47n9lJT9krfw6U.jpg', 'f', '54', '8510316320642', NULL, NULL, '2023-12-11 09:21:23', '2023-12-11 09:21:23', NULL, NULL, NULL, NULL, NULL, NULL),
+(80, 'Mst Nalo My', NULL, '01739113371', NULL, '$2y$10$Wq6QnSeE7HSZxZDEU.cxTOBouEncJbAZYTGT3h0rlrBZNN/TfJqRe', 'Kalopara,Bodorgonj', NULL, NULL, NULL, 'images/W89gVh91ebHUvUUqRA8zHSmIttDwc0AE2Xfvtj6B.jpg', 'f', '54', '8510316321055', NULL, NULL, '2023-12-11 09:32:26', '2023-12-11 09:32:26', NULL, NULL, NULL, NULL, NULL, NULL),
+(81, 'Salma Begum', NULL, '01922666985', NULL, '$2y$10$1SR0fZhi0H3e6z55LOhVK.CCcXW8yslzZNE2jsFOVIyl55ZnLDX7C', 'Balidha pachakori Monirampur Jessore', NULL, NULL, NULL, 'images/4vCrD7FlHfr5MaU06dPaQywRxQPcMs8PgHRuCSBj.jpg', 'f', '54', '4116183659148', NULL, NULL, '2023-12-11 10:43:20', '2023-12-11 10:43:20', NULL, NULL, NULL, NULL, NULL, NULL),
+(82, 'MD. Atiar Rahman', NULL, '01738401840', NULL, '$2y$10$a43RYKIdCG8YCYZDNX4aAuU69xOsVz0qh09sMVdv0YR6ddLZKn2Cm', 'East Baidyanath, Sonora, Sundarganj, Gaibandha', NULL, NULL, NULL, 'images/umLVGgb5zjTKpfL9g6Cux6ysFRZvLEhkQFREHMRN.jpg', 'f', '54', '8669703277', NULL, NULL, '2023-12-11 10:44:00', '2023-12-11 10:44:00', NULL, NULL, NULL, NULL, NULL, NULL),
+(83, 'Mst Jahanara Khatun', NULL, '01738653247', NULL, '$2y$10$fOyekofNob4N0EOMERyETeEWfNre2fTOE5AbHI6gTO7OQirrAx9BW', 'Kalopara, Bodorgonj', NULL, NULL, NULL, 'images/Tz9RQ1BFQdacnlgxWlbe2RuoBa0zKRFRt6PVWjwX.jpg', 'f', '54', '19918510316000000', NULL, NULL, '2023-12-11 10:48:19', '2023-12-11 10:48:19', NULL, NULL, NULL, NULL, NULL, NULL),
+(84, 'MST. Rahima Begum', NULL, '01764986750', NULL, '$2y$10$T1WX1qvWq/fuuy0qy4pliOaiNZaW5k/UbcqazjpSfsI9v4cv/uVR2', 'Baidyanath, Sonora, Sundarganj, Gaibandha', NULL, NULL, NULL, 'images/wilmLzUjggJzvNOCKfYqbrKfKmRiwxy269UF2dcL.jpg', 'f', '54', '9219182831114', NULL, NULL, '2023-12-11 10:49:14', '2023-12-11 10:49:14', NULL, NULL, NULL, NULL, NULL, NULL),
+(85, 'Joynur Begum', NULL, '01837954880', NULL, '$2y$10$Fu4YG4Ut/.c6t3jzVRXMWe6DatUGMR2hcXcPkyt5F9ZZtHtYHMB62', 'Balidha pachakori Monirampur Jessore', NULL, NULL, NULL, 'images/vJM2mbFhQnJX6xpMbXqaVo4qwwxwnSnaMkMYKDFZ.jpg', 'f', '54', '4116183659171', NULL, NULL, '2023-12-11 10:51:40', '2023-12-11 10:51:40', NULL, NULL, NULL, NULL, NULL, NULL),
+(86, 'MD Momdel Hossain', NULL, '01767414772', NULL, '$2y$10$HWy5VIiHJeWab8ZZ0MQp5.CUk.mGfz5o2z9UZighEw1YGLVVhRDFe', 'Buirumpur', NULL, NULL, NULL, 'images/fRwxJmsMuj5RF9Lo9m5x594GsTMdwX5dG76Va8Ke.jpg', 'f', '54', '8510316319683', NULL, NULL, '2023-12-11 14:54:27', '2023-12-11 14:54:27', NULL, NULL, NULL, NULL, NULL, NULL),
+(87, 'Mst Aduri Begum', NULL, '01796770372', NULL, '$2y$10$piXmUC5tVQ06RU2n2XGs3.SmLvNtrywkiyGif8JvaM0x2/ZnPRkyS', 'Kalopara, Hazipara', NULL, NULL, NULL, 'images/evX0jVTthbHFwhwqcZW1r2BY0TGFqULhjVYhb9a6.jpg', 'f', '54', '8510316324914', NULL, NULL, '2023-12-11 14:55:44', '2023-12-11 14:55:44', NULL, NULL, NULL, NULL, NULL, NULL),
+(88, 'MD Shahin Mia', NULL, '01753206862', NULL, '$2y$10$hVYUIlEhRAyu.mhf/7O6pea980H8FFnCkaOZllDD591PjqzqgH6Rq', 'Hasupara, kalopara', NULL, NULL, NULL, 'images/ETPVEIQVan7g5YGo34PVLlKFcDw3D4uON5Hs0KqF.jpg', 'f', '54', '19928510316000000', NULL, NULL, '2023-12-11 14:56:35', '2023-12-11 14:56:35', NULL, NULL, NULL, NULL, NULL, NULL),
+(89, 'MD Shafiar Rahman', NULL, '01315734807', NULL, '$2y$10$udFvPUn3GmbObaOrLzp1Q.OYQ2xv3sv/vHuCUs/mtA3Uh14dGwtGS', 'Buirumpur,Miapara', NULL, NULL, NULL, 'images/6ErXrnYK3Xh0ylDovMo08hO3mpFhQGCgY82TH9gz.jpg', 'f', '54', '8510316319393', NULL, NULL, '2023-12-11 14:57:44', '2023-12-11 14:57:44', NULL, NULL, NULL, NULL, NULL, NULL),
+(90, 'MD Nurujjaman Haque', NULL, '01750830108', NULL, '$2y$10$dORgr2nzHlyHHsoJ4VGpdeb7pY9rpwzdxdzfVLPqBmUQOAvKOouqu', 'Potimari,kalopara', NULL, NULL, NULL, 'images/EkeGY1cA79MeGMnBkcD5hXF0ntXerHpYGTjXabKY.jpg', 'f', '54', '8510316323592', NULL, NULL, '2023-12-11 14:58:31', '2023-12-11 14:58:31', NULL, NULL, NULL, NULL, NULL, NULL),
+(91, 'Monitosh Kumar Mondol', NULL, '01320445229', NULL, '$2y$10$45sLvgT7Srbo.3sjCPixaeyGKP/Oe8Uria2uL3x2GS8wqYACRhpCe', 'Kadirpara,Pairahat,Abhaynagar,Jeshore,', NULL, NULL, NULL, 'images/deUAMHLajxVozcd3R4iZJYiVwGcMAOwRaXuP5waJ.jpg', 'f', '54', '1494966896', NULL, NULL, '2023-12-12 06:31:40', '2023-12-12 06:31:40', NULL, NULL, NULL, NULL, NULL, NULL),
+(92, 'Monirul Islam', NULL, '01929622309', NULL, '$2y$10$1P5L05j0O1n4sDjybdVVNuVywSXwS/PS5l7739DkhvE5Ftk7fdqdW', 'Somospur,Pairahat,Abhaynagar,Jeshore,', NULL, NULL, NULL, 'images/TvxyrsrYAq3e7PHnFOu7qfZcB8yBZoPJkIvANQjf.jpg', 'f', '54', '7331877519', NULL, NULL, '2023-12-12 06:37:36', '2023-12-12 06:37:36', NULL, NULL, NULL, NULL, NULL, NULL),
+(93, 'Most Rabeya parvin', NULL, '01740407497', NULL, '$2y$10$FUCL2iWFo22tP.Fyf.W8eO.W1QgDtdiZdDkZLZCuFLuWOSobB9BVW', 'Hatkholapara', NULL, NULL, NULL, 'images/hICdZnli7DWRU1XA97zRy9eDHUy1Pw3ZTpMkG6wL.jpg', 'f', '54', '1950780874', NULL, NULL, '2023-12-12 06:42:38', '2023-12-12 06:42:38', NULL, NULL, NULL, NULL, NULL, NULL),
+(94, 'Mst Faruma khatun', NULL, '01767044925', NULL, '$2y$10$PuGNyn56NpwHZbB3iLeZhuVnKbQftetn8pxWXQ/k59mMrJ2Op6zzK', 'Putimari', NULL, NULL, NULL, 'images/WVTdKvibxKzlOxcHQfX3IBYQ8ODYV7wLBBKG3vZO.jpg', 'f', '54', '8510316324384', NULL, NULL, '2023-12-12 06:48:46', '2023-12-12 06:48:46', NULL, NULL, NULL, NULL, NULL, NULL),
+(95, 'MD Aminul Haque', NULL, '01761863109', NULL, '$2y$10$7PgOoIHEkHdIxb3nybwPvuXco9f3LynJvtraCD3bdnWj45wAbwcPy', 'Hatkholapara', NULL, NULL, NULL, 'images/IchXT6LzkDdl3t03t9yULwd4ENr4AAEhrv8j3SOw.jpg', 'f', '54', '8510316325020', NULL, NULL, '2023-12-12 06:54:37', '2023-12-12 06:54:37', NULL, NULL, NULL, NULL, NULL, NULL),
+(96, 'MD Farukh Hossain', NULL, '01722668206', NULL, '$2y$10$UYEo14qrgHVGRYbTuo75beidCWyb5uIaB6/dYEdW4qyHmskNCx.KW', 'Hatkholapara', NULL, NULL, NULL, 'images/564DYq647PNvppG4VsAT39uUFmN36hl07W1Pp35x.jpg', 'f', '54', '8510316325051', NULL, NULL, '2023-12-12 06:59:16', '2023-12-12 06:59:16', NULL, NULL, NULL, NULL, NULL, NULL),
+(97, 'Rabiul Islam', NULL, '01917338351', NULL, '$2y$10$psR.ODsuZkX9Nx6gr0itl.5aTRJZDdJrFa.B/0ninges.ZuyYbESa', 'Dokhin Dhumitari , Jhinina , Sundarganj , Gaibandha Dokhin Dhumitari', NULL, NULL, NULL, 'images/2jXK4rFT6YiVfo5WYdR8A2JGLiO8vluvDOlK52Ek.jpg', 'f', '54', '3219131942697', NULL, NULL, '2023-12-12 07:05:38', '2023-12-12 07:05:38', NULL, NULL, NULL, NULL, NULL, NULL),
+(98, 'MD. Ranu. Mia', NULL, '01738043141', NULL, '$2y$10$LJwZXYEfowXw79mzzLGFoucQRtFcv0WAmiNT88rrNYK9TI.HA3HbG', 'Parigung', NULL, NULL, NULL, 'images/kIZOkKLDwNlsvDsnFc9zAoX11PbFSPMIYPLWz8dt.jpg', 'f', '54', '8517682593088', NULL, NULL, '2023-12-12 07:10:42', '2023-12-12 07:10:42', NULL, NULL, NULL, NULL, NULL, NULL),
+(99, 'MD. Moonaf Ali', NULL, '01750091837', NULL, '$2y$10$Uibpca3pTjRemEUp9lFh.OYIya5Wq9Z030rwAB/ucMXLnPKM4RIbG', 'Ramatpur', NULL, NULL, NULL, 'images/NgPkvk5e6SELueusqSY8eWHV8cpcYN1XCOCA409f.jpg', 'f', '54', '3734273984', NULL, NULL, '2023-12-12 07:22:32', '2023-12-12 07:22:32', NULL, NULL, NULL, NULL, NULL, NULL),
+(100, 'MD. Atiqur Rahman', NULL, '01722200096', NULL, '$2y$10$BEDLuj9uWgvIcxkpvTIi9eOhQEI55ejd2e2GATN98oe4GcnpKoO.6', 'Ramanutpur', NULL, NULL, NULL, 'images/mbcjcEcK3EVt8htYHmSxfhD0KpCggeEOruM709yl.jpg', 'f', '54', '8517682593322', NULL, NULL, '2023-12-12 07:28:05', '2023-12-12 07:28:05', NULL, NULL, NULL, NULL, NULL, NULL),
+(101, 'Shahida Begum', NULL, '01785373918', NULL, '$2y$10$sMYJlVN6G607ezJsvO.8Ae.hGCJ.wmj1fUvH7AgwVCjRTSlqBcZFy', 'East Sonora, Sonora, Sundarganj, Gaibandha.', NULL, NULL, NULL, 'images/ThHJRQA5wF3JOMPYqp5j1sXfsp0vA1nlei53qVV5.jpg', 'f', '54', '1919378987', NULL, NULL, '2023-12-14 06:43:48', '2023-12-14 06:43:48', NULL, NULL, NULL, NULL, NULL, NULL),
+(102, 'Saburon Nesa', NULL, '01752703743', NULL, '$2y$10$v0DsVfWX17ZR.eZVR4fl/OIRn67GAqdG1zSUncqcapavX.b2NobEm', 'Balidha pachakori Monirampur', NULL, NULL, NULL, 'images/mqfMysoVqWQwVjefUyA2hWlfAb2TLw2OswuLJjxr.jpg', 'f', '54', '4116183659733', NULL, NULL, '2023-12-17 05:15:48', '2023-12-17 05:15:48', NULL, NULL, NULL, NULL, NULL, NULL),
+(103, 'Mojibul Rahman', 'abcd@gmail.com', '01959938009', NULL, '$2y$10$d6r4I5aLYH.vxr9vJv1C4.XHIiqYi4Y7RRG7cJue/Iisnn1mC0U4C', 'Shukarabd, Dhaka Bangladesh', NULL, NULL, NULL, 'images/9Ugk8rcihIusKuvwgm05B1WRACdqTuOCsAQlLzv2.png', 'f', '56', '12345678', NULL, NULL, '2023-12-17 06:37:52', '2023-12-17 06:37:52', NULL, NULL, NULL, NULL, NULL, NULL),
+(104, 'Shompod Agro', 'shompod@gmail.com', '01959938008', NULL, '$2y$10$EukB0wo0ZbxcZ3KfTp52D.ZUlXiYqsLCQloKygvgyx5z9HeZ32/GO', 'Raja Clinic, 5 No Word, Gangni, Meherpur', NULL, NULL, NULL, 'images/Kh6aRREQWDhEAu3qKquYNTdC6KsEVTruEk6Iw49m.jpg', 'c', NULL, NULL, NULL, NULL, '2023-12-19 08:35:42', '2023-12-19 08:35:42', NULL, NULL, NULL, NULL, NULL, NULL),
+(105, 'Sompod', NULL, '02959938010', NULL, '$2y$10$vu8ELvcU9M.JnuGCKidAZeHkfsE5kO/3/4xhp0TOItMfRaACli47G', 'Raja Clinic, 5 No Word, Gangni, Meherpur', NULL, NULL, NULL, 'images/hgyLtWauG4YIdpbeN0QUqSuijgiCNEtZff99XLNv.jpg', 'f', '104', '001', NULL, NULL, '2023-12-19 08:46:25', '2023-12-19 08:46:25', NULL, NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -1392,13 +1424,13 @@ ALTER TABLE `insurance_claims`
 -- AUTO_INCREMENT for table `insurance_requests`
 --
 ALTER TABLE `insurance_requests`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `insureds`
 --
 ALTER TABLE `insureds`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `jobs`
@@ -1410,13 +1442,13 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `packages`
