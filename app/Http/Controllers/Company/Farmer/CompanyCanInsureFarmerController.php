@@ -78,20 +78,39 @@ class CompanyCanInsureFarmerController extends Controller
 
 //    ------------------------------------------ Single animal select with farmers list [ Cash Payment ], rest is on Insurance Cash request controller ------------------------------------------
 
-//    ------------------------------------------ farmers user list filter from company side ------------------------------------------
+//    ------------------------------------------ farmers animal list filter from company side ------------------------------------------
 
     public function animal_list_filter($cattle_id)
     {
 
         $cattle_list = CattleRegistration::where('user_id', $cattle_id)->get();
 
+
+        $filtered_data = [];
+
+        foreach ($cattle_list as $cattle) {
+
+// ------------------- company/single_animal_insurance_package_form/* animal list condition -------------------
+
+            $insured = Insured::where('cattle_id', $cattle->id)->orderBy('id', 'desc')->first();
+
+            if (!$insured || $insured->package_expiration_date < now()) {
+                $filtered_data[] = $cattle;
+            }
+
+// ------------------- company/single_animal_insurance_package_form/* animal list condition -------------------
+
+        }
+
         return response()->json([
-            'data' => $cattle_list
+            'data' => $filtered_data
         ]);
 
     }
 
-//    ------------------------------------------ farmers user list filter from company side ------------------------------------------
+
+
+//    ------------------------------------------ farmers animal list filter from company side ------------------------------------------
 
 //    ------------------------------------------ total Insurance calculation of the animal ------------------------------------------
 
@@ -152,7 +171,7 @@ class CompanyCanInsureFarmerController extends Controller
 
     public function view_insurance_history()
     {
-        $insurance_history = InsuranceRequest::where('insurance_requested_company_id', auth()->id())->get();
+        $insurance_history = InsuranceRequest::where('insurance_requested_company_id', auth()->id())->orderBy('id','desc')->get();
         return view('company.admin-content.company-insurance-farmer.insurance_history.view', compact('insurance_history'));
     }
 

@@ -235,21 +235,25 @@
                                                 </div>
                                             </div>
 
-{{--                                            <div class="col-md-6">--}}
-{{--                                                <div class="row gx-3 mb-3">--}}
+                                            <div class="col-md-6">
+                                                <div class="row gx-3 mb-3">
 
-{{--                                                    <input--}}
-{{--                                                        class="form-control"--}}
-{{--                                                        id="inputLastName"--}}
-{{--                                                        type="text"--}}
-{{--                                                        placeholder="Transaction Type"--}}
-{{--                                                        value="cash"--}}
-{{--                                                        name="transaction_type"--}}
-{{--                                                        readonly--}}
-{{--                                                    />--}}
+                                                    <input
+                                                        class="form-control"
+                                                        id="inputLastName"
+                                                        type="text"
+                                                        placeholder="Transaction Type"
+                                                        value="cash"
+                                                        name="transaction_type"
+                                                        readonly
+                                                        hidden
+                                                    />
 
-{{--                                                </div>--}}
-{{--                                            </div>--}}
+                                                </div>
+                                            </div>
+
+
+
 
                                         </div>
 
@@ -351,21 +355,22 @@
                                                 </div>
                                             </div>
 
-{{--                                            <div class="col-md-6">--}}
-{{--                                                <div class="row gx-3 mb-3">--}}
+                                            <div class="col-md-6">
+                                                <div class="row gx-3 mb-3">
 
-{{--                                                    <input--}}
-{{--                                                        class="form-control"--}}
-{{--                                                        id="inputLastName"--}}
-{{--                                                        type="text"--}}
-{{--                                                        placeholder="Transaction Type"--}}
-{{--                                                        value="cheque"--}}
-{{--                                                        name="transaction_type"--}}
-{{--                                                        readonly--}}
-{{--                                                    />--}}
+                                                    <input
+                                                        class="form-control"
+                                                        id="inputLastName"
+                                                        type="text"
+                                                        placeholder="Transaction Type"
+                                                        value="cheque"
+                                                        name="transaction_type"
+                                                        readonly
+                                                        hidden
+                                                    />
 
-{{--                                                </div>--}}
-{{--                                            </div>--}}
+                                                </div>
+                                            </div>
 
 
                                         </div>
@@ -503,21 +508,22 @@
                                                 </div>
                                             </div>
 
-{{--                                            <div class="col-md-6">--}}
-{{--                                                <div class="row gx-3 mb-3">--}}
+                                            <div class="col-md-6">
+                                                <div class="row gx-3 mb-3">
 
-{{--                                                    <input--}}
-{{--                                                        class="form-control"--}}
-{{--                                                        id="inputLastName"--}}
-{{--                                                        type="text"--}}
-{{--                                                        placeholder="Transaction Type"--}}
-{{--                                                        value="bank"--}}
-{{--                                                        name="transaction_type"--}}
-{{--                                                        readonly--}}
-{{--                                                    />--}}
+                                                    <input
+                                                        class="form-control"
+                                                        id="inputLastName"
+                                                        type="text"
+                                                        placeholder="Transaction Type"
+                                                        value="bank"
+                                                        name="transaction_type"
+                                                        readonly
+                                                        hidden
+                                                    />
 
-{{--                                                </div>--}}
-{{--                                            </div>--}}
+                                                </div>
+                                            </div>
 
 
                                         </div>

@@ -15,7 +15,7 @@
                                 <div class="page-header-icon">
                                     <i data-feather="user"></i>
                                 </div>
-                                Insurance For Animal [ Digital Payment ] - Company
+                                Insurance Request For Animal - Company
                             </h1>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                 <div class="col-xl-12">
                     <!-- Account details card-->
                     <div class="card mb-4">
-                        <div class="card-header">Insurance For Animal [ Digital Payment ] - Company</div>
+                        <div class="card-header">Insurance Request For Animal - Company</div>
                         <div class="card-body">
 
 
@@ -172,7 +172,7 @@
                                     <table class="table">
                                         <thead>
                                         <tr>
-                                            <th>Insurance Period</th>
+{{--                                            <th>Insurance Period</th>--}}
                                             <th>Rate</th>
                                             <th>OFF</th>
                                             <th>VAT</th>
@@ -186,7 +186,7 @@
 
                                         <tbody>
                                         <tr>
-                                            <th>{{ $package->insurance_period }}</th>
+{{--                                            <th>{{ $package->insurance_period }}</th>--}}
                                             <th>{{ $package->rate }}%</th>
                                             <th>{{ $package->discount }}%</th>
                                             <th>{{ $package->vat }}%</th>
@@ -238,6 +238,9 @@
                     // Make the AJAX request with the selectedValue as a parameter
                     window.axios.get(location.origin + "/company/farmers_cattle_list_filter/" + selectedValue)
                         .then(res => {
+
+                            console.log(res);
+
                             // Assuming res.data is the array of cattle objects
                             var cattleList = res.data.data;
 

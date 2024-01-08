@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\company\InsuranceRequest;
 use App\Models\Insured;
 use App\Models\Package;
 use App\Models\User;
@@ -208,7 +209,7 @@ class SslCommerzPaymentController extends Controller
         #Check order status in order tabel against the transaction id or order id.
         $order_details = DB::table('orders')
             ->where('transaction_id', $tran_id)
-            ->select('transaction_id', 'status', 'currency', 'amount', 'cattle_id', 'package_id', 'company_id', 'id', 'user_id', 'package_expiration_date','insurance_requested_company_id','insurance_request_id')->first();
+            ->select('transaction_id', 'status', 'currency', 'amount', 'cattle_id', 'package_id', 'company_id', 'id', 'user_id', 'package_expiration_date', 'insurance_requested_company_id', 'insurance_request_id')->first();
 
         if ($order_details->status == 'Pending') {
             $validation = $sslc->orderValidate($request->all(), $tran_id, $amount, $currency);
@@ -227,6 +228,15 @@ class SslCommerzPaymentController extends Controller
 
                 //   --------------------------------- If Insurance is successful it will keep data into Insureds table ---------------------------------
 
+                //   --------------------------------- Insurance Request Transaction type Update ---------------------------------
+
+
+                $insurance_request = \App\Models\InsuranceRequest::where('id', $order_details->insurance_request_id)->update([
+                    'transaction_type' => 'digital'
+                ]);
+
+                //   --------------------------------- Insurance Request Transaction type Update ---------------------------------
+
 
                 Insured::create([
                     'cattle_id' => $order_details->cattle_id,
@@ -238,7 +248,6 @@ class SslCommerzPaymentController extends Controller
                     'insurance_status' => "insured",
                     "insurance_requested_company_id" => $order_details->insurance_requested_company_id,
                     "insurance_request_id" => $order_details->insurance_request_id,
-
                     'insurance_type' => "single",
                 ]);
 
