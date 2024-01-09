@@ -68,7 +68,7 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
 
         //    ----------------------- Company with package - Insurance acceptation or rejection -----------------------
 
-        Route::get('insurance_request_acceptation_v2/{id}/{acceptance}', [InsuranceRequest::class,'company_insurance_request_acceptance'])->name("insurance_request_acceptation_v2");
+        Route::get('insurance_request_acceptation_v2/{id}/{acceptance}', [InsuranceRequest::class, 'company_insurance_request_acceptance'])->name("insurance_request_acceptation_v2");
 
 
         //    ----------------------- Company with package - Insurance acceptation or rejection -----------------------
@@ -208,9 +208,12 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
 
         //    -------------------------- View cattle, package and other Info - Insurance Cash Request -----------------------------
 
+        //    -------------------------- Search company for insurance -----------------------------
+
         Route::get('search_company', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class, 'search_company'])->name('company.insurance_search_get');
         Route::get('search_company_post', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class, 'total_insurance_packages'])->name('company.insurance_search_post');
 
+        //    -------------------------- Search company for insurance -----------------------------
 
 //    ------------------------------------------ Single package result view from packages ------------------------------------------
 
@@ -276,8 +279,6 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
 
 
         //    ----------------------- Transaction view -----------------------
-
-
 
 
         //    ---------------------------------------------------------------------------------------------------------------- Cart Page view - Company without insurance page ----------------------------------------------------------------------------------------------------------------------

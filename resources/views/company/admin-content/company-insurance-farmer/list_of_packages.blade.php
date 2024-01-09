@@ -68,7 +68,24 @@
                                             {{--                                            <td><img--}}
                                             {{--                                                    src="{{ asset('storage/'.\App\Models\FarmerProfile::whereId($package->user_id)->first()->image) }}"--}}
                                             {{--                                                    alt="" style="width: 120px"></td>--}}
-                                            <td>{{ $package->insurance_period }}</td>
+                                            <td>
+                                                @if($package->insurance_period == 0.5)
+                                                    6 months
+                                                @elseif($package->insurance_period == 1)
+                                                    1 year
+                                                @elseif($package->insurance_period == 1.5)
+                                                    1 year 5 months
+                                                @elseif($package->insurance_period == 2.0)
+                                                    2 years
+                                                @elseif($package->insurance_period == 2.5)
+                                                    2 years 5 months
+                                                @elseif($package->insurance_period == 3.0)
+                                                    3 Years
+                                                @elseif($package->insurance_period > 3.0)
+                                                    More than 3 years
+                                                @endif
+                                            </td>
+
                                             <td>
                                                 @foreach (json_decode($package->coverage) as $item)
                                                     @if ($item === 'ac')
