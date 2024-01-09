@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 04, 2024 at 12:56 PM
+-- Generation Time: Jan 09, 2024 at 06:04 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `insurecow`
+-- Database: `insurecow_6_1_24`
 --
 
 -- --------------------------------------------------------
@@ -686,8 +686,7 @@ CREATE TABLE `insurance_requests` (
 --
 
 INSERT INTO `insurance_requests` (`id`, `cattle_id`, `package_id`, `company_id`, `package_insurance_period`, `insurance_cost`, `insurance_status`, `insurance_requested_company_id`, `user_id`, `created_at`, `updated_at`, `cash_agent_name`, `cash_agent_branch_name`, `cash_agent_id`, `cash_amount`, `cash_phone`, `cheque_bank_name`, `cheque_branch_name`, `amount`, `bank_ac_name`, `bank_ac_number`, `bank_name`, `transaction_number`, `insured_to_ac_info`, `insured_to_account`, `insured_to_bank_name`, `insured_to_branch_name`, `insured_to_routing_no`, `insured_to_instruction`, `attachment`, `transaction_type`, `insurance_request_status`) VALUES
-(2, '33', '2', '55', 0.5, '1501', 'received', '54', '89', '2023-12-26 17:42:09', '2023-12-26 17:42:24', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'digital', NULL),
-(3, '2', '2', '55', 0.5, '1766', 'received', '54', '59', '2024-01-03 05:57:46', '2024-01-04 05:29:32', '1', '1', '1', NULL, '1', '3', '3', '1', '4', '4', '4', '4', '1', '1', '1', '1', '1', '1', 'inc_attachment/ACjAMIj1A4ds1rt40bYhWJkdIkeM8R7QhAhDBeWl.jpg', 'bank', 'pending');
+(2, '33', '2', '55', 0.5, '1501', 'received', '54', '89', '2023-12-26 17:42:09', '2023-12-26 17:42:24', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'digital', 'accepted');
 
 -- --------------------------------------------------------
 
@@ -704,6 +703,8 @@ CREATE TABLE `insureds` (
   `user_id` varchar(255) DEFAULT NULL,
   `insurance_status` varchar(255) DEFAULT NULL,
   `insurance_type` varchar(255) DEFAULT NULL,
+  `insurance_request_id` varchar(255) DEFAULT NULL,
+  `insurance_requested_company_id` varchar(255) DEFAULT NULL,
   `package_expiration_date` varchar(255) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -713,8 +714,8 @@ CREATE TABLE `insureds` (
 -- Dumping data for table `insureds`
 --
 
-INSERT INTO `insureds` (`id`, `cattle_id`, `package_id`, `company_id`, `order_id`, `user_id`, `insurance_status`, `insurance_type`, `package_expiration_date`, `created_at`, `updated_at`) VALUES
-(14, '33', '2', '55', '9', '89', 'insured', 'single', '2024-05-26', '2023-12-26 17:43:10', '2023-12-26 17:43:10');
+INSERT INTO `insureds` (`id`, `cattle_id`, `package_id`, `company_id`, `order_id`, `user_id`, `insurance_status`, `insurance_type`, `insurance_request_id`, `insurance_requested_company_id`, `package_expiration_date`, `created_at`, `updated_at`) VALUES
+(1, '33', '2', '55', '9', '89', 'inusred', 'single', '2', '54', '2024-05-26', '2023-12-26 17:43:10', '2023-12-26 17:43:10');
 
 -- --------------------------------------------------------
 
@@ -763,7 +764,6 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (33, '2023_09_21_065611_create_cattle_reg_reports_table', 15),
 (34, '2023_10_02_060053_create_firms_table', 16),
 (35, '2023_08_06_103725_create_cattle_registrations_table', 17),
-(43, '2023_10_22_065746_create_insureds_table', 20),
 (45, '2023_09_11_085632_create_permissions_table', 22),
 (48, '2023_10_31_150141_create_animal_informations_table', 23),
 (50, '2023_11_02_091905_create_feeding_and_nutrition_table', 24),
@@ -773,12 +773,13 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (58, '2023_11_09_115537_create_budgeting_and_forecastings_table', 29),
 (59, '2023_12_17_125718_create_asset_management_table', 30),
 (60, '2023_12_17_135057_create_daily_expense_management_table', 30),
-(62, '2023_09_01_170436_create_orders_table', 32),
 (63, '2023_12_26_113736_add_permission_for_package_without_insurance_company', 33),
 (64, '2023_10_08_072704_create_insurance_requests_table', 34),
 (74, '2023_12_27_101934_create_insurance_cash_requests_table', 35),
 (75, '2024_01_02_162823_add_bank_info_table_to_users', 36),
-(76, '2024_01_02_172034_add_cash_payment_attachment_to_table', 36);
+(76, '2024_01_02_172034_add_cash_payment_attachment_to_table', 36),
+(77, '2023_09_01_170436_create_orders_table', 37),
+(79, '2023_10_22_065746_create_insureds_table', 38);
 
 -- --------------------------------------------------------
 
@@ -796,6 +797,7 @@ CREATE TABLE `orders` (
   `address` varchar(255) DEFAULT NULL,
   `transaction_id` varchar(255) DEFAULT NULL,
   `currency` varchar(255) DEFAULT NULL,
+  `insurance_type` varchar(255) DEFAULT NULL,
   `cattle_id` varchar(255) DEFAULT NULL,
   `package_id` varchar(255) DEFAULT NULL,
   `company_id` varchar(255) DEFAULT NULL,
@@ -811,8 +813,8 @@ CREATE TABLE `orders` (
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`id`, `name`, `email`, `phone`, `amount`, `status`, `address`, `transaction_id`, `currency`, `cattle_id`, `package_id`, `company_id`, `user_id`, `insurance_request_id`, `insurance_requested_company_id`, `package_expiration_date`, `created_at`, `updated_at`) VALUES
-(9, 'WeGrow', 'info@wegrow.global', '01322891563', '1000.155', 'Processing', 'Customer Address', '658b1084cc2cd', 'BDT', '33', '2', '55', '89', '2', '54', '2024-05-26', '2023-12-26 05:32:03', '2023-12-26 05:32:03');
+INSERT INTO `orders` (`id`, `name`, `email`, `phone`, `amount`, `status`, `address`, `transaction_id`, `currency`, `insurance_type`, `cattle_id`, `package_id`, `company_id`, `user_id`, `insurance_request_id`, `insurance_requested_company_id`, `package_expiration_date`, `created_at`, `updated_at`) VALUES
+(1, 'WeGrow', 'info@wegrow.global', '01322891563', '1000.155', 'Processing', 'Customer Address', '658b1084cc2cd', 'BDT', 'single', '33', '2', '55', '89', '2', '54', '2024-05-26', '2023-12-26 05:32:03', '2023-12-26 05:32:03');
 
 -- --------------------------------------------------------
 
@@ -1085,7 +1087,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `name`, `email`, `phone`, `email_verified_at`, `password`, `address`, `nid`, `dob`, `company_website`, `company_logo`, `role`, `company_id`, `agent_employee_id`, `agent_id`, `remember_token`, `created_at`, `updated_at`, `ac_info`, `account`, `bank_name`, `branch_name`, `routing_no`, `instruction`) VALUES
 (1, 'Tahmid Ferdous', 'tahmid.tf1@gmail.com', '01828665566', NULL, '$2y$10$cJOfvdj70Jwse52t8Ac9teGFiG1j.6RdzrrLQs2.rA6xCNMzuNLee', NULL, NULL, NULL, NULL, NULL, 's', NULL, NULL, NULL, NULL, '2023-09-04 00:13:07', '2023-09-04 00:13:07', NULL, NULL, NULL, NULL, NULL, NULL),
 (54, 'WeGro', 'info@wegrow.global', '01322891563', NULL, '$2y$10$CHvoxeUw2ywr6orsvXyy2ecQIEuLIMnjtJUxHCik9q3AA2NDhXOHq', 'Dhaka, Bangladesh', NULL, NULL, NULL, 'images/Chf9yryuaHSzEch0INVtE6WxrW6JXw6NEBiROY6f.jpg', 'c', NULL, NULL, NULL, NULL, '2023-12-04 11:32:48', '2023-12-04 11:32:48', NULL, NULL, NULL, NULL, NULL, NULL),
-(55, 'Pheonix Insurance', 'mail@phoenixinsurance.com', '01828665511', NULL, '$2y$10$XrYrWHJTpAB8pfBnt8bEM.8tXpaB51VLDOhDhUXzV0nfRcA57iWVy', 'Dhaka Bangladesh', NULL, NULL, NULL, 'images/GhAzMie2k0wON0o5VTM86RKG1LmkHoexJpt61gQG.jpg', 'c', NULL, NULL, NULL, NULL, '2023-12-04 11:41:08', '2023-12-04 11:41:08', '1', '1', '1', '1', '1', '1'),
+(55, 'Pheonix Insurance', 'mail@phoenixinsurance.com', '01828665511', NULL, '$2y$10$XrYrWHJTpAB8pfBnt8bEM.8tXpaB51VLDOhDhUXzV0nfRcA57iWVy', 'Dhaka Bangladesh', NULL, NULL, NULL, 'images/GhAzMie2k0wON0o5VTM86RKG1LmkHoexJpt61gQG.jpg', 'c', NULL, NULL, NULL, NULL, '2023-12-04 11:41:08', '2024-01-09 10:56:50', '1', '1', '1', '1', '1', '1'),
 (56, 'Test Company', 'test_compnay@g.com', '01828665513', NULL, '$2y$10$HDqtn0OFXyQ1NEd7wNx.QeadJmlBBWP1jZojg6MV2J8D4HBb7FhEC', 'Test', NULL, NULL, NULL, 'images/6VMjys9NL13rO8n4V7iCxKkBbqPAEeUTEfmONMdY.jpg', 'c', NULL, NULL, NULL, NULL, '2023-12-04 12:01:15', '2023-12-04 12:01:15', NULL, NULL, NULL, NULL, NULL, NULL),
 (57, 'Test Farmer', NULL, '01828665514', NULL, '$2y$10$XI7/.SYrZ/xCtBk4FdPIu.ox2/U2vhoxqN.nlRK4o7FJqZYfua1am', 'Test', NULL, NULL, NULL, 'images/ojlFjE2adeFL10FB0W1g8EsMaZCJ14afMU6IBw6r.jpg', 'f', '56', '11111', NULL, NULL, '2023-12-04 12:03:02', '2023-12-04 12:03:02', NULL, NULL, NULL, NULL, NULL, NULL),
 (58, 'Marzina', NULL, '01725196318', NULL, '$2y$10$3t/bHgqtF.dJr5DqZK.rb.L2OPOgUhM1AOnID1bfsoMz06rqwtC1e', 'Gojiyabari. Khatiyamari dhunat bogura', NULL, NULL, NULL, 'images/rLbreixfu1dTXRn1m4l3MHvQ7ynwFHKYgvR9Eqf7.jpg', 'f', '54', '2696402489439', NULL, NULL, '2023-12-04 19:08:42', '2023-12-04 19:08:42', NULL, NULL, NULL, NULL, NULL, NULL),
@@ -1422,13 +1424,13 @@ ALTER TABLE `insurance_claims`
 -- AUTO_INCREMENT for table `insurance_requests`
 --
 ALTER TABLE `insurance_requests`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `insureds`
 --
 ALTER TABLE `insureds`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `jobs`
@@ -1440,13 +1442,13 @@ ALTER TABLE `jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `packages`

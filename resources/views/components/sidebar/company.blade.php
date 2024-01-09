@@ -67,10 +67,10 @@
             {{--  ------------------------------------- Comapny with package - Insurance Requests [ Cash ] ------------------------------------- --}}
 
 
-{{--            <a class="nav-link" href="{{ route('company_view_insurance_history_cash') }}">--}}
-{{--                <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>--}}
-{{--                Insurance Requests [ Cash ]--}}
-{{--            </a>--}}
+            {{--            <a class="nav-link" href="{{ route('company_view_insurance_history_cash') }}">--}}
+            {{--                <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>--}}
+            {{--                Insurance Requests [ Cash ]--}}
+            {{--            </a>--}}
 
 
             {{--  ------------------------------------- Comapny with package - Insurance Requests [ Cash ] ------------------------------------- --}}
@@ -85,6 +85,15 @@
 
             {{--  ------------------------------------- Comapny with package - Insurance Transactions ------------------------------------- --}}
 
+            {{--  ------------------------------------- Accounts Profile - Company with Insurance ------------------------------------- --}}
+
+
+            <a class="nav-link" href="{{ route('company_corporate_profile') }}">
+                <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>
+                Acc. Profile Update
+            </a>
+
+            {{--  ------------------------------------- Accounts Profile - Company with Insurance ------------------------------------- --}}
         @endif
 
 
@@ -113,10 +122,10 @@
 
             {{--  ------------------------------------- Company Insurance Requests [Cash] ------------------------------------- --}}
 
-{{--            <a class="nav-link" href="{{ route('company.view_insurance_history_cash') }}">--}}
-{{--                <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>--}}
-{{--                Animal Ins. Requests [Cash]--}}
-{{--            </a>--}}
+            {{--            <a class="nav-link" href="{{ route('company.view_insurance_history_cash') }}">--}}
+            {{--                <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>--}}
+            {{--                Animal Ins. Requests [Cash]--}}
+            {{--            </a>--}}
 
             {{--  ------------------------------------- Company Insurance Requests [Cash] ------------------------------------- --}}
 
