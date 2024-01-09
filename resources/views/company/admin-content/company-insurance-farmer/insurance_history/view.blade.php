@@ -141,14 +141,20 @@
                                             {{--                                                <td>-</td>--}}
                                             {{--                                            @endif--}}
 
-                                            @if($history->insurance_request_status == null)
-                                                <td>
-                                                    <a href="{{ route('company_without_insurance_cart',$history->id) }}"
-                                                       class="btn btn-primary">View</a>
-                                                </td>
+                                            @if($history->insurance_status == "received")
+
+                                                @if($history->insurance_request_status == null)
+                                                    <td>
+                                                        <a href="{{ route('company_without_insurance_cart',$history->id) }}"
+                                                           class="btn btn-primary">View</a>
+                                                    </td>
+
+                                                @else
+                                                    <td>{{ $history->insurance_request_status }}</td>
+                                                @endif
 
                                             @else
-                                                <td>{{ $history->insurance_request_status }}</td>
+                                                <td>-</td>
                                             @endif
 
                                             {{--  ---------------------------------------- Condition adding [ Insurance checking ] ---------------------------------- --}}
