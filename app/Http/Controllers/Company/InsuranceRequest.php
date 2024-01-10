@@ -159,27 +159,27 @@ class InsuranceRequest extends Controller
 //    ------------------------------------------------- View Insurance Acceptance Form Update [Cash] ------------------------------------------------------
 
 
-//    ------------------------ Insurance Acceptance or rejection from Insurance company - with package ------------------------
+//    --------------------------------- Insurance Acceptance or rejection from Insurance company - with package -------------------------------------------
     public function company_insurance_request_acceptance($id, $acceptance)
     {
 
         $insurance_request = \App\Models\InsuranceRequest::find($id);
 
-        if (!$insurance_request){
+        if (!$insurance_request) {
             return "Insurance request not found";
         }
 
-        if ($insurance_request->insurance_request_status != "pending"){
+        if ($insurance_request->insurance_request_status != "pending") {
             return "Insurance request expired";
         }
 
         $package = Package::find($insurance_request->package_id);
 
-        if (!$package){
+        if (!$package) {
             return "Package information not found";
         }
 
-        $expiration_date = User::addYearsAndMonths($package->insurance_period);
+        $expiration_date = User::addYearsAndMonths($package->insurance_period, $insurance_request->created_at);
 
 
         if ($acceptance == 'a') {
@@ -225,8 +225,8 @@ class InsuranceRequest extends Controller
                 "insurance_requested_company_id" => $insurance_request->insurance_requested_company_id,
                 "user_id" => $insurance_request->user_id,
                 "package_expiration_date" => $expiration_date,
-                "created_at" => now(),
-                "updated_at" => now(),
+                "created_at" => $insurance_request->created_at,
+                "updated_at" => $insurance_request->updated_at,
 
             ]);
 
@@ -245,6 +245,8 @@ class InsuranceRequest extends Controller
                 "insurance_request_id" => $insurance_request->id,
                 "insurance_requested_company_id" => $insurance_request->insurance_requested_company_id,
                 "package_expiration_date" => $expiration_date,
+                "created_at" => $insurance_request->created_at,
+                "updated_at" => $insurance_request->updated_at,
             ]);
 
             // ---------------------------- Pushing the data to Insured table ----------------------------
@@ -265,6 +267,6 @@ class InsuranceRequest extends Controller
     }
 
 
-//    ------------------------ Insurance Acceptance or rejection from Insurance company - with package ------------------------
+//    ------------------------------------ Insurance Acceptance or rejection from Insurance company - with package ---------------------------------------------
 
 }

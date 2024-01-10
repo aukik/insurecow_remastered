@@ -124,13 +124,19 @@ class User extends Authenticatable
     }
 
 
-    public static function addYearsAndMonths($input)
+    public static function addYearsAndMonths($input, $date_data = null)
     {
         // Split the input into years and months based on the decimal point
         list($years, $months) = explode('.', $input);
 
         // Create a Carbon instance with the current date
-        $date = Carbon::now();
+
+        if ($date_data == null) {
+            $date = Carbon::now();
+        } else {
+            $date = $date_data;
+        }
+
 
         // Add the years and months to the date
         $date->addYears($years);

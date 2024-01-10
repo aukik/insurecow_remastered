@@ -73,12 +73,11 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
 
         //    ----------------------- Company with package will accept or reject request after viewing -----------------------
 
-        //    ----------------------- Company with package - Insurance acceptation or rejection -----------------------
+        //    ----------------------- Company with package - Insurance acceptation or rejection button action [ Post Request ] -----------------------
 
         Route::get('insurance_request_acceptation_v2/{id}/{acceptance}', [InsuranceRequest::class, 'company_insurance_request_acceptance'])->name("insurance_request_acceptation_v2");
 
-
-        //    ----------------------- Company with package - Insurance acceptation or rejection -----------------------
+        //    ----------------------- Company with package - Insurance acceptation or rejection button action [ Post Request ] -----------------------
 
         //    -------------------------- View cattle, package and other Info - Insurance Cash Request - Company with insurance-----------------------------
 
