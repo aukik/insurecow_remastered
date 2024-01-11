@@ -503,10 +503,46 @@
 
                             @if($insurance_request_info->insurance_request_status == "pending")
                                 <div>
-                                    <a href="{{ route('company_insurance_acceptance',[$insurance_request_info->id,'a']) }}"
-                                       class="btn btn-success">Accept</a>
-                                    <a href="{{ route('company_insurance_acceptance',[$insurance_request_info->id,'r']) }}"
-                                       class="btn btn-danger">Reject</a>
+
+                                    <form method="post" action="{{ route('company_insurance_acceptance') }}">
+                                        {{ csrf_field() }}
+
+                                        <input type="hidden" name="id_value" class="form-control"
+                                               value="{{ $insurance_request_info->id }}">
+
+
+                                        <div class="form-group">
+                                            <label>Written Decision</label>
+                                            <input type="text" name="reason_after_decision" class="form-control">
+                                        </div>
+
+                                        <div class="form-group" style="margin-top: 10px">
+                                            <label>Choose Decision</label>
+
+                                            <select class="form-select" required name="decision">
+                                                <option disabled selected>Select Decision</option>
+                                                <option value="a">Accept</option>
+                                                <option value="r">Reject</option>
+                                            </select>
+                                        </div>
+
+                                        @error('decision')
+                                        <br>
+                                        <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+
+                                        <div class="form-group" style="margin-top: 10px">
+                                            <input type="submit" class="btn btn-primary">
+                                        </div>
+                                    </form>
+
+                                    <br>
+
+
+                                    {{--                                    <a href="{{ route('company_insurance_acceptance',[$insurance_request_info->id,'a']) }}"--}}
+                                    {{--                                       class="btn btn-success">Accept</a>--}}
+                                    {{--                                    <a href="{{ route('company_insurance_acceptance',[$insurance_request_info->id,'r']) }}"--}}
+                                    {{--                                       class="btn btn-danger">Reject</a>--}}
                                 </div>
                             @endif
 

@@ -160,10 +160,28 @@ class InsuranceRequest extends Controller
 
 
 //    --------------------------------- Insurance Acceptance or rejection from Insurance company - with package -------------------------------------------
-    public function company_insurance_request_acceptance($id, $acceptance)
+    public function company_insurance_request_acceptance(Request $request)
     {
 
-        $insurance_request = \App\Models\InsuranceRequest::find($id);
+
+// --------------------------------- request data ---------------------------------
+
+        $inputs = $request->validate([
+            'reason_after_decision' => 'nullable',
+            'decision' => 'required',
+            "id_value" => 'required',
+        ]);
+
+
+        $id_value = \request("id_value");
+        $acceptance = \request("decision");
+        $reason_after_decision = \request("reason_after_decision");
+
+
+// --------------------------------- request data ---------------------------------
+
+
+        $insurance_request = \App\Models\InsuranceRequest::find($id_value);
 
         if (!$insurance_request) {
             return "Insurance request not found";
@@ -186,10 +204,6 @@ class InsuranceRequest extends Controller
             $insurance_request->update([
                 'insurance_request_status' => "accepted"
             ]);
-
-            if (!$insurance_request) {
-                return "The data does not exists";
-            }
 
             if ($insurance_request->company_id != auth()->user()->id) {
                 return "The data does not belongs to this company";
@@ -256,7 +270,8 @@ class InsuranceRequest extends Controller
         } elseif ($acceptance == 'r') {
 
             $insurance_request->update([
-                'insurance_request_status' => "rejected"
+                'insurance_request_status' => "rejected",
+                'reason_after_decision' => $reason_after_decision,
             ]);
 
             session()->flash("success", "Animal Insurance Unapproved");

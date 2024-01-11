@@ -145,6 +145,7 @@ class CompanyCanInsureFarmerController extends Controller
         ]);
 
         $inputs['insurance_status'] = "requested";
+        $inputs['insurance_request_type'] = "single";
 
         $farmer_id = CattleRegistration::find($inputs['cattle_id'])->user_id;
 

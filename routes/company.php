@@ -119,7 +119,8 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
 
         //    ------------------------ Insurance Acceptance or rejection from Insurance company - with package ------------------------
 
-        Route::get('company_insurance_acceptance/{id}/{acceptance}', [InsuranceRequest::class, 'company_insurance_request_acceptance'])->name('company_insurance_acceptance');
+//        Route::get('company_insurance_acceptance/{id}/{acceptance}', [InsuranceRequest::class, 'company_insurance_request_acceptance'])->name('company_insurance_acceptance');
+        Route::post('company_insurance_acceptance', [InsuranceRequest::class, 'company_insurance_request_acceptance'])->name('company_insurance_acceptance');
 
         //    ------------------------ Insurance Acceptance or rejection from Insurance company - with package ------------------------
 
