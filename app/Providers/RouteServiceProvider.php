@@ -47,6 +47,7 @@ class RouteServiceProvider extends ServiceProvider
                         require base_path('routes/Api/Farmer/farm_management.php');
                         require base_path('routes/Api/Farmer/insurance.php');
 
+
                     }
                 );
 
@@ -65,6 +66,12 @@ class RouteServiceProvider extends ServiceProvider
                     require base_path('routes/super_admin.php');
                     require base_path('routes/dashboard.php');
                     require base_path('routes/firm_management.php');
+
+                    require base_path('routes/company/company_with_premium.php');
+                    require base_path('routes/company/company_without_premium.php');
+
+
+
                 });
         });
     }
