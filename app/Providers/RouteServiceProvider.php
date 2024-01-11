@@ -71,7 +71,6 @@ class RouteServiceProvider extends ServiceProvider
                     require base_path('routes/company/company_without_premium.php');
 
 
-
                 });
         });
     }
