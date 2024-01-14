@@ -67,9 +67,13 @@ class RouteServiceProvider extends ServiceProvider
                     require base_path('routes/dashboard.php');
                     require base_path('routes/firm_management.php');
 
-                    require base_path('routes/company/company_with_premium.php');
-                    require base_path('routes/company/company_without_premium.php');
 
+//                    ------------------------------ company total insurance pages with single insurance page ------------------------------
+
+                    require base_path('routes/company/insurance/company_with_premium.php');
+                    require base_path('routes/company/insurance/company_without_premium.php');
+
+//                    ------------------------------ company total insurance pages with single insurance page ------------------------------
 
                 });
         });
