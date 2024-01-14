@@ -10,10 +10,22 @@
     {{--    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>--}}
 
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet"/>
-    <link
-        href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
-        rel="stylesheet"
-    />
+
+
+    {{-- ------------------------------ datatable css ------------------------------ --}}
+
+    {{--    <link--}}
+    {{--        href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"--}}
+    {{--        rel="stylesheet"--}}
+    {{--    />--}}
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/rowreorder/1.2.8/css/rowReorder.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.dataTables.min.css">
+
+    {{-- ------------------------------ datatable css ------------------------------ --}}
+
+
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/favicon.png') }}"/>
     <script data-search-pseudo-elements defer
             src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"
@@ -319,26 +331,55 @@
         crossorigin="anonymous"></script>
 <script src="{{ asset('js/scripts.js') }}"></script>
 
-<script
-    src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
-    crossorigin="anonymous"
-></script>
 
-<script
-    src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"
-    crossorigin="anonymous"
-></script>
-<script src="{{ asset('assets/demo/chart-area-demo.js') }}"></script>
-<script src="{{ asset('assets/demo/chart-bar-demo.js') }}"></script>
-<script
-    src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
-    crossorigin="anonymous"
-></script>
-<script src="{{ asset('js/datatables/datatables-simple-demo.js') }}"></script>
-<script
-    src="https://cdn.jsdelivr.net/npm/litepicker/dist/bundle.js"
-    crossorigin="anonymous"
-></script>
+{{-- ------------------------------ datatable js ------------------------------ --}}
+
+
+{{--<script--}}
+{{--    src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"--}}
+{{--    crossorigin="anonymous"--}}
+{{--></script>--}}
+
+{{--<script--}}
+{{--    src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"--}}
+{{--    crossorigin="anonymous"--}}
+{{--></script>--}}
+{{--<script src="{{ asset('assets/demo/chart-area-demo.js') }}"></script>--}}
+{{--<script src="{{ asset('assets/demo/chart-bar-demo.js') }}"></script>--}}
+{{--<script--}}
+{{--    src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"--}}
+{{--    crossorigin="anonymous"--}}
+{{--></script>--}}
+{{--<script src="{{ asset('js/datatables/datatables-simple-demo.js') }}"></script>--}}
+{{--<script--}}
+{{--    src="https://cdn.jsdelivr.net/npm/litepicker/dist/bundle.js"--}}
+{{--    crossorigin="anonymous"--}}
+{{--></script>--}}
+
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>`
+<script src="https://cdn.datatables.net/rowreorder/1.2.8/js/dataTables.rowReorder.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        // $('#example').DataTable();
+
+        var table = $('#datatablesSimple').DataTable({
+            rowReorder: {
+                selector: 'td:nth-child(2)'
+            },
+            responsive: true
+        });
+    });
+
+</script>
+
+{{-- ------------------------------ datatable js ------------------------------ --}}
+
+
 <script src="{{ asset('js/litepicker.js') }}"></script>
 
 {{-------------------------------- hiding tinymce domain notification ----------------------------- --}}
@@ -370,29 +411,5 @@
         // menubar: 'table',
     });
 </script>
-
-<script src="{{ asset('js/datatables/datatables-simple-demo.js') }}"></script>
-
-
-{{--<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>--}}
-{{--<script src="https://cdn.datatables.net/rowreorder/1.2.8/js/dataTables.rowReorder.min.js"></script>--}}
-{{--<script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>--}}
-
-
-
-{{--<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>--}}
-
-{{--<script>--}}
-{{--    $(document).ready(function () {--}}
-{{--        // $('#example').DataTable();--}}
-
-{{--        var table = $('#datatablesSimple').DataTable({--}}
-{{--            rowReorder: {--}}
-{{--                selector: 'td:nth-child(2)'--}}
-{{--            },--}}
-{{--            responsive: true--}}
-{{--        });--}}
-{{--    });--}}
-{{--</script>--}}
 </body>
 </html>

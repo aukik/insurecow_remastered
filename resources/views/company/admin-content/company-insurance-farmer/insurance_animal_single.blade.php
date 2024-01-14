@@ -34,6 +34,10 @@
                         <div class="card-header">Insurance Request For Animal - Company</div>
                         <div class="card-body">
 
+                            <div class="alert alert-success">
+                                Please <a href="">click here</a> if you want to choose bulk insurance option
+                            </div>
+
 
                             @if(session('success'))
                                 <p class="alert alert-success">{{ session('success') }}</p>

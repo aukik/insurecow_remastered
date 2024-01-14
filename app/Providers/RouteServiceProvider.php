@@ -75,6 +75,13 @@ class RouteServiceProvider extends ServiceProvider
 
 //                    ------------------------------ company total insurance pages with single insurance page ------------------------------
 
+//                    ------------------------------ Bulk Insurance  ------------------------------
+
+                    require base_path('routes/company/Bulk_insurance/company_with_premium.php');
+                    require base_path('routes/company/Bulk_insurance/company_without_premium.php');
+
+//                    ------------------------------ Bulk Insurance ------------------------------
+
                 });
         });
     }

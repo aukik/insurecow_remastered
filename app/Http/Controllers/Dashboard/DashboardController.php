@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\CattleRegistration;
+use App\Models\CattleRegReport;
 use App\Models\Firm;
+use App\Models\Insured;
+use App\Models\Order;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -24,7 +27,36 @@ class DashboardController extends Controller
     {
         $field_agent_count = User::where('role', 'fa')->where('company_id', auth()->user()->id)->count();
         $farmer_count = User::where('role', 'f')->where('company_id', auth()->user()->id)->count();
-        return view("dashboard.company", compact('field_agent_count', 'farmer_count'));
+
+
+//  ---------------------------------- Insured animal count [ without premium based ] ---------------------------------------
+
+
+        $without_premium_based_company_animal_count = Insured::where('insurance_requested_company_id', auth()->user()->id)->count();
+
+        $without_premium_based_company_insurance_amount = Order::where('insurance_requested_company_id', auth()->user()->id)->sum('amount');
+
+
+//  ---------------------------------- Insured animal count [ without premium based ] ---------------------------------------
+
+//  ---------------------------------- Insured claim count [ without premium based ] ---------------------------------------
+
+//        $without_premium_based_company_claim_count = CattleRegReport::where('operation','claim')->where('verification_report','success')->get();
+//        $without_premium_based_company_claim_count = CattleRegReport::where('operation','claim')->where('verification_report','success')->get();
+
+
+//        $without_premium_based_company_claim_count = CattleRegReport::where('operation', 'claim')
+//            ->where('verification_report', 'success')
+//            ->whereHas('user', function ($query) {
+//                $query->where('company_id', auth()->user()->id);
+//            })
+//            ->count();
+//
+//        return $without_premium_based_company_claim_count;
+
+//  ---------------------------------- Insured claim count [ without premium based ] ---------------------------------------
+
+        return view("dashboard.company", compact('field_agent_count', 'farmer_count', 'without_premium_based_company_animal_count', 'without_premium_based_company_insurance_amount'));
     }
 
     public function farmer()
@@ -57,7 +89,7 @@ class DashboardController extends Controller
 //  ---------------------------------------------- Profit or loss - Business State ----------------------------------------------
 
 
-        return view("dashboard.farm_management", compact('firms_count','animal_health_count','feeding_and_nutrition_count','breeding_information_count','total_income','total_expense','total_daily_expenses','total_profit_or_loss'));
+        return view("dashboard.farm_management", compact('firms_count', 'animal_health_count', 'feeding_and_nutrition_count', 'breeding_information_count', 'total_income', 'total_expense', 'total_daily_expenses', 'total_profit_or_loss'));
     }
 
     public function field_agent()
