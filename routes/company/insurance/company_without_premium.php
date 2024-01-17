@@ -5,6 +5,7 @@ use App\Http\Controllers\Company\CompanyPolicyController;
 use App\Http\Controllers\Company\PackageController;
 use App\Http\Controllers\Company\RegisterFieldAgentController;
 use App\Http\Controllers\Company\InsuranceRequest;
+use App\Http\Controllers\InsuredController;
 use App\Http\Controllers\SuperAdmin\CompanyRequest;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,18 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
 
     Route::middleware('company.without_premium_insurance')->group(function () {
 
+
+        //    -------------------------- Insured Cattle List -----------------------------
+
+        Route::get('insured_animal_list_2', [\App\Http\Controllers\InsuredController::class,'insured'])->name('company_insured_animal_list_2');
+
+        //    -------------------------- Insured Cattle List -----------------------------
+
+        //    -------------------------- Pending Insurance Request Data -----------------------------
+
+        Route::get('company_pending_insurance_requests_data', [InsuredController::class, 'view_pending_insurance_history'])->name('company.view_pending_insurance_history');
+
+        //    -------------------------- Pending Insurance Request Data -----------------------------
 
         //    -------------------------- View Cattle Info -----------------------------
 

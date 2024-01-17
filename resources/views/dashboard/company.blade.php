@@ -64,8 +64,8 @@
                         <div class="card h-100 border-start-lg border-start-primary">
                             <div class="card-body">
                                 <div class="small text-muted">Insured Animal List</div>
-                                <div class="h3">{{ $without_premium_based_company_animal_count ?? 0 }}</div>
-                                <a class="text-arrow-icon small" href="{{ route('company.transaction_history_data') }}">
+                                <div class="h3">{{ $without_premium_based_company_insured_animal_count ?? 0 }}</div>
+                                <a class="text-arrow-icon small" href="{{ route('company_insured_animal_list_2') }}">
                                     View Information
                                     <i data-feather="arrow-right"></i>
                                 </a>
@@ -82,6 +82,34 @@
                                 <div class="small text-muted">Total Insurance Amount</div>
                                 <div class="h3">{{ round($without_premium_based_company_insurance_amount) ?? 0 }}/-</div>
                                 <a class="text-arrow-icon small" href="{{ route('company.transaction_history_data') }}">
+                                    View Information
+                                    <i data-feather="arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 mb-4">
+                        <!-- Billing card 1-->
+                        <div class="card h-100 border-start-lg border-start-primary">
+                            <div class="card-body">
+                                <div class="small text-muted">Due Amount</div>
+                                <div class="h3">{{ $due_amount_company_without_premium_insurance }}/-</div>
+{{--                                <a class="text-arrow-icon small" href="{{ route('company.transaction_history_data') }}">--}}
+{{--                                    View Information--}}
+{{--                                    <i data-feather="arrow-right"></i>--}}
+{{--                                </a>--}}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 mb-4">
+                        <!-- Billing card 1-->
+                        <div class="card h-100 border-start-lg border-start-primary">
+                            <div class="card-body">
+                                <div class="small text-muted">Pending Insurance List</div>
+                                <div class="h3">{{ $due_request_company_without_premium_insurance_count }}</div>
+                                <a class="text-arrow-icon small" href="{{ route('company.view_pending_insurance_history') }}">
                                     View Information
                                     <i data-feather="arrow-right"></i>
                                 </a>

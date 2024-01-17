@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\CattleRegistration;
 use App\Models\CattleRegReport;
 use App\Models\Firm;
+use App\Models\InsuranceRequest;
 use App\Models\Insured;
 use App\Models\Order;
 use App\Models\User;
@@ -29,15 +30,18 @@ class DashboardController extends Controller
         $farmer_count = User::where('role', 'f')->where('company_id', auth()->user()->id)->count();
 
 
-//  ---------------------------------- Insured animal count [ without premium based ] ---------------------------------------
+//  ---------------------------------- [ without premium based ] ---------------------------------------
 
 
-        $without_premium_based_company_animal_count = Insured::where('insurance_requested_company_id', auth()->user()->id)->count();
+        $without_premium_based_company_insured_animal_count = Insured::where('insurance_requested_company_id', auth()->user()->id)->count();
 
         $without_premium_based_company_insurance_amount = Order::where('insurance_requested_company_id', auth()->user()->id)->sum('amount');
 
+        $due_amount_company_without_premium_insurance = InsuranceRequest::where('insurance_requested_company_id',auth()->user()->id)->where('insurance_status','received')->where('insurance_request_status',null)->sum('insurance_cost');
 
-//  ---------------------------------- Insured animal count [ without premium based ] ---------------------------------------
+        $due_request_company_without_premium_insurance_count = InsuranceRequest::where('insurance_requested_company_id',auth()->user()->id)->where('insurance_status','received')->where('insurance_request_status',null)->count();
+
+//  ----------------------------------  [ without premium based ] ---------------------------------------
 
 //  ---------------------------------- Insured claim count [ without premium based ] ---------------------------------------
 
@@ -56,7 +60,7 @@ class DashboardController extends Controller
 
 //  ---------------------------------- Insured claim count [ without premium based ] ---------------------------------------
 
-        return view("dashboard.company", compact('field_agent_count', 'farmer_count', 'without_premium_based_company_animal_count', 'without_premium_based_company_insurance_amount'));
+        return view("dashboard.company", compact('field_agent_count', 'farmer_count', 'without_premium_based_company_insured_animal_count', 'without_premium_based_company_insurance_amount','due_amount_company_without_premium_insurance','due_request_company_without_premium_insurance_count'));
     }
 
     public function farmer()
