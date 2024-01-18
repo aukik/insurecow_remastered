@@ -109,7 +109,7 @@
                         <div class="card h-100 border-start-lg border-start-primary">
                             <div class="card-body">
                                 <div class="small text-muted">Insurance Due Amount</div>
-                                <div class="h3">{{ $due_amount_company_without_premium_insurance }}/-</div>
+                                <div class="h3">{{ $due_amount_company_without_premium_insurance ?? 0 }}/-</div>
                                 <a class="text-arrow-icon small"
                                    href="{{ route('company.view_pending_insurance_history') }}">
                                     View Information
@@ -124,7 +124,7 @@
                         <div class="card h-100 border-start-lg border-start-primary">
                             <div class="card-body">
                                 <div class="small text-muted">Pending Insurance List</div>
-                                <div class="h3">{{ $due_request_company_without_premium_insurance_count }}</div>
+                                <div class="h3">{{ $due_request_company_without_premium_insurance_count ?? 0 }}</div>
                                 <a class="text-arrow-icon small"
                                    href="{{ route('company.view_pending_insurance_history') }}">
                                     View Information
@@ -139,7 +139,7 @@
                         <div class="card h-100 border-start-lg border-start-primary">
                             <div class="card-body">
                                 <div class="small text-muted">Total Claimed List</div>
-                                <div class="h3">{{ $company_without_premium_total_claim_count }}</div>
+                                <div class="h3">{{ $company_without_premium_total_claim_count ?? 0 }}</div>
                                 <a class="text-arrow-icon small" href="{{ route('company.claim_insurance_data') }}">
                                     View Information
                                     <i data-feather="arrow-right"></i>
@@ -149,7 +149,91 @@
                     </div>
 
                 @elseif(auth()->user()->permission->c_insurance == 1)
-                    <p>The animal with insurance view</p>
+                    <div class="col-lg-4 mb-4">
+                        <!-- Billing card 1-->
+                        <div class="card h-100 border-start-lg border-start-primary">
+                            <div class="card-body">
+                                <div class="small text-muted">Insured Animal List</div>
+                                <div class="h3">{{ $with_premium_based_company_insured_animal_count ?? 0 }}</div>
+                                <a class="text-arrow-icon small" href="{{ route('company_insured_animal_list_premium') }}">
+                                    View Information
+                                    <i data-feather="arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 mb-4">
+                        <!-- Billing card 1-->
+                        <div class="card h-100 border-start-lg border-start-primary">
+                            <div class="card-body">
+                                <div class="small text-muted">Pending Insurance List</div>
+                                <div class="h3">{{ $with_premium_based_company_insured_animal_count ?? 0 }}</div>
+                                <a class="text-arrow-icon small" href="{{ route('company.view_pending_insurance_history_premium') }}">
+                                    View Information
+                                    <i data-feather="arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 mb-4">
+                        <!-- Billing card 1-->
+                        <div class="card h-100 border-start-lg border-start-primary">
+                            <div class="card-body">
+                                <div class="small text-muted">Total Income</div>
+                                <div class="h3">{{ round($with_premium_based_company_insurance_total_income) ?? 0 }}/-</div>
+                                <a class="text-arrow-icon small" href="{{ route('company.view_pending_insurance_history_premium') }}">
+                                    View Information
+                                    <i data-feather="arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-4 mb-4">
+                        <!-- Billing card 1-->
+                        <div class="card h-100 border-start-lg border-start-primary">
+                            <div class="card-body">
+                                <div class="small text-muted">Due Amount</div>
+                                <div class="h3">{{ $due_amount_company_with_premium_insurance ?? 0 }}/-</div>
+                                <a class="text-arrow-icon small" href="{{ route('company.view_pending_insurance_history_premium') }}">
+                                    View Information
+                                    <i data-feather="arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 mb-4">
+                        <!-- Billing card 1-->
+                        <div class="card h-100 border-start-lg border-start-primary">
+                            <div class="card-body">
+                                <div class="small text-muted">Insurecow digital payments</div>
+                                <div class="h3">-</div>
+                                <a class="text-arrow-icon small" href="">
+                                    View Information
+                                    <i data-feather="arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 mb-4">
+                        <!-- Billing card 1-->
+                        <div class="card h-100 border-start-lg border-start-primary">
+                            <div class="card-body">
+                                <div class="small text-muted">Claimed Cattle List</div>
+                                <div class="h3">{{ $company_with_premium_total_claim_count ?? 0 }}</div>
+                                <a class="text-arrow-icon small" href="{{ route('company.claim_insurance_data_premium') }}">
+                                    View Information
+                                    <i data-feather="arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
                 @endif
 
             </div>

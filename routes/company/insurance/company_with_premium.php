@@ -5,6 +5,7 @@ use App\Http\Controllers\Company\CompanyPolicyController;
 use App\Http\Controllers\Company\PackageController;
 use App\Http\Controllers\Company\RegisterFieldAgentController;
 use App\Http\Controllers\Company\InsuranceRequest;
+use App\Http\Controllers\InsuredController;
 use App\Http\Controllers\SuperAdmin\CompanyRequest;
 use Illuminate\Support\Facades\Route;
 
@@ -17,11 +18,31 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
 
     Route::middleware('company.premium_insurance')->group(function () {
 
+        //    -------------------------- Insured Cattle List [ with premium based company ] -----------------------------
+
+        Route::get('insured_animal_list_premium', [\App\Http\Controllers\InsuredController::class, 'insured_premium'])->name('company_insured_animal_list_premium');
+
+        //    -------------------------- Insured Cattle List [ with premium based company ] -----------------------------
+
+        //    -------------------------- Pending Insurance Request Data -----------------------------
+
+        Route::get('company_pending_insurance_requests_data_premium', [InsuredController::class, 'view_pending_insurance_history_premium'])->name('company.view_pending_insurance_history_premium');
+
+        //    -------------------------- Pending Insurance Request Data -----------------------------
+
+        //    -------------------------- Claim Insurance Data -----------------------------
+
+        Route::get('company_claim_insurance_data_premium', [InsuredController::class, 'claim_list_premium'])->name('company.claim_insurance_data_premium');
+
+        //    -------------------------- Claim Insurance Data -----------------------------
+
+
+//        ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
         //    ----------------------  Profile Update - Bank and other information update -----------------------
 
-        Route::get("company_transaction_profile",[\App\Http\Controllers\Company\CompanyProfileController::class,'index'])->name('company_corporate_profile');
-        Route::put("company_transaction_profile_update",[\App\Http\Controllers\Company\CompanyProfileController::class,'update'])->name('company_corporate_profile_update');
+        Route::get("company_transaction_profile", [\App\Http\Controllers\Company\CompanyProfileController::class, 'index'])->name('company_corporate_profile');
+        Route::put("company_transaction_profile_update", [\App\Http\Controllers\Company\CompanyProfileController::class, 'update'])->name('company_corporate_profile_update');
 
         //    ----------------------  Profile Update - Bank and other information update -----------------------
 

@@ -43,6 +43,7 @@
                                         <th>Cattle Name</th>
                                         <th>Farmer Name</th>
                                         <th>Package Name</th>
+                                        <th>Insured By</th>
                                         <th>Insured To</th>
                                         <th>Claimed Date</th>
                                     </tr>
@@ -56,6 +57,7 @@
                                         <td>{{ \App\Models\CattleRegistration::find($data->cattle_id)->cattle_name ?? "Animal data not found"}}</td>
                                         <td>{{ \App\Models\User::find(\App\Models\CattleRegistration::find($data->cattle_id)->user_id)->name ?? "Farmer data not found" }}</td>
                                         <td>{{ \App\Models\Package::find($data->package_id)->package_name ?? "Package Data not found" }}</td>
+                                        <td>{{ \App\Models\User::find($data->insurance_requested_company_id)->name ?? "Data Not Found" }}</td>
                                         <td>{{ \App\Models\User::find($data->company_id)->name ?? "Data Not Found" }}</td>
                                         <td>{{ $data->cattle_created_date }}</td>
                                     @endforeach
