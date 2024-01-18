@@ -222,7 +222,7 @@
                                                 <div class="row gx-3 mb-3">
 
                                                     <label class="small mb-1" for="inputLastName"
-                                                    >Attachment</label
+                                                    >Attachment [Acceptable Types : pdf,jpg,jpeg,png,webp ]</label
                                                     >
                                                     <input
                                                         class="form-control"
@@ -342,7 +342,7 @@
                                                 <div class="row gx-3 mb-3">
 
                                                     <label class="small mb-1" for="inputLastName"
-                                                    >Attachment</label
+                                                    >Attachment [Acceptable Types : pdf,jpg,jpeg,png,webp ]</label
                                                     >
                                                     <input
                                                         class="form-control"
@@ -495,7 +495,7 @@
                                                 <div class="row gx-3 mb-3">
 
                                                     <label class="small mb-1" for="inputLastName"
-                                                    >Attachment</label
+                                                    >Attachment [Acceptable Types : pdf,jpg,jpeg,png,webp ]</label
                                                     >
                                                     <input
                                                         class="form-control"

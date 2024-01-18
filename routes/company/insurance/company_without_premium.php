@@ -21,7 +21,7 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
 
         //    -------------------------- Insured Cattle List -----------------------------
 
-        Route::get('insured_animal_list_2', [\App\Http\Controllers\InsuredController::class,'insured'])->name('company_insured_animal_list_2');
+        Route::get('insured_animal_list_2', [\App\Http\Controllers\InsuredController::class, 'insured'])->name('company_insured_animal_list_2');
 
         //    -------------------------- Insured Cattle List -----------------------------
 
@@ -30,6 +30,22 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
         Route::get('company_pending_insurance_requests_data', [InsuredController::class, 'view_pending_insurance_history'])->name('company.view_pending_insurance_history');
 
         //    -------------------------- Pending Insurance Request Data -----------------------------
+
+        //    -------------------------- Claim Insurance Data -----------------------------
+
+        Route::get('company_claim_insurance_data', [InsuredController::class, 'claim_list'])->name('company.claim_insurance_data');
+
+        //    -------------------------- Claim Insurance Data -----------------------------
+
+        //    -------------------------- Company with animal list Data -----------------------------
+
+        Route::get('company_animal_list', [InsuredController::class, 'company_animal_list'])->name('company.animal_list');
+
+
+        //    -------------------------- Company with animal list Data -----------------------------
+
+
+//        -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
         //    -------------------------- View Cattle Info -----------------------------
 

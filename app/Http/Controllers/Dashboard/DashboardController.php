@@ -11,6 +11,7 @@ use App\Models\Insured;
 use App\Models\Order;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -41,6 +42,19 @@ class DashboardController extends Controller
 
         $due_request_company_without_premium_insurance_count = InsuranceRequest::where('insurance_requested_company_id',auth()->user()->id)->where('insurance_status','received')->where('insurance_request_status',null)->count();
 
+        $company_without_premium_total_claim_count = CattleRegReport::join('insureds', 'cattle_reg_reports.cattle_id', '=', 'insureds.cattle_id')
+            ->where('insureds.insurance_requested_company_id', auth()->user()->id)
+            ->where('cattle_reg_reports.operation', 'claim')
+            ->where('cattle_reg_reports.verification_report', 'success')
+            ->select(
+                'cattle_reg_reports.*',
+                'insureds.*',
+                DB::raw('DATE(cattle_reg_reports.created_at) as cattle_created_date')
+            )
+            ->count();
+
+
+
 //  ----------------------------------  [ without premium based ] ---------------------------------------
 
 //  ---------------------------------- Insured claim count [ without premium based ] ---------------------------------------
@@ -60,7 +74,7 @@ class DashboardController extends Controller
 
 //  ---------------------------------- Insured claim count [ without premium based ] ---------------------------------------
 
-        return view("dashboard.company", compact('field_agent_count', 'farmer_count', 'without_premium_based_company_insured_animal_count', 'without_premium_based_company_insurance_amount','due_amount_company_without_premium_insurance','due_request_company_without_premium_insurance_count'));
+        return view("dashboard.company", compact('field_agent_count', 'farmer_count', 'without_premium_based_company_insured_animal_count', 'without_premium_based_company_insurance_amount','due_amount_company_without_premium_insurance','due_request_company_without_premium_insurance_count','company_without_premium_total_claim_count'));
     }
 
     public function farmer()

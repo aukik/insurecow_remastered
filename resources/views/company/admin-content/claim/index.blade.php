@@ -15,7 +15,7 @@
                                 <div class="page-header-icon">
                                     <i data-feather="user"></i>
                                 </div>
-                                Claim Insurance - Farmer<span style="color: red">&nbsp</span>
+                                Claim Insurance<span style="color: red">&nbsp</span>
                             </h1>
                         </div>
                     </div>

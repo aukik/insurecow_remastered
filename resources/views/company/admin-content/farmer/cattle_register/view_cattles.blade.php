@@ -15,7 +15,7 @@
                                 <div class="page-header-icon">
                                     <i data-feather="user"></i>
                                 </div>
-                                Registered Cattle - Super Admin
+                                Registered Cattle
                             </h1>
                         </div>
                     </div>

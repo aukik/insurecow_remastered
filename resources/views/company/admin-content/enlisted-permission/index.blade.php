@@ -15,7 +15,7 @@
                                 <div class="page-header-icon">
                                     <i data-feather="user"></i>
                                 </div>
-                                User History - Super Admin
+                                User list with permission
                             </h1>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                 <div class="col-xl-12">
                     <!-- Account details card-->
                     <div class="card mb-4">
-                        <div class="card-header">User History</div>
+                        <div class="card-header">User list with permission</div>
                         <div class="card-body">
 
                             {{--                            <div class="card-header">Extended DataTables</div>--}}
@@ -57,7 +57,7 @@
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
                                             <td>{{ $user->phone }}</td>
-                                            <td>{{ $user->role }}</td>
+                                            <td>{{ $user->role == "f" ? "Farmer" : $user->role }}</td>
                                             <td>{{ $user->created_at->format('d-m-y') }}</td>
 
                                             @if($user->role != "s")
