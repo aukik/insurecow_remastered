@@ -206,19 +206,19 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-4 mb-4">
-                        <!-- Billing card 1-->
-                        <div class="card h-100 border-start-lg border-start-primary">
-                            <div class="card-body">
-                                <div class="small text-muted">Insurecow digital payments</div>
-                                <div class="h3">-</div>
-                                <a class="text-arrow-icon small" href="">
-                                    View Information
-                                    <i data-feather="arrow-right"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+{{--                    <div class="col-lg-4 mb-4">--}}
+{{--                        <!-- Billing card 1-->--}}
+{{--                        <div class="card h-100 border-start-lg border-start-primary">--}}
+{{--                            <div class="card-body">--}}
+{{--                                <div class="small text-muted">Insurecow digital payments</div>--}}
+{{--                                <div class="h3">-</div>--}}
+{{--                                <a class="text-arrow-icon small" href="">--}}
+{{--                                    View Information--}}
+{{--                                    <i data-feather="arrow-right"></i>--}}
+{{--                                </a>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 
                     <div class="col-lg-4 mb-4">
                         <!-- Billing card 1-->
