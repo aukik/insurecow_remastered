@@ -48,6 +48,20 @@
                         <!-- Billing card 1-->
                         <div class="card h-100 border-start-lg border-start-primary">
                             <div class="card-body">
+                                <div class="small text-muted">Animal List</div>
+                                <div class="h3">{{ $company_without_premium_animal_list_count ?? 0 }}</div>
+                                <a class="text-arrow-icon small" href="{{ route('company.animal_list') }}">
+                                    View Information
+                                    <i data-feather="arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 mb-4">
+                        <!-- Billing card 1-->
+                        <div class="card h-100 border-start-lg border-start-primary">
+                            <div class="card-body">
                                 <div class="small text-muted">Enlisted Permission</div>
                                 <div class="h3">{{ $farmer_count ?? 0 }}</div>
                                 <a class="text-arrow-icon small" href="{{ route('cp.user_history') }}">

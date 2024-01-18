@@ -54,6 +54,9 @@ class DashboardController extends Controller
             ->count();
 
 
+        $company_without_premium_animal_list_count = CattleRegistration::join('users','cattle_registrations.user_id','=','users.id')
+            ->where('users.company_id', auth()->user()->id)->count();
+
 
 //  ----------------------------------  [ without premium based ] ---------------------------------------
 
@@ -74,7 +77,7 @@ class DashboardController extends Controller
 
 //  ---------------------------------- Insured claim count [ without premium based ] ---------------------------------------
 
-        return view("dashboard.company", compact('field_agent_count', 'farmer_count', 'without_premium_based_company_insured_animal_count', 'without_premium_based_company_insurance_amount','due_amount_company_without_premium_insurance','due_request_company_without_premium_insurance_count','company_without_premium_total_claim_count'));
+        return view("dashboard.company", compact('field_agent_count', 'farmer_count', 'without_premium_based_company_insured_animal_count', 'without_premium_based_company_insurance_amount','due_amount_company_without_premium_insurance','due_request_company_without_premium_insurance_count','company_without_premium_total_claim_count','company_without_premium_animal_list_count'));
     }
 
     public function farmer()
