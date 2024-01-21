@@ -34,7 +34,6 @@
                         <div class="card-header">Registered Companies</div>
                         <div class="card-body">
 
-                            {{--                            <div class="card-header">Extended DataTables</div>--}}
                             <div class="card-body">
                                 <table id="datatablesSimple">
                                     <thead>
@@ -42,9 +41,8 @@
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Phone</th>
-                                        {{--                                        <th>Role</th>--}}
                                         <th>Registered <br> Farmers</th>
-                                        {{--                                        <th>Registered <br> Field Agents</th>--}}
+                                        <th>Update accounts info</th>
                                     </tr>
                                     </thead>
 
@@ -57,15 +55,15 @@
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
                                             <td>{{ $user->phone }}</td>
-                                            {{--                                            <td>{{ $user->role }}</td>--}}
                                             <td>
                                                 <a href="{{ route('sp.registered_farmers', $user->id) }}"
                                                    class="btn btn-primary">View Farmers</a>
                                             </td>
 
-                                            {{--                                            <td>--}}
-                                            {{--                                                <a href="" class="btn btn-primary">View Agents</a>--}}
-                                            {{--                                            </td>--}}
+                                            <td>
+                                                <a href="{{ route('sp_company_corporate_profile', $user->id) }}"
+                                                   class="btn btn-primary">Update Info</a>
+                                            </td>
 
 
                                         </tr>
@@ -75,11 +73,9 @@
                                 </table>
                             </div>
 
-                            {{-- ---------------------------------------- Company Request Data ---------------------------------------- --}}
 
 
 
-                            {{-- ---------------------------------------- Register Company/NGO/Bank ---------------------------------------- --}}
 
                         </div>
                     </div>

@@ -41,8 +41,8 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
 
         //    ----------------------  Profile Update - Bank and other information update -----------------------
 
-        Route::get("company_transaction_profile", [\App\Http\Controllers\Company\CompanyProfileController::class, 'index'])->name('company_corporate_profile');
-        Route::put("company_transaction_profile_update", [\App\Http\Controllers\Company\CompanyProfileController::class, 'update'])->name('company_corporate_profile_update');
+//        Route::get("company_transaction_profile", [\App\Http\Controllers\Company\CompanyProfileController::class, 'index'])->name('company_corporate_profile');
+//        Route::put("company_transaction_profile_update", [\App\Http\Controllers\Company\CompanyProfileController::class, 'update'])->name('company_corporate_profile_update');
 
         //    ----------------------  Profile Update - Bank and other information update -----------------------
 

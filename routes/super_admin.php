@@ -90,6 +90,17 @@ Route::middleware(['auth', 'super.admin'])->prefix('superAdmin')->group(function
 
     //    ----------------------- Claim Insurance -----------------------
 
+    //    ----------------------- Update company accounts Information -----------------------
+
+    //    ----------------------  Profile Update - Bank and other information update -----------------------
+
+    Route::get("sp_company_transaction_profile/{id}", [\App\Http\Controllers\SuperAdmin\CompanyProfileController::class, 'index'])->name('sp_company_corporate_profile');
+    Route::put("sp_company_transaction_profile_update/{id}", [\App\Http\Controllers\SuperAdmin\CompanyProfileController::class, 'update'])->name('sp_company_corporate_profile_update');
+
+    //    ----------------------  Profile Update - Bank and other information update -----------------------
+
+    //    ----------------------- Update company accounts Information -----------------------
+
 
 
 //    ---------------------------------------------------- Farmer section from super admin ----------------------------------------------------

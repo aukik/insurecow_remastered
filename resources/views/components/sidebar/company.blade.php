@@ -88,10 +88,10 @@
             {{--  ------------------------------------- Accounts Profile - Company with Insurance ------------------------------------- --}}
 
 
-            <a class="nav-link" href="{{ route('company_corporate_profile') }}">
-                <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>
-                Acc. Profile Update
-            </a>
+{{--            <a class="nav-link" href="{{ route('company_corporate_profile') }}">--}}
+{{--                <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>--}}
+{{--                Acc. Profile Update--}}
+{{--            </a>--}}
 
             {{--  ------------------------------------- Accounts Profile - Company with Insurance ------------------------------------- --}}
         @endif
