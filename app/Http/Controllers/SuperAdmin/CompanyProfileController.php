@@ -106,7 +106,12 @@ class CompanyProfileController extends Controller
             return "Company information does not exists";
         }
 
-        $inputs['password'] = Hash::make($inputs['password']);
+        if ($inputs['password'] != null) {
+            $inputs['password'] = Hash::make($inputs['password']);
+        } else {
+            $inputs['password'] = $company->password;
+        }
+
 
         $company->update($inputs);
 
