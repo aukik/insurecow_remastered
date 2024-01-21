@@ -49,4 +49,20 @@ class ChangePasswordController extends Controller
             return back();
         }
     }
+
+    public function profile_info_update(){
+
+        $inputs = request()->validate([
+            'address' => 'required',
+        ]);
+
+        auth()->user()->update([
+            'address' => $inputs['address']
+        ]);
+
+        session()->flash('success', 'Profile info updated');
+        return back();
+
+
+    }
 }

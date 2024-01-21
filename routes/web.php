@@ -161,6 +161,12 @@ Route::middleware('auth')->group(function () {
 
 //    -------------------------- Change Password view -----------------------------
 
+//    -------------------------- Profile Information Update -----------------------------
+
+    Route::post('profile_update', [ChangePasswordController::class, 'profile_info_update'])->name('view.profile_info_update');
+
+//    -------------------------- Profile Information Update -----------------------------
+
 });
 
 // -------------------------------------------------------------------- Change Password --------------------------------------------------------------------
