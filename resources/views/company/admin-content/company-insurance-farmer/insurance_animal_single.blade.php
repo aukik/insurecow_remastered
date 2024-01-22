@@ -35,7 +35,7 @@
                         <div class="card-body">
 
                             <div class="alert alert-success">
-                                Please <a href="">click here</a> if you want to choose bulk insurance option
+                                Please <a href="{{ route('company.bulk_view_index',$package->id) }}">click here</a> if you want to choose bulk insurance option
                             </div>
 
 
