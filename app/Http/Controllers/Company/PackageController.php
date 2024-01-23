@@ -36,7 +36,7 @@ class PackageController extends Controller
      * Store a newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
@@ -56,11 +56,11 @@ class PackageController extends Controller
             $inputs['policy'] = \request('policy')->store('policy');
         }
 
-        session()->flash("success","Package Added Successfully");
+        session()->flash("success", "Package Added Successfully");
 
         auth()->user()->companyPackage()->create($inputs);
 
-        return back();
+        return redirect()->route('package.index');
     }
 
     /**
@@ -91,7 +91,7 @@ class PackageController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @param \App\Models\Package $package
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, Package $package)
     {
@@ -108,33 +108,51 @@ class PackageController extends Controller
 
         if (request('policy')) {
             $inputs['policy'] = \request('policy')->store('policy');
-        }else{
+        } else {
             $inputs['policy'] = $package->policy;
         }
 
-        session()->flash("success","Package Added Successfully");
+        session()->flash("success", "Package Added Successfully");
 
 //        auth()->user()->companyPackage()->create($inputs);
 
-        if($package->user_id == auth()->user()->id){
+        if ($package->user_id == auth()->user()->id) {
             $package->update($inputs);
-        }else{
+        } else {
             abort(404);
         }
 
-        session()->flash("success","Package Updated Successfully");
+        session()->flash("success", "Package name - " . "'" . $inputs['package_name'] . "'" . " Updated Successfully");
 
-        return back();
+        return redirect()->route('package.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param \App\Models\Package $package
-     * @return \Illuminate\Http\Response
+     * @return string
      */
     public function destroy(Package $package)
     {
-        //
+        if (!$package) {
+            return "package does not exists";
+        }
+
+        if ($package->user_id != auth()->id()) {
+            return "package data does not belongs to this company";
+        }
+
+        if (\App\Models\InsuranceRequest::where('package_id', $package->id)->count() > 0) {
+            return "Data is associated with the package, unable to delete";
+        }
+
+        session()->flash("success", "Package name - " . "'" . $package->package_name . "'" . " Deleted Successfully");
+
+        $package->delete();
+
+        return redirect()->route('package.index');
+
+
     }
 }

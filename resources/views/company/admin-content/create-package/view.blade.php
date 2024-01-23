@@ -54,6 +54,7 @@
                                         {{--                                        <th>Package Status</th>--}}
                                         {{--                                        <th>Actions</th>--}}
                                         <th>Edit</th>
+                                        <th>Delete</th>
                                     </tr>
                                     </thead>
 
@@ -124,6 +125,23 @@
                                                     </button>
                                                 </a>
                                             </td>
+
+                                            @if(\App\Models\InsuranceRequest::where('package_id', $package->id)->count() > 0)
+
+                                                <td>-</td>
+
+                                            @else
+
+                                                <td>
+                                                    <form action="{{ route('package.destroy', $package->id) }}"
+                                                          method="post">
+                                                        {{ csrf_field() }}
+                                                        @method('delete')
+                                                        <input type="submit" value="Delete" class="btn btn-danger">
+                                                    </form>
+                                                </td>
+
+                                            @endif
 
                                         </tr>
 
