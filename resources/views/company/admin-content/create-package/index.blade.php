@@ -60,6 +60,11 @@
                                             value=""
                                             name="package_name"
                                         />
+
+                                        @error('package_name')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
+
                                     </div>
 
                                     <div class="col-md-6">
@@ -74,42 +79,65 @@
                                             value=""
                                             name="policy"
                                         />
+
+                                        @error('policy')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
 
                                 <div class="row gx-3 mb-3">
                                     <div class="col-md-12">
                                         <label class="small mb-1" for="inputLastName"
-                                        >Insurance Period [Example : 0.5 = 6months, 1 = 1 year, 1.5= 1 year 6 months]</label
+                                        >Insurance Period</label
+                                        >
+                                        <select class="form-select" name="insurance_period">
+                                            <option value="0.5">6 months</option>
+                                            <option value="1">1 Year</option>
+                                            <option value="1.5">1 Year 5 months</option>
+                                            <option value="2">2 Years</option>
+                                            <option value="2.5">2 Year 5 months</option>
+                                            <option value="3">3 Years</option>
+                                        </select>
+                                    </div>
+
+                                    @error('insurance_period')
+                                    <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                    @enderror
+                                </div>
+
+                                <div class="row gx-3 mb-3">
+
+                                    <div class="col-md-12">
+                                        <label class="small mb-1" for="inputLastName"
+                                        >Coverage</label
                                         >
                                         <input
                                             class="form-control"
                                             id="inputLastName"
-                                            type="number"
-                                            placeholder="Enter Insurance Period"
+                                            type="text"
+                                            placeholder="Enter coverage info"
                                             value=""
                                             step="0.1"
-                                            name="insurance_period"
+                                            name="coverage"
                                         />
+
+                                        @error('coverage')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
+{{--                                    <div class="col-md-12">--}}
+{{--                                        <label class="small mb-1" for="inputLastName"--}}
+{{--                                        >Coverage [ Can be selected multiple ]</label>--}}
 
-                                </div>
-
-                                <div class="row gx-3 mb-3">
-
-
-                                    <div class="col-md-12">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >Coverage [ Can be selected multiple ]</label>
-
-                                        <select class="form-control" id="exampleFormControlSelect2" name="coverage[]"
-                                                multiple>
-                                            <option value="ac">Accidental/Diseases Mortality</option>
-                                            <option value="fl">Flood cyclonic coverage</option>
-                                            <option value="er">Earthquake coverage</option>
-                                        </select>
-                                    </div>
+{{--                                        <select class="form-control" id="exampleFormControlSelect2" name="coverage[]"--}}
+{{--                                                multiple>--}}
+{{--                                            <option value="ac">Accidental/Diseases Mortality</option>--}}
+{{--                                            <option value="fl">Flood cyclonic coverage</option>--}}
+{{--                                            <option value="er">Earthquake coverage</option>--}}
+{{--                                        </select>--}}
+{{--                                    </div>--}}
                                 </div>
 
 
@@ -126,6 +154,10 @@
                                             value=""
                                             name="discount"
                                         />
+
+                                        @error('discount')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <div class="col-md-4">
@@ -140,6 +172,10 @@
                                             value=""
                                             name="rate"
                                         />
+
+                                        @error('rate')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <div class="col-md-4">
@@ -154,6 +190,10 @@
                                             value=""
                                             name="vat"
                                         />
+
+                                        @error('vat')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -165,6 +205,9 @@
                                         >
                                         <textarea class="form-control textarea" rows="40" name="quotation"></textarea>
 
+                                        @error('quotation')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                 </div>
 

@@ -78,19 +78,21 @@
                                 <td class="text-end fw-bold"></td>
                                 <td class="text-end fw-bold"></td>
                                 <td class="text-end fw-bold">
-                                    @foreach (json_decode($package->coverage) as $item)
-                                        @if ($item === 'ac')
-                                            Accidental Coverage
-                                        @elseif($item === 'fl')
-                                            Flood Coverage
-                                        @elseif($item === 'er')
-                                            Earthquake Coverage
-                                        @endif
+                                    {{ $package->coverage }}
 
-                                        @if (!$loop->last)
-                                            ,
-                                        @endif
-                                    @endforeach
+{{--                                    @foreach (json_decode($package->coverage) as $item)--}}
+{{--                                        @if ($item === 'ac')--}}
+{{--                                            Accidental Coverage--}}
+{{--                                        @elseif($item === 'fl')--}}
+{{--                                            Flood Coverage--}}
+{{--                                        @elseif($item === 'er')--}}
+{{--                                            Earthquake Coverage--}}
+{{--                                        @endif--}}
+
+{{--                                        @if (!$loop->last)--}}
+{{--                                            ,--}}
+{{--                                        @endif--}}
+{{--                                    @endforeach--}}
                                 </td>
                             </tr>
                             {{-- --------------------------- Coverage --------------------------- --}}

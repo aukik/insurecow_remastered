@@ -37,8 +37,8 @@
 
                             {{-- ----------- Cash Payment ----------- --}}
 
-{{--                            <a href="{{ route('company.single_animal_select_package_cash', $package) }}"--}}
-{{--                               class="btn btn-success h3 text-white">Cash Payment</a>--}}
+                            {{--                            <a href="{{ route('company.single_animal_select_package_cash', $package) }}"--}}
+                            {{--                               class="btn btn-success h3 text-white">Cash Payment</a>--}}
 
                             {{-- ----------- Cash Payment ----------- --}}
 
@@ -85,19 +85,22 @@
                                 <td class="text-end fw-bold"></td>
                                 <td class="text-end fw-bold"></td>
                                 <td class="text-end fw-bold">
-                                    @foreach (json_decode($package->coverage) as $item)
-                                        @if ($item === 'ac')
-                                            Accidental Coverage
-                                        @elseif($item === 'fl')
-                                            Flood Coverage
-                                        @elseif($item === 'er')
-                                            Earthquake Coverage
-                                        @endif
 
-                                        @if (!$loop->last)
-                                            ,
-                                        @endif
-                                    @endforeach
+                                    {{ $package->coverage }}
+
+                                    {{--                                    @foreach (json_decode($package->coverage) as $item)--}}
+                                    {{--                                        @if ($item === 'ac')--}}
+                                    {{--                                            Accidental Coverage--}}
+                                    {{--                                        @elseif($item === 'fl')--}}
+                                    {{--                                            Flood Coverage--}}
+                                    {{--                                        @elseif($item === 'er')--}}
+                                    {{--                                            Earthquake Coverage--}}
+                                    {{--                                        @endif--}}
+
+                                    {{--                                        @if (!$loop->last)--}}
+                                    {{--                                            ,--}}
+                                    {{--                                        @endif--}}
+                                    {{--                                    @endforeach--}}
                                 </td>
                             </tr>
                             {{-- --------------------------- Coverage --------------------------- --}}
@@ -110,7 +113,23 @@
                                 </td>
                                 <td class="text-end fw-bold"></td>
                                 <td class="text-end fw-bold"></td>
-                                <td class="text-end fw-bold">{{ $package->insurance_period ?? null }} Years</td>
+                                <td class="text-end fw-bold">
+                                    @if($package->insurance_period == 0.5)
+                                        6 months
+                                    @elseif($package->insurance_period == 1)
+                                        1 year
+                                    @elseif($package->insurance_period == 1.5)
+                                        1 year 5 months
+                                    @elseif($package->insurance_period == 2.0)
+                                        2 years
+                                    @elseif($package->insurance_period == 2.5)
+                                        2 years 5 months
+                                    @elseif($package->insurance_period == 3.0)
+                                        3 Years
+                                    @elseif($package->insurance_period > 3.0)
+                                        More than 3 years
+                                    @endif
+                                </td>
                             </tr>
                             {{-- --------------------------- Insurane Period --------------------------- --}}
 
@@ -137,8 +156,6 @@
                                 <td class="text-end fw-bold"></td>
                                 <td class="text-end fw-bold"></td>
                                 <td class="text-end fw-bold">{{ $package->discount ?? null }}</td>
-
-                                </td>
                             </tr>
                             {{-- --------------------------- Discount --------------------------- --}}
 

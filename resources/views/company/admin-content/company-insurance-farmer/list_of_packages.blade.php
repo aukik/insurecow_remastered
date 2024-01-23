@@ -87,19 +87,22 @@
                                             </td>
 
                                             <td>
-                                                @foreach (json_decode($package->coverage) as $item)
-                                                    @if ($item === 'ac')
-                                                        Accidental Coverage
-                                                    @elseif($item === 'fl')
-                                                        Flood Coverage
-                                                    @elseif($item === 'er')
-                                                        Earthquake Coverage
-                                                    @endif
 
-                                                    @if (!$loop->last)
-                                                        ,
-                                                    @endif
-                                                @endforeach
+                                                {{ $package->coverage }}
+
+{{--                                                @foreach (json_decode($package->coverage) as $item)--}}
+{{--                                                    @if ($item === 'ac')--}}
+{{--                                                        Accidental Coverage--}}
+{{--                                                    @elseif($item === 'fl')--}}
+{{--                                                        Flood Coverage--}}
+{{--                                                    @elseif($item === 'er')--}}
+{{--                                                        Earthquake Coverage--}}
+{{--                                                    @endif--}}
+
+{{--                                                    @if (!$loop->last)--}}
+{{--                                                        ,--}}
+{{--                                                    @endif--}}
+{{--                                                @endforeach--}}
                                             </td>
                                             <td>{{ $package->discount }}%</td>
                                             <td>{{ $package->rate }}%</td>

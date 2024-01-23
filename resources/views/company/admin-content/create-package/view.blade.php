@@ -50,9 +50,9 @@
                                         <th>Coverage</th>
                                         <th>OFF %</th>
                                         <th>Rate [CTL %]</th>
-                                        <th>Vat  % </th>
-                                        <th>Package Status</th>
-{{--                                        <th>Actions</th>--}}
+                                        <th>Vat %</th>
+                                        {{--                                        <th>Package Status</th>--}}
+                                        {{--                                        <th>Actions</th>--}}
                                         <th>Edit</th>
                                     </tr>
                                     </thead>
@@ -64,38 +64,57 @@
 
                                         <tr>
                                             <td>{{ $package->package_name }}</td>
-                                            <td>{{ $package->insurance_period }}</td>
+                                            <td>
+                                                @if($package->insurance_period == 0.5)
+                                                    6 months
+                                                @elseif($package->insurance_period == 1)
+                                                    1 year
+                                                @elseif($package->insurance_period == 1.5)
+                                                    1 year 5 months
+                                                @elseif($package->insurance_period == 2.0)
+                                                    2 years
+                                                @elseif($package->insurance_period == 2.5)
+                                                    2 years 5 months
+                                                @elseif($package->insurance_period == 3.0)
+                                                    3 Years
+                                                @elseif($package->insurance_period > 3.0)
+                                                    More than 3 years
+                                                @endif
+                                            </td>
                                             <td><a href="{{ asset('storage/'.$package->policy)  }}">File</a></td>
                                             <td>
-                                                @foreach (json_decode($package->coverage) as $item)
-                                                    @if ($item === 'ac')
-                                                        Accidental Coverage
-                                                    @elseif($item === 'fl')
-                                                        Flood Coverage
-                                                    @elseif($item === 'er')
-                                                        Earthquake Coverage
-                                                    @endif
 
-                                                    @if (!$loop->last)
-                                                        ,
-                                                    @endif
-                                                @endforeach
+                                                {{ $package->coverage }}
+
+                                                {{--                                                @foreach (json_decode($package->coverage) as $item)--}}
+                                                {{--                                                    @if ($item === 'ac')--}}
+                                                {{--                                                        Accidental Coverage--}}
+                                                {{--                                                    @elseif($item === 'fl')--}}
+                                                {{--                                                        Flood Coverage--}}
+                                                {{--                                                    @elseif($item === 'er')--}}
+                                                {{--                                                        Earthquake Coverage--}}
+                                                {{--                                                    @endif--}}
+
+                                                {{--                                                    @if (!$loop->last)--}}
+                                                {{--                                                        ,--}}
+                                                {{--                                                    @endif--}}
+                                                {{--                                                @endforeach--}}
                                             </td>
                                             {{--                                            <td>{{ json_decode($package->coverage) }}</td>--}}
                                             <td>{{ $package->discount }}%</td>
                                             <td>{{ $package->rate }}%</td>
                                             <td>{{ $package->vat }}%</td>
-                                            <td>{{ $package->package_status }}</td>
-{{--                                            <td>--}}
+                                            {{--                                            <td>{{ $package->package_status }}</td>--}}
+                                            {{--                                            <td>--}}
 
-{{--                                                <a href="{{ route('package_status', $package->id) }}">--}}
-{{--                                                    <button--}}
-{{--                                                        class="btn @if($package->package_status == 'active' ) btn-primary @else btn-danger @endif ">--}}
-{{--                                                        Status Mode--}}
-{{--                                                    </button>--}}
-{{--                                                </a>--}}
+                                            {{--                                                <a href="{{ route('package_status', $package->id) }}">--}}
+                                            {{--                                                    <button--}}
+                                            {{--                                                        class="btn @if($package->package_status == 'active' ) btn-primary @else btn-danger @endif ">--}}
+                                            {{--                                                        Status Mode--}}
+                                            {{--                                                    </button>--}}
+                                            {{--                                                </a>--}}
 
-{{--                                            </td>--}}
+                                            {{--                                            </td>--}}
 
                                             <td>
                                                 <a href="{{ route('package.edit', $package->id) }}">

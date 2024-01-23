@@ -12,7 +12,7 @@ class PackageController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function index()
     {
@@ -25,7 +25,7 @@ class PackageController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function create()
     {
@@ -51,8 +51,6 @@ class PackageController extends Controller
             'rate' => 'required|integer',
             'vat' => 'required|integer',
         ]);
-
-        $inputs['coverage'] = Json::encode($request->coverage);
 
         if (request('policy')) {
             $inputs['policy'] = \request('policy')->store('policy');
@@ -107,8 +105,6 @@ class PackageController extends Controller
             'rate' => 'required|integer',
             'vat' => 'required|integer',
         ]);
-
-        $inputs['coverage'] = Json::encode($request->coverage);
 
         if (request('policy')) {
             $inputs['policy'] = \request('policy')->store('policy');

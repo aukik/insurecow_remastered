@@ -90,17 +90,26 @@
                                 <div class="row gx-3 mb-3">
                                     <div class="col-md-12">
                                         <label class="small mb-1" for="inputLastName"
-                                        >Insurance Period [Example : 0.5 = 6months, 1 = 1 year, 1.5= 1 year 6 months]</label
+                                        >Insurance Period</label
                                         >
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="number"
-                                            placeholder="Enter Insurance Period"
-                                            value="{{ $package->insurance_period  }}"
-                                            name="insurance_period"
-                                            step="0.01"
-                                        />
+{{--                                        <input--}}
+{{--                                            class="form-control"--}}
+{{--                                            id="inputLastName"--}}
+{{--                                            type="number"--}}
+{{--                                            placeholder="Enter Insurance Period"--}}
+{{--                                            value="{{ $package->insurance_period  }}"--}}
+{{--                                            name="insurance_period"--}}
+{{--                                            step="0.01"--}}
+{{--                                        />--}}
+
+                                        <select class="form-select" name="insurance_period">
+                                            <option value="0.5" @if($package->insurance_period == 0.5) selected @endif>6 months</option>
+                                            <option value="1" @if($package->insurance_period == 1) selected @endif>1 Year</option>
+                                            <option value="1.5" @if($package->insurance_period == 1.5) selected @endif>1 Year 5 months</option>
+                                            <option value="2" @if($package->insurance_period == 2) selected @endif>2 Years</option>
+                                            <option value="2.5" @if($package->insurance_period == 2.5) selected @endif>2 Year 5 months</option>
+                                            <option value="3" @if($package->insurance_period == 3) selected @endif>3 Years</option>
+                                        </select>
                                     </div>
 
 
@@ -109,25 +118,42 @@
                                 <div class="row gx-3 mb-3">
 
 
-                                    <div class="col-md-12">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >Coverage [ Can be selected multiple ]</label>
+{{--                                    <div class="col-md-12">--}}
+{{--                                        <label class="small mb-1" for="inputLastName"--}}
+{{--                                        >Coverage [ Can be selected multiple ]</label>--}}
 
-                                        <select class="form-control" id="exampleFormControlSelect2" name="coverage[]"
-                                                multiple>
-                                            <option value="ac"
-                                                    @if (in_array('ac', json_decode($package->coverage))) selected @endif>
-                                                Accidental/Diseases Mortality
-                                            </option>
-                                            <option value="fl"
-                                                    @if (in_array('fl', json_decode($package->coverage))) selected @endif>
-                                                Flood cyclonic coverage
-                                            </option>
-                                            <option value="er"
-                                                    @if (in_array('er', json_decode($package->coverage))) selected @endif>
-                                                Earthquake coverage
-                                            </option>
-                                        </select>
+{{--                                        <select class="form-control" id="exampleFormControlSelect2" name="coverage[]"--}}
+{{--                                                multiple>--}}
+{{--                                            <option value="ac"--}}
+{{--                                                    @if (in_array('ac', json_decode($package->coverage))) selected @endif>--}}
+{{--                                                Accidental/Diseases Mortality--}}
+{{--                                            </option>--}}
+{{--                                            <option value="fl"--}}
+{{--                                                    @if (in_array('fl', json_decode($package->coverage))) selected @endif>--}}
+{{--                                                Flood cyclonic coverage--}}
+{{--                                            </option>--}}
+{{--                                            <option value="er"--}}
+{{--                                                    @if (in_array('er', json_decode($package->coverage))) selected @endif>--}}
+{{--                                                Earthquake coverage--}}
+{{--                                            </option>--}}
+{{--                                        </select>--}}
+{{--                                    </div>--}}
+
+                                    <div class="col-md-12">
+                                        <div class="col-md-12">
+                                            <label class="small mb-1" for="inputLastName"
+                                            >Coverage</label
+                                            >
+                                            <input
+                                                class="form-control"
+                                                id="inputLastName"
+                                                type="text"
+                                                placeholder="Enter coverage info"
+                                                value="{{ $package->coverage }}"
+                                                step="0.1"
+                                                name="coverage"
+                                            />
+                                        </div>
                                     </div>
                                 </div>
 
