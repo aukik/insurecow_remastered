@@ -22,9 +22,14 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
         // ---------------------- bulk insurance view page ----------------------
 
         Route::get("company_bulk_view_index/{package_id}", [Bulk_insurance_controller::class, 'index'])->name('company.bulk_view_index');
-        Route::post("company_bulk_view_index/", [Bulk_insurance_controller::class, 'info_and_cost_calculation'])->name('company.bulk_view_post');
 
         // ---------------------- bulk insurance view page ----------------------
+
+        // ---------------------- bulk insurance calculation page and request for insurance ----------------------
+
+        Route::post("company_bulk_view_index/", [Bulk_insurance_controller::class, 'info_and_cost_calculation'])->name('company.bulk_view_post');
+
+        // ---------------------- bulk insurance calculation page and request for insurance ----------------------
 
     });
 

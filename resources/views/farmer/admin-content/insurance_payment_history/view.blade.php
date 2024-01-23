@@ -60,7 +60,7 @@
                                         <th>Insured to</th>
                                         <th>Expiration Date</th>
                                         <th>Status</th>
-                                        <th>Claim</th>
+{{--                                        <th>Claim</th>--}}
 {{--                                        <th>Action</th>--}}
 
                                     </tr>
@@ -80,7 +80,7 @@
                                             <td>{{ \App\Models\User::find($history->company_id)->name ?? "Data Not Found"}}</td>
                                             <td>{{ $history->package_expiration_date }}</td>
                                             <td>{{ $history->status }}</td>
-                                            <td>{{ \App\Models\CattleRegReport::where('cattle_id',$history->cattle_id)->where('operation','claim')->where('verification_report','success')->count() > 0 ? "Claimed" : "Not Claimed" }}</td>
+{{--                                            <td>{{ \App\Models\CattleRegReport::where('cattle_id',$history->cattle_id)->where('operation','claim')->where('verification_report','success')->count() > 0 ? "Claimed" : "Not Claimed" }}</td>--}}
 
 {{--                                            <td>--}}
 {{--                                                <button class="btn btn-success" type="button">View</button>--}}

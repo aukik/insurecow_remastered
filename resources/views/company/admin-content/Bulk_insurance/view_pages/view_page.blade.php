@@ -154,6 +154,7 @@
                                             <hr style="color: #0a3622; font-weight: bold">
 
 
+                                            <input type="hidden" name="package_id" value="{{ $package->id }}">
                                             <input type="submit" value="View Calculation" class="btn btn-success">
                                         </div>
 

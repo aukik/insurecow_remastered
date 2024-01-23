@@ -357,9 +357,11 @@
 {{--></script>--}}
 
 
-<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
-<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>`
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+`
 <script src="https://cdn.datatables.net/rowreorder/1.2.8/js/dataTables.rowReorder.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
 
@@ -368,6 +370,13 @@
         // $('#example').DataTable();
 
         var table = $('#datatablesSimple').DataTable({
+
+            "language": {
+                "sLengthMenu": "Show _MENU_ Entries",
+                // Add any other language options you want to customize
+            },
+            // Add other DataTables options as needed
+
             rowReorder: {
                 selector: 'td:nth-child(2)'
             },
