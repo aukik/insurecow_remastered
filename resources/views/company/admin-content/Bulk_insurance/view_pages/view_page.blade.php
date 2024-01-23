@@ -35,6 +35,7 @@
                         <div class="card-body">
 
 
+
                             @if(session('success'))
                                 <p class="alert alert-success">{{ session('success') }}</p>
                             @endif
@@ -44,7 +45,11 @@
                                 {{ csrf_field() }}
 
                                 <div class="row">
+
                                     <div class="col-md-8">
+
+                                        <div style="color: #0a3622; font-weight: bold">Please choose Farmers or animals for insurance</div>
+                                        <hr style="color: #0a3622; font-weight: bold">
 
                                         {{--  -------------------- checkbox for animals and farmers --------------------  --}}
 
@@ -144,9 +149,10 @@
 
                                         <div id="insurance_cost_submit_block">
 
-                                            <label>
-                                                <h4>Please click here to view calculation</h4>
-                                            </label>
+
+                                            <div style="color: #0a3622; font-weight: bold">Please click here to view Insurance Information</div>
+                                            <hr style="color: #0a3622; font-weight: bold">
+
 
                                             <input type="submit" value="View Calculation" class="btn btn-success">
                                         </div>

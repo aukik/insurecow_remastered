@@ -123,8 +123,8 @@ class CattleRegistrationController extends Controller
 
         //        ----------------------------- If animal type is cattle then muzzle will be inserted, else it will store "Not Applicable for goat registration" -----------------------------
 
-        if ($animalType === 'goat') {
-            $inputs['muzzle_of_cow'] = "Not Applicable for goat registration";
+        if ($animalType === 'goat' || $animalType === 'buffalo') {
+            $inputs['muzzle_of_cow'] = "Not Applicable for goat or buffalo registration";
         } else {
             if (request('muzzle_of_cow')) {
                 $inputs['muzzle_of_cow'] = \request('muzzle_of_cow')->store('images');
@@ -160,12 +160,12 @@ class CattleRegistrationController extends Controller
 
         //        ----------------------------- Detecting if animal type is goat -----------------------------
 
-        if ($animalType === 'goat') {
+        if ($animalType === 'goat' || $animalType === 'buffalo') {
             auth()->user()->cattleRegister()->create($inputs);
 //            session()->flash("register_goat", "Goat Registered Successfully");
 
             return response()->json([
-                'message' => $animalType . ' registered successfully',
+                'message' => $animalType . $animalType." Registered Successfully",
                 'animal_type' => $animalType,
                 'reg_response' => 'success',
                 'queue_process' => 'disabled'

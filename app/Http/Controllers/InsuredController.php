@@ -49,7 +49,7 @@ class InsuredController extends Controller
     {
 
         $cattle_list = CattleRegistration::join('users', 'cattle_registrations.user_id', '=', 'users.id')
-            ->where('users.company_id', auth()->user()->id)->get();
+            ->where('users.company_id', auth()->user()->id)->orderBy('cattle_registrations.id','desc')->get();
 
 
         return view('company.admin-content.cattle_list_for_dashboard.view_cattles', compact('cattle_list'));

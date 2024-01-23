@@ -44,6 +44,7 @@
                                         <th>Farmer Name</th>
                                         <th>Sum Insured</th>
                                         <th>Animal with owner</th>
+                                        <th>Registered Date</th>
                                     </tr>
                                     </thead>
 
@@ -56,6 +57,7 @@
                                             <td>{{ \App\Models\User::find($data->user_id)->name ?? "Data Not Found" }}</td>
                                             <td>{{ $data->sum_insured ?? "Data not found" }}/-</td>
                                             <td><img src="{{ asset('storage/'.$data->cow_with_owner) }}" alt="Data not found" style="width: 130px"></td>
+                                            <td>{{ $data->created_at }}</td>
                                         </tr>
                                     @endforeach
                                     </tbody>

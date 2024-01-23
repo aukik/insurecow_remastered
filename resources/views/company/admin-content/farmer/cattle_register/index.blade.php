@@ -332,8 +332,8 @@
 
                                         <label for="cattle_type"></label><select class="form-select" name="cattle_type"
                                                                                  id="cattle_type">
-                                            <option value="milking_cow">Milking Cow</option>
-                                            <option value="meat_cow">Meat Cow</option>
+                                            <option value="milking_cow">Milking Animal</option>
+                                            <option value="meat_cow">Meat Animal</option>
                                             <option value="calf">calf</option>
                                         </select>
                                     </div>
@@ -420,7 +420,7 @@
             var selectElement = document.getElementById("animal_type");
             var muzzleDiv = document.getElementById("muzzle_of_cow");
 
-            if (selectElement.value === "goat") {
+            if (selectElement.value === "goat" || selectElement.value === "buffalo") {
                 muzzleDiv.style.display = "none";
             } else {
                 muzzleDiv.style.display = "block";
