@@ -57,7 +57,7 @@
 
                                         <th>Insurance Cost</th>
                                         <th>Package Insurance Period</th>
-                                        <th>Insurance For</th>
+                                        <th>Insurance For Animal</th>
 
                                         <th>View</th>
 
@@ -73,14 +73,61 @@
                                             <td>{{ $id += 1 }}</td>
                                             <td>{!!  \App\Http\Controllers\Farmer\InsuranceRequestController::package_id($history->package_id) !!}</td>
                                             <td>{!!  \App\Http\Controllers\Farmer\InsuranceRequestController::company_data($history->company_id) !!}</td>
+
+
+                                            {{-- ------------------------------------------- Cattle Info ------------------------------------------- --}}
+
                                             <td><a href="{{ route('company_view_cattle_info_2', $history->id) }}">Cattle
                                                     Info</a></td>
 
-                                            @if ($cattleRegistration = \App\Models\CattleRegistration::find($history->cattle_id))
-                                                <td>{{ \App\Models\User::find($cattleRegistration->user_id)->name }}</td>
+                                            {{-- ------------------------------------------- Cattle Info ------------------------------------------- --}}
+
+                                            {{-- ------------------------------------------- Farmer Name ------------------------------------------- --}}
+
+                                            @if($history->insurance_request_type == "single")
+
+                                                @if ($cattleRegistration = \App\Models\CattleRegistration::find($history->cattle_id))
+                                                    <td>{{ \App\Models\User::find($cattleRegistration->user_id)->name }}</td>
+                                                @else
+                                                    <td>Warning - No Farmer data found</td>
+                                                @endif
+
                                             @else
-                                                <td>Warning - No cattle registration data found</td>
+
+                                                @php
+                                                    $userIds = json_decode($history->user_id);
+                                                    $uniqueNames = [];
+                                                @endphp
+
+                                                {{-- Check if user IDs are not empty --}}
+                                                @if (!empty($userIds))
+                                                    <td>
+                                                        @foreach ($userIds as $userId)
+                                                            {{-- Retrieve user name using User model --}}
+                                                            @php
+                                                                $userName = \App\Models\User::find($userId)->name;
+                                                            @endphp
+
+                                                            {{-- Display only unique names --}}
+                                                            @if (!in_array($userName, $uniqueNames))
+                                                                {{ $userName }}
+                                                                {{-- Add the name to the unique names array --}}
+                                                                @php
+                                                                    $uniqueNames[] = $userName;
+                                                                @endphp
+                                                                @if (!$loop->last)
+                                                                    , {{-- Add a comma if it's not the last item --}}
+                                                                @endif
+                                                            @endif
+                                                        @endforeach
+                                                    </td>
+                                                @else
+                                                    <td>Warning - No User data found</td>
+                                                @endif
                                             @endif
+
+                                            {{-- ------------------------------------------- Farmer Name ------------------------------------------- --}}
+
 
                                             @if($history->insurance_status == "received")
 
@@ -117,47 +164,91 @@
                                             {{-- ---------------------------- Insurance Period ---------------------------- --}}
 
 
-                                            @if ($cattleRegistration = \App\Models\CattleRegistration::find($history->cattle_id))
-                                                <td>{{ $cattleRegistration->cattle_name }}
-                                                    - {{ $cattleRegistration->animal_type }}</td>
-                                            @else
-                                                <td>Warning - No cattle registration data found</td>
-                                            @endif
+                                            {{-- ---------------------------- Animal list ---------------------------- --}}
+
+                                            @if($history->insurance_request_type == "single")
 
 
-                                            {{--  ---------------------------------------- Condition adding [ Insurance checking ] ---------------------------------- --}}
-
-
-                                            {{--                                            @if($history->insurance_status == "received")--}}
-                                            {{--                                                @if(\App\Models\Insured::where('insurance_request_id',$history->id)->count() == 0)--}}
-                                            {{--                                                    <td>--}}
-                                            {{--                                                        <a href="{{ route('company_without_insurance_cart',$history->id) }}"--}}
-                                            {{--                                                           class="btn btn-primary">View</a>--}}
-                                            {{--                                                    </td>--}}
-                                            {{--                                                @else--}}
-                                            {{--                                                    <td>Insured</td>--}}
-                                            {{--                                                @endif--}}
-                                            {{--                                            @else--}}
-                                            {{--                                                <td>-</td>--}}
-                                            {{--                                            @endif--}}
-
-                                            @if($history->insurance_status == "received")
-
-                                                @if($history->insurance_request_status == null)
-                                                    <td>
-                                                        <a href="{{ route('company_without_insurance_cart',$history->id) }}"
-                                                           class="btn btn-primary">View</a>
-                                                    </td>
-
+                                                @if ($cattleRegistration = \App\Models\CattleRegistration::find($history->cattle_id))
+                                                    <td>{{ $cattleRegistration->cattle_name }}
+                                                        - {{ $cattleRegistration->animal_type }}</td>
                                                 @else
-                                                    <td>{{ $history->insurance_request_status }}</td>
+                                                    <td>Warning - No cattle registration data found</td>
                                                 @endif
 
                                             @else
-                                                <td>-</td>
+
+                                                {{-- Decode the JSON data --}}
+                                                @php
+                                                    $cattleIds = json_decode($history->cattle_id);
+                                                    $uniqueCattleNames = [];
+                                                @endphp
+
+                                                {{-- Check if cattle IDs are not empty --}}
+                                                @if (!empty($cattleIds))
+                                                    <td>
+                                                        @foreach ($cattleIds as $cattleId)
+                                                            {{-- Retrieve cattle registration data using CattleRegistration model --}}
+                                                            @php
+                                                                $cattleRegistration = \App\Models\CattleRegistration::find($cattleId);
+                                                            @endphp
+
+                                                            {{-- Display cattle name --}}
+                                                            @if ($cattleRegistration)
+                                                                {{ $cattleRegistration->cattle_name }}
+                                                                {{-- Add the cattle name to the unique array --}}
+                                                                @php
+                                                                    $uniqueCattleNames[] = $cattleRegistration->cattle_name;
+                                                                @endphp
+                                                                @if (!$loop->last)
+                                                                    , {{-- Add a comma if it's not the last item --}}
+                                                                @endif
+                                                            @endif
+                                                        @endforeach
+                                                    </td>
+                                                @else
+                                                    <td>Warning - No Cattle data found</td>
+                                                @endif
+
                                             @endif
 
-                                            {{--  ---------------------------------------- Condition adding [ Insurance checking ] ---------------------------------- --}}
+                                                {{-- ---------------------------- Animal list ---------------------------- --}}
+
+
+
+                                                {{--  ---------------------------------------- Condition adding [ Insurance checking ] ---------------------------------- --}}
+
+
+                                                {{--                                            @if($history->insurance_status == "received")--}}
+                                                {{--                                                @if(\App\Models\Insured::where('insurance_request_id',$history->id)->count() == 0)--}}
+                                                {{--                                                    <td>--}}
+                                                {{--                                                        <a href="{{ route('company_without_insurance_cart',$history->id) }}"--}}
+                                                {{--                                                           class="btn btn-primary">View</a>--}}
+                                                {{--                                                    </td>--}}
+                                                {{--                                                @else--}}
+                                                {{--                                                    <td>Insured</td>--}}
+                                                {{--                                                @endif--}}
+                                                {{--                                            @else--}}
+                                                {{--                                                <td>-</td>--}}
+                                                {{--                                            @endif--}}
+
+                                                @if($history->insurance_status == "received")
+
+                                                    @if($history->insurance_request_status == null)
+                                                        <td>
+                                                            <a href="{{ route('company_without_insurance_cart',$history->id) }}"
+                                                               class="btn btn-primary">View</a>
+                                                        </td>
+
+                                                    @else
+                                                        <td>{{ $history->insurance_request_status }}</td>
+                                                    @endif
+
+                                                @else
+                                                    <td>-</td>
+                                                @endif
+
+                                                {{--  ---------------------------------------- Condition adding [ Insurance checking ] ---------------------------------- --}}
 
 
                                         </tr>
@@ -167,8 +258,6 @@
                             </div>
 
                             {{-- ---------------------------------------- Company Request Data ---------------------------------------- --}}
-
-
 
 
                         </div>

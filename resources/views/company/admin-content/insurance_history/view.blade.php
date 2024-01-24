@@ -73,8 +73,50 @@
                                         <tr>
                                             <td>{{ $id += 1 }}</td>
                                             <td>{!!  \App\Http\Controllers\Farmer\InsuranceRequestController::package_id($history->package_id) !!}</td>
-                                            {{--                                            <td>{!!  \App\Http\Controllers\Farmer\InsuranceRequestController::company_data($history->company_id) !!}</td>--}}
+
+                                            {{--  -------------------------------------------- Farmer Name -------------------------------------------- --}}
+
+                                            @if($history->insurance_request_type == "single")
+
                                             <td>{!!  \App\Http\Controllers\Farmer\InsuranceRequestController::farmer_name($history->user_id) !!}</td>
+
+                                            @else
+                                                @php
+                                                    $userIds = json_decode($history->user_id);
+                                                    $uniqueNames = [];
+                                                @endphp
+
+                                                {{-- Check if user IDs are not empty --}}
+                                                @if (!empty($userIds))
+                                                    <td>
+                                                        @foreach ($userIds as $userId)
+                                                            {{-- Retrieve user name using User model --}}
+                                                            @php
+                                                                $userName = \App\Models\User::find($userId)->name;
+                                                            @endphp
+
+                                                            {{-- Display only unique names --}}
+                                                            @if (!in_array($userName, $uniqueNames))
+                                                                {{ $userName }}
+                                                                {{-- Add the name to the unique names array --}}
+                                                                @php
+                                                                    $uniqueNames[] = $userName;
+                                                                @endphp
+                                                                @if (!$loop->last)
+                                                                    , {{-- Add a comma if it's not the last item --}}
+                                                                @endif
+                                                            @endif
+                                                        @endforeach
+                                                    </td>
+                                                @else
+                                                    <td>Warning - No User data found</td>
+                                                @endif
+
+                                            @endif
+
+                                            {{--  -------------------------------------------- Farmer Name -------------------------------------------- --}}
+
+
                                             <td><a href="{{ route('company_view_cattle_info', $history->id) }}">Cattle
                                                     Info</a></td>
                                             <td>
@@ -125,7 +167,8 @@
                                             @if($history->insurance_request_status != null)
                                                 @if($history->insurance_request_status == "pending")
                                                     <td>
-                                                        <a href="{{ route('company_insurance_detailed_view_with_package_v2',$history->id) }}" class="btn btn-primary">View</a>
+                                                        <a href="{{ route('company_insurance_detailed_view_with_package_v2',$history->id) }}"
+                                                           class="btn btn-primary">View</a>
                                                     </td>
                                                 @else
                                                     <td>{{ $history->insurance_request_status }}</td>

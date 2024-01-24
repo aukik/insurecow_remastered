@@ -31,6 +31,12 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
 
         // ---------------------- bulk insurance calculation page and request for insurance ----------------------
 
+        // ---------------------- Request for bulk insurance ----------------------
+
+        Route::post("company_request_for_bulk_insurance", [Bulk_insurance_controller::class, 'request_for_insurance_bulk'])->name('company.request_for_bulk_insurance');
+
+        // ---------------------- Request for bulk insurance ----------------------
+
     });
 
 

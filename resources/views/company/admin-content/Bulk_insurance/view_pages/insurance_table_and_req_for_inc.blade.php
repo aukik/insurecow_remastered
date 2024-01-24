@@ -60,11 +60,10 @@
 
 
                                 <?php $id = 0; ?>
-                                <?php $total_sum_insured = 0 ?>
+                                <?php $total_sum_of_insurance = 0 ?>
 
 
                                 @foreach($cattle_data as $data)
-
 
                                     <tr style="font-weight: bold">
                                         <td>{{ $id += 1 }}</td>
@@ -72,11 +71,10 @@
                                         <td>{{ \App\Models\User::find($data->user_id)->name ?? "Name not found" }}</td>
                                         <td>{{ $data->sum_insured }}/-</td>
 
-                                        <td style="color: green">{{ $insurance_val = round(\App\Models\User::calculateTotalCost($data->sum_insured,$package->rate,$package->discount,$package->vat)) ?? 0 }}
-                                            /-
+                                        <td style="color: green">{{ $insurance_val = round(\App\Models\User::calculateTotalCost($data->sum_insured,$package->rate,$package->discount,$package->vat)) ?? 0 }}/-
                                         </td>
 
-                                            <?php $total_sum_insured += $insurance_val ?>
+                                            <?php $total_sum_of_insurance += $insurance_val ?>
                                     </tr>
                                 @endforeach
 
@@ -84,8 +82,33 @@
                             </table>
 
 
+                            <p style="font-weight: bold; color: green">Total Insurance Cost : {{ $total_sum_of_insurance }}/-</p>
 
-                            <p style="font-weight: bold; color: green">Total Cost : {{ $total_sum_insured }}/-</p>
+
+                            <form action="{{ route('company.request_for_bulk_insurance') }}" method="post">
+                                {{ csrf_field() }}
+
+                                {{--  ---------------- cattle data ---------------- --}}
+
+                                <input type="text" value="{{ $cattle_checkbox_data }}" name="cattle_checkbox_data"><br>
+
+                                {{--  ---------------- farmer data ---------------- --}}
+
+                                <input type="text" value="{{ $farmer_checkbox_data }}" name="farmer_checkbox_data"><br>
+
+                                {{--  ---------------- Insruance Cost ---------------- --}}
+
+                                <input type="text" value="{{ $total_sum_of_insurance }}" name="insurance_cost"><br>
+
+                                {{--  ---------------- Package Id ---------------- --}}
+
+                                <input type="text" value="{{ $package->id }}" name="package_id"><br>
+
+
+                                <input type="submit" class="btn btn-success" value="Request for insurance">
+
+
+                            </form>
 
 
                         </div>

@@ -16,12 +16,26 @@ class CashTransactionController extends Controller
     public function detailed_view($id)
     {
         $insurance_request_info = \App\Models\InsuranceRequest::find($id);
-        $cattle = CattleRegistration::find($insurance_request_info->cattle_id);
         $package = Package::find($insurance_request_info->package_id);
-        $farmer = User::find($insurance_request_info->user_id);
+
+        if ($insurance_request_info->insurance_request_type == "single"){
+            $cattle = CattleRegistration::find($insurance_request_info->cattle_id);
+            $farmer = User::find($insurance_request_info->user_id);
+
+            return view("company.admin-content.cash_insurance_full_info.view_single_cattle_info_v2", compact('insurance_request_info', 'cattle', 'package', 'farmer'));
+        }elseif ($insurance_request_info->insurance_request_type == "bulk"){
+
+            $cattle_ids = json_decode($insurance_request_info->cattle_id);
+
+            $cattle_data = CattleRegistration::whereIn('id', $cattle_ids)->get();
+
+            return view("company.admin-content.cash_insurance_full_info.view_bulk_cattle_info_v2", compact('insurance_request_info', 'cattle_data', 'package'));
+
+        }else{
+            return "No request type found, counted as invalid request";
+        }
 
 
-        return view("company.admin-content.cash_insurance_full_info.view_single_cattle_info_v2", compact('insurance_request_info', 'cattle', 'package', 'farmer'));
     }
 
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Company\Bulk_insurance;
 
 use App\Http\Controllers\Controller;
 use App\Models\CattleRegistration;
+use App\Models\InsuranceRequest;
 use App\Models\Package;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -17,7 +18,7 @@ class Bulk_insurance_controller extends Controller
 
         $package = Package::find($id);
 
-        if (!$package){
+        if (!$package) {
             return "package data not found";
         }
 
@@ -64,15 +65,72 @@ class Bulk_insurance_controller extends Controller
 
         $package = Package::find($inputs['package_id']);
 
-        if (!$package){
+        if (!$package) {
             return "package data not found";
         }
+
+        $farmer_checkbox_data = json_encode($inputs['farmer_checkbox']);
+        $cattle_checkbox_data = json_encode($inputs['cattle_checkbox']);
 
 
         $cattle_data = CattleRegistration::whereIn('id', request('cattle_checkbox'))->get();
 
-        return view("company.admin-content.Bulk_insurance.view_pages.insurance_table_and_req_for_inc", compact('cattle_data','package'));
+        return view("company.admin-content.Bulk_insurance.view_pages.insurance_table_and_req_for_inc", compact('cattle_data', 'package', 'cattle_checkbox_data', 'farmer_checkbox_data'));
     }
+
+    // ------------------------- bulk insurance cost view and details -------------------------
+
+    // ------------------------- bulk insurance cost view and details -------------------------
+
+    //    ------------------------ requesting for the animal for insurance from company side [ bulk ] ------------------------
+    public function request_for_insurance_bulk()
+    {
+
+
+        $inputs = \request()->validate([
+            'cattle_checkbox_data' => 'required',
+            'farmer_checkbox_data' => 'required',
+            'package_id' => 'required',
+//            'company_id' => 'required',
+            'insurance_cost' => 'required',
+//            'package_insurance_period' => 'required',
+        ]);
+
+
+        $package_info = Package::where('id', $inputs['package_id'])->first();
+
+        $inputs['company_id'] = $package_info->user_id;
+        $inputs['package_insurance_period'] = $package_info->insurance_period;
+
+
+        $inputs['insurance_status'] = "requested";
+        $inputs['insurance_request_type'] = "bulk";
+
+        $user_id = $inputs['farmer_checkbox_data'];
+        $cattle_id = $inputs['cattle_checkbox_data'];
+
+        $inputs['insurance_requested_company_id'] = auth()->user()->id;
+
+
+        InsuranceRequest::create([
+            'cattle_id' => $cattle_id,
+            'user_id' => $user_id,
+            'package_id' => $inputs['package_id'],
+            'company_id' => $inputs['company_id'],
+            'insurance_cost' => $inputs['insurance_cost'],
+            'package_insurance_period' => $inputs['package_insurance_period'],
+            'insurance_status' => 'requested',
+            'insurance_request_type' => 'bulk',
+            'insurance_requested_company_id' => auth()->user()->id
+        ]);
+
+        session()->flash('success', 'Request sent successfully');
+        return back();
+
+    }
+
+//    ------------------------ requesting for the animal for insurance from company side [ bulk ]  ------------------------
+
 
     // ------------------------- bulk insurance cost view and details -------------------------
 }

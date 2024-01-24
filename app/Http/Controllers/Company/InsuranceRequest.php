@@ -46,13 +46,29 @@ class InsuranceRequest extends Controller
 
         $insurance_request_info = \App\Models\InsuranceRequest::findOrFail($id);
 
-        $cattle = CattleRegistration::findOrFail($insurance_request_info->cattle_id);
+        if ($insurance_request_info->insurance_request_type == "single") {
+            $cattle = CattleRegistration::findOrFail($insurance_request_info->cattle_id);
 
-        if ($cattle != null) {
-            return view('company.admin-content.cattle_info.view_single_cattle_info', compact('cattle'));
+            if ($cattle != null) {
+                return view('company.admin-content.cattle_info.view_single_cattle_info', compact('cattle'));
+            } else {
+                return "Information does not exists";
+            }
+        } elseif ($insurance_request_info->insurance_request_type == "bulk") {
+
+            $cattle_ids = json_decode($insurance_request_info->cattle_id);
+
+
+            $cattle_data = CattleRegistration::whereIn('id', $cattle_ids)->get();
+
+            return view('company.admin-content.cattle_info.view_bulk_cattle_info', compact('cattle_data'));
+
+
         } else {
-            return "Information does not exists";
+            return "The request type has no insurance request type";
         }
+
+
     }
 
 //    ------------------------ View Cattle Info ------------------------

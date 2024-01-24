@@ -272,131 +272,139 @@
 
                             {{-- -------------------------------------- Animal Information -------------------------------------- --}}
 
-                            <div>
+                            @foreach($cattle_data as $cattle)
+                                <div>
 
-                                <h4>Animal Information</h4>
-                                <hr>
+                                    <h4>Animal Information : {{ $cattle->cattle_name ?? "Data not found" }} - Farmer Name : {{ \App\Models\User::find($cattle->user_id)->name ?? "User not found" }}</h4>
+                                    <hr>
 
-                                <div class="row gx-3 mb-3">
 
-                                    <div class="col-md-4">
-                                        <label class="small mb-1 fw-bold" for="inputLastName"
-                                        >Animal Type</label
-                                        ><span style="color: red"></span>
-                                        <p>{{ $cattle->animal_type ?? "Data Not Found" }}</p>
+                                    <div class="row gx-3 mb-3">
+
+                                        <div class="col-md-4">
+                                            <label class="small mb-1 fw-bold" for="inputLastName"
+                                            >Animal Type</label
+                                            ><span style="color: red"></span>
+                                            <p>{{ $cattle->animal_type ?? "Data Not Found" }}</p>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="small mb-1 fw-bold" for="inputLastName"
+                                            >Cattle Name</label
+                                            ><span style="color: red"></span>
+                                            <p>{{ $cattle->cattle_name ?? "Data Not Found"}}</p>
+
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="small mb-1 fw-bold" for="inputLastName"
+                                            >Cattle Breed</label
+                                            ><span style="color: red"></span>
+
+                                            <p>{{ $cattle->cattle_breed ?? "Data Not Found"}}</p>
+
+                                        </div>
+
                                     </div>
 
-                                    <div class="col-md-4">
-                                        <label class="small mb-1 fw-bold" for="inputLastName"
-                                        >Cattle Name</label
-                                        ><span style="color: red"></span>
-                                        <p>{{ $cattle->cattle_name ?? "Data Not Found"}}</p>
+
+                                    <div class="row gx-3 mb-3">
+
+                                        <div class="col-md-4">
+                                            <label class="small mb-1 fw-bold" for="inputLastName"
+                                            >Animal Age</label
+                                            ><span style="color: red"></span>
+                                            <p>{{ $cattle->age ?? "Data Not Found"}} Years</p>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="small mb-1 fw-bold" for="inputLastName"
+                                            >Animal Color</label
+                                            ><span style="color: red"></span>
+                                            <p>{{ $cattle->cattle_color ?? "Data Not Found"}}</p>
+
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="small mb-1 fw-bold" for="inputLastName"
+                                            >Animal Weight</label
+                                            ><span style="color: red"></span>
+
+                                            <p>{{ $cattle->weight ?? "Data Not Found"}} kg</p>
+
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="small mb-1 fw-bold" for="inputLastName"
+                                            >Animal Price</label
+                                            ><span style="color: red"></span>
+
+                                            <p>{{ $cattle->sum_insured ?? "Data Not Found"}}</p>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="small mb-1 fw-bold" for="inputLastName"
+                                            >Cattle Unique ID</label
+                                            ><span style="color: red"></span>
+
+                                            <p>{{ pathinfo($cattle->muzzle_of_cow, PATHINFO_FILENAME)  }}</p>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row gx-3 mb-3">
+
+                                        <div class="col-md-4">
+                                            <label class="small mb-1 fw-bold" for="inputOrgName"
+                                            >Animal Left Side</label
+                                            >
+                                            <div class="form-control">
+                                                <img src="{{ asset('storage/'.$cattle->left_side) }}"
+                                                     style="width: 150px; max-height: 90px">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="small mb-1 fw-bold" for="inputOrgName"
+                                            >Animal Right Side</label
+                                            >
+                                            <div class="form-control">
+                                                <img src="{{ asset('storage/'.$cattle->right_side) }}"
+                                                     style="width: 150px; max-height: 90px">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="small mb-1 fw-bold" for="inputOrgName"
+                                            >Animal Special Marks</label
+                                            >
+                                            <div class="form-control">
+                                                <img src="{{ asset('storage/'.$cattle->special_marks) }}"
+                                                     style="width: 150px; max-height: 90px">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label class="small mb-1 fw-bold" for="inputOrgName"
+                                            >Animal With Owner</label
+                                            >
+                                            <div class="form-control">
+                                                <img src="{{ asset('storage/'.$cattle->cow_with_owner) }}"
+                                                     style="width: 150px; max-height: 90px">
+                                            </div>
+                                        </div>
+
 
                                     </div>
 
-                                    <div class="col-md-4">
-                                        <label class="small mb-1 fw-bold" for="inputLastName"
-                                        >Cattle Breed</label
-                                        ><span style="color: red"></span>
 
-                                        <p>{{ $cattle->cattle_breed ?? "Data Not Found"}}</p>
-
-                                    </div>
+                                    <hr>
+                                    <br>
 
                                 </div>
 
-
-                                <div class="row gx-3 mb-3">
-
-                                    <div class="col-md-4">
-                                        <label class="small mb-1 fw-bold" for="inputLastName"
-                                        >Animal Age</label
-                                        ><span style="color: red"></span>
-                                        <p>{{ $cattle->age ?? "Data Not Found"}} Years</p>
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label class="small mb-1 fw-bold" for="inputLastName"
-                                        >Animal Color</label
-                                        ><span style="color: red"></span>
-                                        <p>{{ $cattle->cattle_color ?? "Data Not Found"}}</p>
-
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label class="small mb-1 fw-bold" for="inputLastName"
-                                        >Animal Weight</label
-                                        ><span style="color: red"></span>
-
-                                        <p>{{ $cattle->weight ?? "Data Not Found"}} kg</p>
-
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label class="small mb-1 fw-bold" for="inputLastName"
-                                        >Animal Price</label
-                                        ><span style="color: red"></span>
-
-                                        <p>{{ $cattle->sum_insured ?? "Data Not Found"}}</p>
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label class="small mb-1 fw-bold" for="inputLastName"
-                                        >Cattle Unique ID</label
-                                        ><span style="color: red"></span>
-
-                                        <p>{{ pathinfo($cattle->muzzle_of_cow, PATHINFO_FILENAME)  }}</p>
-
-                                    </div>
-                                </div>
-
-
-                                <div class="row gx-3 mb-3">
-
-                                    <div class="col-md-4">
-                                        <label class="small mb-1 fw-bold" for="inputOrgName"
-                                        >Animal Left Side</label
-                                        >
-                                        <div class="form-control">
-                                            <img src="{{ asset('storage/'.$cattle->left_side) }}"
-                                                 style="width: 150px; max-height: 90px">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label class="small mb-1 fw-bold" for="inputOrgName"
-                                        >Animal Right Side</label
-                                        >
-                                        <div class="form-control">
-                                            <img src="{{ asset('storage/'.$cattle->right_side) }}"
-                                                 style="width: 150px; max-height: 90px">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label class="small mb-1 fw-bold" for="inputOrgName"
-                                        >Animal Special Marks</label
-                                        >
-                                        <div class="form-control">
-                                            <img src="{{ asset('storage/'.$cattle->special_marks) }}"
-                                                 style="width: 150px; max-height: 90px">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <label class="small mb-1 fw-bold" for="inputOrgName"
-                                        >Animal With Owner</label
-                                        >
-                                        <div class="form-control">
-                                            <img src="{{ asset('storage/'.$cattle->cow_with_owner) }}"
-                                                 style="width: 150px; max-height: 90px">
-                                        </div>
-                                    </div>
-
-
-                                </div>
-
-                            </div>
+                            @endforeach
 
                             {{-- -------------------------------------- Animal Information -------------------------------------- --}}
 
@@ -468,35 +476,35 @@
 
                             {{-- -------------------------------------- Farmer Information -------------------------------------- --}}
 
-                            <h4>Farmer Information</h4>
-                            <hr>
+                            {{--                            <h4>Farmer Information</h4>--}}
+                            {{--                            <hr>--}}
 
-                            <div class="row gx-3 mb-3">
+                            {{--                            <div class="row gx-3 mb-3">--}}
 
-                                <div class="col-md-4">
-                                    <label class="small mb-1 fw-bold" for="inputLastName"
-                                    >Farmer Name</label
-                                    ><span style="color: red"></span>
-                                    <p>{{ $farmer->name ?? "Data Not Found" }}</p>
-                                </div>
+                            {{--                                <div class="col-md-4">--}}
+                            {{--                                    <label class="small mb-1 fw-bold" for="inputLastName"--}}
+                            {{--                                    >Farmer Name</label--}}
+                            {{--                                    ><span style="color: red"></span>--}}
+                            {{--                                    <p>{{ $farmer->name ?? "Data Not Found" }}</p>--}}
+                            {{--                                </div>--}}
 
-                                <div class="col-md-4">
-                                    <label class="small mb-1 fw-bold" for="inputLastName"
-                                    >Farmer Phone No</label
-                                    ><span style="color: red"></span>
-                                    <p>{{ $farmer->phone ?? "Data Not Found"}}</p>
-                                </div>
+                            {{--                                <div class="col-md-4">--}}
+                            {{--                                    <label class="small mb-1 fw-bold" for="inputLastName"--}}
+                            {{--                                    >Farmer Phone No</label--}}
+                            {{--                                    ><span style="color: red"></span>--}}
+                            {{--                                    <p>{{ $farmer->phone ?? "Data Not Found"}}</p>--}}
+                            {{--                                </div>--}}
 
-                                <div class="col-md-4">
-                                    <label class="small mb-1 fw-bold" for="inputLastName"
-                                    >Farmer Address</label
-                                    ><span style="color: red"></span>
-                                    <p>{{ $farmer->address ?? "Data Not Found"}}</p>
+                            {{--                                <div class="col-md-4">--}}
+                            {{--                                    <label class="small mb-1 fw-bold" for="inputLastName"--}}
+                            {{--                                    >Farmer Address</label--}}
+                            {{--                                    ><span style="color: red"></span>--}}
+                            {{--                                    <p>{{ $farmer->address ?? "Data Not Found"}}</p>--}}
 
-                                </div>
+                            {{--                                </div>--}}
 
 
-                            </div>
+                            {{--                            </div>--}}
 
 
                             {{-- -------------------------------------- Farmer Information -------------------------------------- --}}
