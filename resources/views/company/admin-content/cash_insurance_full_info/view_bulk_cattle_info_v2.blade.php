@@ -544,7 +544,7 @@
                                         @enderror
 
                                         <div class="form-group" style="margin-top: 10px">
-                                            <input type="submit" class="btn btn-primary">
+                                            <input type="submit" class="btn btn-primary" value="Bulk Submit">
                                         </div>
                                     </form>
 

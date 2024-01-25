@@ -27,6 +27,10 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
 
         // ---------------------- bulk insurance calculation page and request for insurance ----------------------
 
+        Route::get("company_bulk_view_index/", function () {
+            return redirect()->route("company.insurance_search_get");
+        });
+
         Route::post("company_bulk_view_index/", [Bulk_insurance_controller::class, 'info_and_cost_calculation'])->name('company.bulk_view_post');
 
         // ---------------------- bulk insurance calculation page and request for insurance ----------------------

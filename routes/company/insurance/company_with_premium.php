@@ -48,7 +48,6 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
 
         //    ----------------------  Company with package will accept or reject request after viewing -----------------------
 
-
         Route::get('company_insurance_request_view_with_package_v2/{id}', [\App\Http\Controllers\Company\CashTransactionController::class, 'detailed_view'])->name('company_insurance_detailed_view_with_package_v2');
 
         //    ----------------------- Company with package will accept or reject request after viewing -----------------------
