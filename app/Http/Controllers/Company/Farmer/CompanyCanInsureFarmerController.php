@@ -152,7 +152,7 @@ class CompanyCanInsureFarmerController extends Controller
 
         $cattle_data_check = CattleRegistration::find($inputs['cattle_id']);
 
-        if (!$cattle_data_check){
+        if (!$cattle_data_check) {
             return "Cattle data does not exists";
         }
 
@@ -178,11 +178,11 @@ class CompanyCanInsureFarmerController extends Controller
 
         $company_info = User::find($inputs['company_id']);
 
-        if (!$company_info){
+        if (!$company_info) {
             return "Company does not exits";
         }
 
-        if(!$company_info->role == "c" && !$company_info->permission->c_insurance == 1){
+        if (!$company_info->role == "c" && !$company_info->permission->c_insurance == 1) {
             return "Invalid operation, company operations bypassing";
         }
 
@@ -193,23 +193,24 @@ class CompanyCanInsureFarmerController extends Controller
 
         $package = Package::where('user_id', $company_info->id)->first();
 
-        if (!$package){
+        if (!$package) {
             return "Package does not exists";
         }
+
+        $inputs['package_insurance_period'] = $package->insurance_period;
 
 
 //  ------------------------------ Checking if the package belongs to that company insurance calculation ------------------------------
 
 //  ------------------------------ Insurance cost calculation and verification --------------------------------------------------------
 
-        $insurance_cost_verification_calculation = User::calculateTotalCost($cattle_data_check->sum_insured,$package->rate,$package->discount,$package->vat);
+        $insurance_cost_verification_calculation = User::calculateTotalCost($cattle_data_check->sum_insured, $package->rate, $package->discount, $package->vat);
 
-        if (ceil($insurance_cost_verification_calculation) != $inputs['insurance_cost']){
+        if (ceil($insurance_cost_verification_calculation) != $inputs['insurance_cost']) {
             return "Insurance cost bypassed, more attempts might ban the animal from getting insurance";
         }
 
 //  ------------------------------ Insurance cost calculation and verification --------------------------------------------------------
-
 
 
         $inputs['user_id'] = $farmer_id;
