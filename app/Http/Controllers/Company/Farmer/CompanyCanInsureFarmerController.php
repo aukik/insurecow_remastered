@@ -132,7 +132,8 @@ class CompanyCanInsureFarmerController extends Controller
 
 //    ------------------------------------------ total Insurance calculation of the animal ------------------------------------------
 
-//    ------------------------ requesting for the animal for insurance from company side ------------------------
+//    --------------------------------------------------------------------- requesting for the animal for insurance from company side ---------------------------------------------------------------------------
+
     public function request_for_insurance()
     {
 
@@ -147,7 +148,20 @@ class CompanyCanInsureFarmerController extends Controller
         $inputs['insurance_status'] = "requested";
         $inputs['insurance_request_type'] = "single";
 
-        $farmer_id = CattleRegistration::find($inputs['cattle_id'])->user_id;
+//  ------------------------------ Checking if cattle exists ------------------------------
+
+        $cattle_data_check = CattleRegistration::find($inputs['cattle_id']);
+
+        if (!$cattle_data_check){
+            return "Cattle data does not exists";
+        }
+
+
+//  ------------------------------ Checking if cattle exists ------------------------------
+
+//  ------------------------------ Checking if farmer exists and if the farmer belongs to that company ------------------------------
+
+        $farmer_id = $cattle_data_check->user_id;
 
         if (!$farmer_id) {
             return "Farmer information not found";
@@ -156,6 +170,47 @@ class CompanyCanInsureFarmerController extends Controller
         if (User::find($farmer_id)->company_id != auth()->user()->id) {
             return "User does not belong to the company";
         }
+
+
+//  ------------------------------ Checking if farmer exists and if the farmer belongs to that company ------------------------------
+
+//  ------------------------------ Checking if company exists and company provides insurance ------------------------------
+
+        $company_info = User::find($inputs['company_id']);
+
+        if (!$company_info){
+            return "Company does not exits";
+        }
+
+        if(!$company_info->role == "c" && !$company_info->permission->c_insurance == 1){
+            return "Invalid operation, company operations bypassing";
+        }
+
+
+//  ------------------------------ Checking if company exists and company provides insurance ------------------------------
+
+//  ------------------------------ Checking if the package belongs to that company and testing insurance calculation ------------------------------
+
+        $package = Package::where('user_id', $company_info->id)->first();
+
+        if (!$package){
+            return "Package does not exists";
+        }
+
+
+//  ------------------------------ Checking if the package belongs to that company insurance calculation ------------------------------
+
+//  ------------------------------ Insurance cost calculation and verification --------------------------------------------------------
+
+        $insurance_cost_verification_calculation = User::calculateTotalCost($cattle_data_check->sum_insured,$package->rate,$package->discount,$package->vat);
+
+        if (ceil($insurance_cost_verification_calculation) != $inputs['insurance_cost']){
+            return "Insurance cost bypassed, more attempts might ban the animal from getting insurance";
+        }
+
+//  ------------------------------ Insurance cost calculation and verification --------------------------------------------------------
+
+
 
         $inputs['user_id'] = $farmer_id;
         $inputs['insurance_requested_company_id'] = auth()->user()->id;
@@ -166,17 +221,17 @@ class CompanyCanInsureFarmerController extends Controller
         return back();
     }
 
-//    ------------------------ requesting for the animal for insurance from company side ------------------------
+//    --------------------------------------------------------------------- requesting for the animal for insurance from company side ---------------------------------------------------------------------------
 
-//    ------------------------ View Insurance History - Insurance Requested Company - [Digital Transactions] ------------------------
+//    ------------------------------------------------------- View Insurance History - Insurance Requested Company - [Digital Transactions] ---------------------------------------------------------------------
 
     public function view_insurance_history()
     {
-        $insurance_history = InsuranceRequest::where('insurance_requested_company_id', auth()->id())->orderBy('id','desc')->get();
+        $insurance_history = InsuranceRequest::where('insurance_requested_company_id', auth()->id())->orderBy('id', 'desc')->get();
         return view('company.admin-content.company-insurance-farmer.insurance_history.view', compact('insurance_history'));
     }
 
-//    ------------------------ View Insurance History - Insurance Requested Company - [Digital Transactions] ------------------------
+//    ----------------------------------------------------- View Insurance History - Insurance Requested Company - [Digital Transactions] -----------------------------------------------------------------------
 
 //    ------------------------ View Insurance History - Insurance Requested Company - [Cash Transactions] ------------------------
 

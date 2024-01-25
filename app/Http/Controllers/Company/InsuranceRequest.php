@@ -189,7 +189,7 @@ class InsuranceRequest extends Controller
         ]);
 
 
-        $id_value = \request("id_value");
+        $insurance_request_id_value = \request("id_value");
         $acceptance = \request("decision");
         $reason_after_decision = \request("reason_after_decision");
 
@@ -197,10 +197,14 @@ class InsuranceRequest extends Controller
 // --------------------------------- request data ---------------------------------
 
 
-        $insurance_request = \App\Models\InsuranceRequest::find($id_value);
+        $insurance_request = \App\Models\InsuranceRequest::find($insurance_request_id_value);
 
         if (!$insurance_request) {
             return "Insurance request not found";
+        }
+
+        if ($insurance_request->company_id != auth()->user()->id){
+            return "Unauthorized entry";
         }
 
         if ($insurance_request->insurance_request_status != "pending") {
