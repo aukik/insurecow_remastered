@@ -271,7 +271,7 @@ class InsuranceRequest extends Controller
             $insured = Insured::create([
                 "cattle_id" => $insurance_request->cattle_id,
                 "package_id" => $insurance_request->package_id,
-                "company_id" => $insurance_request->package_id,
+                "company_id" => $insurance_request->company_id,
                 "user_id" => $insurance_request->user_id,
                 "order_id" => $order->id,
                 "insurance_status" => "insured",
