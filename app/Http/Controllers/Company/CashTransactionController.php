@@ -16,7 +16,24 @@ class CashTransactionController extends Controller
     public function detailed_view($id)
     {
         $insurance_request_info = \App\Models\InsuranceRequest::find($id);
+
+        if (!$insurance_request_info){
+            return "Requested data does not exists";
+        }
+
+        if ($insurance_request_info->insurance_request_status != "pending"){
+            return "Request expired";
+        }
+
+        if ($insurance_request_info->company_id != auth()->id()){
+            return "Data does not belongs to this company";
+        }
+
         $package = Package::find($insurance_request_info->package_id);
+
+        if (!$package){
+            return "Package data does not exists";
+        }
 
         if ($insurance_request_info->insurance_request_type == "single"){
             $cattle = CattleRegistration::find($insurance_request_info->cattle_id);
