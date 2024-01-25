@@ -63,22 +63,21 @@
                                     <tbody>
                                     <?php $id = 0 ?>
                                     @foreach($insureds as $data)
-                                        <td>{{ $id += 1  }}</td>
-                                        <td>{{ \App\Models\CattleRegistration::find($data->cattle_id)->cattle_name ?? "Animal data not found"}}</td>
-                                        <td>{{ \App\Models\User::find($data->user_id)->name ?? "Data Not Found" }}</td>
-                                        <td>{{ \App\Models\Package::find($data->package_id)->package_name ?? "Package Data not found" }}</td>
-                                        <td>{{ \App\Models\User::find($data->insurance_requested_company_id)->name ?? "Data Not Found" }}</td>
-                                        <td>{{ \App\Models\User::find($data->company_id)->name ?? "Data Not Found" }}</td>
-                                        <td>{{ $data->created_at->format('d-m-y') }}</td>
-
+                                        <tr>
+                                            <td>{{ $id += 1  }}</td>
+                                            <td>{{ \App\Models\CattleRegistration::find($data->cattle_id)->cattle_name ?? "Animal data not found"}}</td>
+                                            <td>{{ \App\Models\User::find($data->user_id)->name ?? "Data Not Found" }}</td>
+                                            <td>{{ \App\Models\Package::find($data->package_id)->package_name ?? "Package Data not found" }}</td>
+                                            <td>{{ \App\Models\User::find($data->insurance_requested_company_id)->name ?? "Data Not Found" }}</td>
+                                            <td>{{ \App\Models\User::find($data->company_id)->name ?? "Data Not Found" }}</td>
+                                            <td>{{ $data->created_at->format('d-m-y') }}</td>
+                                        </tr>
                                     @endforeach
                                     </tbody>
                                 </table>
                             </div>
 
                             {{-- ---------------------------------------- Company Request Data ---------------------------------------- --}}
-
-
 
 
                         </div>
