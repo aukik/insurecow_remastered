@@ -59,7 +59,7 @@
                                         <th>Insurance Cost</th>
                                         <th>Insurance Status</th>
                                         <th>Send Quotation</th>
-                                        <th>Payment History</th>
+{{--                                        <th>Payment History</th>--}}
                                         <th>View</th>
                                         {{--                                        <th>Insurance Status</th>--}}
                                     </tr>
@@ -159,7 +159,7 @@
                                                 </td>
                                             @endif
 
-                                            <td>{{ \App\Http\Controllers\Farmer\InsuranceRequestController::insurance_buy_company($history->cattle_id) }}</td>
+{{--                                            <td>{{ \App\Http\Controllers\Farmer\InsuranceRequestController::insurance_buy_company($history->cattle_id) }}</td>--}}
 
 
                                             {{-- --------------------------- Insurance status wise operation from company side --------------------------- --}}
