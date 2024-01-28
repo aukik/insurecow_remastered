@@ -90,19 +90,19 @@
 
                                 {{--  ---------------- cattle data ---------------- --}}
 
-                                <input type="text" value="{{ $cattle_checkbox_data }}" name="cattle_checkbox_data"><br>
+                                <input type="hidden" value="{{ $cattle_checkbox_data }}" name="cattle_checkbox_data"><br>
 
                                 {{--  ---------------- farmer data ---------------- --}}
 
-                                <input type="text" value="{{ $farmer_checkbox_data }}" name="farmer_checkbox_data"><br>
+                                <input type="hidden" value="{{ $farmer_checkbox_data }}" name="farmer_checkbox_data"><br>
 
                                 {{--  ---------------- Insruance Cost ---------------- --}}
 
-                                <input type="text" value="{{ $total_sum_of_insurance }}" name="insurance_cost"><br>
+                                <input type="hidden" value="{{ $total_sum_of_insurance }}" name="insurance_cost"><br>
 
                                 {{--  ---------------- Package Id ---------------- --}}
 
-                                <input type="text" value="{{ $package->id }}" name="package_id"><br>
+                                <input type="hidden" value="{{ $package->id }}" name="package_id"><br>
 
 
                                 <input type="submit" class="btn btn-success" value="Request for insurance">

@@ -203,7 +203,7 @@ class InsuranceRequest extends Controller
             return "Insurance request not found";
         }
 
-        if ($insurance_request->company_id != auth()->user()->id){
+        if ($insurance_request->company_id != auth()->user()->id) {
             return "Unauthorized entry";
         }
 
@@ -221,9 +221,6 @@ class InsuranceRequest extends Controller
 
 
         if ($acceptance == 'a') {
-            $insurance_request->update([
-                'insurance_request_status' => "accepted"
-            ]);
 
             if ($insurance_request->company_id != auth()->user()->id) {
                 return "The data does not belongs to this company";
@@ -232,11 +229,19 @@ class InsuranceRequest extends Controller
 
             // ---------------------------- Checking if animal is insured ----------------------------
 
-            $animal_insured_status = Insured::where('cattle_id', $insurance_request->cattle_id)->first();
 
-            if ($animal_insured_status) {
-                return "The animal is already insured";
+            if ($insurance_request->insurance_request_type == "single") {
+                $animal_insured_status = Insured::where('cattle_id', $insurance_request->cattle_id)->first();
+
+                $insured = Insured::where('cattle_id', $insurance_request->cattle_id)->orderBy('id', 'desc')->first();
+
+                if ($insured) {
+                    if (!$insured->package_expiration_date < now()) {
+                        return "Animal is already insured";
+                    }
+                }
             }
+
 
             // ---------------------------- Checking if animal is insured ----------------------------
 
@@ -268,22 +273,50 @@ class InsuranceRequest extends Controller
 
             // ---------------------------- Pushing the data to Insured table ----------------------------
 
-            $insured = Insured::create([
-                "cattle_id" => $insurance_request->cattle_id,
-                "package_id" => $insurance_request->package_id,
-                "company_id" => $insurance_request->company_id,
-                "user_id" => $insurance_request->user_id,
-                "order_id" => $order->id,
-                "insurance_status" => "insured",
-                "insurance_type" => "single",
-                "insurance_request_id" => $insurance_request->id,
-                "insurance_requested_company_id" => $insurance_request->insurance_requested_company_id,
-                "package_expiration_date" => $expiration_date,
-                "created_at" => $insurance_request->created_at,
-                "updated_at" => $insurance_request->updated_at,
-            ]);
+            if ($insurance_request->insurance_request_type == "bulk") {
+                $cattle_data_array = json_decode($insurance_request->cattle_id);
+
+                foreach ($cattle_data_array as $cattle_id) {
+                    $farmer_id = User::find(CattleRegistration::find($cattle_id)->user_id)->id ?? null;
+
+                    $insured = Insured::create([
+                        "cattle_id" => $cattle_id,
+                        "package_id" => $insurance_request->package_id,
+                        "company_id" => $insurance_request->company_id,
+                        "user_id" => $farmer_id,
+                        "order_id" => $order->id,
+                        "insurance_status" => "insured",
+                        "insurance_type" => "single",
+                        "insurance_request_id" => $insurance_request->id,
+                        "insurance_requested_company_id" => $insurance_request->insurance_requested_company_id,
+                        "package_expiration_date" => $expiration_date,
+                        "created_at" => $insurance_request->created_at,
+                        "updated_at" => $insurance_request->updated_at,
+                    ]);
+                }
+            } else {
+                $insured = Insured::create([
+                    "cattle_id" => $insurance_request->cattle_id,
+                    "package_id" => $insurance_request->package_id,
+                    "company_id" => $insurance_request->company_id,
+                    "user_id" => $insurance_request->user_id,
+                    "order_id" => $order->id,
+                    "insurance_status" => "insured",
+                    "insurance_type" => "single",
+                    "insurance_request_id" => $insurance_request->id,
+                    "insurance_requested_company_id" => $insurance_request->insurance_requested_company_id,
+                    "package_expiration_date" => $expiration_date,
+                    "created_at" => $insurance_request->created_at,
+                    "updated_at" => $insurance_request->updated_at,
+                ]);
+            }
+
 
             // ---------------------------- Pushing the data to Insured table ----------------------------
+
+            $insurance_request->update([
+                'insurance_request_status' => "accepted"
+            ]);
 
             session()->flash("success", "Animal Insured Successfully");
             return redirect()->route("company_view_insurance_history");

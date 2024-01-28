@@ -99,8 +99,109 @@ class Bulk_insurance_controller extends Controller
         ]);
 
 
+        $cattle_data_array = json_decode($inputs['cattle_checkbox_data']);
+        $farmer_data_array = json_decode($inputs['farmer_checkbox_data']);
+
+        foreach ($cattle_data_array as $cattle_ids) {
+            $cattle_data = CattleRegistration::find($cattle_ids);
+
+// ------------------------- checking if animal not exists -------------------------
+
+            if (!$cattle_data) {
+                return "Animal data does not exists";
+            }
+
+// ------------------------- checking if animal not exists -------------------------
+
+// ------------------------- checking if the farmers is under the insurance company, ex : wegro  -------------------------
+
+            $farmer = User::find($cattle_data->user_id);
+
+            if (!$farmer) {
+                return "Farmer does not exists";
+            }
+
+            if ($farmer->company_id != auth()->id()) {
+                return response()->json([
+                    'message' => 'Farmer does not belongs to this company',
+                    'farmer_info' => $farmer
+                ]);
+            }
+
+// ------------------------- checking if the farmers is under the insurance company, ex : wegro -------------------------
+
+// ------------------------- checking if animal is insured -------------------------
+
+            $insured = Insured::where('cattle_id', $cattle_data->id)->orderBy('id', 'desc')->first();
+
+            if ($insured) {
+                if (!$insured->package_expiration_date < now()) {
+                    return $cattle_data . "is already insured";
+                }
+            }
+
+
+// ------------------------- checking if animal is insured -------------------------
+
+
+        }
+
+
+        // ------------------------- checking if one of the farmer does not exist under company, ex:wegro -------------------------
+
+        foreach ($farmer_data_array as $farmer_ids) {
+
+            $farmer = User::find($farmer_ids);
+
+            if (!$farmer) {
+                return "Farmer does not exists";
+            }
+
+            if ($farmer->company_id != auth()->id()) {
+                return response()->json([
+                    'message' => 'Farmer does not belongs to this company',
+                    'farmer_info' => $farmer
+                ]);
+            }
+
+        }
+
+        // ------------------------- checking if one of the farmer does not exist under company, ex:wegro -------------------------
+
+
         $package_info = Package::where('id', $inputs['package_id'])->first();
 
+        if (!$package_info) {
+            return "package info does not exists";
+        }
+
+        $company_info = User::find($package_info->user_id);
+
+        if (!$company_info) {
+            return "Company does not exits";
+        }
+
+        if (!$company_info->role == "c" && !$company_info->permission->c_insurance == 1) {
+            return "Invalid operation, company operations bypassing";
+        }
+
+
+        //  ------------------------------ Checking if company exists and company provides insurance ------------------------------
+
+        //  ------------------------------ Insurance cost calculation ------------------------------------------------------------------
+
+        $sum_insured_data = CattleRegistration::wherein('id',$cattle_data_array)->sum("sum_insured");
+
+        $insurance_cost_calculation =  User::calculateTotalCost($sum_insured_data, $package_info->rate, $package_info->discount, $package_info->vat);
+
+        $insurance_cost_calculation_round_value = round($insurance_cost_calculation);
+
+        //  ------------------------------ Insurance cost calculation ------------------------------
+
+
+//  ------------------------------ Checking if company exists and company provides insurance ------------------------------
+
+        $inputs['insurance_cost'] = $insurance_cost_calculation_round_value;
         $inputs['company_id'] = $package_info->user_id;
         $inputs['package_insurance_period'] = $package_info->insurance_period;
 
@@ -131,136 +232,4 @@ class Bulk_insurance_controller extends Controller
 
     }
 
-//    ------------------------ requesting for the animal for insurance from company side [ bulk ]  ------------------------
-
-
-//    --------------------------------- Insurance Acceptance or rejection from Insurance company - with package -------------------------------------------
-//    public function company_insurance_request_acceptance(Request $request)
-//    {
-//
-//
-//// --------------------------------- request data ---------------------------------
-//
-//        $inputs = $request->validate([
-//            'reason_after_decision' => 'nullable',
-//            'decision' => 'required',
-//            "id_value" => 'required',
-//        ]);
-//
-//
-//        $insurance_request_id_value = \request("id_value");
-//        $acceptance = \request("decision");
-//        $reason_after_decision = \request("reason_after_decision");
-//
-//
-//// --------------------------------- request data ---------------------------------
-//
-//
-//        $insurance_request = \App\Models\InsuranceRequest::find($insurance_request_id_value);
-//
-//
-//        if (!$insurance_request) {
-//            return "Insurance request not found";
-//        }
-//
-//        if ($insurance_request->company_id != auth()->user()->id){
-//            return "Unauthorized entry";
-//        }
-//
-//        if ($insurance_request->insurance_request_status != "pending") {
-//            return "Insurance request expired";
-//        }
-//
-//        $package = Package::find($insurance_request->package_id);
-//
-//        if (!$package) {
-//            return "Package information not found";
-//        }
-//
-//        $expiration_date = User::addYearsAndMonths($package->insurance_period, $insurance_request->created_at);
-//
-//
-//        if ($acceptance == 'a') {
-//            $insurance_request->update([
-//                'insurance_request_status' => "accepted"
-//            ]);
-//
-//            if ($insurance_request->company_id != auth()->user()->id) {
-//                return "The data does not belongs to this company";
-//            }
-//
-//
-//            // ---------------------------- Checking if animal is insured ----------------------------
-//
-//            $animal_insured_status = Insured::where('cattle_id', $insurance_request->cattle_id)->first();
-//
-//            if ($animal_insured_status) {
-//                return "The animal is already insured";
-//            }
-//
-//            // ---------------------------- Checking if animal is insured ----------------------------
-//
-//            // ---------------------------- Cash transaction state to orders table ----------------------------
-//
-//
-//            $order = Order::create([
-//                'name' => User::find($insurance_request->insurance_requested_company_id)->name ?? "Name not found",
-//                'email' => User::find($insurance_request->insurance_requested_company_id)->email ?? "Email not found",
-//                'phone' => User::find($insurance_request->insurance_requested_company_id)->phone ?? "Number not found",
-//                'amount' => $insurance_request->amount,
-//                'status' => $insurance_request->transaction_type,
-//                'transaction_id' => Str::random(16),
-//                'currency' => 'BDT',
-//                'insurance_type' => 'single',
-//                "cattle_id" => $insurance_request->cattle_id,
-//                "package_id" => $insurance_request->package_id,
-//                "company_id" => $insurance_request->company_id,
-//                "insurance_request_id" => $insurance_request->id,
-//                "insurance_requested_company_id" => $insurance_request->insurance_requested_company_id,
-//                "user_id" => $insurance_request->user_id,
-//                "package_expiration_date" => $expiration_date,
-//                "created_at" => $insurance_request->created_at,
-//                "updated_at" => $insurance_request->updated_at,
-//
-//            ]);
-//
-//            // ---------------------------- Cash transaction state to orders table ----------------------------
-//
-//            // ---------------------------- Pushing the data to Insured table ----------------------------
-//
-//            $insured = Insured::create([
-//                "cattle_id" => $insurance_request->cattle_id,
-//                "package_id" => $insurance_request->package_id,
-//                "company_id" => $insurance_request->company_id,
-//                "user_id" => $insurance_request->user_id,
-//                "order_id" => $order->id,
-//                "insurance_status" => "insured",
-//                "insurance_type" => "single",
-//                "insurance_request_id" => $insurance_request->id,
-//                "insurance_requested_company_id" => $insurance_request->insurance_requested_company_id,
-//                "package_expiration_date" => $expiration_date,
-//                "created_at" => $insurance_request->created_at,
-//                "updated_at" => $insurance_request->updated_at,
-//            ]);
-//
-//            // ---------------------------- Pushing the data to Insured table ----------------------------
-//
-//            session()->flash("success", "Animal Insured Successfully");
-//            return redirect()->route("company_view_insurance_history");
-//        } elseif ($acceptance == 'r') {
-//
-//            $insurance_request->update([
-//                'insurance_request_status' => "rejected",
-//                'reason_after_decision' => $reason_after_decision,
-//            ]);
-//
-//            session()->flash("success", "Animal Insurance Unapproved");
-//            return redirect()->route("company_view_insurance_history");
-//
-//        }
-//
-//    }
-
-
-//    ------------------------------------ Insurance Acceptance or rejection from Insurance company - with package ---------------------------------------------
 }
