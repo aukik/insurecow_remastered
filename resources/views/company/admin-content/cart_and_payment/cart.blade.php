@@ -42,7 +42,6 @@
                             <tbody>
 
 
-
                             {{-- --------------------------------------------------------- Package Name --------------------------------------------------------- --}}
 
                             <!-- Invoice item 1-->
@@ -57,50 +56,53 @@
                             {{-- --------------------------------------------------------- Package Name --------------------------------------------------------- --}}
 
 
-                            {{-- --------------------------------------------------------- Cattle Name --------------------------------------------------------- --}}
+                            @if($insurance_request->insurance_request_type == "single")
 
-                            <!-- Invoice item 2-->
-                            <tr class="border-bottom">
-                                <td>
-                                    <div class="fw-bold">Cattle Name</div>
-                                </td>
-                                <td class="text-end fw-bold"></td>
-                                <td class="text-end fw-bold"></td>
-                                <td class="text-end fw-bold">{{ \App\Models\CattleRegistration::find($insurance_request->cattle_id)->cattle_name ?? "Cattle name not found" }}</td>
-                            </tr>
+                                {{-- --------------------------------------------------------- Cattle Name --------------------------------------------------------- --}}
 
-                            {{-- --------------------------------------------------------- Cattle Name --------------------------------------------------------- --}}
+                                <!-- Invoice item 2-->
+                                <tr class="border-bottom">
+                                    <td>
+                                        <div class="fw-bold">Cattle Name</div>
+                                    </td>
+                                    <td class="text-end fw-bold"></td>
+                                    <td class="text-end fw-bold"></td>
+                                    <td class="text-end fw-bold">{{ \App\Models\CattleRegistration::find($insurance_request->cattle_id)->cattle_name ?? "Cattle name not found" }}</td>
+                                </tr>
 
-                            {{-- --------------------------------------------------------- Cattle Sum Insured --------------------------------------------------------- --}}
+                                {{-- --------------------------------------------------------- Cattle Name --------------------------------------------------------- --}}
 
-                            <!-- Invoice item 2-->
-                            <tr class="border-bottom">
-                                <td>
-                                    <div class="fw-bold">Cattle Sum Insured</div>
-                                </td>
-                                <td class="text-end fw-bold"></td>
-                                <td class="text-end fw-bold"></td>
-                                <td class="text-end fw-bold">{{ \App\Models\CattleRegistration::find($insurance_request->cattle_id)->sum_insured ?? "Cattle sum insured" }}
-                                    TK
-                                </td>
-                            </tr>
+                                {{-- --------------------------------------------------------- Cattle Sum Insured --------------------------------------------------------- --}}
 
-                            {{-- --------------------------------------------------------- Cattle Sum Insured --------------------------------------------------------- --}}
+                                <!-- Invoice item 2-->
+                                <tr class="border-bottom">
+                                    <td>
+                                        <div class="fw-bold">Cattle Sum Insured</div>
+                                    </td>
+                                    <td class="text-end fw-bold"></td>
+                                    <td class="text-end fw-bold"></td>
+                                    <td class="text-end fw-bold">{{ \App\Models\CattleRegistration::find($insurance_request->cattle_id)->sum_insured ?? "Cattle sum insured" }}
+                                        TK
+                                    </td>
+                                </tr>
 
-                            {{-- --------------------------------------------------------- Farmer Name --------------------------------------------------------- --}}
+                                {{-- --------------------------------------------------------- Cattle Sum Insured --------------------------------------------------------- --}}
 
-                            <!-- Invoice item 2-->
-                            <tr class="border-bottom">
-                                <td>
-                                    <div class="fw-bold">Farmer Name</div>
-                                </td>
-                                <td class="text-end fw-bold"></td>
-                                <td class="text-end fw-bold"></td>
-                                <td class="text-end fw-bold">{{ \App\Models\User::find($insurance_request->user_id)->name ?? "Farmer name not found" }}</td>
-                            </tr>
+                                {{-- --------------------------------------------------------- Farmer Name --------------------------------------------------------- --}}
 
-                            {{-- --------------------------------------------------------- Farmer Name --------------------------------------------------------- --}}
+                                <!-- Invoice item 2-->
+                                <tr class="border-bottom">
+                                    <td>
+                                        <div class="fw-bold">Farmer Name</div>
+                                    </td>
+                                    <td class="text-end fw-bold"></td>
+                                    <td class="text-end fw-bold"></td>
+                                    <td class="text-end fw-bold">{{ \App\Models\User::find($insurance_request->user_id)->name ?? "Farmer name not found" }}</td>
+                                </tr>
 
+                                {{-- --------------------------------------------------------- Farmer Name --------------------------------------------------------- --}}
+
+                            @endif
 
                             {{-- --------------------------------------------------------- Insurance Requested By --------------------------------------------------------- --}}
 
@@ -274,7 +276,10 @@
                                             value="{{ route('company_insurance_transaction_view', [$insurance_request->id, 'bank']) }}">
                                             Bank Transaction
                                         </option>
-                                        <option value="{{ route('company_insurance_transaction_view', [$insurance_request->id, 'digital']) }}">Digital Transaction</option>
+{{--                                        <option--}}
+{{--                                            value="{{ route('company_insurance_transaction_view', [$insurance_request->id, 'digital']) }}">--}}
+{{--                                            Digital Transaction--}}
+{{--                                        </option>--}}
                                     </select>
 
                                     {{-- ------------------------------------------ Transaction type selection code ------------------------------------------ --}}

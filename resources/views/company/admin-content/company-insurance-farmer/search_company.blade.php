@@ -45,6 +45,9 @@
 
                             @if(session('insured'))
                                 <p class="alert alert-success">{{ session('insured') }}</p>
+
+                            @elseif(session('success'))
+                                <p class="alert alert-success">{{ session('success') }}</p>
                             @endif
                             {{-- ---------------------------------------- Package Search ---------------------------------------- --}}
 

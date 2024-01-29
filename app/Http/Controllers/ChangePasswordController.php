@@ -45,7 +45,7 @@ class ChangePasswordController extends Controller
             session()->flash('password_failed', 'Old password provided');
             return back();
         } else {
-            session()->flash('password_failed', 'Password Change failed');
+            session()->flash('password_failed', 'Password change failed');
             return back();
         }
     }

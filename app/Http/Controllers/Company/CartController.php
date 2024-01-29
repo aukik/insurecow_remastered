@@ -34,8 +34,4 @@ class CartController extends Controller
 
 //    --------------------- view cart ---------------------
 
-//    --------------------- Information Adding ---------------------
-
-
-//    --------------------- Information Adding ---------------------
 }

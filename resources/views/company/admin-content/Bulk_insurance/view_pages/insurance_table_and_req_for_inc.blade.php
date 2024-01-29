@@ -105,7 +105,7 @@
                                 <input type="hidden" value="{{ $package->id }}" name="package_id"><br>
 
 
-                                <input type="submit" class="btn btn-success" value="Request for insurance">
+                                <input type="submit" class="btn btn-success" value="Request for insurance" style="margin-top: -170px">
 
 
                             </form>
