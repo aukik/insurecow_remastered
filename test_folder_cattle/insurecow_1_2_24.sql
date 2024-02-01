@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 17, 2024 at 06:19 PM
+-- Generation Time: Feb 01, 2024 at 12:42 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `insurecow_6_1_24`
+-- Database: `insurecow_dummy_db`
 --
 
 -- --------------------------------------------------------
@@ -497,7 +497,8 @@ CREATE TABLE `farmer_profiles` (
 INSERT INTO `farmer_profiles` (`id`, `fathers_name`, `mothers_name`, `present_address`, `dob`, `nid`, `source_of_income`, `bank_account_no`, `farmer_address`, `thana`, `upazilla`, `union`, `division`, `district`, `zip_code`, `village`, `loan_amount`, `num_of_livestock`, `type_of_livestock`, `nid_front`, `nid_back`, `loan_investment`, `bank_name_insured`, `chairman_certificate`, `nationality`, `image`, `user_id`, `created_at`, `updated_at`) VALUES
 (1, 'vh', 'h', 'h', '2023-12-05', '5', 'v', '55', 'h', 'h', 'h', 'hg', 'h', 'j', '6', 'h', '6', '5', '5', 'images/0BRFYsQxqk0niYgjlVIAw4yM6m8lNOQGLWzzDacT.jpg', 'images/g0IGR7TW52KXoOkYmLu7JlWJqgk147zFjkfcsONH.jpg', 'images/ytX971VDQkANrtWwsklP5suFyNxgnAOe6b8Fv3gl.jpg', 'j.', 'images/BOPxCsbDpLWmQ3ZmETePTIcKi6xfLYr5kyHeeAa2.jpg', 'bd', 'images/idd8vLQQJJ4CwsK3CuBCjklDoLlALZZ6QJetb45J.png', '57', '2023-12-05 05:57:45', '2023-12-05 05:57:45'),
 (2, 'Kamal Rahman', 'Morjina Begom', 'Jessore', '1979-05-28', '8870510076', 'Farming', '123456', 'Jhikargachha', 'Jhikargachha', 'Jhikargachha', 'Jhikargachha', 'Khulna', 'Jashore', '1710', 'Kalinagar', NULL, '10', 'Cattle', 'images/iSQKHliR9CngghdaqT3aFCsydSbjwa02rgqet3wp.jpg', 'images/NxsVhRUn34UCmDTwrSH2jYjgW5VwSiLwHeQ5epgv.jpg', NULL, 'Ab', 'images/QhFDMFENwROfxQoJhzHGxZFa6ub0ilgPWRphq4aY.jpg', 'Bangladeshi', 'images/VBaAp3kSnLlgD9jYJKtEJk8AmjjSAOYvkApuQwQf.jpg', '103', '2023-12-17 06:53:54', '2023-12-17 06:53:54'),
-(3, 'Abc', 'fffghd', 'Raja Clinic', '2025-09-19', '7804330053', 'Business', '112233445566', 'Raja Clinic', 'cfgfdgdf', 'Bancharampur', 'dewdwe', 'Chattogram', 'Brahmanbaria', '1207', 'gggf', '0', '3', 'Abc', 'images/NgDpZSWZJch6A2syaqSZhKFrhpwuAD4u6wBBRP7a.jpg', 'images/DBzmwK9Fo2YVIpoQKKhDI72ekGdnxLhO0ndVDBoq.jpg', NULL, 'ttt', NULL, 'Bangladeshi', 'images/t3zSU73CRBRNS6AbELxtIATmgcJS0DgvOgmt1kTx.jpg', '105', '2023-12-19 09:15:45', '2023-12-19 09:15:45');
+(3, 'Abc', 'fffghd', 'Raja Clinic', '2025-09-19', '7804330053', 'Business', '112233445566', 'Raja Clinic', 'cfgfdgdf', 'Bancharampur', 'dewdwe', 'Chattogram', 'Brahmanbaria', '1207', 'gggf', '0', '3', 'Abc', 'images/NgDpZSWZJch6A2syaqSZhKFrhpwuAD4u6wBBRP7a.jpg', 'images/DBzmwK9Fo2YVIpoQKKhDI72ekGdnxLhO0ndVDBoq.jpg', NULL, 'ttt', NULL, 'Bangladeshi', 'images/t3zSU73CRBRNS6AbELxtIATmgcJS0DgvOgmt1kTx.jpg', '105', '2023-12-19 09:15:45', '2023-12-19 09:15:45'),
+(4, 'a', 's', 's', '2024-01-23', '1111111111', 'w', '321312312321', 'a', 'Barguna Sadar', 'Barguna Sadar', 'Barguna Sadar', 'Barishal', 'Barguna', '1207', 'w', '1', '2', 'Cattle', 'images/REsGKY9BvLt6kSUucjuh0pgXUENccBrQaTQUaEyE.png', 'images/B5bbRwSkElD0XIs3KyoJsVDvs7IvsdSeLVgM5U0d.png', 'images/b4FQxELaWVCDzrKSXx0i8nFKDnezNQ1H2wrPSij2.png', '1', 'images/EX7zs1kcgyrv4ONM1LgjEqDlBBJOijqw0lpjHSCo.png', 's', 'images/SiKn9RanT3dSMk5fo4NQOS0fbLbjQxtVwHLcFTiE.png', '58', '2024-01-23 02:47:35', '2024-01-23 02:47:35');
 
 -- --------------------------------------------------------
 
@@ -648,14 +649,14 @@ CREATE TABLE `insurance_claims` (
 
 CREATE TABLE `insurance_requests` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `cattle_id` varchar(255) DEFAULT NULL,
+  `cattle_id` text DEFAULT NULL,
   `package_id` varchar(255) DEFAULT NULL,
   `company_id` varchar(255) DEFAULT NULL,
   `package_insurance_period` decimal(2,1) DEFAULT NULL,
   `insurance_cost` varchar(255) DEFAULT NULL,
   `insurance_status` varchar(255) DEFAULT NULL,
   `insurance_requested_company_id` varchar(255) DEFAULT NULL,
-  `user_id` varchar(255) DEFAULT NULL,
+  `user_id` text DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `cash_agent_name` varchar(255) DEFAULT NULL,
@@ -688,8 +689,7 @@ CREATE TABLE `insurance_requests` (
 --
 
 INSERT INTO `insurance_requests` (`id`, `cattle_id`, `package_id`, `company_id`, `package_insurance_period`, `insurance_cost`, `insurance_status`, `insurance_requested_company_id`, `user_id`, `created_at`, `updated_at`, `cash_agent_name`, `cash_agent_branch_name`, `cash_agent_id`, `cash_amount`, `cash_phone`, `cheque_bank_name`, `cheque_branch_name`, `amount`, `bank_ac_name`, `bank_ac_number`, `bank_name`, `transaction_number`, `insured_to_ac_info`, `insured_to_account`, `insured_to_bank_name`, `insured_to_branch_name`, `insured_to_routing_no`, `insured_to_instruction`, `attachment`, `transaction_type`, `insurance_request_status`, `insurance_request_type`, `reason_after_decision`) VALUES
-(2, '33', '2', '55', 0.5, '1501', 'received', '54', '89', '2023-12-26 17:42:09', '2023-12-26 17:42:24', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'digital', 'accepted', 'single', NULL),
-(23, '2', '2', '55', 0.5, '1766', 'received', '54', '59', '2024-01-17 09:49:24', '2024-01-17 09:51:05', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'single', NULL);
+(2, '33', '2', '55', 0.5, '1501', 'received', '54', '89', '2023-12-26 17:42:09', '2023-12-26 17:42:24', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'digital', 'accepted', 'single', NULL);
 
 -- --------------------------------------------------------
 
@@ -735,6 +735,14 @@ CREATE TABLE `jobs` (
   `available_at` int(10) UNSIGNED NOT NULL,
   `created_at` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `jobs`
+--
+
+INSERT INTO `jobs` (`id`, `queue`, `payload`, `attempts`, `reserved_at`, `available_at`, `created_at`) VALUES
+(55, 'default', '{\"uuid\":\"521980d7-210f-4630-80a5-e4c3453a82cf\",\"displayName\":\"App\\\\Jobs\\\\Farmer\\\\CattleRegistrationProcess\",\"job\":\"Illuminate\\\\Queue\\\\CallQueuedHandler@call\",\"maxTries\":null,\"maxExceptions\":null,\"failOnTimeout\":false,\"backoff\":null,\"timeout\":null,\"retryUntil\":null,\"data\":{\"commandName\":\"App\\\\Jobs\\\\Farmer\\\\CattleRegistrationProcess\",\"command\":\"O:41:\\\"App\\\\Jobs\\\\Farmer\\\\CattleRegistrationProcess\\\":14:{s:4:\\\"data\\\";a:15:{s:11:\\\"animal_type\\\";s:7:\\\"buffalo\\\";s:11:\\\"cattle_name\\\";s:6:\\\"Test22\\\";s:12:\\\"cattle_breed\\\";s:2:\\\"ee\\\";s:3:\\\"age\\\";s:2:\\\"ee\\\";s:12:\\\"cattle_color\\\";s:2:\\\"ee\\\";s:6:\\\"weight\\\";s:1:\\\"3\\\";s:4:\\\"farm\\\";s:7:\\\"No Farm\\\";s:11:\\\"cattle_type\\\";s:11:\\\"milking_cow\\\";s:11:\\\"sum_insured\\\";s:1:\\\"3\\\";s:13:\\\"muzzle_of_cow\\\";s:47:\\\"Not Applicable for goat or buffalo registration\\\";s:9:\\\"left_side\\\";s:51:\\\"images\\/zgarIRQUF32avjnxYlUOpnRV7Lc9duwpSKA61alL.jpg\\\";s:10:\\\"right_side\\\";s:51:\\\"images\\/VKmKHBYf7ieip0v5V7G0CwWfJ1KcBSOUl0Qk00Ue.jpg\\\";s:13:\\\"special_marks\\\";s:51:\\\"images\\/6ce9qKect20VslyLs4j94aFnWet1g0xa4mmBXxmJ.jpg\\\";s:14:\\\"cow_with_owner\\\";s:51:\\\"images\\/beLg0vrOMbNebCUKIYbCwXaymgsq4yxj4fAmRKGr.jpg\\\";s:9:\\\"unique_id\\\";i:59;}s:8:\\\"basename\\\";s:47:\\\"Not Applicable for goat or buffalo registration\\\";s:4:\\\"user\\\";O:45:\\\"Illuminate\\\\Contracts\\\\Database\\\\ModelIdentifier\\\":4:{s:5:\\\"class\\\";s:15:\\\"App\\\\Models\\\\User\\\";s:2:\\\"id\\\";i:58;s:9:\\\"relations\\\";a:0:{}s:10:\\\"connection\\\";s:5:\\\"mysql\\\";}s:9:\\\"cattle_id\\\";i:59;s:3:\\\"job\\\";N;s:10:\\\"connection\\\";N;s:5:\\\"queue\\\";N;s:15:\\\"chainConnection\\\";N;s:10:\\\"chainQueue\\\";N;s:19:\\\"chainCatchCallbacks\\\";N;s:5:\\\"delay\\\";N;s:11:\\\"afterCommit\\\";N;s:10:\\\"middleware\\\";a:0:{}s:7:\\\"chained\\\";a:0:{}}\"}}', 0, NULL, 1705995408, 1705995408),
+(56, 'default', '{\"uuid\":\"593541ba-f45f-42e5-b701-1d2bd579ce27\",\"displayName\":\"App\\\\Jobs\\\\Farmer\\\\CattleRegistrationProcess\",\"job\":\"Illuminate\\\\Queue\\\\CallQueuedHandler@call\",\"maxTries\":null,\"maxExceptions\":null,\"failOnTimeout\":false,\"backoff\":null,\"timeout\":null,\"retryUntil\":null,\"data\":{\"commandName\":\"App\\\\Jobs\\\\Farmer\\\\CattleRegistrationProcess\",\"command\":\"O:41:\\\"App\\\\Jobs\\\\Farmer\\\\CattleRegistrationProcess\\\":14:{s:4:\\\"data\\\";a:15:{s:11:\\\"animal_type\\\";s:7:\\\"buffalo\\\";s:11:\\\"cattle_name\\\";s:9:\\\"sfesfesfe\\\";s:12:\\\"cattle_breed\\\";s:6:\\\"sfesef\\\";s:3:\\\"age\\\";s:6:\\\"sfesef\\\";s:12:\\\"cattle_color\\\";s:6:\\\"sfesef\\\";s:6:\\\"weight\\\";s:2:\\\"44\\\";s:4:\\\"farm\\\";s:7:\\\"No Farm\\\";s:11:\\\"cattle_type\\\";s:11:\\\"milking_cow\\\";s:11:\\\"sum_insured\\\";s:2:\\\"33\\\";s:13:\\\"muzzle_of_cow\\\";s:47:\\\"Not Applicable for goat or buffalo registration\\\";s:9:\\\"left_side\\\";s:51:\\\"images\\/bUlfuar1KUqKdRzpotZC5xpvU48tph9ahBkPsZOH.jpg\\\";s:10:\\\"right_side\\\";s:51:\\\"images\\/uBm0yY0ryNwACkzhq69AHYTkG88Qoemh7xbVpq9Q.jpg\\\";s:13:\\\"special_marks\\\";s:51:\\\"images\\/1bvIfSjrC8TSLrBebHTLiFyQCVwtIL4FdOnfgRC4.jpg\\\";s:14:\\\"cow_with_owner\\\";s:51:\\\"images\\/hVGvGAR9dQKhcn9GFeNdNGMiOZzBGv7PSzmabqsb.jpg\\\";s:9:\\\"unique_id\\\";i:59;}s:8:\\\"basename\\\";s:47:\\\"Not Applicable for goat or buffalo registration\\\";s:4:\\\"user\\\";O:45:\\\"Illuminate\\\\Contracts\\\\Database\\\\ModelIdentifier\\\":4:{s:5:\\\"class\\\";s:15:\\\"App\\\\Models\\\\User\\\";s:2:\\\"id\\\";i:58;s:9:\\\"relations\\\";a:0:{}s:10:\\\"connection\\\";s:5:\\\"mysql\\\";}s:9:\\\"cattle_id\\\";i:59;s:3:\\\"job\\\";N;s:10:\\\"connection\\\";N;s:5:\\\"queue\\\";N;s:15:\\\"chainConnection\\\";N;s:10:\\\"chainQueue\\\";N;s:19:\\\"chainCatchCallbacks\\\";N;s:5:\\\"delay\\\";N;s:11:\\\"afterCommit\\\";N;s:10:\\\"middleware\\\";a:0:{}s:7:\\\"chained\\\";a:0:{}}\"}}', 0, NULL, 1705995668, 1705995668);
 
 -- --------------------------------------------------------
 
@@ -783,7 +791,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (76, '2024_01_02_172034_add_cash_payment_attachment_to_table', 36),
 (77, '2023_09_01_170436_create_orders_table', 37),
 (79, '2023_10_22_065746_create_insureds_table', 38),
-(80, '2024_01_11_074804_add_reasons_after_decision_to_insurance_requests_table', 39);
+(80, '2024_01_11_074804_add_reasons_after_decision_to_insurance_requests_table', 39),
+(81, '2024_02_01_061103_create_slider_images_table', 40);
 
 -- --------------------------------------------------------
 
@@ -847,8 +856,8 @@ CREATE TABLE `packages` (
 --
 
 INSERT INTO `packages` (`id`, `package_name`, `insurance_period`, `coverage`, `quotation`, `policy`, `discount`, `rate`, `vat`, `package_status`, `user_id`, `created_at`, `updated_at`) VALUES
-(1, 'Pheonix - 6 months package - 2', 0.5, '[\"ac\",\"fl\",\"er\"]', '<p>wd</p>', 'policy/AFrgYPYJK9fCY49XlSldolSr5TRr0jcdr2IqdDUH.pdf', 10, 10, 15, 'active', '56', '2023-12-06 07:40:19', '2023-12-06 07:40:19'),
-(2, 'Pheonix - 6 months package', 0.5, '[\"ac\",\"fl\",\"er\"]', '<p>tr</p>', 'policy/L9jgePy8nnlr3TonaWugawwcXT3zlybzk2a7S27d.pdf', 50, 3, 15, 'active', '55', '2023-12-26 00:17:29', '2023-12-26 17:39:14');
+(1, 'Pheonix - 6 months package - 2', 0.5, 'Accidental Coverage, Flood Coverage, Earthquake Coverage', '<p>wd</p>', 'policy/AFrgYPYJK9fCY49XlSldolSr5TRr0jcdr2IqdDUH.pdf', 10, 10, 15, 'active', '56', '2023-12-06 07:40:19', '2023-12-06 07:40:19'),
+(2, 'Pheonix - 6 months package', 0.5, 'Accidental Coverage, Flood Coverage, Earthquake Coverage', '<p>tr</p>', 'policy/L9jgePy8nnlr3TonaWugawwcXT3zlybzk2a7S27d.pdf', 50, 3, 15, 'active', '55', '2023-12-26 00:17:29', '2024-01-23 02:18:42');
 
 -- --------------------------------------------------------
 
@@ -896,7 +905,7 @@ INSERT INTO `permissions` (`id`, `f_cattle_reg`, `f_insurance`, `f_farm_manageme
 (2, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 'c', '55', '2023-12-04 11:41:08', '2023-12-26 19:47:36', 0),
 (3, 1, 0, 0, 1, 1, 0, 1, 1, 1, 1, 'c', '56', '2023-12-04 12:01:15', '2023-12-26 19:47:00', 0),
 (4, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 'f', '57', '2023-12-04 12:03:02', '2023-12-06 07:40:55', 0),
-(5, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 'f', '58', '2023-12-04 19:08:42', '2023-12-04 19:08:42', 0),
+(5, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 'f', '58', '2023-12-04 19:08:42', '2024-01-23 02:51:12', 0),
 (6, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 'f', '59', '2023-12-04 19:10:04', '2023-12-04 19:10:04', 0),
 (7, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 'f', '60', '2023-12-04 19:11:20', '2023-12-04 19:11:20', 0),
 (8, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 'f', '61', '2023-12-04 19:12:35', '2023-12-04 19:12:35', 0),
@@ -942,8 +951,9 @@ INSERT INTO `permissions` (`id`, `f_cattle_reg`, `f_insurance`, `f_farm_manageme
 (48, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 'f', '101', '2023-12-14 06:43:48', '2023-12-14 06:43:48', 0),
 (49, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 'f', '102', '2023-12-17 05:15:48', '2023-12-17 05:15:48', 0),
 (50, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 'f', '103', '2023-12-17 06:37:52', '2023-12-17 06:54:55', 0),
-(51, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 'c', '104', '2023-12-19 08:35:42', '2023-12-19 08:37:56', 0),
-(52, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 'f', '105', '2023-12-19 08:46:25', '2023-12-19 08:48:19', 0);
+(51, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 'c', '104', '2023-12-19 08:35:42', '2024-01-18 10:40:22', 0),
+(52, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 'f', '105', '2023-12-19 08:46:25', '2023-12-19 08:48:19', 0),
+(53, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 'c', '106', '2024-01-18 10:44:16', '2024-01-18 10:45:05', 0);
 
 -- --------------------------------------------------------
 
@@ -1054,6 +1064,20 @@ INSERT INTO `reproduction_and_breedings` (`id`, `breeding_date`, `fertility_hist
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `slider_images`
+--
+
+CREATE TABLE `slider_images` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `image` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -1089,9 +1113,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `phone`, `email_verified_at`, `password`, `address`, `nid`, `dob`, `company_website`, `company_logo`, `role`, `company_id`, `agent_employee_id`, `agent_id`, `remember_token`, `created_at`, `updated_at`, `ac_info`, `account`, `bank_name`, `branch_name`, `routing_no`, `instruction`) VALUES
-(1, 'Tahmid Ferdous', 'tahmid.tf1@gmail.com', '01828665566', NULL, '$2y$10$cJOfvdj70Jwse52t8Ac9teGFiG1j.6RdzrrLQs2.rA6xCNMzuNLee', NULL, NULL, NULL, NULL, NULL, 's', NULL, NULL, NULL, NULL, '2023-09-04 00:13:07', '2023-09-04 00:13:07', NULL, NULL, NULL, NULL, NULL, NULL),
-(54, 'WeGro', 'info@wegrow.global', '01322891563', NULL, '$2y$10$CHvoxeUw2ywr6orsvXyy2ecQIEuLIMnjtJUxHCik9q3AA2NDhXOHq', 'Dhaka, Bangladesh', NULL, NULL, NULL, 'images/Chf9yryuaHSzEch0INVtE6WxrW6JXw6NEBiROY6f.jpg', 'c', NULL, NULL, NULL, NULL, '2023-12-04 11:32:48', '2023-12-04 11:32:48', NULL, NULL, NULL, NULL, NULL, NULL),
-(55, 'Pheonix Insurance', 'mail@phoenixinsurance.com', '01828665511', NULL, '$2y$10$XrYrWHJTpAB8pfBnt8bEM.8tXpaB51VLDOhDhUXzV0nfRcA57iWVy', 'Dhaka Bangladesh', NULL, NULL, NULL, 'images/GhAzMie2k0wON0o5VTM86RKG1LmkHoexJpt61gQG.jpg', 'c', NULL, NULL, NULL, NULL, '2023-12-04 11:41:08', '2024-01-09 10:56:50', '1', '1', '1', '1', '1', '1'),
+(1, 'Tahmid Ferdous', 'tahmid.tf1@gmail.com', '01828665566', NULL, '$2y$10$cJOfvdj70Jwse52t8Ac9teGFiG1j.6RdzrrLQs2.rA6xCNMzuNLee', 'ere', NULL, NULL, NULL, NULL, 's', NULL, NULL, NULL, NULL, '2023-09-04 00:13:07', '2024-01-21 00:23:00', NULL, NULL, NULL, NULL, NULL, NULL),
+(54, 'WeGro', 'info@wegrow.global', '01322891563', NULL, '$2y$10$CHvoxeUw2ywr6orsvXyy2ecQIEuLIMnjtJUxHCik9q3AA2NDhXOHq', 'Dhaka, Bangladesh', NULL, NULL, NULL, 'images/Chf9yryuaHSzEch0INVtE6WxrW6JXw6NEBiROY6f.jpg', 'c', NULL, NULL, NULL, NULL, '2023-12-04 11:32:48', '2024-01-21 00:33:51', NULL, NULL, NULL, NULL, NULL, NULL),
+(55, 'Phoenix Insurance', 'mail@phoenixinsurance.com', '01828665511', NULL, '$2y$10$b8VXUC0rh5.N5lh9gBoLJesx.A1C/W94RxmV719Il8e6XTkN4oe0i', 'Dhaka Bangladesh', NULL, NULL, NULL, 'images/pheonixinc.jpeg', 'c', NULL, NULL, NULL, NULL, '2023-12-04 11:41:08', '2024-01-21 05:32:25', '1', '1', '1', '1', '11', '1'),
 (56, 'Test Company', 'test_compnay@g.com', '01828665513', NULL, '$2y$10$HDqtn0OFXyQ1NEd7wNx.QeadJmlBBWP1jZojg6MV2J8D4HBb7FhEC', 'Test', NULL, NULL, NULL, 'images/6VMjys9NL13rO8n4V7iCxKkBbqPAEeUTEfmONMdY.jpg', 'c', NULL, NULL, NULL, NULL, '2023-12-04 12:01:15', '2023-12-04 12:01:15', NULL, NULL, NULL, NULL, NULL, NULL),
 (57, 'Test Farmer', NULL, '01828665514', NULL, '$2y$10$XI7/.SYrZ/xCtBk4FdPIu.ox2/U2vhoxqN.nlRK4o7FJqZYfua1am', 'Test', NULL, NULL, NULL, 'images/ojlFjE2adeFL10FB0W1g8EsMaZCJ14afMU6IBw6r.jpg', 'f', '56', '11111', NULL, NULL, '2023-12-04 12:03:02', '2023-12-04 12:03:02', NULL, NULL, NULL, NULL, NULL, NULL),
 (58, 'Marzina', NULL, '01725196318', NULL, '$2y$10$3t/bHgqtF.dJr5DqZK.rb.L2OPOgUhM1AOnID1bfsoMz06rqwtC1e', 'Gojiyabari. Khatiyamari dhunat bogura', NULL, NULL, NULL, 'images/rLbreixfu1dTXRn1m4l3MHvQ7ynwFHKYgvR9Eqf7.jpg', 'f', '54', '2696402489439', NULL, NULL, '2023-12-04 19:08:42', '2023-12-04 19:08:42', NULL, NULL, NULL, NULL, NULL, NULL),
@@ -1140,8 +1164,9 @@ INSERT INTO `users` (`id`, `name`, `email`, `phone`, `email_verified_at`, `passw
 (101, 'Shahida Begum', NULL, '01785373918', NULL, '$2y$10$sMYJlVN6G607ezJsvO.8Ae.hGCJ.wmj1fUvH7AgwVCjRTSlqBcZFy', 'East Sonora, Sonora, Sundarganj, Gaibandha.', NULL, NULL, NULL, 'images/ThHJRQA5wF3JOMPYqp5j1sXfsp0vA1nlei53qVV5.jpg', 'f', '54', '1919378987', NULL, NULL, '2023-12-14 06:43:48', '2023-12-14 06:43:48', NULL, NULL, NULL, NULL, NULL, NULL),
 (102, 'Saburon Nesa', NULL, '01752703743', NULL, '$2y$10$v0DsVfWX17ZR.eZVR4fl/OIRn67GAqdG1zSUncqcapavX.b2NobEm', 'Balidha pachakori Monirampur', NULL, NULL, NULL, 'images/mqfMysoVqWQwVjefUyA2hWlfAb2TLw2OswuLJjxr.jpg', 'f', '54', '4116183659733', NULL, NULL, '2023-12-17 05:15:48', '2023-12-17 05:15:48', NULL, NULL, NULL, NULL, NULL, NULL),
 (103, 'Mojibul Rahman', 'abcd@gmail.com', '01959938009', NULL, '$2y$10$d6r4I5aLYH.vxr9vJv1C4.XHIiqYi4Y7RRG7cJue/Iisnn1mC0U4C', 'Shukarabd, Dhaka Bangladesh', NULL, NULL, NULL, 'images/9Ugk8rcihIusKuvwgm05B1WRACdqTuOCsAQlLzv2.png', 'f', '56', '12345678', NULL, NULL, '2023-12-17 06:37:52', '2023-12-17 06:37:52', NULL, NULL, NULL, NULL, NULL, NULL),
-(104, 'Shompod Agro', 'shompod@gmail.com', '01959938008', NULL, '$2y$10$EukB0wo0ZbxcZ3KfTp52D.ZUlXiYqsLCQloKygvgyx5z9HeZ32/GO', 'Raja Clinic, 5 No Word, Gangni, Meherpur', NULL, NULL, NULL, 'images/Kh6aRREQWDhEAu3qKquYNTdC6KsEVTruEk6Iw49m.jpg', 'c', NULL, NULL, NULL, NULL, '2023-12-19 08:35:42', '2023-12-19 08:35:42', NULL, NULL, NULL, NULL, NULL, NULL),
-(105, 'Sompod', NULL, '02959938010', NULL, '$2y$10$vu8ELvcU9M.JnuGCKidAZeHkfsE5kO/3/4xhp0TOItMfRaACli47G', 'Raja Clinic, 5 No Word, Gangni, Meherpur', NULL, NULL, NULL, 'images/hgyLtWauG4YIdpbeN0QUqSuijgiCNEtZff99XLNv.jpg', 'f', '104', '001', NULL, NULL, '2023-12-19 08:46:25', '2023-12-19 08:46:25', NULL, NULL, NULL, NULL, NULL, NULL);
+(104, 'Shompod Agro', 'shompod@gmail.com', '01959938008', NULL, '$2y$10$eHLLVkEUgAtsoeLeNtzJV.kDuJ1sJPeo9NZ/OwdCDuJYXPmWenm2q', 'Raja Clinic, 5 No Word, Gangni, Meherpur', NULL, NULL, NULL, 'images/Kh6aRREQWDhEAu3qKquYNTdC6KsEVTruEk6Iw49m.jpg', 'c', NULL, NULL, NULL, NULL, '2023-12-19 08:35:42', '2024-01-21 05:16:38', NULL, NULL, NULL, NULL, NULL, NULL),
+(105, 'Sompod', NULL, '02959938010', NULL, '$2y$10$vu8ELvcU9M.JnuGCKidAZeHkfsE5kO/3/4xhp0TOItMfRaACli47G', 'Raja Clinic, 5 No Word, Gangni, Meherpur', NULL, NULL, NULL, 'images/hgyLtWauG4YIdpbeN0QUqSuijgiCNEtZff99XLNv.jpg', 'f', '104', '001', NULL, NULL, '2023-12-19 08:46:25', '2023-12-19 08:46:25', NULL, NULL, NULL, NULL, NULL, NULL),
+(106, 'Sena kalyan insurance company Ltd', 'info@senakalyanicl.com', '01755512469', NULL, '$2y$10$3x4CboNoEoOX026iyysyrOYDhW8qG46gOCVSSI3fqEWZa7n9UWH.K', 'SKS Tower (12th Floor), 7 VIP Road, Mohakhali, Dhaka -1206 , Bangladesh', NULL, NULL, NULL, 'images/h5AFcprywwnougSByXG4lWbC9ff4OevGqIBJcdKU.jpg', 'c', NULL, NULL, NULL, NULL, '2024-01-18 10:44:16', '2024-01-21 05:12:03', NULL, NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -1316,6 +1341,12 @@ ALTER TABLE `reproduction_and_breedings`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `slider_images`
+--
+ALTER TABLE `slider_images`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -1350,7 +1381,7 @@ ALTER TABLE `budgeting_and_forecastings`
 -- AUTO_INCREMENT for table `cattle_registrations`
 --
 ALTER TABLE `cattle_registrations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `cattle_reg_reports`
@@ -1392,7 +1423,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `farmer_profiles`
 --
 ALTER TABLE `farmer_profiles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `feeding_and_nutrition`
@@ -1428,43 +1459,43 @@ ALTER TABLE `insurance_claims`
 -- AUTO_INCREMENT for table `insurance_requests`
 --
 ALTER TABLE `insurance_requests`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `insureds`
 --
 ALTER TABLE `insureds`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `packages`
 --
 ALTER TABLE `packages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -1485,10 +1516,16 @@ ALTER TABLE `reproduction_and_breedings`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT for table `slider_images`
+--
+ALTER TABLE `slider_images`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
