@@ -38,6 +38,7 @@
                                 <table id="datatablesSimple">
                                     <thead>
                                     <tr>
+                                        <th>ID</th>
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Phone</th>
@@ -49,9 +50,12 @@
                                     <tbody>
 
 
+                                    <?php  $id = 0; ?>
+
                                     @foreach($users as $user)
 
                                         <tr>
+                                            <td>{{ $id+=1 }}</td>
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
                                             <td>{{ $user->phone }}</td>

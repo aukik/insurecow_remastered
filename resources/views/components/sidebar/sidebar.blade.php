@@ -1,37 +1,6 @@
 <div class="sidenav-menu">
     <div class="nav accordion" id="accordionSidenav">
 
-        {{-- ---------------------------------- Side into Sidebar ---------------------------------- --}}
-
-        <!-- Sidenav Menu Heading (Core)-->
-        {{--        <div class="sidenav-menu-heading">Core</div>--}}
-
-        {{--        <!-- Sidenav Accordion (Dashboard)-->--}}
-
-        {{--        <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"--}}
-        {{--           data-bs-target="#collapseDashboards" aria-expanded="false"--}}
-        {{--           aria-controls="collapseDashboards">--}}
-        {{--            <div class="nav-link-icon"><i data-feather="activity"></i></div>--}}
-        {{--            Dashboards--}}
-        {{--            <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>--}}
-        {{--        </a>--}}
-
-
-        {{--        <div class="collapse" id="collapseDashboards" data-bs-parent="#accordionSidenav">--}}
-        {{--            <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPages">--}}
-        {{--                <a class="nav-link" href="dashboard-1.html">--}}
-        {{--                    Default--}}
-        {{--                    <span class="badge bg-primary-soft text-primary ms-auto">Updated</span>--}}
-        {{--                </a>--}}
-        {{--                <a class="nav-link" href="dashboard-2.html">Multipurpose</a>--}}
-        {{--                <a class="nav-link" href="dashboard-3.html">Affiliate</a>--}}
-        {{--            </nav>--}}
-        {{--        </div>--}}
-
-
-        {{-- ---------------------------------- Side into Sidebar ---------------------------------- --}}
-
-
         {{-- ---------------------------------- Single Side Navbar ---------------------------------- --}}
 
 
@@ -104,6 +73,179 @@
 
 
         {{-- ---------------------------------- Register a cattle for the farmer ---------------------------------- --}}
+
+        {{-- ---------------------------------- Cms section ---------------------------------- --}}
+
+        <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+           data-bs-target="#collapseCms" aria-expanded="false" aria-controls="collapsePages">
+            <div class="nav-link-icon"><i data-feather="grid"></i></div>
+            Content Management
+            <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+        </a>
+
+        <div class="collapse" id="collapseCms" data-bs-parent="#accordionSidenav">
+            <nav class="sidenav-menu-nested nav accordion" id="accordionSidenavPagesMenu">
+
+
+                {{-- ------------ Slider Image ------------ --}}
+
+                <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+                   data-bs-target="#pagesCollapseSliderImage" aria-expanded="false"
+                   aria-controls="pagesCollapseSliderImage">
+                    Slider Image
+                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="pagesCollapseSliderImage" data-bs-parent="#accordionSidenavPagesMenu">
+                    <nav class="sidenav-menu-nested nav">
+                        <a class="nav-link" href="#">Add Slider Image</a>
+                        <a class="nav-link" href="#">View Image</a>
+                    </nav>
+                </div>
+
+                {{-- ------------ Slider Image ------------ --}}
+
+                {{-- ------------ Sliders ------------ --}}
+
+                <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+                   data-bs-target="#pagesCollapseAccount" aria-expanded="false"
+                   aria-controls="pagesCollapseAccount">
+                    Slider
+                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="pagesCollapseAccount" data-bs-parent="#accordionSidenavPagesMenu">
+                    <nav class="sidenav-menu-nested nav">
+                        <a class="nav-link" href="#">Add Slider</a>
+                        <a class="nav-link" href="#">View All Slider</a>
+                    </nav>
+                </div>
+
+                {{-- ------------ Sliders ------------ --}}
+
+                {{-- ------------ About ------------ --}}
+
+                <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+                   data-bs-target="#pagesCollapseAbout" aria-expanded="false"
+                   aria-controls="pagesCollapseAbout">
+                    About
+                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="pagesCollapseAbout" data-bs-parent="#accordionSidenavPagesMenu">
+                    <nav class="sidenav-menu-nested nav">
+                        <a class="nav-link" href="#">Add Info</a>
+                        <a class="nav-link" href="#">View All info</a>
+                    </nav>
+                </div>
+
+                {{-- ------------ About ------------ --}}
+
+                {{-- ------------ Product and Services ------------ --}}
+
+                <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+                   data-bs-target="#pagesCollapsePos" aria-expanded="false"
+                   aria-controls="pagesCollapsePos">
+                    Product & Services
+                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="pagesCollapsePos" data-bs-parent="#accordionSidenavPagesMenu">
+                    <nav class="sidenav-menu-nested nav">
+                        <a class="nav-link" href="#">Add Info</a>
+                        <a class="nav-link" href="#">View All info</a>
+                    </nav>
+                </div>
+
+                {{-- ------------ Product and Services ------------ --}}
+
+                {{-- ------------ Team ------------ --}}
+
+                <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+                   data-bs-target="#pagesCollapseTeam" aria-expanded="false"
+                   aria-controls="pagesCollapseTeam">
+                    Team
+                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="pagesCollapseTeam" data-bs-parent="#accordionSidenavPagesMenu">
+                    <nav class="sidenav-menu-nested nav">
+                        <a class="nav-link" href="#">Add Info</a>
+                        <a class="nav-link" href="#">View All info</a>
+                    </nav>
+                </div>
+
+                {{-- ------------ Team ------------ --}}
+
+                {{-- ------------ Achievement ------------ --}}
+
+                <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+                   data-bs-target="#pagesCollapseAchievement" aria-expanded="false"
+                   aria-controls="pagesCollapseAchievement">
+                    Achievement
+                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="pagesCollapseAchievement" data-bs-parent="#accordionSidenavPagesMenu">
+                    <nav class="sidenav-menu-nested nav">
+                        <a class="nav-link" href="#">Add Info</a>
+                        <a class="nav-link" href="#">View All info</a>
+                    </nav>
+                </div>
+
+                {{-- ------------ Achievement ------------ --}}
+
+                {{-- ------------ Posts ------------ --}}
+
+                <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+                   data-bs-target="#pagesCollapsePost" aria-expanded="false"
+                   aria-controls="pagesCollapsePost">
+                    Posts
+                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="pagesCollapsePost" data-bs-parent="#accordionSidenavPagesMenu">
+                    <nav class="sidenav-menu-nested nav">
+                        <a class="nav-link" href="#">Add Info</a>
+                        <a class="nav-link" href="#">View All info</a>
+                    </nav>
+                </div>
+
+                {{-- ------------ Posts ------------ --}}
+
+                {{-- ------------ Partners ------------ --}}
+
+                <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+                   data-bs-target="#pagesCollapsePartner" aria-expanded="false"
+                   aria-controls="pagesCollapsePartner">
+                    Partners
+                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="pagesCollapsePartner" data-bs-parent="#accordionSidenavPagesMenu">
+                    <nav class="sidenav-menu-nested nav">
+                        <a class="nav-link" href="#">Add Info</a>
+                        <a class="nav-link" href="#">View All info</a>
+                    </nav>
+                </div>
+
+                {{-- ------------ Partners ------------ --}}
+
+                {{-- ------------ Contact Us ------------ --}}
+
+                <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+                   data-bs-target="#pagesCollapseContact" aria-expanded="false"
+                   aria-controls="pagesCollapseContact">
+                    Contact Us
+                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="pagesCollapseContact" data-bs-parent="#accordionSidenavPagesMenu">
+                    <nav class="sidenav-menu-nested nav">
+                        <a class="nav-link" href="#">Add Info</a>
+                        <a class="nav-link" href="#">View All info</a>
+                    </nav>
+                </div>
+
+                {{-- ------------ Contact Us ------------ --}}
+
+
+            </nav>
+        </div>
+
+
+        {{-- ---------------------------------- Cms section ---------------------------------- --}}
 
 
     </div>

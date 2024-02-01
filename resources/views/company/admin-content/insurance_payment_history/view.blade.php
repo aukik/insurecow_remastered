@@ -52,15 +52,15 @@
                                     <thead>
                                     <tr>
                                         <th>Serial</th>
-                                        <th>Transaction ID</th>
+                                        <th>Trans. ID</th>
                                         <th>Amount</th>
                                         <th>Currency</th>
-                                        <th>cattle Info</th>
+                                        <th>Animal Info</th>
                                         <th>Farmer Name</th>
-                                        <th>Insured By</th>
-                                        <th>Expiration Date</th>
+                                        <th>Ins. By</th>
+                                        <th>Exp. Date</th>
                                         <th>Status</th>
-                                        <th>Claim</th>
+{{--                                        <th>Claim</th>--}}
 {{--                                        <th>Action</th>--}}
 
                                     </tr>
@@ -80,7 +80,7 @@
                                             <td>{{ \App\Models\User::find($history->company_id)->name ?? "Data Not Found"}}</td>
                                             <td>{{ $history->package_expiration_date }}</td>
                                             <td>{{ $history->status }}</td>
-                                            <td>{{ \App\Models\CattleRegReport::where('cattle_id',$history->cattle_id)->where('operation','claim')->where('verification_report','success')->count() > 0 ? "Claimed" : "Not Claimed" }}</td>
+{{--                                            <td>{{ \App\Models\CattleRegReport::where('cattle_id',$history->cattle_id)->where('operation','claim')->where('verification_report','success')->count() > 0 ? "Claimed" : "Not Claimed" }}</td>--}}
 
 
 

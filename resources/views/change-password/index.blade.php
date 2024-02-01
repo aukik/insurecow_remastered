@@ -67,10 +67,11 @@
                                                 <input
                                                     class="form-control"
                                                     id="inputLastName"
-                                                    type="text"
+                                                    type="password"
                                                     placeholder="Enter current password"
                                                     value=""
                                                     name="current_password"
+                                                    required
                                                 />
                                             </div>
                                         </div>
@@ -83,10 +84,11 @@
                                                 <input
                                                     class="form-control"
                                                     id="inputLastName"
-                                                    type="text"
+                                                    type="password"
                                                     placeholder="Enter new password"
                                                     value=""
                                                     name="new_password"
+                                                    required
                                                 />
                                             </div>
                                         </div>
@@ -99,10 +101,11 @@
                                                 <input
                                                     class="form-control"
                                                     id="inputLastName"
-                                                    type="text"
+                                                    type="password"
                                                     placeholder="Enter new password again"
                                                     value=""
                                                     name="verify_password"
+                                                    required
                                                 />
                                             </div>
                                         </div>

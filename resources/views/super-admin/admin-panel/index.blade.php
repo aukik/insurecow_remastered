@@ -373,15 +373,21 @@
 
             "language": {
                 "sLengthMenu": "Show _MENU_ Entries",
-                // Add any other language options you want to customize
             },
-            // Add other DataTables options as needed
-
             rowReorder: {
                 selector: 'td:nth-child(2)'
             },
-            responsive: true
+            responsive: true,
+
+            columnDefs: [
+                { targets: 0, orderable: true }, // Enable sorting for the first column
+                { targets: '_all', orderable: false } // Disable sorting for all other columns
+            ],
+            order: [[0, 'asc']] // Sort by the first column in ascending order by default
+
         });
+
+
     });
 
 </script>

@@ -78,7 +78,7 @@
                     <li><a href="#services" class="scroll">PRODUCTS & SERVICES</a></li>
                     <li><a href="#team" class="scroll">OUR TEAM</a></li>
                     <li><a href="#achievements" class="scroll">ACHIEVEMENTS</a></li>
-                    <li><a href="{{ route('login') }}"></button>
+                    <li><a href="{{ route('login') }}">
                             <button style="margin-top:-5px;"
                                     type="button" class="btn btn-primary">PORTAL
                             </button>
@@ -92,10 +92,13 @@
 </div>
 <!-- /.NAVIGATION MENU -->
 
+
+{{-- ----------------------------------------------------------------------- Text slider -----------------------------------------------------------------------  --}}
+
 <!-- TEXT SLIDER -->
-<div class="text-slider parallaxbg">
+<div style="background: url(../images/slider/1_1.jpg);" class="text-slider parallaxbg">
     <div class="pattern-overlay"></div>
-    <div class="slider-container">
+    <div class="slider-container" >
         <div class="home-text-slider slider-text owl-carousel owl-theme animated" data-animation="fadeInUp"
              data-animation-delay="1500">
             <!-- SLIDE ITEM-1 -->
@@ -121,6 +124,10 @@
     </div>
 </div>
 <!-- /.TEXT SLIDER -->
+
+
+{{-- ----------------------------------------------------------------------- Text slider -----------------------------------------------------------------------  --}}
+
 
 <!----------------About Us------------------------>
 
@@ -511,7 +518,7 @@
                     <div class="contacts" style="display: flex; align-items:center; justify-content: center;">
 
                         <a href="https://www.linkedin.com/in/tasvir/" target="_blank"><i
-                                class="fa-brands fa-linkedin fa-2x"></i></a>
+                                    class="fa-brands fa-linkedin fa-2x"></i></a>
                     </div>
                     <br>
 
@@ -532,7 +539,7 @@
                     <div class="contacts" style="display: flex; align-items:center; justify-content: center;">
 
                         <a href="https://www.linkedin.com/in/nurunnassa-nasim-b51846b1/" target="_blank"><i
-                                class="fa-brands fa-linkedin fa-2x"></i></a>
+                                    class="fa-brands fa-linkedin fa-2x"></i></a>
                     </div>
                     <br>
 
@@ -553,7 +560,7 @@
                     <div class="contacts" style="display: flex; align-items:center; justify-content: center;">
 
                         <a href="https://www.linkedin.com/in/alitarequeparvez/" target="_blank"><i
-                                class="fa-brands fa-linkedin fa-2x"></i></a>
+                                    class="fa-brands fa-linkedin fa-2x"></i></a>
                     </div>
                     <br>
                 </div>
@@ -593,7 +600,7 @@
                     <div class="contacts" style="display: flex; align-items:center; justify-content: center;">
 
                         <a href="https://www.linkedin.com/in/tahmid-ferdous-7a66b8134/" target="_blank"><i
-                                class="fa-brands fa-linkedin fa-2x"></i></a>
+                                    class="fa-brands fa-linkedin fa-2x"></i></a>
                     </div>
                     <br>
                 </div>
@@ -1839,8 +1846,9 @@
                                 <i class="fa-solid fa-location-dot"></i>
                             </div>
                             <h3>Address</h3>
-                            <p>3rd Floor, YB Hassan Uddin Tower GA-25/4, Shahjadpur, PragaC Sharani, Gulshan Dhaka- 1212.</p>
-{{--                            <p>Bangladesh</p>--}}
+                            <p>3rd Floor, YB Hassan Uddin Tower GA-25/4, Shahjadpur, PragaC Sharani, Gulshan Dhaka-
+                                1212.</p>
+                            {{--                            <p>Bangladesh</p>--}}
                         </div>
                         <!--CONTACT-->
                         <div class="col-sm-4 contact-block animated" data-animation="fadeInUp"

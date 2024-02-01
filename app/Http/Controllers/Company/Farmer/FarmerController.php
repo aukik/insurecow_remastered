@@ -33,10 +33,6 @@ class FarmerController extends Controller
 
         $animalType = $request->input('animal_type');
 
-        if (!in_array($animalType, ['cattle', 'buffalo', 'goat'])) {
-            // Return early or display an error message
-            return "Invalid animal type";
-        }
 
         $id = 0;
 
@@ -54,7 +50,7 @@ class FarmerController extends Controller
             'cattle_color' => 'required',
             'weight' => 'required',
             'farm' => 'required',
-            'cattle_type' => 'nullable',
+            'cattle_type' => 'required',
 
             'sum_insured' => 'required',
             'muzzle_of_cow' => $animalType === 'goat' ? 'nullable|mimes:jpeg,jpg,png' : 'required|mimes:jpeg,jpg,png',
@@ -68,6 +64,12 @@ class FarmerController extends Controller
         // Perform the validation
         $inputs = request()->validate($rules);
         $inputs['unique_id'] = $id;
+
+
+        if (!in_array($animalType, ['cattle', 'buffalo', 'goat'])) {
+            // Return early or display an error message
+            return "Invalid animal type";
+        }
 
 //        ------------------------ Find user id info ------------------------
 
@@ -120,7 +122,7 @@ class FarmerController extends Controller
 
         if ($animalType === 'goat' || $animalType === 'buffalo') {
             $user->cattleRegister()->create($inputs);
-            session()->flash("register_goat", $animalType." Registered Successfully");
+            session()->flash("register_goat", $animalType . " Registered Successfully");
             return back();
         }
 

@@ -3,12 +3,12 @@
 @section('content')
     <main>
         <header
-            class="page-header page-header-compact page-header-light border-bottom bg-white mb-4"
+                class="page-header page-header-compact page-header-light border-bottom bg-white mb-4"
         >
             <div class="container-xl px-4">
                 <div class="page-header-content">
                     <div
-                        class="row align-items-center justify-content-between pt-3"
+                            class="row align-items-center justify-content-between pt-3"
                     >
                         <div class="col-auto mb-3">
                             <h1 class="page-header-title">
@@ -64,10 +64,10 @@
                                         ><span style="color: red">*</span>
 
                                         <select class="form-select" name="farm" id="farm_name">
-                                            <option disabled>Select Farm</option>
+                                            <option disabled selected>Select Farm</option>
 
                                             @if($farms->count() == 0)
-                                                <option value="No Farm" selected>No Farm</option>
+                                                <option value="No Farm">No Farm</option>
                                             @else
                                                 @foreach($farms as $farm)
                                                     <option value="{{ $farm->id }}">{{ $farm->farm_name }}</option>
@@ -76,6 +76,10 @@
 
 
                                         </select>
+
+                                        @error('farm')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
 
@@ -85,12 +89,19 @@
                                         ><span style="color: red">*</span>
 
                                         <select class="form-select" name="animal_type" id="animal_type">
+
+                                            <option disabled selected>Select Type</option>
+
                                             <option value="cattle">Cattle</option>
 
                                             <option value="buffalo">Buffalo</option>
 
                                             <option value="goat">Goat</option>
                                         </select>
+
+                                        @error('animal_type')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <div class="col-md-4">
@@ -98,12 +109,12 @@
                                         >Animal Name</label
                                         ><span style="color: red">*</span>
                                         <input
-                                            class="form-control "
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder=""
-                                            value="{{ old('cattle_name') }}"
-                                            name="cattle_name"
+                                                class="form-control "
+                                                id="inputLastName"
+                                                type="text"
+                                                placeholder=""
+                                                value="{{ old('cattle_name') }}"
+                                                name="cattle_name"
                                         />
 
                                         @error('cattle_name')
@@ -121,12 +132,12 @@
                                         >Animal Breed</label
                                         ><span style="color: red">*</span>
                                         <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder=""
-                                            value="{{ old('cattle_breed') }}"
-                                            name="cattle_breed"
+                                                class="form-control"
+                                                id="inputLastName"
+                                                type="text"
+                                                placeholder=""
+                                                value="{{ old('cattle_breed') }}"
+                                                name="cattle_breed"
                                         />
 
                                         @error('cattle_breed')
@@ -140,12 +151,12 @@
                                         >Animal Age</label
                                         ><span style="color: red">*</span>
                                         <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder=""
-                                            value="{{ old('age') }}"
-                                            name="age"
+                                                class="form-control"
+                                                id="inputLastName"
+                                                type="text"
+                                                placeholder=""
+                                                value="{{ old('age') }}"
+                                                name="age"
                                         />
 
                                         @error('age')
@@ -158,12 +169,12 @@
                                         >Animal Color</label
                                         ><span style="color: red">*</span>
                                         <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder=""
-                                            value="{{ old('cattle_color') }}"
-                                            name="cattle_color"
+                                                class="form-control"
+                                                id="inputLastName"
+                                                type="text"
+                                                placeholder=""
+                                                value="{{ old('cattle_color') }}"
+                                                name="cattle_color"
                                         />
 
                                         @error('cattle_color')
@@ -201,12 +212,12 @@
                                         >Sum Insured</label
                                         ><span style="color: red">*</span>
                                         <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="number"
-                                            placeholder=""
-                                            value="{{ old('sum_insured') }}"
-                                            name="sum_insured"
+                                                class="form-control"
+                                                id="inputLastName"
+                                                type="number"
+                                                placeholder=""
+                                                value="{{ old('sum_insured') }}"
+                                                name="sum_insured"
                                         />
 
                                         @error('sum_insured')
@@ -219,12 +230,12 @@
                                         >Animal Weight [Kg]</label
                                         ><span style="color: red">*</span>
                                         <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="number"
-                                            placeholder=""
-                                            value="{{ old('weight') }}"
-                                            name="weight"
+                                                class="form-control"
+                                                id="inputLastName"
+                                                type="number"
+                                                placeholder=""
+                                                value="{{ old('weight') }}"
+                                                name="weight"
                                         />
 
 
@@ -330,12 +341,20 @@
                                         >Animal Gender Type</label
                                         ><span style="color: red">*</span>
 
-                                        <label for="cattle_type"></label><select class="form-select" name="cattle_type"
-                                                                                 id="cattle_type">
+                                        <label for="cattle_type"></label>
+                                        <select class="form-select" name="cattle_type"
+                                                id="cattle_type" required>
+                                            <option disabled selected>Select Type</option>
                                             <option value="milking_cow">Milking Animal</option>
                                             <option value="meat_cow">Meat Animal</option>
                                             <option value="calf">calf</option>
                                         </select>
+
+
+                                        @error('cattle_type')
+                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
+                                        @enderror
+
                                     </div>
 
                                     <div class="col-md-4" id="muzzle_of_cow">
@@ -357,14 +376,14 @@
                                         >Registration for Farmer</label
                                         ><span style="color: red"></span>
                                         <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder=""
-                                            value="{{ $farmer->name }}"
-                                            readonly
-                                            name="user_name"
-                                            style="background-color: white"
+                                                class="form-control"
+                                                id="inputLastName"
+                                                type="text"
+                                                placeholder=""
+                                                value="{{ $farmer->name }}"
+                                                readonly
+                                                name="user_name"
+                                                style="background-color: white"
                                         />
 
                                         @error('cattle_color')
@@ -377,19 +396,19 @@
                                         >Farmer ID Information</label
                                         ><span style="color: red"></span>
                                         <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="hidden"
-                                            placeholder=""
-                                            value="{{ $farmer->id }}"
-                                            readonly
-                                            name="user_id_info"
-                                            style="background-color: white"
+                                                class="form-control"
+                                                id="inputLastName"
+                                                type="hidden"
+                                                placeholder=""
+                                                value="{{ $farmer->id }}"
+                                                readonly
+                                                name="user_id_info"
+                                                style="background-color: white"
                                         />
 
-                                        @error('cattle_color')
-                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>
-                                        @enderror
+                                        {{--                                        @error('cattle_color')--}}
+                                        {{--                                        <div class="alert alert-danger" style="margin-top: 10px">{{ $message }}</div>--}}
+                                        {{--                                        @enderror--}}
                                     </div>
 
 

@@ -48,9 +48,9 @@
                                         <th>Insurance Period</th>
                                         <th>Policy</th>
                                         <th>Coverage</th>
-                                        <th>OFF %</th>
-                                        <th>Rate [CTL %]</th>
-                                        <th>Vat %</th>
+                                        <th>OFF%</th>
+                                        <th>Rate%</th>
+                                        <th>Vat%</th>
                                         {{--                                        <th>Package Status</th>--}}
                                         {{--                                        <th>Actions</th>--}}
                                         <th>Edit</th>
