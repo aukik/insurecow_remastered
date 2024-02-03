@@ -11,7 +11,7 @@ class SliderImageController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function index()
     {
@@ -33,10 +33,11 @@ class SliderImageController extends Controller
      * Store a newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
+
         $inputs = request()->validate([
             'title' => 'required',
             'image' => 'required|mimes:jpeg,jpg,png,gif',
@@ -44,11 +45,11 @@ class SliderImageController extends Controller
         ]);
 
         if (request('image')) {
-            $inputs['image'] = request('image')->store('photos');
+            $inputs['image'] = request('image')->store('cms');
         }
 
         SliderImage::create($inputs);
-        session()->flash("success", "Course Created Successfully");
+        session()->flash("success", "Slider image added successfully");
         return back();
     }
 
