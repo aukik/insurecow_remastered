@@ -70,10 +70,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-auto">
-                                                    <label for="exampleFormControlSelect1">Cattle Registration [ Farmer
-                                                        Sided
-                                                        Permission
-                                                        ]</label>
+                                                    <label for="exampleFormControlSelect1">Cattle Registration</label>
                                                 </div>
                                             </div>
 
@@ -89,9 +86,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-auto">
-                                                    <label for="exampleFormControlSelect1">Animal Insurance [ Farmer
-                                                        Sided
-                                                        Permission ]</label>
+                                                    <label for="exampleFormControlSelect1">Animal Insurance</label>
                                                 </div>
                                             </div>
 
@@ -108,10 +103,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-auto">
-                                                    <label for="exampleFormControlSelect1">Farm Management [ Farmer
-                                                        Sided
-                                                        Permission
-                                                        ]</label>
+                                                    <label for="exampleFormControlSelect1">Farm Management</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -199,8 +191,7 @@
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <label for="exampleFormControlSelect1">Dashboard [ Company Sided Permission
-                                                ]</label>
+                                            <label for="exampleFormControlSelect1">Dashboard</label>
                                         </div>
                                     </div>
 
@@ -218,8 +209,7 @@
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <label for="exampleFormControlSelect1">Registering Farmer [ Company Sided
-                                                Permission ]</label>
+                                            <label for="exampleFormControlSelect1">Registering Farmer</label>
                                         </div>
                                     </div>
 

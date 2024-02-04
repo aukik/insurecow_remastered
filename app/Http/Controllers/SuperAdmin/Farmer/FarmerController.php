@@ -52,7 +52,7 @@ class FarmerController extends Controller
             'cattle_type' => 'nullable',
 
             'sum_insured' => 'required',
-            'muzzle_of_cow' => $animalType === 'goat' ? 'nullable|mimes:jpeg,jpg,png' : 'required|mimes:jpeg,jpg,png',
+            'muzzle_of_cow' => in_array($animalType, ['goat', 'buffalo']) ? 'nullable|mimes:jpeg,jpg,png' : 'required|mimes:jpeg,jpg,png',
             'left_side' => 'required|mimes:jpeg,jpg,png',
             'right_side' => 'required|mimes:jpeg,jpg,png',
             'special_marks' => 'required|mimes:jpeg,jpg,png',
@@ -73,8 +73,8 @@ class FarmerController extends Controller
 
 //        ----------------------------- If animal type is cattle then muzzle will be inserted, else it will store "Not Applicable for goat registration" -----------------------------
 
-        if ($animalType === 'goat') {
-            $inputs['muzzle_of_cow'] = "Not Applicable for goat registration";
+        if ($animalType === 'goat' || $animalType === 'buffalo') {
+            $inputs['muzzle_of_cow'] = "Not Applicable for goat or buffalo registration";
         } else {
             if (request('muzzle_of_cow')) {
                 $inputs['muzzle_of_cow'] = \request('muzzle_of_cow')->store('images');
@@ -111,9 +111,9 @@ class FarmerController extends Controller
 
 //        ----------------------------- Detecting if animal type is goat -----------------------------
 
-        if ($animalType === 'goat') {
+        if ($animalType === 'goat' || $animalType === 'buffalo') {
             $user->cattleRegister()->create($inputs);
-            session()->flash("register_goat", "Goat Registered Successfully");
+            session()->flash("register_goat", $animalType." Registered Successfully");
             return back();
         }
 

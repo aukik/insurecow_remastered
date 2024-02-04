@@ -43,8 +43,8 @@
                                         <th>Email</th>
                                         <th>Phone</th>
                                         {{--                                        <th>Role</th>--}}
-                                        <th>Registered <br> Animals</th>
-                                        <th>Add Animal for <br>farmer</th>
+                                        <th>Registered Animals</th>
+                                        <th>Add Animal</th>
                                     </tr>
                                     </thead>
 

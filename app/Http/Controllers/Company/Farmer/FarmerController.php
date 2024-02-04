@@ -53,7 +53,7 @@ class FarmerController extends Controller
             'cattle_type' => 'required',
 
             'sum_insured' => 'required',
-            'muzzle_of_cow' => $animalType === 'goat' ? 'nullable|mimes:jpeg,jpg,png' : 'required|mimes:jpeg,jpg,png',
+            'muzzle_of_cow' => in_array($animalType, ['goat', 'buffalo']) ? 'nullable|mimes:jpeg,jpg,png' : 'required|mimes:jpeg,jpg,png',
             'left_side' => 'required|mimes:jpeg,jpg,png',
             'right_side' => 'required|mimes:jpeg,jpg,png',
             'special_marks' => 'required|mimes:jpeg,jpg,png',
