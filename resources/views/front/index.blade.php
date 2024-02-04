@@ -555,7 +555,7 @@
 
                     <h3>Ali Tareque <br> Parvez </h3>
                     <div class="desc">
-                        Director & Chief Commercial Officer
+                        Director
                     </div>
                     <div class="contacts" style="display: flex; align-items:center; justify-content: center;">
 
