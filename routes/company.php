@@ -55,7 +55,6 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
 //    -------------------------- Policy Creation -----------------------------
 
 
-
     //    ----------------------------- Registered Resources -----------------------------
 
     Route::get("registered_cattle/{id}", [CompanyController::class, "cattle_list"])->name("cm.registered_cattle");

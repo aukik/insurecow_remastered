@@ -59,7 +59,7 @@
                                         <th>Insurance Cost</th>
                                         <th>Insurance Status</th>
                                         <th>Send Quotation</th>
-{{--                                        <th>Payment History</th>--}}
+                                        {{--                                        <th>Payment History</th>--}}
                                         <th>View</th>
                                         {{--                                        <th>Insurance Status</th>--}}
                                     </tr>
@@ -78,7 +78,7 @@
 
                                             @if($history->insurance_request_type == "single")
 
-                                            <td>{!!  \App\Http\Controllers\Farmer\InsuranceRequestController::farmer_name($history->user_id) !!}</td>
+                                                <td>{!!  \App\Http\Controllers\Farmer\InsuranceRequestController::farmer_name($history->user_id) !!}</td>
 
                                             @else
                                                 @php
@@ -88,7 +88,36 @@
 
                                                 {{-- Check if user IDs are not empty --}}
                                                 @if (!empty($userIds))
-                                                    <td>
+                                                    {{--                                                    <td>--}}
+                                                    {{--                                                        @foreach ($userIds as $userId)--}}
+                                                    {{--                                                            --}}{{-- Retrieve user name using User model --}}
+                                                    {{--                                                            @php--}}
+                                                    {{--                                                                $userName = \App\Models\User::find($userId)->name;--}}
+                                                    {{--                                                            @endphp--}}
+
+                                                    {{--                                                            --}}{{-- Display only unique names --}}
+                                                    {{--                                                            @if (!in_array($userName, $uniqueNames))--}}
+                                                    {{--                                                                {{ $userName }}--}}
+                                                    {{--                                                                --}}{{-- Add the name to the unique names array --}}
+                                                    {{--                                                                @php--}}
+                                                    {{--                                                                    $uniqueNames[] = $userName;--}}
+                                                    {{--                                                                @endphp--}}
+                                                    {{--                                                                @if (!$loop->last)--}}
+                                                    {{--                                                                    , --}}{{-- Add a comma if it's not the last item --}}
+                                                    {{--                                                                @endif--}}
+                                                    {{--                                                            @endif--}}
+                                                    {{--                                                        @endforeach--}}
+                                                    {{--                                                    </td>--}}
+
+
+                                                    {{-- --------------------------- modified user list --------------------------- --}}
+
+                                                    <td class="user-list">
+                                                        @php
+                                                            $uniqueNames = [];
+                                                            $visibleUserCount = 0;
+                                                        @endphp
+
                                                         @foreach ($userIds as $userId)
                                                             {{-- Retrieve user name using User model --}}
                                                             @php
@@ -97,17 +126,29 @@
 
                                                             {{-- Display only unique names --}}
                                                             @if (!in_array($userName, $uniqueNames))
-                                                                {{ $userName }}
+                                                                <span class="user-item">{{ $userName }}</span>
                                                                 {{-- Add the name to the unique names array --}}
                                                                 @php
                                                                     $uniqueNames[] = $userName;
+                                                                    $visibleUserCount++;
                                                                 @endphp
                                                                 @if (!$loop->last)
-                                                                    , {{-- Add a comma if it's not the last item --}}
+                                                                    @if ($visibleUserCount < 2)
+                                                                        , {{-- Add a comma if it's not the last item and visibleUserCount is less than 2 --}}
+                                                                    @else
+                                                                        {{-- Do not add a comma for the third visible user --}}
+                                                                    @endif
                                                                 @endif
                                                             @endif
                                                         @endforeach
+
+                                                        <!-- Add more user items as needed -->
+
+
+                                                        <a class="toggle-button" style="cursor: pointer">Show More</a>
                                                     </td>
+
+                                                    {{-- --------------------------- modified user list --------------------------- --}}
                                                 @else
                                                     <td>Warning - No User data found</td>
                                                 @endif
@@ -159,7 +200,7 @@
                                                 </td>
                                             @endif
 
-{{--                                            <td>{{ \App\Http\Controllers\Farmer\InsuranceRequestController::insurance_buy_company($history->cattle_id) }}</td>--}}
+                                            {{--                                            <td>{{ \App\Http\Controllers\Farmer\InsuranceRequestController::insurance_buy_company($history->cattle_id) }}</td>--}}
 
 
                                             {{-- --------------------------- Insurance status wise operation from company side --------------------------- --}}
@@ -199,4 +240,53 @@
             </div>
         </div>
     </main>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+
+    <script>
+
+
+        {{-- ----------------------------------- modified user list js code ----------------------------------- --}}
+
+        $(document).ready(function () {
+            var itemsToShow = 3;
+
+            $('td.user-list').each(function () {
+                var $td = $(this);
+                var userItems = $td.find('.user-item');
+                userItems.slice(itemsToShow).hide();
+
+                $td.find('.toggle-button').click(function () {
+                    userItems.slice(itemsToShow).toggle();
+                    var buttonText = $(this).text() === 'Show More' ? 'Show Less' : 'Show More';
+                    $(this).text(buttonText);
+
+                    // Update visibleUserCount when toggling
+                    $visibleUserCount = userItems.filter(':visible').length;
+
+                    // Update commas based on the current visibleUserCount for this specific <td>
+                    updateCommas($td);
+                });
+            });
+
+            function updateCommas($td) {
+                var userItems = $td.find('.user-item');
+                var commas = $td.find('.comma');
+                commas.remove(); // Remove existing commas
+
+                if ($visibleUserCount > 1) {
+                    // Add commas based on the visibleUserCount
+                    for (var i = 1; i < $visibleUserCount; i++) {
+                        $(userItems[i - 1]).after('<span class="comma">, </span>');
+                    }
+                }
+            }
+        });
+
+        {{-- ----------------------------------- modified user list js code ----------------------------------- --}}
+
+
+    </script>
 @endsection
