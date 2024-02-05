@@ -85,21 +85,136 @@
 
         {{-- --------------------------- Income And Sells --------------------------- --}}
 
-        {{-- --------------------------- Expense Data --------------------------- --}}
+        {{-- ------------------------------------------------------ Expense components ------------------------------------------------------ --}}
 
-
-        <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
-           data-bs-target="#expense" aria-expanded="false" aria-controls="expense">
-            <div class="nav-link-icon"><i data-feather="align-justify"></i></div>
-            Expenses
-            <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+        <a
+            class="nav-link collapsed"
+            href="javascript:void(0);"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseExpenseComponent"
+            aria-expanded="false"
+            aria-controls="collapsePages"
+        >
+            <div class="nav-link-icon"><i data-feather="grid"></i></div>
+            Expense
+            <div class="sidenav-collapse-arrow">
+                <i class="fas fa-angle-down"></i>
+            </div>
         </a>
-        <div class="collapse" id="expense" data-bs-parent="#accordionSidenav">
-            <nav class="sidenav-menu-nested nav">
-                <a class="nav-link" href="{{ route('expense.create') }}">Create Info</a>
-                <a class="nav-link" href="{{ route('expense.index') }}">View Info</a>
+
+        <div
+            class="collapse"
+            id="collapseExpenseComponent"
+            data-bs-parent="#accordionSidenav"
+        >
+            <nav
+                class="sidenav-menu-nested nav accordion"
+                id="accordionSidenavPagesMenu"
+            >
+
+
+                {{-- -------------------- nseted items - Expense -------------------- --}}
+
+                <a
+                    class="nav-link collapsed"
+                    href="javascript:void(0);"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#expense_collapse"
+                    aria-expanded="false"
+                    aria-controls="pagesCollapseError"
+                >
+                    Expense
+                    <div class="sidenav-collapse-arrow">
+                        <i class="fas fa-angle-down"></i>
+                    </div>
+                </a>
+                <div
+                    class="collapse"
+                    id="expense_collapse"
+                    data-bs-parent="#accordionSidenavPagesMenu"
+                >
+                    <nav class="sidenav-menu-nested nav">
+                        <a class="nav-link" href="{{ route('expense.create') }}">Create Info</a>
+                        <a class="nav-link" href="{{ route('expense.index') }}">View Info</a>
+                    </nav>
+                </div>
+
+                {{-- -------------------- nseted items - Expense -------------------- --}}
+
+                {{-- -------------------- nseted items - Daily Expense -------------------- --}}
+
+                <a
+                    class="nav-link collapsed"
+                    href="javascript:void(0);"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#daily_expense_collapse"
+                    aria-expanded="false"
+                    aria-controls="pagesCollapseError"
+                >
+                    Daily Expense
+                    <div class="sidenav-collapse-arrow">
+                        <i class="fas fa-angle-down"></i>
+                    </div>
+                </a>
+                <div
+                    class="collapse"
+                    id="daily_expense_collapse"
+                    data-bs-parent="#accordionSidenavPagesMenu"
+                >
+                    <nav class="sidenav-menu-nested nav">
+                        <a class="nav-link" href="{{ route('daily_expense.create') }}">Create Info</a>
+                        <a class="nav-link" href="{{ route('daily_expense.index') }}">View Info</a>
+                    </nav>
+                </div>
+
+                {{-- -------------------- nseted items - Daily Expense -------------------- --}}
+
+                {{-- -------------------- nseted items - Expense Weight Average -------------------- --}}
+
+                <a
+                    class="nav-link collapsed"
+                    href="javascript:void(0);"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#expense_wa_collapse"
+                    aria-expanded="false"
+                    aria-controls="pagesCollapseError"
+                >
+                    Expense [WA]
+                    <div class="sidenav-collapse-arrow">
+                        <i class="fas fa-angle-down"></i>
+                    </div>
+                </a>
+                <div
+                    class="collapse"
+                    id="expense_wa_collapse"
+                    data-bs-parent="#accordionSidenavPagesMenu"
+                >
+                    <nav class="sidenav-menu-nested nav">
+                        <a class="nav-link" href="{{ route('expense_weight_average.create') }}">Create Info</a>
+                        <a class="nav-link" href="{{ route('expense.index') }}">View Info</a>
+                    </nav>
+                </div>
+
+                {{-- -------------------- nseted items - Expense Weight Average -------------------- --}}
+
             </nav>
         </div>
+
+        {{-- ------------------------------------------------------ Expense components ------------------------------------------------------ --}}
+
+
+{{--        <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"--}}
+{{--           data-bs-target="#expense" aria-expanded="false" aria-controls="expense">--}}
+{{--            <div class="nav-link-icon"><i data-feather="align-justify"></i></div>--}}
+{{--            Expenses--}}
+{{--            <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>--}}
+{{--        </a>--}}
+{{--        <div class="collapse" id="expense" data-bs-parent="#accordionSidenav">--}}
+{{--            <nav class="sidenav-menu-nested nav">--}}
+{{--                <a class="nav-link" href="{{ route('expense.create') }}">Create Info</a>--}}
+{{--                <a class="nav-link" href="{{ route('expense.index') }}">View Info</a>--}}
+{{--            </nav>--}}
+{{--        </div>--}}
 
 
         {{-- --------------------------- Expense Data --------------------------- --}}
@@ -107,18 +222,18 @@
         {{-- --------------------------- Daily Expenses --------------------------- --}}
 
 
-        <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
-           data-bs-target="#dailyExpense" aria-expanded="false" aria-controls="dailyExpense">
-            <div class="nav-link-icon"><i data-feather="align-justify"></i></div>
-            Daily Expense
-            <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-        </a>
-        <div class="collapse" id="dailyExpense" data-bs-parent="#accordionSidenav">
-            <nav class="sidenav-menu-nested nav">
-                <a class="nav-link" href="{{ route('daily_expense.create') }}">Create Info</a>
-                <a class="nav-link" href="{{ route('daily_expense.index') }}">View Info</a>
-            </nav>
-        </div>
+{{--        <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"--}}
+{{--           data-bs-target="#dailyExpense" aria-expanded="false" aria-controls="dailyExpense">--}}
+{{--            <div class="nav-link-icon"><i data-feather="align-justify"></i></div>--}}
+{{--            Daily Expense--}}
+{{--            <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>--}}
+{{--        </a>--}}
+{{--        <div class="collapse" id="dailyExpense" data-bs-parent="#accordionSidenav">--}}
+{{--            <nav class="sidenav-menu-nested nav">--}}
+{{--                <a class="nav-link" href="{{ route('daily_expense.create') }}">Create Info</a>--}}
+{{--                <a class="nav-link" href="{{ route('daily_expense.index') }}">View Info</a>--}}
+{{--            </nav>--}}
+{{--        </div>--}}
 
 
         {{-- --------------------------- Daily Expenses --------------------------- --}}
@@ -127,18 +242,18 @@
         {{-- --------------------------- Expense Weight Average --------------------------- --}}
 
 
-        <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
-           data-bs-target="#expenseWA" aria-expanded="false" aria-controls="expenseWA">
-            <div class="nav-link-icon"><i data-feather="align-justify"></i></div>
-            Expenses [WA]
-            <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-        </a>
-        <div class="collapse" id="expenseWA" data-bs-parent="#accordionSidenav">
-            <nav class="sidenav-menu-nested nav">
-                <a class="nav-link" href="{{ route('expense_weight_average.create') }}">Create Info</a>
-                <a class="nav-link" href="{{ route('expense.index') }}">View Info</a>
-            </nav>
-        </div>
+{{--        <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"--}}
+{{--           data-bs-target="#expenseWA" aria-expanded="false" aria-controls="expenseWA">--}}
+{{--            <div class="nav-link-icon"><i data-feather="align-justify"></i></div>--}}
+{{--            Expenses [WA]--}}
+{{--            <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>--}}
+{{--        </a>--}}
+{{--        <div class="collapse" id="expenseWA" data-bs-parent="#accordionSidenav">--}}
+{{--            <nav class="sidenav-menu-nested nav">--}}
+{{--                <a class="nav-link" href="{{ route('expense_weight_average.create') }}">Create Info</a>--}}
+{{--                <a class="nav-link" href="{{ route('expense.index') }}">View Info</a>--}}
+{{--            </nav>--}}
+{{--        </div>--}}
 
 
         {{-- --------------------------- Expense Weight Average --------------------------- --}}
