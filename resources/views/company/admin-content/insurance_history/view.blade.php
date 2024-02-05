@@ -62,6 +62,8 @@
                                         {{--                                        <th>Payment History</th>--}}
                                         <th>View</th>
                                         {{--                                        <th>Insurance Status</th>--}}
+                                        <th>Delete Request</th>
+
                                     </tr>
                                     </thead>
 
@@ -220,6 +222,28 @@
                                             @endif
 
                                             {{-- --------------------------- Insurance status wise operatio from company side --------------------------- --}}
+
+                                            {{-- ------------------------------ Delete Request ------------------------------ --}}
+
+                                            @if($history->insurance_request_status == "accepted")
+                                                <td>-</td>
+                                            @else
+                                                <td>
+                                                    <form action="{{ route('company.insurance_history_delete') }}"
+                                                          method="post">
+                                                        @method('delete')
+                                                        {{ csrf_field() }}
+                                                        <input type="hidden" value="{{ $history->id }}"
+                                                               name="request_id">
+                                                        <input type="submit" value="Delete" class="btn btn-danger">
+                                                    </form>
+
+                                                </td>
+                                            @endif
+
+
+
+                                            {{-- ------------------------------ Delete Request ------------------------------ --}}
 
 
                                         </tr>

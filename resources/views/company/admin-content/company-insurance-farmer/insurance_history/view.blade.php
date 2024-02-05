@@ -60,6 +60,7 @@
                                         <th>Insurance For Animal</th>
 
                                         <th>View</th>
+                                        <th>Delete Request</th>
 
                                     </tr>
                                     </thead>
@@ -336,6 +337,27 @@
 
                                             {{--  ---------------------------------------- Condition adding [ Insurance checking ] ---------------------------------- --}}
 
+                                            {{-- ------------------------------ Delete Request ------------------------------ --}}
+
+                                            @if($history->insurance_request_status == "accepted")
+                                                <td>-</td>
+                                            @else
+                                                <td>
+                                                    <form action="{{ route('company.view_insurance_history_delete') }}"
+                                                          method="post">
+                                                        @method('delete')
+                                                        {{ csrf_field() }}
+                                                        <input type="hidden" value="{{ $history->id }}"
+                                                               name="request_id">
+                                                        <input type="submit" value="Delete" class="btn btn-danger">
+                                                    </form>
+
+                                                </td>
+                                            @endif
+
+
+
+                                            {{-- ------------------------------ Delete Request ------------------------------ --}}
 
                                         </tr>
                                     @endforeach

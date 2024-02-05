@@ -234,6 +234,41 @@ class CompanyCanInsureFarmerController extends Controller
 
 //    ----------------------------------------------------- View Insurance History - Insurance Requested Company - [Digital Transactions] -----------------------------------------------------------------------
 
+//    ------------------------ Delete Request ------------------------
+
+    public function view_insurance_history_delete()
+    {
+        $inputs = \request()->validate([
+            'request_id' => 'required'
+        ]);
+
+        $insurance_request = InsuranceRequest::find($inputs['request_id']);
+
+        if (!$insurance_request){
+            return "The request does not exists";
+        }
+
+
+      if($insurance_request->insurance_requested_company_id != auth()->user()->id){
+          return "Request does not belongs to this company";
+      }
+
+      if ($insurance_request->insurance_request_status != "accepted"){
+          $insurance_request->delete();
+          session()->flash("success","Insurance request deleted successfully");
+          return back();
+      }else{
+          session()->flash("success","Request already accepted, can not delete data");
+          return back();
+      }
+
+
+
+
+    }
+
+//    ------------------------ Delete Request ------------------------
+
 //    ------------------------ View Insurance History - Insurance Requested Company - [Cash Transactions] ------------------------
 
     public function view_insurance_history_cash()

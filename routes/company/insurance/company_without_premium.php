@@ -119,6 +119,12 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
 
         //    ----------------------- Company insurance requests - Insurance Requested Company [ Digital Transaction Requests ] -----------------------
 
+        //    ----------------------- Company insurance requests - Delete Insurance Request -----------------------
+
+        Route::delete('company_insurance_requests_data_delete', [\App\Http\Controllers\Company\Farmer\CompanyCanInsureFarmerController::class, 'view_insurance_history_delete'])->name('company.view_insurance_history_delete');
+
+        //    ----------------------- Company insurance requests - Delete Insurance Request -----------------------
+
         //    ---------------------------------------------------------------------------------------------------------------- Cart Page view - Company without insurance page -----------------------------------------------------------------------------------------------------------------------
 
         Route::get('company_without_insurance_cart/{id}', [\App\Http\Controllers\Company\CartController::class, 'cart'])->name('company_without_insurance_cart');

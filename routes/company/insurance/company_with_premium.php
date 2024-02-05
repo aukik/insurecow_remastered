@@ -82,6 +82,13 @@ Route::middleware(['auth', 'company'])->prefix('company')->group(function () {
 
         //    -------------------------- View Insurance requests from farmers and company [Main] -----------------------------
 
+
+        //    ----------------------- Company insurance requests - Delete Insurance Request -----------------------
+
+        Route::delete('company_insurance_requests_delete', [InsuranceRequest::class, 'view_insurance_history_delete'])->name('company.insurance_history_delete');
+
+        //    ----------------------- Company insurance requests - Delete Insurance Request -----------------------
+
         //    -------------------------- View Insurance requests from farmers and company [Cash] -----------------------------
 
 //        Route::get("company_insurance_requests_cash", [InsuranceRequest::class, 'view_insurance_history_cash'])->name('company_view_insurance_history_cash');
