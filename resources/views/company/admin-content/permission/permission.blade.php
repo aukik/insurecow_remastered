@@ -70,10 +70,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-auto">
-                                                    <label for="exampleFormControlSelect1">Cattle Registration [ Farmer
-                                                        Sided
-                                                        Permission
-                                                        ]</label>
+                                                    <label for="exampleFormControlSelect1">Cattle Registration</label>
                                                 </div>
                                             </div>
 
@@ -89,31 +86,29 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-auto">
-                                                    <label for="exampleFormControlSelect1">Farmer Insurance [ Farmer
-                                                        Sided
-                                                        Permission ]</label>
+                                                    <label for="exampleFormControlSelect1">Farmer Can Insure Animal</label>
                                                 </div>
                                             </div>
 
-                                            <div class="row gx-3 mb-3 align-items-center">
-                                                <div class="col-auto">
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="hidden"
-                                                               name="f_farm_management"
-                                                               value="0">
-                                                        <input class="form-check-input" type="checkbox"
-                                                               id="exampleFormControlSelect1"
-                                                               name="f_farm_management" value="1"
-                                                               @if($permission->f_farm_management == 1) checked @endif>
-                                                    </div>
-                                                </div>
-                                                <div class="col-auto">
-                                                    <label for="exampleFormControlSelect1">Farm Management [ Farmer
-                                                        Sided
-                                                        Permission
-                                                        ]</label>
-                                                </div>
-                                            </div>
+{{--                                            <div class="row gx-3 mb-3 align-items-center">--}}
+{{--                                                <div class="col-auto">--}}
+{{--                                                    <div class="form-check">--}}
+{{--                                                        <input class="form-check-input" type="hidden"--}}
+{{--                                                               name="f_farm_management"--}}
+{{--                                                               value="0">--}}
+{{--                                                        <input class="form-check-input" type="checkbox"--}}
+{{--                                                               id="exampleFormControlSelect1"--}}
+{{--                                                               name="f_farm_management" value="1"--}}
+{{--                                                               @if($permission->f_farm_management == 1) checked @endif>--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="col-auto">--}}
+{{--                                                    <label for="exampleFormControlSelect1">Farm Management [ Farmer--}}
+{{--                                                        Sided--}}
+{{--                                                        Permission--}}
+{{--                                                        ]</label>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
                                         </div>
 
                                         <div class="col-md-7">
