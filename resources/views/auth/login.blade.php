@@ -32,7 +32,7 @@
             <div class="container-fluid">
                 <!--Navbar Logo-->
                 <a href="{{ url('/') }}" class="navbar-brand">
-                    <img src="./images/logo_login.png" alt="Logo"/>
+                    <img src="{{ asset('images/logo_login.png') }}" alt="Logo"/>
                 </a>
 
                 <button
@@ -181,15 +181,23 @@
 
                         @if (Route::has('password.request'))
 
-                            <div class="d-flex justify-content-between mb-5">
+                            <div class="d-flex justify-content-between mb-2">
                                 <a href="{{ route('password.request') }}" class="form-footer-text"
                                 >Forgot password?</a
                                 >
                                 @endif
 
-
                             </div>
                     </form>
+
+                    <div class="d-flex justify-content-between mb-3">
+                        <a href="{{ route('register') }}" class="form-footer-text"
+                        >Register an account</a
+                        >
+
+                    </div>
+
+
                     <hr class="hr-style"/>
                 </div>
             </div>
