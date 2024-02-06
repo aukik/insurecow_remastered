@@ -248,7 +248,7 @@
                             <li class="mb-2">Phone : +880 1755 680 807</li>
                             <li class="mb-2">E-mail : inquiry@insurecow.com</li>
                             <li class="mb-2">
-                                3rd Floor, YB Hassan Uddin Tower GA-25/4, Shahjadpur, PragaC
+                                3rd Floor, YB Hassan Uddin Tower GA-25/4, Shahjadpur, Pragati
                                 Sharani, Gulshan Dhaka- 1212.
                             </li>
                         </ul>
