@@ -14,12 +14,21 @@ class AddBankInfoTableToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
+
             $table->string("ac_info")->nullable();
             $table->string("account")->nullable();
             $table->string("bank_name")->nullable();
             $table->string("branch_name")->nullable();
             $table->string("routing_no")->nullable();
             $table->string("instruction")->nullable();
+            $table->string("company_type")->nullable();
+
+//            $table->dropColumn('ac_info');
+//            $table->dropColumn('account');
+//            $table->dropColumn('bank_name');
+//            $table->dropColumn('branch_name');
+//            $table->dropColumn('routing_no');
+//            $table->dropColumn('instruction');
         });
     }
 
