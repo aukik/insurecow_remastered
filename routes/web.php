@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\Farmer\Authentication\AuthController;
+use App\Http\Controllers\Auth\CompanyRegistrationController;
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\Farmer\CattleRegistrationController;
 use App\Http\Controllers\Farmer\FarmerController;
@@ -20,15 +21,11 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// -------------------------------------------------------------------- Test Phase [ dashboard ] --------------------------------------------------------------------
 
-//Route::middleware('auth')->group(function (){
-//    Route::get('dashboard', function (){
-//        return view("dashboard.view");
-//    })->name('dashboard');
-//});
+Route::get('test_register', function () {
+    return view("auth.register_company");
+});
 
-// -------------------------------------------------------------------- Test Phase [ dashboard ] --------------------------------------------------------------------
 
 // -------------------------------------------------------------------- Logout --------------------------------------------------------------------
 
@@ -45,6 +42,15 @@ Route::middleware('auth')->group(function () {
 
 
 // -------------------------------------------------------------------- Farmer --------------------------------------------------------------------
+
+// -------------------------------------------------------------------- Registering Companies --------------------------------------------------------------------
+
+
+Route::get('register_company', [CompanyRegistrationController::class, 'index'])->name("register_a_company");
+Route::post('register_company', [CompanyRegistrationController::class, 'registration'])->name("register_a_company_post");
+
+
+// -------------------------------------------------------------------- Registering Companies --------------------------------------------------------------------
 
 
 Route::middleware(['auth', 'farmer'])->prefix('farmer')->group(function () {
@@ -197,8 +203,8 @@ Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
 
 // -------------------------------------------------------------------- Farmer Claim Api --------------------------------------------------------------------
 
-Route::middleware('auth')->group(function (){
-    Route::get("claim_test_page", function (){
+Route::middleware('auth')->group(function () {
+    Route::get("claim_test_page", function () {
         return view("farmer.admin-content.claim.index_claim_demo");
     })->name('claim.test');
 });

@@ -127,9 +127,8 @@
                         </div>
 
                         <div class="col-md-6">
-                            <button type="button" class="btn btn-primary">
-                                Click Here
-                            </button>
+
+                            <a href="{{ route('register_a_company') }}" class="btn btn-primary" type="button">Click Here</a>
                         </div>
 
                     </div>
