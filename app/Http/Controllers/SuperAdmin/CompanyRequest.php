@@ -10,7 +10,9 @@ class CompanyRequest extends Controller
 {
     public function index()
     {
-        return view("super-admin.admin-content.company-request.index");
+        $users = User::where('role','c')->get();
+
+        return view("super-admin.admin-content.company-request.index", compact('users'));
     }
 
     public function history()

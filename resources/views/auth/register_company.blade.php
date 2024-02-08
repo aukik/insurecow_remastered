@@ -65,37 +65,47 @@
                                 </div>
                             </div>
 
+{{--                            <div class="row mb-3">--}}
+{{--                                <label for="name" class="col-md-4 col-form-label text-md-end">Organization Type</label>--}}
+
+{{--                                <div class="col-md-6">--}}
+
+{{--                                    <select class="form-select" name="company_type">--}}
+{{--                                        <option disabled selected>Select Company Type</option>--}}
+{{--                                        <option--}}
+{{--                                            value="company" {{ old('company_type') == 'company' ? 'selected' : '' }}>--}}
+{{--                                            Company--}}
+{{--                                        </option>--}}
+{{--                                        <option value="bank" {{ old('company_type') == 'bank' ? 'selected' : '' }}>--}}
+{{--                                            Bank--}}
+{{--                                        </option>--}}
+{{--                                        <option value="ngo" {{ old('company_type') == 'ngo' ? 'selected' : '' }}>NGO--}}
+{{--                                        </option>--}}
+{{--                                        <option value="mfi" {{ old('company_type') == 'mfi' ? 'selected' : '' }}>MFI--}}
+{{--                                        </option>--}}
+{{--                                    </select>--}}
+
+{{--                                    @error('company_type')--}}
+{{--                                    <span class="invalid-feedback" role="alert">--}}
+{{--                                        <strong>{{ $message }}</strong>--}}
+{{--                                    </span>--}}
+{{--                                    @enderror--}}
+{{--                                </div>--}}
+
+{{--                            </div>--}}
+
                             <div class="row mb-3">
                                 <label for="name" class="col-md-4 col-form-label text-md-end">Organization Type</label>
 
                                 <div class="col-md-6">
 
-                                    <select class="form-select" name="company_type">
-                                        <option disabled selected>Select Company Type</option>
-                                        <option value="company">Company</option>
-                                        <option value="bank">Bank</option>
-                                        <option value="ngo">NGO</option>
-                                        <option value="mfi">MFI</option>
-                                    </select>
-
-                                    @error('company_type')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
-
-                            </div>
-
-                            <div class="row mb-3">
-                                <label for="name" class="col-md-4 col-form-label text-md-end">Organization Plan</label>
-
-                                <div class="col-md-6">
-
                                     <select class="form-select" name="company_plan" id="organization">
-                                        <option disabled selected>Select Plan Type</option>
-                                        <option value="plan_1">Plan 1</option>
-                                        <option value="plan_2">Plan 2</option>
+                                        <option disabled selected>Select Organization</option>
+                                        <option value="plan_1" {{ old('company_plan') == 'plan_1' ? 'selected' : '' }}>Agritech Company
+                                        </option>
+                                        <option value="plan_2" {{ old('company_plan') == 'plan_2' ? 'selected' : '' }}>Insurance Company
+                                        </option>
+
                                     </select>
 
                                     @error('company_type')
