@@ -145,6 +145,19 @@ class User extends Authenticatable
         return $date;
     }
 
+    public static function permission_checkup($user)
+    {
+
+        $user_permission = $user->permission;
+
+        if ($user_permission->c_insurance == 0 && $user_permission->c_without_insurance == 0 && $user_permission->c_register_agent == 0 && $user_permission->c_cattle_reg_and_claim == 0) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
 
 //    --------------------- relation between user and permission table ---------------------
 

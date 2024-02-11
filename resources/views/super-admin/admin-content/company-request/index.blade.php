@@ -39,10 +39,10 @@
                                 <table id="datatablesSimple">
                                     <thead>
                                     <tr>
+                                        <td>Serial</td>
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Phone</th>
-                                        <th>Company Name</th>
                                         <th>Applied Date</th>
                                         <th>Status</th>
                                         <th>Actions</th>
@@ -51,38 +51,36 @@
 
                                     <tbody>
 
+                                    <?php $id = 0; ?>
+
                                     @foreach($users as $user)
 
-                                        @if($user->permission->c_insurance == 0 && $user->permission->c_without_insurance == 0)
+                                        @if(\App\Models\User::permission_checkup($user))
 
                                             <tr>
-                                                <td></td>
+                                                <td>{{ $id += 1 }}</td>
                                                 <td>{{ $user->name }}</td>
-                                                <td>Edinburgh</td>
-                                                <td>61</td>
-                                                <td>2011/04/25</td>
+                                                <td>{{ $user->email }}</td>
+                                                <td>{{ $user->phone }}</td>
+                                                <td>{{ $user->created_at->format('d-m-Y') }}</td>
                                                 <td>
                                                     <div class="badge bg-primary text-white rounded-pill">
                                                         Applied
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    {{--                                                <button--}}
-                                                    {{--                                                    class="btn btn-datatable btn-icon btn-transparent-dark me-2"--}}
-                                                    {{--                                                >--}}
-                                                    {{--                                                    <i data-feather="more-vertical"></i>--}}
-                                                    {{--                                                </button>--}}
-                                                    <button
-                                                        class="btn btn-datatable btn-icon btn-transparent-dark"
-                                                    >
-                                                        <i data-feather="trash-2"></i>
-                                                    </button>
+
+                                                    <form action="{{ route('sp_delete_company_request') }}"
+                                                          method="post">
+                                                        {{ csrf_field() }}
+                                                        @method('delete')
+                                                        <input type="hidden" value="{{ $user->id }}" name="user_id">
+                                                        <input type="submit" value="Delete" class="btn btn-danger">
+                                                    </form>
                                                 </td>
                                             </tr>
 
                                         @endif
-
-
 
                                     @endforeach
 

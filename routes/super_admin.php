@@ -99,11 +99,15 @@ Route::middleware(['auth', 'super.admin'])->prefix('superAdmin')->group(function
 
     //    ----------------------  Profile Update - Bank and other information update -----------------------
 
-    //    ----------------------- Update company accounts Information -----------------------
+    //    ----------------------  Delete Company Requests -----------------------
+
+    Route::delete('sp_delete_company_request', [\App\Http\Controllers\SuperAdmin\SuperAdminController::class,'delete_company_request'])->name("sp_delete_company_request");
+
+    //    ----------------------  Delete Company Requests -----------------------
 
 
 
-//    ---------------------------------------------------- Farmer section from super admin ----------------------------------------------------
+
 
 });
 

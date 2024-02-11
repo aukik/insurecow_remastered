@@ -10,4 +10,10 @@ class SuperAdminController extends Controller
     public function profile(){
         return view('super-admin.admin-content.profile.profile');
     }
+
+    public function delete_company_request(Request $request){
+        return $request->all();
+
+
+    }
 }

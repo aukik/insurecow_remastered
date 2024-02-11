@@ -234,7 +234,7 @@
                                                 id="inputLastName"
                                                 type="number"
                                                 placeholder=""
-                                                value="{{ old('weight') }}"
+                                                value=""
                                                 name="weight"
                                         />
 
