@@ -11,9 +11,19 @@ Route::middleware(['auth', 'super.admin'])->prefix('cms')->group(function () {
 
     Route::resource('slider_image', \App\Http\Controllers\Cms\SliderImageController::class);
 
-    //    -----------------------------  Slider Image -----------------------------
+    //    -----------------------------  Slider -----------------------------
+    Route::resource('slider',\App\Http\Controllers\Cms\SliderController::class);
+
+
+
+
+
+
 
 });
+
+
+
 
 
 // -------------------------------------------------------------------- Company --------------------------------------------------------------------

@@ -97,8 +97,8 @@
                 </a>
                 <div class="collapse" id="pagesCollapseSliderImage" data-bs-parent="#accordionSidenavPagesMenu">
                     <nav class="sidenav-menu-nested nav">
-                        <a class="nav-link" href="#">Add Slider Image</a>
-                        <a class="nav-link" href="#">View Image</a>
+                        <a class="nav-link" href="{{route('slider_image.create')}}">Add Slider Image</a>
+                        <a class="nav-link" href="{{route('slider_image.index')}}">View Image</a>
                     </nav>
                 </div>
 
@@ -114,8 +114,8 @@
                 </a>
                 <div class="collapse" id="pagesCollapseAccount" data-bs-parent="#accordionSidenavPagesMenu">
                     <nav class="sidenav-menu-nested nav">
-                        <a class="nav-link" href="#">Add Slider</a>
-                        <a class="nav-link" href="#">View All Slider</a>
+                        <a class="nav-link" href="{{route('slider.create')}}">Add Slider</a>
+                        <a class="nav-link" href="{{route('slider.index')}}">View All Slider</a>
                     </nav>
                 </div>
 

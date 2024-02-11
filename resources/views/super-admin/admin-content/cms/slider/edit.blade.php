@@ -16,7 +16,7 @@
                                 <div class="page-header-icon">
                                     <i data-feather="user"></i>
                                 </div>
-                                Update Slider Image - Super Admin
+                                Update Slider- Super Admin
                             </h1>
                         </div>
                     </div>
@@ -32,7 +32,7 @@
                 <div class="col-xl-12">
                     <!-- Account details card-->
                     <div class="card mb-4">
-                        <div class="card-header">Update Slider Image - Super Admin</div>
+                        <div class="card-header">Update Slider- Super Admin</div>
                         <div class="card-body">
 
 
@@ -42,16 +42,33 @@
                                 </div>
                             @endif
 
-                            <form action="{{route('slider_image.update',$slider_image->id)}}" method="post" enctype="multipart/form-data">
+                            <form action="{{route('slider.update',$slider->id)}}" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 @method('put')
 
                                 <div class="row">
+
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Enter title</label>
                                             <input type="text" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                                   placeholder="" name="title" value="{{$slider_image->title}}"
+                                                   placeholder="" name="title" value="{{$slider->title}}"
+                                                   class="form-control @error('title') is-invalid @enderror">
+
+                                            @error('title')
+                                            <div class="alert alert-danger"
+                                                 style="margin-top: 10px">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Enter description</label>
+                                            <input type="text" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                                   placeholder="" name="description" value="{{$slider->description}}"
                                                    class="form-control @error('title') is-invalid @enderror">
 
                                             @error('title')
