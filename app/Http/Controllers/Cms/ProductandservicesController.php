@@ -3,24 +3,16 @@
 namespace App\Http\Controllers\Cms;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cms\ProductandService;
 use Illuminate\Http\Request;
-use App\Models\Cms\Slider;
 
-class SliderController extends Controller
+class ProductandservicesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        $sliders = Slider::all();
-        return view("super-admin.admin-content.cms.slider.view", compact('sliders'));
+        $productandservices = ProductAndService::all();
+        return view("super-admin.admin-content.cms.productandservices.view", compact('productandservices'));
     }
-
-
-
 
     /**
      * Show the form for creating a new resource.
@@ -29,7 +21,7 @@ class SliderController extends Controller
      */
     public function create()
     {
-        return view("super-admin.admin-content.cms.slider.create");
+        return view("super-admin.admin-content.cms.productandservices.create");
     }
 
     /**
@@ -51,8 +43,8 @@ class SliderController extends Controller
             $inputs['image'] = request('image')->store('cms');
         }
 
-        Slider::create($inputs);
-        session()->flash("success", "Slider added successfully");
+        ProductAndService::create($inputs);
+        session()->flash("success", "Provide And Services added successfully");
         return back();
     }
 
@@ -64,8 +56,7 @@ class SliderController extends Controller
      */
     public function show($id)
     {
-//        global $id;
-
+        //
     }
 
     /**
@@ -76,20 +67,21 @@ class SliderController extends Controller
      */
     public function edit($id)
     {
-        $slider = Slider::find($id);
-        return view("super-admin.admin-content.cms.slider.edit", compact('slider'));
+        $productandservices = ProductAndService::find($id);
+        return view("super-admin.admin-content.cms.productandservices.edit", compact('productandservices'));
     }
 
     /**
      * Update the specified resource in storage.
-     *s
+     *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $slider = Slider::find($id);
+
+        $ProductAndService= ProductAndService::find($id);
 
         $inputs = request()->validate([
             'title' => 'required',
@@ -101,12 +93,13 @@ class SliderController extends Controller
         if (request('image')) {
             $inputs['image'] = request('image')->store('photos');
         } else {
-            $inputs['image'] = $slider->image;
+            $inputs['image'] = $ProductAndService->image;
         }
 
-        $slider->update($inputs);
-        session()->flash("success", "Slider Updated Successfully");
+        $ProductAndService->update($inputs);
+        session()->flash("success", "ProductAndService Updated Successfully");
         return back();
+
     }
 
     /**
@@ -117,9 +110,9 @@ class SliderController extends Controller
      */
     public function destroy($id)
     {
-        $slider = Slider::find($id);
+        $about =ProductAndService::find($id);
 
-        $slider->delete();
+        $about->delete();
 
         return back();
     }

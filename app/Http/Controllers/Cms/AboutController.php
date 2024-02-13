@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Cms;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Cms\Slider;
+use App\Models\Cms\About;
 
-class SliderController extends Controller
+class AboutController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,12 +15,9 @@ class SliderController extends Controller
      */
     public function index()
     {
-        $sliders = Slider::all();
-        return view("super-admin.admin-content.cms.slider.view", compact('sliders'));
+        $abouts = About::all();
+        return view("super-admin.admin-content.cms.about.view", compact('abouts'));
     }
-
-
-
 
     /**
      * Show the form for creating a new resource.
@@ -29,7 +26,7 @@ class SliderController extends Controller
      */
     public function create()
     {
-        return view("super-admin.admin-content.cms.slider.create");
+        return view("super-admin.admin-content.cms.about.create");
     }
 
     /**
@@ -51,8 +48,8 @@ class SliderController extends Controller
             $inputs['image'] = request('image')->store('cms');
         }
 
-        Slider::create($inputs);
-        session()->flash("success", "Slider added successfully");
+        About::create($inputs);
+        session()->flash("success", "About added successfully");
         return back();
     }
 
@@ -64,8 +61,7 @@ class SliderController extends Controller
      */
     public function show($id)
     {
-//        global $id;
-
+        //
     }
 
     /**
@@ -76,20 +72,21 @@ class SliderController extends Controller
      */
     public function edit($id)
     {
-        $slider = Slider::find($id);
-        return view("super-admin.admin-content.cms.slider.edit", compact('slider'));
+        $about = About::find($id);
+        return view("super-admin.admin-content.cms.about.edit", compact('about'));
     }
 
     /**
      * Update the specified resource in storage.
-     *s
+     *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $slider = Slider::find($id);
+
+        $about = About::find($id);
 
         $inputs = request()->validate([
             'title' => 'required',
@@ -101,11 +98,11 @@ class SliderController extends Controller
         if (request('image')) {
             $inputs['image'] = request('image')->store('photos');
         } else {
-            $inputs['image'] = $slider->image;
+            $inputs['image'] = $about->image;
         }
 
-        $slider->update($inputs);
-        session()->flash("success", "Slider Updated Successfully");
+        $about->update($inputs);
+        session()->flash("success", "About Updated Successfully");
         return back();
     }
 
@@ -117,10 +114,11 @@ class SliderController extends Controller
      */
     public function destroy($id)
     {
-        $slider = Slider::find($id);
+        $about = About::find($id);
 
-        $slider->delete();
+        $about->delete();
 
         return back();
+
     }
 }

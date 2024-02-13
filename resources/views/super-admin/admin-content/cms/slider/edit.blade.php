@@ -78,11 +78,12 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-6">
+
+                                    <div class="col-md-6" style="margin-top: 20px">
                                         <div class="form-group">
                                             <label for="image">Image</label>
                                             <input type="file" id="formFile" name="image"
-                                                   class="form-control-file @error('image') is-invalid @enderror">
+                                                   class="form-control @error('image') is-invalid @enderror">
 
                                             @error('image')
                                             <div class="alert alert-danger"
@@ -92,8 +93,9 @@
                                     </div>
 
                                     <!-- Add other fields similarly -->
-                                    <div class="col-md-12">
-                                        <input type="submit" value="Add Course" class="btn btn-success">
+
+                                    <div class="col-md-12" style="margin-top: 20px"  >
+                                        <input type="submit" value="Update Slider" class="btn btn-success">
                                     </div>
 
                                     <br><br><br>

@@ -131,8 +131,8 @@
                 </a>
                 <div class="collapse" id="pagesCollapseAbout" data-bs-parent="#accordionSidenavPagesMenu">
                     <nav class="sidenav-menu-nested nav">
-                        <a class="nav-link" href="#">Add Info</a>
-                        <a class="nav-link" href="#">View All info</a>
+                        <a class="nav-link" href="{{route('about.create')}}">Add About</a>
+                        <a class="nav-link" href="{{route('about.index')}}">View All About</a>
                     </nav>
                 </div>
 
@@ -148,8 +148,8 @@
                 </a>
                 <div class="collapse" id="pagesCollapsePos" data-bs-parent="#accordionSidenavPagesMenu">
                     <nav class="sidenav-menu-nested nav">
-                        <a class="nav-link" href="#">Add Info</a>
-                        <a class="nav-link" href="#">View All info</a>
+                        <a class="nav-link" href="{{route('productandservices.create')}}">Add Product&services</a>
+                        <a class="nav-link" href="{{route('productandservices.index')}}">View All Product&services</a>
                     </nav>
                 </div>
 
