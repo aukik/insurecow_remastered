@@ -26,7 +26,7 @@
                                 <div class="page-header-icon">
                                     <i data-feather="user"></i>
                                 </div>
-                                View About- Super Admin
+                                View partner- Super Admin
                             </h1>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                 <div class="col-xl-12">
                     <!-- Account details card-->
                     <div class="card mb-4">
-                        <div class="card-header">View About- Super Admin</div>
+                        <div class="card-header">View Partner- Super Admin</div>
                         <div class="card-body">
 
 
@@ -70,17 +70,17 @@
                                 <tbody>
 
                                 <?php $id = 0 ?>
-                                        @foreach($abouts as $about)
+                                        @foreach($partners as $partner)
                                             <tr>
                                                 <td>{{ $id += 1 }}</td>
-                                                <td>{!!$about->title !!}</td>
-                                                <td>{!!$about->description !!}</td>
-                                                <td><img src="{{ asset('storage/'.$about->image) }}" alt="" style="width: 100px"></td>
+                                                <td>{!!$partner->title !!}</td>
+                                                <td>{!!$partner->description !!}</td>
+                                                <td><img src="{{ asset('storage/'.$partner->image) }}" alt="" style="width: 100px"></td>
 
 
-                                                <td><a href="{{ route('about.edit',$about->id) }}" class="btn btn-info">Update</a></td>
+                                                <td><a href="{{ route('partner.edit',$partner->id) }}" class="btn btn-info">Update</a></td>
                                                 <td>
-                                                    <form action="{{ route('about.destroy',$about->id) }}" method="post">
+                                                    <form action="{{ route('partner.destroy',$partner->id) }}" method="Post">
                                                         {{ csrf_field() }}
                                                         @method('delete')
                                                         <input type="submit" value="Delete" class="btn btn-danger">

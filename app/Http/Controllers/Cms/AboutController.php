@@ -103,7 +103,7 @@ class AboutController extends Controller
 
         $about->update($inputs);
         session()->flash("success", "About Updated Successfully");
-        return back();
+        return redirect()->route('about.index');
     }
 
     /**

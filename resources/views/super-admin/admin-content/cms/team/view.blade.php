@@ -26,7 +26,7 @@
                                 <div class="page-header-icon">
                                     <i data-feather="user"></i>
                                 </div>
-                                View About- Super Admin
+                                View Slider- Super Admin
                             </h1>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                 <div class="col-xl-12">
                     <!-- Account details card-->
                     <div class="card mb-4">
-                        <div class="card-header">View About- Super Admin</div>
+                        <div class="card-header">View Slider- Super Admin</div>
                         <div class="card-body">
 
 
@@ -70,17 +70,17 @@
                                 <tbody>
 
                                 <?php $id = 0 ?>
-                                        @foreach($abouts as $about)
+                                        @foreach($teams as $team)
                                             <tr>
                                                 <td>{{ $id += 1 }}</td>
-                                                <td>{!!$about->title !!}</td>
-                                                <td>{!!$about->description !!}</td>
-                                                <td><img src="{{ asset('storage/'.$about->image) }}" alt="" style="width: 100px"></td>
+                                                <td>{!!$team->title !!}</td>
+                                                <td>{!!$team->description !!}</td>
+                                                <td><img src="{{ asset('storage/'.$team->image) }}" alt="" style="width: 100px"></td>
 
 
-                                                <td><a href="{{ route('about.edit',$about->id) }}" class="btn btn-info">Update</a></td>
+                                                <td><a href="{{ route('team.edit',$team->id) }}" class="btn btn-info">Update</a></td>
                                                 <td>
-                                                    <form action="{{ route('about.destroy',$about->id) }}" method="post">
+                                                    <form action="{{ route('team.destroy',$team->id) }}" method="post">
                                                         {{ csrf_field() }}
                                                         @method('delete')
                                                         <input type="submit" value="Delete" class="btn btn-danger">

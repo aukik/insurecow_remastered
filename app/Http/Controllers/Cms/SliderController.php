@@ -106,7 +106,7 @@ class SliderController extends Controller
 
         $slider->update($inputs);
         session()->flash("success", "Slider Updated Successfully");
-        return back();
+        return redirect()->route('slider.index');
     }
 
     /**

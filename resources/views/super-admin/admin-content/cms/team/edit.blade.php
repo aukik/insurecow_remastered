@@ -16,7 +16,7 @@
                                 <div class="page-header-icon">
                                     <i data-feather="user"></i>
                                 </div>
-                                Update About- Super Admin
+                                Update Team- Super Admin
                             </h1>
                         </div>
                     </div>
@@ -32,7 +32,7 @@
                 <div class="col-xl-12">
                     <!-- Account details card-->
                     <div class="card mb-4">
-                        <div class="card-header">Update About- Super Admin</div>
+                        <div class="card-header">Update Team- Super Admin</div>
                         <div class="card-body">
 
 
@@ -42,7 +42,7 @@
                                 </div>
                             @endif
 
-                            <form action="{{route('about.update',$about->id)}}" method="post" enctype="multipart/form-data">
+                            <form action="{{route('team.update',$team->id)}}" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 @method('put')
 
@@ -52,7 +52,7 @@
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Enter title</label>
                                             <input type="text" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                                   placeholder="" name="title" value="{{$about->title}}"
+                                                   placeholder="" name="title" value="{{$team->title}}"
                                                    class="form-control @error('title') is-invalid @enderror">
 
                                             @error('title')
@@ -61,10 +61,6 @@
                                             @enderror
                                         </div>
                                     </div>
-
-
-
-
 
                                     <div class="col-md-6" >
                                         <div class="form-group">
@@ -79,14 +75,12 @@
                                         </div>
                                     </div>
 
-
-
                                     <div class="col-md-6" style="margin-top: 20px"  >
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Enter description</label>
                                             <textarea type="text" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                                      placeholder="" name="description"
-                                                      class="form-control @error('title') is-invalid @enderror">{{$about->description}}</textarea>
+                                                   placeholder="" name="description"
+                                                      class="form-control @error('title') is-invalid @enderror">{{$team->description}}</textarea>
 
                                             @error('title')
                                             <div class="alert alert-danger"
@@ -95,9 +89,11 @@
                                         </div>
                                     </div>
 
+
+
                                     <!-- Add other fields similarly -->
-                                    <div class="col-md-12" style="margin-top: 15px">
-                                        <input type="submit" value="Update About" class="btn btn-success">
+                                    <div class="col-md-12" style="margin-top: 20px" >
+                                        <input type="submit" value="Update Team" class="btn btn-success">
                                     </div>
 
                                     <br><br><br>

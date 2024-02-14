@@ -165,8 +165,8 @@
                 </a>
                 <div class="collapse" id="pagesCollapseTeam" data-bs-parent="#accordionSidenavPagesMenu">
                     <nav class="sidenav-menu-nested nav">
-                        <a class="nav-link" href="#">Add Info</a>
-                        <a class="nav-link" href="#">View All info</a>
+                        <a class="nav-link" href="{{route('team.create')}}">Add Team Info</a>
+                        <a class="nav-link" href="{{route('team.index')}}">View Team Info</a>
                     </nav>
                 </div>
 
@@ -182,8 +182,8 @@
                 </a>
                 <div class="collapse" id="pagesCollapseAchievement" data-bs-parent="#accordionSidenavPagesMenu">
                     <nav class="sidenav-menu-nested nav">
-                        <a class="nav-link" href="#">Add Info</a>
-                        <a class="nav-link" href="#">View All info</a>
+                        <a class="nav-link" href="{{route('achievement.create')}}">Add Achievement</a>
+                        <a class="nav-link" href="{{route('achievement.index')}}">View Achievement info</a>
                     </nav>
                 </div>
 
@@ -199,8 +199,8 @@
                 </a>
                 <div class="collapse" id="pagesCollapsePost" data-bs-parent="#accordionSidenavPagesMenu">
                     <nav class="sidenav-menu-nested nav">
-                        <a class="nav-link" href="#">Add Info</a>
-                        <a class="nav-link" href="#">View All info</a>
+                        <a class="nav-link" href="{{route('post.create')}}">Add Post</a>
+                        <a class="nav-link" href="{{route('post.index')}}">View Post info</a>
                     </nav>
                 </div>
 
@@ -216,8 +216,8 @@
                 </a>
                 <div class="collapse" id="pagesCollapsePartner" data-bs-parent="#accordionSidenavPagesMenu">
                     <nav class="sidenav-menu-nested nav">
-                        <a class="nav-link" href="#">Add Info</a>
-                        <a class="nav-link" href="#">View All info</a>
+                        <a class="nav-link" href="{{route('partner.create')}}">Add Partner</a>
+                        <a class="nav-link" href="{{route('partner.index')}}">View Partner info</a>
                     </nav>
                 </div>
 

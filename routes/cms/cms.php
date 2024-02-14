@@ -24,6 +24,24 @@ Route::middleware(['auth', 'super.admin'])->prefix('cms')->group(function () {
 
     Route::resource('productandservices',\App\Http\Controllers\Cms\ProductandservicesController::class);
 
+    //    -----------------------------  Team -----------------------------
+
+    Route::resource('team',\App\Http\Controllers\Cms\TeamController::class);
+
+    //    -----------------------------  Achievement -----------------------------
+
+    Route::resource('achievement',\App\Http\Controllers\Cms\AchievementController::class);
+
+    //    -----------------------------  Posts -----------------------------
+
+    Route::resource('post',\App\Http\Controllers\Cms\PostController::class);
+
+    //    -----------------------------  Partners -----------------------------
+
+    Route::resource('partner',\App\Http\Controllers\Cms\PartnerController::class);
+
+
+
 
 });
 

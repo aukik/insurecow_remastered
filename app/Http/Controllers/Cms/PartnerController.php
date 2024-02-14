@@ -3,15 +3,22 @@
 namespace App\Http\Controllers\Cms;
 
 use App\Http\Controllers\Controller;
-use App\Models\Cms\ProductandService;
 use Illuminate\Http\Request;
+use App\Models\Cms\Partner;
 
-class ProductandservicesController extends Controller
+class PartnerController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $productandservices = ProductAndService::all();
-        return view("super-admin.admin-content.cms.productandservices.view", compact('productandservices'));
+
+        $partners =Partner::all();
+        return view("super-admin.admin-content.cms.partner.view", compact('partners'));
+
     }
 
     /**
@@ -21,7 +28,11 @@ class ProductandservicesController extends Controller
      */
     public function create()
     {
-        return view("super-admin.admin-content.cms.productandservices.create");
+
+        return view("super-admin.admin-content.cms.partner.create");
+
+
+
     }
 
     /**
@@ -43,9 +54,9 @@ class ProductandservicesController extends Controller
             $inputs['image'] = request('image')->store('cms');
         }
 
-        ProductAndService::create($inputs);
-        session()->flash("success", "Provide And Services added successfully");
-        return back();
+        Partner::create($inputs);
+        session()->flash("success", "Partner added successfully");
+        return redirect()->route('partner.index');
     }
 
     /**
@@ -67,8 +78,11 @@ class ProductandservicesController extends Controller
      */
     public function edit($id)
     {
-        $productandservices = ProductAndService::find($id);
-        return view("super-admin.admin-content.cms.productandservices.edit", compact('productandservices'));
+
+        $partner = Partner::find($id);
+        return view("super-admin.admin-content.cms.partner.edit", compact('partner'));
+
+
     }
 
     /**
@@ -81,7 +95,8 @@ class ProductandservicesController extends Controller
     public function update(Request $request, $id)
     {
 
-        $ProductAndService= ProductAndService::find($id);
+
+        $partner =Partner::find($id);
 
         $inputs = request()->validate([
             'title' => 'required',
@@ -93,12 +108,16 @@ class ProductandservicesController extends Controller
         if (request('image')) {
             $inputs['image'] = request('image')->store('photos');
         } else {
-            $inputs['image'] = $ProductAndService->image;
+            $inputs['image'] = $partner->image;
         }
 
-        $ProductAndService->update($inputs);
-        session()->flash("success", "ProductAndService Updated Successfully");
-        return redirect()->route('productandservices.index');
+        $partner->update($inputs);
+        session()->flash("success", "Partner Updated Successfully");
+        return redirect()->route('partner.index');
+
+
+
+
 
     }
 
@@ -110,10 +129,11 @@ class ProductandservicesController extends Controller
      */
     public function destroy($id)
     {
-        $about =ProductAndService::find($id);
+        $partner =Partner::find($id);
 
-        $about->delete();
+        $partner->delete();
 
         return back();
+
     }
 }

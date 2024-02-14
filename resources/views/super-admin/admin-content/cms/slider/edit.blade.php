@@ -64,14 +64,16 @@
 
 
 
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="exampleInputEmail1">Enter description</label>
-                                            <input type="text" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                                   placeholder="" name="description" value="{{$slider->description}}"
-                                                   class="form-control @error('title') is-invalid @enderror">
 
-                                            @error('title')
+
+
+                                    <div class="col-md-6" >
+                                        <div class="form-group">
+                                            <label for="image">Image</label>
+                                            <input type="file" id="formFile" name="image"
+                                                   class="form-control @error('image') is-invalid @enderror">
+
+                                            @error('image')
                                             <div class="alert alert-danger"
                                                  style="margin-top: 10px">{{ $message }}</div>
                                             @enderror
@@ -79,13 +81,15 @@
                                     </div>
 
 
-                                    <div class="col-md-6" style="margin-top: 20px">
-                                        <div class="form-group">
-                                            <label for="image">Image</label>
-                                            <input type="file" id="formFile" name="image"
-                                                   class="form-control @error('image') is-invalid @enderror">
 
-                                            @error('image')
+                                    <div class="col-md-6"  style="margin-top: 20px">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Enter description</label>
+                                            <textarea type="text" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                                      placeholder="" name="description"
+                                                      class="form-control @error('title') is-invalid @enderror"> {{$slider->description}}</textarea>
+
+                                            @error('title')
                                             <div class="alert alert-danger"
                                                  style="margin-top: 10px">{{ $message }}</div>
                                             @enderror
