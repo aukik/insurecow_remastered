@@ -40,7 +40,8 @@
 
                             @if(session('permission'))
                                 <div class="alert alert-success" role="alert">
-                                    {{ session('permission') }}
+                                    Permission Updated, <a href="{{ route('sp.user_history') }}">click here</a> to view enlisted users or <a
+                                        href="{{ route('sp.company_request') }}">click here</a> to view pending requests from company.
                                 </div>
                             @endif
 
