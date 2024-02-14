@@ -97,8 +97,10 @@
                 </a>
                 <div class="collapse" id="pagesCollapseSliderImage" data-bs-parent="#accordionSidenavPagesMenu">
                     <nav class="sidenav-menu-nested nav">
-                        <a class="nav-link" href="{{ route('slider_image.create') }}">Add Slider Image</a>
-                        <a class="nav-link" href="{{ route('slider_image.index') }}">View Image</a>
+
+                        <a class="nav-link" href="{{route('slider_image.create')}}">Add Slider Image</a>
+                        <a class="nav-link" href="{{route('slider_image.index')}}">View Image</a>
+
                     </nav>
                 </div>
 
@@ -114,8 +116,8 @@
                 </a>
                 <div class="collapse" id="pagesCollapseAccount" data-bs-parent="#accordionSidenavPagesMenu">
                     <nav class="sidenav-menu-nested nav">
-                        <a class="nav-link" href="#">Add Slider</a>
-                        <a class="nav-link" href="#">View All Slider</a>
+                        <a class="nav-link" href="{{route('slider.create')}}">Add Slider</a>
+                        <a class="nav-link" href="{{route('slider.index')}}">View All Slider</a>
                     </nav>
                 </div>
 
@@ -131,8 +133,8 @@
                 </a>
                 <div class="collapse" id="pagesCollapseAbout" data-bs-parent="#accordionSidenavPagesMenu">
                     <nav class="sidenav-menu-nested nav">
-                        <a class="nav-link" href="#">Add Info</a>
-                        <a class="nav-link" href="#">View All info</a>
+                        <a class="nav-link" href="{{route('about.create')}}">Add About</a>
+                        <a class="nav-link" href="{{route('about.index')}}">View All About</a>
                     </nav>
                 </div>
 
@@ -148,8 +150,8 @@
                 </a>
                 <div class="collapse" id="pagesCollapsePos" data-bs-parent="#accordionSidenavPagesMenu">
                     <nav class="sidenav-menu-nested nav">
-                        <a class="nav-link" href="#">Add Info</a>
-                        <a class="nav-link" href="#">View All info</a>
+                        <a class="nav-link" href="{{route('productandservices.create')}}">Add Product&services</a>
+                        <a class="nav-link" href="{{route('productandservices.index')}}">View All Product&services</a>
                     </nav>
                 </div>
 
@@ -165,8 +167,8 @@
                 </a>
                 <div class="collapse" id="pagesCollapseTeam" data-bs-parent="#accordionSidenavPagesMenu">
                     <nav class="sidenav-menu-nested nav">
-                        <a class="nav-link" href="#">Add Info</a>
-                        <a class="nav-link" href="#">View All info</a>
+                        <a class="nav-link" href="{{route('team.create')}}">Add Team Info</a>
+                        <a class="nav-link" href="{{route('team.index')}}">View Team Info</a>
                     </nav>
                 </div>
 
@@ -182,8 +184,8 @@
                 </a>
                 <div class="collapse" id="pagesCollapseAchievement" data-bs-parent="#accordionSidenavPagesMenu">
                     <nav class="sidenav-menu-nested nav">
-                        <a class="nav-link" href="#">Add Info</a>
-                        <a class="nav-link" href="#">View All info</a>
+                        <a class="nav-link" href="{{route('achievement.create')}}">Add Achievement</a>
+                        <a class="nav-link" href="{{route('achievement.index')}}">View Achievement info</a>
                     </nav>
                 </div>
 
@@ -199,8 +201,8 @@
                 </a>
                 <div class="collapse" id="pagesCollapsePost" data-bs-parent="#accordionSidenavPagesMenu">
                     <nav class="sidenav-menu-nested nav">
-                        <a class="nav-link" href="#">Add Info</a>
-                        <a class="nav-link" href="#">View All info</a>
+                        <a class="nav-link" href="{{route('post.create')}}">Add Post</a>
+                        <a class="nav-link" href="{{route('post.index')}}">View Post info</a>
                     </nav>
                 </div>
 
@@ -216,8 +218,8 @@
                 </a>
                 <div class="collapse" id="pagesCollapsePartner" data-bs-parent="#accordionSidenavPagesMenu">
                     <nav class="sidenav-menu-nested nav">
-                        <a class="nav-link" href="#">Add Info</a>
-                        <a class="nav-link" href="#">View All info</a>
+                        <a class="nav-link" href="{{route('partner.create')}}">Add Partner</a>
+                        <a class="nav-link" href="{{route('partner.index')}}">View Partner info</a>
                     </nav>
                 </div>
 

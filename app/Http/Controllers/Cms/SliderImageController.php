@@ -15,8 +15,8 @@ class SliderImageController extends Controller
      */
     public function index()
     {
-        $sliderImage = SliderImage::all();
-        return view("super-admin.admin-content.cms.slider-image.view", compact('sliderImage'));
+        $sliderImages = SliderImage::all();
+        return view("super-admin.admin-content.cms.slider-image.view", compact('sliderImages'));
     }
 
     /**
@@ -72,7 +72,9 @@ class SliderImageController extends Controller
      */
     public function edit($id)
     {
-        return view("super-admin.admin-content.cms.slider-image.edit", compact('id'));
+
+       $slider_image= SliderImage::find($id);
+        return view("super-admin.admin-content.cms.slider-image.edit", compact('slider_image'));
     }
 
     /**
@@ -89,7 +91,7 @@ class SliderImageController extends Controller
 
         $inputs = request()->validate([
             'title' => 'required',
-            'image' => 'required|mimes:jpeg,jpg,png,gif',
+            'image' => 'mimes:jpeg,jpg,png,gif',
 
         ]);
 
@@ -100,7 +102,7 @@ class SliderImageController extends Controller
         }
 
         $slider_img->update($inputs);
-        session()->flash("success", "Course Updated Successfully");
+        session()->flash("success", "slider-image Updated Successfully");
         return back();
 
 

@@ -16,7 +16,7 @@
                                 <div class="page-header-icon">
                                     <i data-feather="user"></i>
                                 </div>
-                                Update Slider Image - Super Admin
+                                Update Slider- Super Admin
                             </h1>
                         </div>
                     </div>
@@ -32,7 +32,7 @@
                 <div class="col-xl-12">
                     <!-- Account details card-->
                     <div class="card mb-4">
-                        <div class="card-header">Update Slider Image - Super Admin</div>
+                        <div class="card-header">Update Slider- Super Admin</div>
                         <div class="card-body">
 
 
@@ -42,16 +42,17 @@
                                 </div>
                             @endif
 
-                            <form action="{{route('slider_image.update',$slider_image->id)}}" method="post" enctype="multipart/form-data">
+                            <form action="{{route('slider.update',$slider->id)}}" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 @method('put')
 
                                 <div class="row">
+
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Enter title</label>
                                             <input type="text" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                                   placeholder="" name="title" value="{{$slider_image->title}}"
+                                                   placeholder="" name="title" value="{{$slider->title}}"
                                                    class="form-control @error('title') is-invalid @enderror">
 
                                             @error('title')
@@ -62,7 +63,11 @@
                                     </div>
 
 
-                                    <div class="col-md-6">
+
+
+
+
+                                    <div class="col-md-6" >
                                         <div class="form-group">
                                             <label for="image">Image</label>
                                             <input type="file" id="formFile" name="image"
@@ -75,9 +80,26 @@
                                         </div>
                                     </div>
 
+
+
+                                    <div class="col-md-6"  style="margin-top: 20px">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">Enter description</label>
+                                            <textarea type="text" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                                      placeholder="" name="description"
+                                                      class="form-control @error('title') is-invalid @enderror"> {{$slider->description}}</textarea>
+
+                                            @error('title')
+                                            <div class="alert alert-danger"
+                                                 style="margin-top: 10px">{{ $message }}</div>
+                                            @enderror
+                                        </div>
+                                    </div>
+
                                     <!-- Add other fields similarly -->
-                                    <div class="col-md-12" style="margin-top: 20px">
-                                        <input type="submit" value="Update Slider Image" class="btn btn-success">
+
+                                    <div class="col-md-12" style="margin-top: 20px"  >
+                                        <input type="submit" value="Update Slider" class="btn btn-success">
                                     </div>
 
                                     <br><br><br>

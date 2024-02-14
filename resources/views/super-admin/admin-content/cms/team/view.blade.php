@@ -26,7 +26,7 @@
                                 <div class="page-header-icon">
                                     <i data-feather="user"></i>
                                 </div>
-                                View Slider Image - Super Admin
+                                View Slider- Super Admin
                             </h1>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                 <div class="col-xl-12">
                     <!-- Account details card-->
                     <div class="card mb-4">
-                        <div class="card-header">View Slider Image - Super Admin</div>
+                        <div class="card-header">View Slider- Super Admin</div>
                         <div class="card-body">
 
 
@@ -58,6 +58,7 @@
                                 <tr>
                                     <th>Serial</th>
                                     <th>Title</th>
+                                    <th>Description</th>
 
                                     <th>Image</th>
 
@@ -69,17 +70,17 @@
                                 <tbody>
 
                                 <?php $id = 0 ?>
-                                        @foreach($sliderImages as $sliderImage)
+                                        @foreach($teams as $team)
                                             <tr>
                                                 <td>{{ $id += 1 }}</td>
-                                                <td>{!! $sliderImage->title !!}</td>
+                                                <td>{!!$team->title !!}</td>
+                                                <td>{!!$team->description !!}</td>
+                                                <td><img src="{{ asset('storage/'.$team->image) }}" alt="" style="width: 100px"></td>
 
-                                                <td><img src="{{ asset('storage/'.$sliderImage->image) }}" alt="" style="width: 100px"></td>
 
-
-                                                <td><a href="{{ route('slider_image.edit',$sliderImage->id) }}" class="btn btn-info">Update</a></td>
+                                                <td><a href="{{ route('team.edit',$team->id) }}" class="btn btn-info">Update</a></td>
                                                 <td>
-                                                    <form action="{{ route('slider_image.destroy',$sliderImage->id) }}" method="post">
+                                                    <form action="{{ route('team.destroy',$team->id) }}" method="post">
                                                         {{ csrf_field() }}
                                                         @method('delete')
                                                         <input type="submit" value="Delete" class="btn btn-danger">
