@@ -380,8 +380,8 @@
             responsive: true,
 
             columnDefs: [
-                { targets: 0, orderable: true }, // Enable sorting for the first column
-                { targets: '_all', orderable: false } // Disable sorting for all other columns
+                {targets: 0, orderable: true}, // Enable sorting for the first column
+                {targets: '_all', orderable: false} // Disable sorting for all other columns
             ],
             order: [[0, 'asc']] // Sort by the first column in ascending order by default
 
@@ -409,8 +409,8 @@
 {{-------------------------------- hiding tinymce domain notification ----------------------------- --}}
 
 
-<script
-    src="https://cdn.tiny.cloud/1/qagffr3pkuv17a8on1afax661irst1hbr4e6tbv888sz91jc/tinymce/5/tinymce.min.js"></script>
+<script src="https://cdn.tiny.cloud/1/gp58iue7sn0d5mhor4i62o7gx70guklh1a40xox5v0rnn81t/tinymce/6/tinymce.min.js"
+        referrerpolicy="origin"></script>
 
 <script>
     tinymce.init({
