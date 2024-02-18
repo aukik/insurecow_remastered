@@ -627,7 +627,8 @@
 
 <!-- Start Testimonials
 ============================================= -->
-<div class="testimonials-area default-padding bg-gray" style="background-image: url(assets/img/shape/23.png);">
+<div class="testimonials-area default-padding bg-gray"
+     style="background-image: url({{ asset('assets/img/shape/23.png') }});">
     <div class="container">
         <div class="row align-center">
             <div class="col-lg-5">
@@ -744,7 +745,7 @@
                         <!-- Single Item -->
                         <div class="swiper-slide">
                             <div class="gallery-style-one">
-                                <img src="assets/img/gallery/2.jpg" alt="Thumb">
+                                <img src="{{ asset('assets/img/gallery/2.jpg') }}" alt="Thumb">
                                 <div class="overlay">
                                     <span>Fruit</span>
                                     <h4><a href="project-details.html">Healthy Food</a></h4>
@@ -755,7 +756,7 @@
                         <!-- Single Item -->
                         <div class="swiper-slide">
                             <div class="gallery-style-one">
-                                <img src="assets/img/gallery/7.jpg" alt="Thumb">
+                                <img src="{{ asset('assets/img/gallery/7.jpg') }}" alt="Thumb">
                                 <div class="overlay">
                                     <span>Organic</span>
                                     <h4><a href="project-details.html">Cow Milk</a></h4>
@@ -766,7 +767,7 @@
                         <!-- Single Item -->
                         <div class="swiper-slide">
                             <div class="gallery-style-one">
-                                <img src="assets/img/gallery/3.jpg" alt="Thumb">
+                                <img src="{{ asset('assets/img/gallery/3.jpg') }}" alt="Thumb">
                                 <div class="overlay">
                                     <span>Vegetables</span>
                                     <h4><a href="project-details.html">Organic Vegetables</a></h4>
@@ -777,7 +778,7 @@
                         <!-- Single Item -->
                         <div class="swiper-slide">
                             <div class="gallery-style-one">
-                                <img src="assets/img/gallery/5.jpg" alt="Thumb">
+                                <img src="{{ asset('assets/img/gallery/5.jpg') }}" alt="Thumb">
                                 <div class="overlay">
                                     <span>Cereals</span>
                                     <h4><a href="project-details.html">Fresh Mandrains</a></h4>
@@ -789,7 +790,7 @@
                         <!-- Single Item -->
                         <div class="swiper-slide">
                             <div class="gallery-style-one">
-                                <img src="assets/img/gallery/10.jpg" alt="Thumb">
+                                <img src="{{ asset('assets/img/gallery/10.jpg') }}" alt="Thumb">
                                 <div class="overlay">
                                     <span>Havest</span>
                                     <h4><a href="project-details.html">Crispy Cucumber</a></h4>
@@ -813,12 +814,12 @@
 ============================================= -->
 <div class="fun-facts-area default-padding">
     <div class="shape-left">
-        <img src="assets/img/shape/27.png" alt="Image Not Found">
+        <img src="{{ asset('assets/img/shape/27.png') }}" alt="Image Not Found">
     </div>
     <div class="container">
         <div class="item-inner">
             <div class="shape-right">
-                <img src="assets/img/shape/26.png" alt="Image Not Found">
+                <img src="{{ asset('assets/img/shape/26.png') }}" alt="Image Not Found">
             </div>
             <div class="row">
                 <div class="col-lg-4 fun-fact-style-one">
@@ -874,7 +875,8 @@
 
 <!-- Start Contact Us
 ============================================= -->
-<div class="contact-area bg-gray default-padding" style="background-image: url(assets/img/shape/28.png);">
+<div class="contact-area bg-gray default-padding"
+     style="background-image: url({{ asset('assets/img/shape/28.png') }});">
     <div class="container">
         <div class="row align-center">
 
@@ -992,7 +994,8 @@
             <div class="col-lg-6 col-md-12 mb-30">
                 <div class="blog-style-one">
                     <div class="thumb">
-                        <a href="blog-single-with-sidebar.html"><img src="assets/img/blog/v1.jpg" alt="Image Not Found"></a>
+                        <a href="blog-single-with-sidebar.html"><img src="{{ asset('assets/img/blog/v1.jpg') }}"
+                                                                     alt="Image Not Found"></a>
                         <div class="date"><strong>18</strong> <span>Apr, 22</span></div>
                     </div>
                     <div class="info">
@@ -1016,7 +1019,8 @@
             <div class="col-lg-3 col-md-6 mb-30">
                 <div class="blog-style-one">
                     <div class="thumb">
-                        <a href="blog-single-with-sidebar.html"><img src="assets/img/blog/v2.jpg" alt="Image Not Found"></a>
+                        <a href="blog-single-with-sidebar.html"><img src="{{ asset('assets/img/blog/v2.jpg') }}"
+                                                                     alt="Image Not Found"></a>
                         <div class="date"><strong>15</strong> <span>Jul, 22</span></div>
                     </div>
                     <div class="info">
@@ -1039,7 +1043,8 @@
             <div class="col-lg-3 col-md-6 mb-30">
                 <div class="blog-style-one">
                     <div class="thumb">
-                        <a href="blog-single-with-sidebar.html"><img src="assets/img/blog/v3.jpg" alt="Image Not Found"></a>
+                        <a href="blog-single-with-sidebar.html"><img src="{{ asset('assets/img/blog/v3.jpg') }}"
+                                                                     alt="Image Not Found"></a>
                         <div class="date"><strong>24</strong> <span>Feb, 22</span></div>
                     </div>
                     <div class="info">
@@ -1066,7 +1071,7 @@
 
 <!-- Start Footer
 ============================================= -->
-<footer class="bg-dark text-light" style="background-image: url(assets/img/shape/brush-down.png);">
+<footer class="bg-dark text-light" style="background-image: url({{ asset('assets/img/shape/brush-down.png') }});">
     <div class="container">
         <div class="f-items default-padding">
             <div class="row">
@@ -1074,7 +1079,7 @@
                 <!-- Single Itme -->
                 <div class="col-lg-4 col-md-6 item">
                     <div class="footer-item about">
-                        <img class="logo" src="assets/img/logo-light.png" alt="Logo">
+                        <img class="logo" src="{{ asset('assets/img/logo-light.png') }}" alt="Logo">
                         <p>
                             Happen active county. Winding morning ambition shyness evident to poor. Because elderly new
                             to the point to main success.
@@ -1123,7 +1128,7 @@
                             <li>
                                 <div class="thumb">
                                     <a href="blog-single-with-sidebar.html">
-                                        <img src="assets/img/thumbs/3.jpg" alt="Thumb">
+                                        <img src="{{ asset('assets/img/thumbs/3.jpg') }}" alt="Thumb">
                                     </a>
                                 </div>
                                 <div class="info">
@@ -1137,7 +1142,7 @@
                             <li>
                                 <div class="thumb">
                                     <a href="blog-single-with-sidebar.html">
-                                        <img src="assets/img/thumbs/5.jpg" alt="Thumb">
+                                        <img src="{{ asset('assets/img/thumbs/5.jpg') }}" alt="Thumb">
                                     </a>
                                 </div>
                                 <div class="info">
@@ -1151,9 +1156,9 @@
                         </ul>
                     </div>
                 </div>
-                <!-- End Single Itme -->
+                <!-- End Single Item -->
 
-                <!-- Single Itme -->
+                <!-- Single Item -->
                 <div class="col-lg-3 col-md-6 item">
                     <div class="footer-item contact">
                         <h4 class="widget-title">Contact Info</h4>
@@ -1216,36 +1221,36 @@
         <!-- End Footer Bottom -->
     </div>
     <div class="shape-right-bottom">
-        <img src="assets/img/shape/10.png" alt="Image Not Found">
+        <img src="{{ asset('assets/img/shape/10.png') }}" alt="Image Not Found">
     </div>
     <div class="shape-left-bottom">
-        <img src="assets/img/shape/11.png" alt="Image Not Found">
+        <img src="{{ asset('assets/img/shape/11.png') }}" alt="Image Not Found">
     </div>
 </footer>
 <!-- End Footer -->
 
 <!-- jQuery Frameworks
 ============================================= -->
-<script src="assets/js/jquery-3.6.0.min.js"></script>
-<script src="assets/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/jquery.appear.js"></script>
-<script src="assets/js/jquery.easing.min.js"></script>
-<script src="assets/js/jquery.magnific-popup.min.js"></script>
-<script src="assets/js/modernizr.custom.13711.js"></script>
-<script src="assets/js/swiper-bundle.min.js"></script>
-<script src="assets/js/wow.min.js"></script>
-<script src="assets/js/progress-bar.min.js"></script>
-<script src="assets/js/circle-progress.js"></script>
-<script src="assets/js/isotope.pkgd.min.js"></script>
-<script src="assets/js/imagesloaded.pkgd.min.js"></script>
-<script src="assets/js/jquery.nice-select.min.js"></script>
-<script src="assets/js/count-to.js"></script>
-<script src="assets/js/jquery.scrolla.min.js"></script>
-<script src="assets/js/YTPlayer.min.js"></script>
-<script src="assets/js/TweenMax.min.js"></script>
-<script src="assets/js/loopcounter.js"></script>
-<script src="assets/js/validnavs.js"></script>
-<script src="assets/js/main.js"></script>
+<script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
+<script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('assets/js/jquery.appear.js') }}"></script>
+<script src="{{ asset('assets/js/jquery.easing.min.js') }}"></script>
+<script src="{{ asset('assets/js/jquery.magnific-popup.min.js') }}"></script>
+<script src="{{ asset('assets/js/modernizr.custom.13711.js') }}"></script>
+<script src="{{ asset('assets/js/swiper-bundle.min.js') }}"></script>
+<script src="{{ asset('assets/js/wow.min.js') }}"></script>
+<script src="{{ asset('assets/js/progress-bar.min.js') }}"></script>
+<script src="{{ asset('assets/js/circle-progress.js') }}"></script>
+<script src="{{ asset('assets/js/isotope.pkgd.min.js') }}"></script>
+<script src="{{ asset('assets/js/imagesloaded.pkgd.min.js') }}"></script>
+<script src="{{ asset('assets/js/jquery.nice-select.min.js') }}"></script>
+<script src="{{ asset('assets/js/count-to.js') }}"></script>
+<script src="{{ asset('assets/js/jquery.scrolla.min.js') }}"></script>
+<script src="{{ asset('assets/js/YTPlayer.min.js') }}"></script>
+<script src="{{ asset('assets/js/TweenMax.min.js') }}"></script>
+<script src="{{ asset('assets/js/loopcounter.js') }}"></script>
+<script src="{{ asset('assets/js/validnavs.js') }}"></script>
+<script src="{{ asset('assets/js/main.js') }}"></script>
 
 
 </body>
