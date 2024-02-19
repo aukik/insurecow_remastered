@@ -68,6 +68,7 @@
                                         <th>Phone</th>
                                         <th>Applied Date</th>
                                         <th>Status</th>
+                                        <th>Set Permission</th>
                                         <th>Actions</th>
                                     </tr>
                                     </thead>
@@ -91,6 +92,15 @@
                                                         Applied
                                                     </div>
                                                 </td>
+
+                                                @if($user->role != "s")
+                                                    <td>
+                                                        <a href="{{ route('permission.show', $user->id) }}" class="">Permission</a>
+                                                    </td>
+                                                @else
+                                                    <td></td>
+                                                @endif
+
                                                 <td>
 
                                                     <form action="{{ route('sp_delete_company_request') }}"

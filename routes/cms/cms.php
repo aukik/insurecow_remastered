@@ -2,7 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 
-// -------------------------------------------------------------------- Company --------------------------------------------------------------------
+
+// -------------------------------------------------------------------- Front Page Routes --------------------------------------------------------------------
+
+
+Route::get('test_front_page', [\App\Http\Controllers\Cms\FrontPageController::class,'index']);
+
+
+// -------------------------------------------------------------------- Front Page Routes --------------------------------------------------------------------
+
+
+// -------------------------------------------------------------------- CMS --------------------------------------------------------------------
 
 
 Route::middleware(['auth', 'super.admin'])->prefix('cms')->group(function () {
@@ -13,32 +23,34 @@ Route::middleware(['auth', 'super.admin'])->prefix('cms')->group(function () {
 
 
     //    -----------------------------  Slider -----------------------------
-    Route::resource('slider',\App\Http\Controllers\Cms\SliderController::class);
+    Route::resource('slider', \App\Http\Controllers\Cms\SliderController::class);
 
 
     //    -----------------------------  About us -----------------------------
 
-    Route::resource('about',\App\Http\Controllers\Cms\AboutController::class);
+    Route::resource('about', \App\Http\Controllers\Cms\AboutController::class);
 
     //    -----------------------------  Product and Services -----------------------------
 
-    Route::resource('productandservices',\App\Http\Controllers\Cms\ProductandservicesController::class);
+    Route::resource('productandservices', \App\Http\Controllers\Cms\ProductandservicesController::class);
 
     //    -----------------------------  Team -----------------------------
 
-    Route::resource('team',\App\Http\Controllers\Cms\TeamController::class);
+    Route::resource('team', \App\Http\Controllers\Cms\TeamController::class);
 
     //    -----------------------------  Achievement -----------------------------
 
-    Route::resource('achievement',\App\Http\Controllers\Cms\AchievementController::class);
+    Route::resource('achievement', \App\Http\Controllers\Cms\AchievementController::class);
 
     //    -----------------------------  Posts -----------------------------
 
-    Route::resource('post',\App\Http\Controllers\Cms\PostController::class);
+    Route::resource('post', \App\Http\Controllers\Cms\PostController::class);
 
     //    -----------------------------  Partners -----------------------------
 
-    Route::resource('partner',\App\Http\Controllers\Cms\PartnerController::class);
+
+    Route::resource('partner', \App\Http\Controllers\Cms\PartnerController::class);
+
 
     //    -----------------------------  Blogs -----------------------------
 
@@ -60,4 +72,4 @@ Route::middleware(['auth', 'super.admin'])->prefix('cms')->group(function () {
 
 
 
-// -------------------------------------------------------------------- Company --------------------------------------------------------------------
+// -------------------------------------------------------------------- CMS --------------------------------------------------------------------

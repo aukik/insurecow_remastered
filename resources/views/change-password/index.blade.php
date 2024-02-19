@@ -72,6 +72,7 @@
                                                     value=""
                                                     name="current_password"
                                                     required
+                                                    autocomplete="off"
                                                 />
                                             </div>
                                         </div>
@@ -89,6 +90,7 @@
                                                     value=""
                                                     name="new_password"
                                                     required
+                                                    autocomplete="off"
                                                 />
                                             </div>
                                         </div>
@@ -106,6 +108,7 @@
                                                     value=""
                                                     name="verify_password"
                                                     required
+                                                    autocomplete="off"
                                                 />
                                             </div>
                                         </div>
