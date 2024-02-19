@@ -15,7 +15,7 @@
 .service-block:hover h4,.service-block:hover h3,.service-block:hover i,
 /*Team Section*/
 #team .thumbnail h3,
-/*Testimonial Section*/
+/*TestimonialController Section*/
 #testimonials h3,
 /*Portfolio Section*/
 #portfolio ul > li a.active,#portfolio .item ul > li i:hover,
@@ -46,7 +46,7 @@
 #working .tooltip-inner,
 /*Pricing Section*/
 #pricings .pricing-table.premium .category,#pricings .pricing-table.premium .btn,
-/*Testimonial Section*/
+/*TestimonialController Section*/
 #testimonials .owl-page.active > span,
 /*Contact Section*/
 .contact-block:hover .icon-circle {

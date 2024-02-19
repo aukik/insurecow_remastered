@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Cms;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cms\Gallery;
 use Illuminate\Http\Request;
-use App\Models\Cms\Post;
 
-class PostController extends Controller
+class GalleryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +15,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts =Post::all();
-        return view("super-admin.admin-content.cms.post.view", compact('posts'));
-
-
+        $galleries =Gallery::all();
+        return view("super-admin.admin-content.cms.gallery.view", compact('galleries'));
     }
 
     /**
@@ -28,9 +26,7 @@ class PostController extends Controller
      */
     public function create()
     {
-
         return view("super-admin.admin-content.cms.gallery.create");
-
     }
 
     /**
@@ -52,8 +48,8 @@ class PostController extends Controller
             $inputs['image'] = request('image')->store('cms');
         }
 
-        Post::create($inputs);
-        session()->flash("success", "Post added successfully");
+        Gallery::create($inputs);
+        session()->flash("success", "Gallery added successfully");
         return back();
     }
 
@@ -76,10 +72,8 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-
-        $post =Post::find($id);
-        return view("super-admin.admin-content.cms.post.edit", compact('post'));
-
+        $gallery =Gallery::find($id);
+        return view("super-admin.admin-content.cms.gallery.edit", compact('gallery'));
     }
 
     /**
@@ -91,8 +85,7 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-        $post =Post::find($id);
+        $gallery =Gallery::find($id);
 
         $inputs = request()->validate([
             'title' => 'required',
@@ -104,13 +97,12 @@ class PostController extends Controller
         if (request('image')) {
             $inputs['image'] = request('image')->store('photos');
         } else {
-            $inputs['image'] = $post->image;
+            $inputs['image'] = $gallery->image;
         }
 
-        $post->update($inputs);
-        session()->flash("success", "Post Updated Successfully");
-        return redirect()->route('post.index');
-
+        $gallery->update($inputs);
+        session()->flash("success", "Gallery Updated Successfully");
+        return redirect()->route('gallery.index');
     }
 
     /**
@@ -121,9 +113,9 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        $post =Post::find($id);
+        $gallery =Gallery::find($id);
 
-        $post->delete();
+        $gallery->delete();
 
         return back();
     }
