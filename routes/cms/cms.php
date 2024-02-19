@@ -40,7 +40,18 @@ Route::middleware(['auth', 'super.admin'])->prefix('cms')->group(function () {
 
     Route::resource('partner',\App\Http\Controllers\Cms\PartnerController::class);
 
+    //    -----------------------------  Blogs -----------------------------
 
+    Route::resource('blogs',\App\Http\Controllers\Cms\BlogController::class);
+
+
+    //    -----------------------------  gallery -----------------------------
+
+    Route::resource('gallery',\App\Http\Controllers\Cms\GalleryController::class);
+
+    //    -----------------------------  gallery -----------------------------
+
+    Route::resource('testimonial',\App\Http\Controllers\Cms\TestimonialController::class);
 
 
 });

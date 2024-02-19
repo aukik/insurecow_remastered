@@ -206,6 +206,95 @@
 
                 {{-- ------------ Posts ------------ --}}
 
+                {{---------------  Blogs---------------}}
+
+
+
+                <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+                   data-bs-target="#pagesCollapseBlog" aria-expanded="false"
+                   aria-controls="pagesCollapseBlog">
+                    Blogs
+                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="pagesCollapseBlog" data-bs-parent="#accordionSidenavPagesMenu">
+                    <nav class="sidenav-menu-nested nav">
+                        <a class="nav-link" href="{{route('blogs.create')}}">Add Blog</a>
+                        <a class="nav-link" href="{{route('blogs.index')}}">View Blog info</a>
+                    </nav>
+                </div>
+
+
+
+
+
+
+                {{---------------  Blogs---------------}}
+
+
+                {{---------------  Gallery---------------}}
+
+
+
+                <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+                   data-bs-target="#pagesCollapseGallery" aria-expanded="false"
+                   aria-controls="pagesCollapseGallery">
+                    Gallery
+                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="pagesCollapseGallery" data-bs-parent="#accordionSidenavPagesMenu">
+                    <nav class="sidenav-menu-nested nav">
+                        <a class="nav-link" href="{{route('gallery.create')}}">Add Gallery</a>
+                        <a class="nav-link" href="{{route('gallery.index')}}">View Gallery info</a>
+                    </nav>
+                </div>
+
+
+
+
+
+
+
+                {{---------------  Gallery---------------}}
+
+
+                {{--------------- TestimonialController----------}}
+
+
+
+
+
+                <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+                   data-bs-target="#pagesCollapseTestimonial" aria-expanded="false"
+                   aria-controls="pagesCollapseTestimonial">
+                    Testimonial
+                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="pagesCollapseTestimonial" data-bs-parent="#accordionSidenavPagesMenu">
+                    <nav class="sidenav-menu-nested nav">
+                        <a class="nav-link" href="{{route('testimonial.create')}}">Add Testimonial</a>
+                        <a class="nav-link" href="{{route('testimonial.index')}}">View Testimonial info</a>
+                    </nav>
+                </div>
+
+
+
+
+
+                {{--------------- TestimonialController----------}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 {{-- ------------ Partners ------------ --}}
 
                 <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
