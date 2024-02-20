@@ -27,23 +27,19 @@
                         <h4 class="widget-title">Explore</h4>
                         <ul>
                             <li>
-                                <a href="about-us.html">About Us</a>
+                                <a href="#about">About Us</a>
                             </li>
                             <li>
-                                <a href="team.html">Meet Our Team</a>
+                                <a href="#team">Meet Our Team</a>
+                            </li>
+
+                            <li>
+                                <a href="#service">Services</a>
                             </li>
                             <li>
-                                <a href="blog-single-with-sidebar.html">News & Media</a>
+                                <a href="#contact">Contact Us</a>
                             </li>
-                            <li>
-                                <a href="services.html">Services</a>
-                            </li>
-                            <li>
-                                <a href="contact-us.html">Contact Us</a>
-                            </li>
-                            <li>
-                                <a href="team-details.html">Volunteers</a>
-                            </li>
+
                         </ul>
                     </div>
                 </div>
@@ -57,21 +53,21 @@
                             <li>
                                 <div class="thumb">
                                     <a href="blog-single-with-sidebar.html">
-                                        <img src="{{ asset('assets/img/thumbs/3.jpg') }}" alt="Thumb">
+                                        <img src="{{ asset('assets/img/thumbs/3.jpeg') }}" alt="Thumb">
                                     </a>
                                 </div>
                                 <div class="info">
                                     <div class="meta-title">
                                         <span class="post-date">12 Sep, 2022</span>
                                     </div>
-                                    <h5><a href="blog-single-with-sidebar.html">Meant widow equal an share least
+                                    <h5><a href="l">Meant widow equal an share least
                                             part. </a></h5>
                                 </div>
                             </li>
                             <li>
                                 <div class="thumb">
-                                    <a href="blog-single-with-sidebar.html">
-                                        <img src="{{ asset('assets/img/thumbs/5.jpg') }}" alt="Thumb">
+                                    <a href="">
+                                        <img src="{{ asset('assets/img/thumbs/5.jpeg') }}" alt="Thumb">
                                     </a>
                                 </div>
                                 <div class="info">
@@ -98,7 +94,7 @@
                                 </div>
                                 <div class="content">
                                     <strong>Address:</strong>
-                                    5919 Trussville Crossings Pkwy, Birmingham
+                                    Mansurabad , Adabar , Road: 07 , House : 88
                                 </div>
                             </li>
                             <li>
@@ -107,7 +103,7 @@
                                 </div>
                                 <div class="content">
                                     <strong>Email:</strong>
-                                    <a href="mailto:info@validtheme.com">info@validtheme.com</a>
+                                    <a href="mailto:info@validtheme.com">info@insurecow.com</a>
                                 </div>
                             </li>
                             <li>
@@ -116,7 +112,7 @@
                                 </div>
                                 <div class="content">
                                     <strong>Phone:</strong>
-                                    <a href="tel:2151234567">+123 34598768</a>
+                                    <a href="tel:2151234567">+880 1755-680807</a>
                                 </div>
                             </li>
                         </ul>
@@ -130,21 +126,9 @@
         <div class="footer-bottom">
             <div class="row">
                 <div class="col-lg-6">
-                    <p>&copy; Copyright 2022. All Rights Reserved by <a href="#">validthemes</a></p>
+                    <p>&copy; Copyright 2022. All Rights Reserved by Insurecow</p>
                 </div>
-                <div class="col-lg-6 text-end">
-                    <ul>
-                        <li>
-                            <a href="about-us.html">Terms</a>
-                        </li>
-                        <li>
-                            <a href="about-us.html">Privacy</a>
-                        </li>
-                        <li>
-                            <a href="contact-us.html">Support</a>
-                        </li>
-                    </ul>
-                </div>
+
             </div>
         </div>
         <!-- End Footer Bottom -->

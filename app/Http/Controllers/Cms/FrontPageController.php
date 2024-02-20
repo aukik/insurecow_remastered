@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Cms;
 
 use App\Http\Controllers\Controller;
 use App\Models\Cms\About;
+use App\Models\Cms\Achievement;
 use App\Models\Cms\Blog;
 use App\Models\Cms\Gallery;
 use App\Models\Cms\ProductandService;
@@ -26,8 +27,9 @@ class FrontPageController extends Controller
         $teams=Team::all();
         $testimonials=Testimonial::all();
         $abouts=About::all();
+        $achievements=Achievement::all();
 
-        return view("front.v2.front", compact('galleries',"sliders","blogs","services","teams","testimonials","abouts"));
+        return view("front.v2.front", compact('galleries',"sliders","blogs","services","teams","testimonials","abouts",'achievements'));
     }
 
 

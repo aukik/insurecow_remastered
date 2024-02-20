@@ -5,15 +5,15 @@
         <div class="row align-center">
             <div class="col-lg-9">
                 <div class="flex-item left">
-                    <p>
-                        That's right, we only sell 100% organic
-                    </p>
+{{--                    <p>--}}
+{{--                        That's right, we only sell 100% organic--}}
+{{--                    </p>--}}
                     <ul>
                         <li>
-                            <i class="fas fa-map-marker-alt"></i> California, TX 70240
+                            <i class="fas fa-map-marker-alt"></i> Mansurabad , Adabar , Road: 07 , House : 88
                         </li>
                         <li>
-                            <i class="fas fa-phone-alt"></i> +4733378901
+                            <i class="fas fa-phone-alt"></i> +880 1755-680807
                         </li>
                     </ul>
                 </div>
@@ -75,7 +75,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="#">
                     <img src="{{ asset('assets/img/logo.png') }}" class="logo" alt="Logo">
                 </a>
             </div>
@@ -92,19 +92,15 @@
                     </button>
 
                     <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+{{--                        <li class="dropdown">--}}
+{{--                            <a href="{{route('home')}}" >Home</a>--}}
+{{--                        </li>--}}
                         <li class="dropdown">
-                            <a href="#" >Home</a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" >Product & Services</a>
+                            <a href="#service" >Product & Services</a>
 
                         </li>
                         <li class="dropdown">
-                            <a href="project.html">Our Team</a>
-
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" >Services</a>
+                            <a href="#team">Our Team</a>
 
                         </li>
                         <li class="dropdown">
@@ -112,7 +108,7 @@
 
                         </li>
                         <li class="dropdown">
-                            <a href="#">PORTAL</a>
+                            <a href="{{ route('login') }}">PORTAL</a>
 
                         </li>
                     </ul>
