@@ -142,7 +142,7 @@
                 </div>
                 <div class="col-lg-5 offset-lg-1 choose-us-style-three-info">
                     <h4 class="sub-title">Why Choose Us</h4>
-                    <h2 class="title">We're providng high <br> quality products</h2>
+                    <h2 class="title">Product & Services</h2>
                     <p>
                         New had happen unable uneasy. Drawings can followed improved out sociable not. Earnestly so do
                         instantly pretended. See general few civilly amiable pleased account carried. Excellence
