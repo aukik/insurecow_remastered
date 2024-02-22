@@ -87,30 +87,30 @@
                 <div class="col-xl-7 col-lg-6 about-style-one">
                     <div class="row align-center">
 
-                        @foreach($abouts as $about) @endforeach
-                        <div class="col-xl-7 col-lg-12">
-                            <h2 class="heading">{{$about->title}}</h2>
-                            <p>
-                                {{$about->description}}
-                            </p>
-                            {{--                            <ul class="check-solid-list mt-20">--}}
-                            {{--                                <li>Organic food contains more vitamins</li>--}}
-                            {{--                                <li>Eat organic because supply meets demand</li>--}}
-                            {{--                                <li>Organic food is never irradiated</li>--}}
-                            {{--                            </ul>--}}
-                        </div>
-
+                        @foreach($abouts as $about)
+                            <div class="col-xl-7 col-lg-12">
+                                <h2 class="heading">{{$about->title}}</h2>
+                                <p>
+                                    {{$about->description}}
+                                </p>
+                                {{--                            <ul class="check-solid-list mt-20">--}}
+                                {{--                                <li>Organic food contains more vitamins</li>--}}
+                                {{--                                <li>Eat organic because supply meets demand</li>--}}
+                                {{--                                <li>Organic food is never irradiated</li>--}}
+                                {{--                            </ul>--}}
+                            </div>
+                        @endforeach
 
                         <div class="col-xl-5 col-lg-12 pl-50 pl-md-15 pl-xs-15">
                             <div class="top-product-item">
-{{--                                <img src="{{ asset('assets/img/icon/1.svg') }}" alt="Icon">--}}
+                                {{--                                <img src="{{ asset('assets/img/icon/1.svg') }}" alt="Icon">--}}
                                 <h5><a href="#">Natural Farming</a></h5>
                                 <p>
                                     Resolve parties but trying she shewing of moment.
                                 </p>
                             </div>
                             <div class="top-product-item">
-{{--                                <img src="{{ asset('assets/img/icon/2.svg') }}" alt="Icon">--}}
+                                {{--                                <img src="{{ asset('assets/img/icon/2.svg') }}" alt="Icon">--}}
                                 <h5><a href="#">Quality Products</a></h5>
                                 <p>
                                     Always parties but trying she shewing of moment.
@@ -128,7 +128,7 @@
 
     <!-- Start Why Choose Us
     ============================================= -->
-    <div class="choose-us-style-three-area default-padding" id="service"  >
+    <div class="choose-us-style-three-area default-padding" id="service">
         <div class="container">
 
 
@@ -158,10 +158,10 @@
                                 </div>
                                 <div class="info">
                                     <h4>{{$service->title}} </h4>
-{{--                                    <p>--}}
-{{--                                        Our farms deliver to us daily, ensuring you only eat the best of what's in--}}
-{{--                                        season vegetables from FreshDirect.--}}
-{{--                                    </p>--}}
+                                    {{--                                    <p>--}}
+                                    {{--                                        Our farms deliver to us daily, ensuring you only eat the best of what's in--}}
+                                    {{--                                        season vegetables from FreshDirect.--}}
+                                    {{--                                    </p>--}}
                                 </div>
                             </li>
 
@@ -258,16 +258,16 @@
                                  alt="Image not found">
                         </div>
                         <div class="product-produce">
-{{--                            <div class="icon">--}}
-{{--                                <i class="flaticon-farmer"></i>--}}
-{{--                            </div>--}}
-{{--                            <div class="fun-fact">--}}
-{{--                                <div class="counter">--}}
-{{--                                    <div class="timer" data-to="258" data-speed="2000">258</div>--}}
-{{--                                    <div class="operator">K</div>--}}
-{{--                                </div>--}}
-{{--                                <span class="medium">Agriculture, Organic Products</span>--}}
-{{--                            </div>--}}
+                            {{--                            <div class="icon">--}}
+                            {{--                                <i class="flaticon-farmer"></i>--}}
+                            {{--                            </div>--}}
+                            {{--                            <div class="fun-fact">--}}
+                            {{--                                <div class="counter">--}}
+                            {{--                                    <div class="timer" data-to="258" data-speed="2000">258</div>--}}
+                            {{--                                    <div class="operator">K</div>--}}
+                            {{--                                </div>--}}
+                            {{--                                <span class="medium">Agriculture, Organic Products</span>--}}
+                            {{--                            </div>--}}
                         </div>
                     </div>
                 </div>
@@ -340,7 +340,8 @@
     </div>
     <!-- End Why Choose us -->
 
-    <div class="farmer-area default-padding bottom-less bg-gray" style="background-image: url({{asset('assets/img/shape/36.png')}});">
+    <div class="farmer-area default-padding bottom-less bg-gray"
+         style="background-image: url({{asset('assets/img/shape/36.png')}});">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
@@ -349,7 +350,8 @@
                         <h2 class="title">Meet Our Team</h2>
                         <div class="devider"></div>
                         <p>
-                            Everything melancholy uncommonly but solicitude inhabiting <br> projection off. Connection stimulated estimating.
+                            Everything melancholy uncommonly but solicitude inhabiting <br> projection off. Connection
+                            stimulated estimating.
                         </p>
                     </div>
                 </div>
@@ -361,7 +363,8 @@
                 <div class="col-lg-12"> <!-- span the entire width -->
                     <div class="row">
                         @foreach($teams as $team)
-                            <div class="col-lg-2 col-md-3 farmer-stye-one" style="margin-left:80px"  > <!-- Adjust column width as per your preference -->
+                            <div class="col-lg-2 col-md-3 farmer-stye-one" style="margin-left:80px">
+                                <!-- Adjust column width as per your preference -->
                                 <div class="farmer-style-one-item">
                                     <div class="thumb">
                                         <img src="{{ asset('storage/' . $team->image) }}" alt=""/>
@@ -404,7 +407,7 @@
     <!-- Start Testimonials
     ============================================= -->
     <div class="testimonials-area default-padding bg-gray"
-         style="background-image: url({{ asset('assets/img/shape/23.png') }});"  id="testimonial">
+         style="background-image: url({{ asset('assets/img/shape/23.png') }});" id="testimonial">
         <div class="container">
             <div class="row align-center">
                 <div class="col-lg-5">
@@ -464,7 +467,7 @@
 
     <!-- Start Gallery
     ============================================= -->
-    <div class="gallery-area default-padding"  id="gallery" >
+    <div class="gallery-area default-padding" id="gallery">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
@@ -513,12 +516,12 @@
 
     <!-- Start achievement
      ============================================= -->
-    <div class="gallery-area default-padding"  id="gallery" >
+    <div class="gallery-area default-padding" id="gallery">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
                     <div class="site-heading text-center">
-{{--                        <h5 class="sub-title">Awesome Gallery</h5>--}}
+                        {{--                        <h5 class="sub-title">Awesome Gallery</h5>--}}
                         <h2 class="title">Our Achievement</h2>
                         <div class="devider"></div>
                     </div>
@@ -542,7 +545,7 @@
                                             <span>{{$achievement->title}}</span>
                                             <h4><a href="">{{$achievement->description}}</a></h4>
                                         </div>
-{{--                                        <a class="link" href=""><i class="fas fa-arrow-right"></i></a>--}}
+                                        {{--                                        <a class="link" href=""><i class="fas fa-arrow-right"></i></a>--}}
                                     </div>
 
                                 </div>
