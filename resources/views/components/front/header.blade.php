@@ -5,15 +5,15 @@
         <div class="row align-center">
             <div class="col-lg-9">
                 <div class="flex-item left">
-                    <p>
-                        That's right, we only sell 100% organic
-                    </p>
+{{--                    <p>--}}
+{{--                        That's right, we only sell 100% organic--}}
+{{--                    </p>--}}
                     <ul>
                         <li>
-                            <i class="fas fa-map-marker-alt"></i> California, TX 70240
+                            <i class="fas fa-map-marker-alt"></i> Mansurabad , Adabar , Road: 07 , House : 88
                         </li>
                         <li>
-                            <i class="fas fa-phone-alt"></i> +4733378901
+                            <i class="fas fa-phone-alt"></i> +880 1755-680807
                         </li>
                     </ul>
                 </div>
@@ -75,7 +75,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="#">
                     <img src="{{ asset('assets/img/logo.png') }}" class="logo" alt="Logo">
                 </a>
             </div>
@@ -92,84 +92,48 @@
                     </button>
 
                     <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+{{--                        <li class="dropdown">--}}
+{{--                            <a href="{{route('home')}}" >Home</a>--}}
+{{--                        </li>--}}
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Home</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="index.html">Agriculture</a></li>
-                                <li><a href="index-3.html">Farm Shop</a></li>
-                                <li><a href="index-2.html">Organic Farm</a></li>
-                                <li><a href="agriculture-shop.html">Agriculture Shop</a></li>
-                                <li><a href="gardening.html">Home Gardening</a></li>
-                            </ul>
+                            <a href="#service" >Product & Services</a>
+
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="about-us.html">About Us</a></li>
-                                <li><a href="team.html">Team</a></li>
-                                <li><a href="team-details.html">Team Details</a></li>
-                                <li><a href="contact-us.html">Contact Us</a></li>
-                                <li><a href="faq.html">Faq</a></li>
-                                <li><a href="404.html">Error Page</a></li>
-                            </ul>
+                            <a href="#team">Our Team</a>
+
                         </li>
                         <li class="dropdown">
-                            <a href="project.html" class="dropdown-toggle" data-toggle="dropdown">Projects</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="project.html">Project</a></li>
-                                <li><a href="project-details.html">Project Details</a></li>
-                            </ul>
+                            <a href="#" >Our Achievements</a>
+
                         </li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="services.html">Services Version One</a></li>
-                                <li><a href="services-2.html">Services Version Two</a></li>
-                                <li><a href="services-details.html">Services Details</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="blog-standard.html">Blog Standard</a></li>
-                                <li><a href="blog-with-sidebar.html">Blog With Sidebar</a></li>
-                                <li><a href="blog-2-colum.html">Blog Grid Two Colum</a></li>
-                                <li><a href="blog-3-colum.html">Blog Grid Three Colum</a></li>
-                                <li><a href="blog-single.html">Blog Single</a></li>
-                                <li><a href="blog-single-with-sidebar.html">Blog Single With Sidebar</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Shop</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="shop.html">Shop</a></li>
-                                <li><a href="shop-single.html">Shop Single</a></li>
-                                <li><a href="shop-single-thumb-only.html">Shop Single Two</a></li>
-                            </ul>
+                            <a href="{{ route('login') }}">PORTAL</a>
+
                         </li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
 
-                <div class="attr-right">
-                    <!-- Start Atribute Navigation -->
-                    <div class="attr-nav">
-                        <ul>
-                            <li class="contact">
-                                <div class="call">
-                                    <div class="icon">
-                                        <i class="fas fa-comments-alt-dollar"></i>
-                                    </div>
-                                    <div class="info">
-                                        <p>Have any Questions?</p>
-                                        <h5><a href="mailto:info@crysta.com">info@agrul.com</a></h5>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <!-- End Atribute Navigation -->
+{{--                <div class="attr-right">--}}
+{{--                    <!-- Start Atribute Navigation -->--}}
+{{--                    <div class="attr-nav">--}}
+{{--                        <ul>--}}
+{{--                            <li class="contact">--}}
+{{--                                <div class="call">--}}
+{{--                                    <div class="icon">--}}
+{{--                                        <i class="fas fa-comments-alt-dollar"></i>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="info">--}}
+{{--                                        <p>Have any Questions?</p>--}}
+{{--                                        <h5><a href="mailto:info@crysta.com">info@agrul.com</a></h5>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </li>--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
+{{--                    <!-- End Atribute Navigation -->--}}
 
-                </div>
+{{--                </div>--}}
 
                 <!-- Overlay screen for menu -->
                 <div class="overlay-screen"></div>

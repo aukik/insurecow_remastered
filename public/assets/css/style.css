@@ -19,7 +19,7 @@ Sidebar heading:  20px 'Manrope', sans-serif
 
 >>> TABLE OF CONTENTS:
 =======================
-        
+
     01. Template default css
         - Animations
         - General
@@ -103,7 +103,7 @@ Sidebar heading:  20px 'Manrope', sans-serif
 
 
 
-/* ============================================================== 
+/* ==============================================================
      # Reset Browsers
 =================================================================== */
 
@@ -263,7 +263,7 @@ strong {
 }
 
 
-/* ============================================================== 
+/* ==============================================================
     # Template Default Styles
 =================================================================== */
 
@@ -328,16 +328,16 @@ p {
 }
 
 
-/* ============================================================== 
+/* ==============================================================
     # Helper CSS
 =================================================================== */
 
 @media (min-width: 1250px) {
-	.container, 
-	.container-lg, 
-	.container-md, 
-	.container-sm, 
-	.container-xl, 
+	.container,
+	.container-lg,
+	.container-md,
+	.container-sm,
+	.container-xl,
 	.container-xxl {
 		max-width: 1250px;
 	}
@@ -883,8 +883,8 @@ p {
 	opacity: 0.9;
 }
 
-/* ============================================================== 
-    # Video Play Button 
+/* ==============================================================
+    # Video Play Button
 =================================================================== */
 .video-play-button {
 	display: inline-block;
@@ -1009,7 +1009,7 @@ p {
 }
 
 
-/* ============================================================== 
+/* ==============================================================
     # Template Animation
 =================================================================== */
 
@@ -1453,7 +1453,7 @@ p {
 	}
 }
 
-/* ============================================================== 
+/* ==============================================================
     # Button Styles
 =================================================================== */
 .btn {
@@ -2258,7 +2258,7 @@ p {
 	font-size: 14px;
 }
 
-/* ============================================================== 
+/* ==============================================================
     # Nice Select Styles
 =================================================================== */
 .nice-select {
@@ -2444,7 +2444,7 @@ p {
 }
 
 
-/* ============================================================== 
+/* ==============================================================
     # Breadcrumb Styles
 =================================================================== */
 .breadcrumb-area {
@@ -2537,7 +2537,7 @@ p {
 
 
 
-/* ============================================================== 
+/* ==============================================================
     # Topbar Styles
 =================================================================== */
 .top-bar-area .flex-item {
@@ -2730,7 +2730,7 @@ nav.navbar.validnavs.inc-shape::after {
 
 
 
-/* ============================================================== 
+/* ==============================================================
     # Banner Styles
 =================================================================== */
 .banner-area {
@@ -3484,7 +3484,7 @@ nav.navbar.validnavs.inc-shape::after {
 
 
 
-/* ============================================================== 
+/* ==============================================================
     # Banner Custom Style
 =================================================================== */
 
@@ -3693,8 +3693,8 @@ nav.navbar.validnavs.inc-shape::after {
 	line-height: 1;
 }
 
-/* ============================================================== 
-    # About 
+/* ==============================================================
+    # About
 =================================================================== */
 .about-style-one .thumb {
 	position: relative;
@@ -3803,8 +3803,8 @@ nav.navbar.validnavs.inc-shape::after {
 }
 
 
-/* ============================================================== 
-    # About Style Two 
+/* ==============================================================
+    # About Style Two
 =================================================================== */
 
 .about-style-two-area {
@@ -3917,8 +3917,8 @@ ul.counter-list li:nth-child(2) {
 }
 
 
-/* ============================================================== 
-    # Services 
+/* ==============================================================
+    # Services
 =================================================================== */
 .area-box {
 	position: relative;
@@ -4031,8 +4031,8 @@ ul.counter-list li:nth-child(2) {
 }
 
 
-/* ============================================================== 
-    # Services Styole Two 
+/* ==============================================================
+    # Services Styole Two
 =================================================================== */
 .shape-leaf {
 	position: absolute;
@@ -4075,7 +4075,7 @@ ul.counter-list li:nth-child(2) {
 	background: var(--white);
 }
 
-.services-style-two:nth-child(2) .services-style-two-item, 
+.services-style-two:nth-child(2) .services-style-two-item,
 .services-style-two-item:hover {
 	border: 1px solid var(--dark);
 }
@@ -4123,18 +4123,18 @@ ul.counter-list li:nth-child(2) {
 }
 
 
-/* ============================================================== 
+/* ==============================================================
     # Services Details
 =================================================================== */
 .services-details-area .thumb img {
 	margin-bottom: 40px;
 }
 
-.services-details-area h1, 
-  .services-details-area h2, 
-  .services-details-area h3, 
-  .services-details-area h4, 
-  .services-details-area h5, 
+.services-details-area h1,
+  .services-details-area h2,
+  .services-details-area h3,
+  .services-details-area h4,
+  .services-details-area h5,
   .services-details-area h6 {
 	font-weight: 800;
 }
@@ -4512,8 +4512,8 @@ ul.counter-list li:nth-child(2) {
 
 
 
-/* ============================================================== 
-    # Fun Factor 
+/* ==============================================================
+    # Fun Factor
 =================================================================== */
 
 .mask-text {
@@ -4654,7 +4654,7 @@ ul.counter-list li:nth-child(2) {
 }
 
 
-/* ============================================================== 
+/* ==============================================================
     # Order Process
 =================================================================== */
 
@@ -4788,14 +4788,14 @@ ul.counter-list li:nth-child(2) {
 	z-index: -1;
 }
 
-.order-process-tab-navs::before, 
+.order-process-tab-navs::before,
 .order-process-tab-navs::after {
 	display: none;
 }
 
 
 
-/* ============================================================== 
+/* ==============================================================
     # Farmers
 =================================================================== */
 
@@ -4820,7 +4820,7 @@ ul.counter-list li:nth-child(2) {
 
 .farmer-style-one-item .info {
 	display: inline-block;
-	float: right;
+	float: left;
 	margin-top: 24px;
 }
 
@@ -4932,8 +4932,8 @@ ul.counter-list li:nth-child(2) {
 	background: #3f729b none repeat scroll 0 0;
 }
 
-/* ============================================================== 
-     # Choose Us Style Two  
+/* ==============================================================
+     # Choose Us Style Two
 =================================================================== */
 .half-bg-light {
 	position: relative;
@@ -4988,8 +4988,8 @@ ul.counter-list li:nth-child(2) {
 	font-size: 12px;
 }
 
-/* ============================================================== 
-     # Product Offer 
+/* ==============================================================
+     # Product Offer
 =================================================================== */
 .product-offer-item {
 	padding: 80px;
@@ -5094,8 +5094,8 @@ ul.counter-list li:nth-child(2) {
 }
 
 
-/* ============================================================== 
-     # Farmer Single  
+/* ==============================================================
+     # Farmer Single
 =================================================================== */
 
 .farmer-single-area .farmer-content-top {
@@ -5348,8 +5348,8 @@ ul.counter-list li:nth-child(2) {
 }
 
 
-/* ============================================================== 
-    # Why Choose Us 
+/* ==============================================================
+    # Why Choose Us
 =================================================================== */
 .choose-us-style-one .thumb {
 	position: relative;
@@ -5479,8 +5479,8 @@ ul.counter-list li:nth-child(2) {
 }
 
 
-/* ============================================================== 
-    # Testimonials 
+/* ==============================================================
+    # Testimonials
 =================================================================== */
 .testimonials-area {
 	background-size: 50%;
@@ -5589,8 +5589,8 @@ ul.counter-list li:nth-child(2) {
 	opacity: 0.05;
 }
 
-/* ============================================================== 
-    # Partner 
+/* ==============================================================
+    # Partner
 =================================================================== */
 .brand-style-one img {
 	height: 55px;
@@ -5598,8 +5598,8 @@ ul.counter-list li:nth-child(2) {
 	width: auto;
 }
 
-/* ============================================================== 
-    # Gallery 
+/* ==============================================================
+    # Gallery
 =================================================================== */
 
 .gallery-area .magnific-mix-gallery {
@@ -5643,10 +5643,10 @@ ul.counter-list li:nth-child(2) {
 		width: 50%;
 	}
 }
-  
+
   /* Max Wide Mobile Layout: 600px. */
 @media only screen and (min-width: 600px) and (max-width: 1200px) {
-  
+
 	  /* Portfolio */
 	.gallery-items.colums-4 .pf-item {
 		width: 50%;
@@ -5833,7 +5833,7 @@ ul.counter-list li:nth-child(2) {
 }
 
 
-/* ============================================================== 
+/* ==============================================================
      # Project Details
 =================================================================== */
 
@@ -5941,7 +5941,7 @@ li.project-feature-list h4 {
 }
 
 
-/* ============================================================== 
+/* ==============================================================
      # Fun Fact Version Three
 =================================================================== */
 
@@ -6019,8 +6019,8 @@ li.project-feature-list h4 {
 	border-color: rgba(255, 255, 255, 0.3);
 }
 
-/* ============================================================== 
-    # Product Feature 
+/* ==============================================================
+    # Product Feature
 =================================================================== */
 .product-feature-style-one .thumb img {
 	margin-left: -20%;
@@ -6107,8 +6107,8 @@ li.project-feature-list h4 {
 }
 
 
-/* ============================================================== 
-    # Blog 
+/* ==============================================================
+    # Blog
 =================================================================== */
 
 .blog-grid .meta {
@@ -6233,7 +6233,7 @@ li.project-feature-list h4 {
 	padding-top: 55px !important;
 }
 
-/* ============================================================== 
+/* ==============================================================
     # Contact Us
 =================================================================== */
 
@@ -6325,7 +6325,7 @@ li.project-feature-list h4 {
 	margin-bottom: 30px;
 }
 
-.contact-form-style-one input, 
+.contact-form-style-one input,
 .contact-form-style-one textarea {
 	margin-bottom: 15px;
 	padding: 15px 20px;
@@ -6459,8 +6459,8 @@ img.loader {
     color: green;
 }
 
-/* ============================================================== 
-    # Footer 
+/* ==============================================================
+    # Footer
 =================================================================== */
 footer {
 	position: relative;
@@ -6494,7 +6494,7 @@ footer {
 	background-size: contain;
 }
 
-.footer-item .logo, 
+.footer-item .logo,
 .footer-item .widget-title {
 	margin-bottom: 30px;
 }
@@ -6691,8 +6691,8 @@ footer {
 	border-radius: 0 30px 0 0;
 }
 
-/* ============================================================== 
-     # Preloader 
+/* ==============================================================
+     # Preloader
 =================================================================== */
 .no-js #loader {
 	display: none;
@@ -6717,8 +6717,8 @@ footer {
 }
 
 
-/* ============================================================== 
-     # Responsive CSS  
+/* ==============================================================
+     # Responsive CSS
 =================================================================== */
 
 
@@ -6826,9 +6826,9 @@ footer {
 	.banner-style-three h2 {
 		font-size: 60px;
 	}
-	
-	
-	
+
+
+
 
 	/* About */
 	.banner-style-one .content::after {
@@ -6942,7 +6942,7 @@ footer {
 	.half-bg-light::after {
 		height: 100%;
 	}
-	
+
 
 	/* Product list */
 	.product-list-box {
@@ -6988,7 +6988,7 @@ footer {
 	}
 
 	/* Project */
-	
+
 	.project-info .project-basic-info {
 		display: block;
 	}
@@ -7030,7 +7030,7 @@ footer {
 	li.project-feature-list i {
 		margin-bottom: 30px;
 	}
-	
+
 
 	/* Order Process */
 	.order-process-tab-navs {
@@ -7072,7 +7072,7 @@ footer {
 		text-align: left;
 	}
 
-	
+
 	/* Footer */
 	footer .f-items {
 		padding-top: 70px;
@@ -7223,7 +7223,7 @@ footer {
 	.banner-style-two .shape-animation {
 		display: none;
 	}
-	
+
 	/* About */
 	.about-style-two .info {
 		right: 0;
@@ -7399,7 +7399,7 @@ footer {
 	.order-process-tab-content {
 		text-align: left;
 	}
-	
+
 
 	/* Product List */
 	.product-list-box {
@@ -7495,7 +7495,7 @@ footer {
 	li.project-feature-list {
 		margin-top: 30px;
 	}
-	
+
 
 	/* Farmer */
 	.farmer-style-one-item .info {
@@ -7760,7 +7760,7 @@ footer {
 
 
 
-/* ============================================================== 
+/* ==============================================================
      # Choose Us Style Three
 =================================================================== */
 .choose-us-style-three-thumb {
@@ -7832,7 +7832,7 @@ ul.list-heading-title li p {
 
 
 
-/* ============================================================== 
+/* ==============================================================
     # Home Gardening
 =================================================================== */
 
@@ -8378,12 +8378,12 @@ ul.list-two li i {
 .fun-factor-area {
 	position: relative;
   }
-  
+
   .fun-factor-area .fun-fact-items {
 	position: relative;
   }
-  
-  
+
+
   .fun-factor-area .fun-fact-items .medium {
 	text-transform: capitalize;
 	font-weight: 700;
@@ -8391,7 +8391,7 @@ ul.list-two li i {
 	display: block;
 	color: var(--color-heading);
 	}
-  
+
   .fun-factor-area .fun-fact-items .item {
     border-right: 1px solid #dddddd;
 }
@@ -8422,7 +8422,7 @@ ul.list-two li i {
     align-items: end;
 }
 
-/* ============================================================== 
+/* ==============================================================
      # Home Agriculture Shop
 =================================================================== */
 
@@ -8778,7 +8778,7 @@ ul.list-two li i {
 	background-image: none;
 }
 
-.top-selling-product-nav .swiper-button-prev, 
+.top-selling-product-nav .swiper-button-prev,
 .top-selling-product-nav .swiper-button-next {
     height: 50px;
     width: 50px;
@@ -8871,7 +8871,7 @@ ul.list-two li i {
     font-weight: 500;
 }
 
-/* ============================================================== 
+/* ==============================================================
      # Responsvie
 =================================================================== */
 
@@ -8897,32 +8897,32 @@ ul.list-two li i {
 }
 
 @media only screen and (max-width: 991px) {
-	
+
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
 	/* Home Gardening */
 	.about-four-thumb img:nth-child(2) {
 		left: 0;
 	}
-	
+
 	.about-four-thumb .experience {
 		right: 0;
 	}
-	
+
 	.about-four-thumb {
 		padding-right: 50px;
 		padding-left: 50px;
 		margin-bottom: 50px;
 	}
-	
+
 	.thumb-style-four {
 		margin-bottom: 50px;
 	}
-	
+
 	.fun-factor-area .fun-fact-items .counter {
 		font-size: 60px;
 	}
-	
+
 	.fun-factor-area .fun-fact-items .medium {
 		font-size: 16px;
 	}
@@ -8931,7 +8931,7 @@ ul.list-two li i {
 	.feature-product-item {
 		background-position: center;
 	}
-	
+
 	.feature-product-item:nth-child(2) {
 		background-position: center;
 	}
@@ -8942,20 +8942,20 @@ ul.list-two li i {
 		text-align: left !important;
 		margin-bottom: 40px;
 	}
-	
+
 	.product-mix-menu button {
 		margin-right: 5px;
 		margin-bottom: 10px;
 	}
-	
+
 	.choose-us-style-four-area {
 		width: 95%;
 	}
-	
+
 	.best-selling-banner {
 		margin-bottom: 50px;
 	}
-	
+
 	.testimonial-three-box .text-big {
 		font-size: 100px;
 	}
@@ -8977,35 +8977,35 @@ ul.list-two li i {
 	.about-four-thumb .experience {
 		display: none;
 	}
-	
+
 	.about-four-thumb img:nth-child(2) {
 		left: auto;
 		right: 0;
 	}
-	
+
 	.about-four-thumb {
 		margin-bottom: 30px;
 	}
-	
+
 	.gardening .title {
 		font-size: 36px;
 	}
-	
+
 	.tab-content.about-tab-items {
 		border: none;
 	}
-	
+
 	.about-four-info .nav-tabs button {
 		border: 2px solid #dddddd;
 		width: 100%;
 		margin: 5px 0;
 		border-radius: 10px;
 	}
-	
+
 	.thumb-style-four {
 		margin-bottom: 40px;
 	}
-	
+
 	.fun-factor-area .fun-fact-items .item {
 		border: none;
 		margin: 20px 0;
@@ -9021,59 +9021,59 @@ ul.list-two li i {
 		font-size: 40px;
 		top: -20px;
 	}
-	
+
 	.feature-product-items {
 		grid-template-columns: 1fr;
 	}
-	
+
 	.feature-product-item:nth-child(2) {
 		background-position: center;
 	}
-	
+
 	.feature-product-item {
 		background-position: center;
 	}
-	
+
 	.mix-product-area .shape-left-top {
 		display: none;
 	}
-	
+
 	.product-mix-menu {
 		top: 0;
 		margin: 0;
 		text-align: left !important;
 		margin-bottom: 30px;
 	}
-	
+
 	.product-mix-menu button {
 		margin-right: 5px;
 		margin-bottom: 15px;
 	}
-	
+
 	.shop-category-version-two .product-offer-item {
 		padding: 50px;
 	}
-	
+
 	.shop-category-version-two .shop-category-style-one {
 		padding-bottom: 60px;
 	}
-	
+
 	.choose-us-style-four-area {
 		width: 91%;
 		margin: 60px auto;
 		margin-bottom: 60px;
 		padding: 0 30px;
 	}
-	
+
 	.best-selling-banner {
 		padding: 80px 50px;
 		margin-bottom: 30px;
 	}
-	
+
 	.vt-products .product {
 		padding: 0 !important;
 	}
-	
+
 }
 
 @media only screen and (max-width: 480px) {
@@ -9090,13 +9090,13 @@ ul.list-two li i {
 	.best-selling-banner .title {
 		font-size: 36px;
 	}
-	
+
 	.best-selling-banner {
 		padding: 50px 37px;
 	}
-	
+
 	.best-selling-banner .btn {
 		padding: 18px 40px;
 		font-size: 16px;
 	}
-}	
+}

@@ -7,6 +7,10 @@
 
     <!-- Start Banner Area
 ============================================= -->
+
+
+
+
     <div class="banner-area navigation-circle text-light banner-style-one zoom-effect overflow-hidden">
         <!-- Slider main container -->
         <div class="banner-fade">
@@ -14,54 +18,34 @@
             <div class="swiper-wrapper">
 
                 <!-- Single Item -->
-                <div class="swiper-slide banner-style-one">
-                    <div class="banner-thumb bg-cover shadow dark"
-                         style="background: url({{ asset('assets/img/banner/17.jpg') }});"></div>
-                    <div class="container">
-                        <div class="row align-center">
-                            <div class="col-xl-7">
-                                <div class="content">
-                                    <h4>Original & Natural</h4>
-                                    <h2><strong>Organic Agriculture</strong> Farming Products</h2>
-                                    <p>
-                                        Dissuade ecstatic and properly saw entirely sir why laughter endeavor. In on my
-                                        jointure horrible margaret suitable he followed.
-                                    </p>
-                                    <div class="button">
-                                        <a class="btn btn-theme secondary btn-md radius animation" href="about-us.html">Discover
-                                            More</a>
+                @foreach($sliders as $slider)
+                    <div class="swiper-slide banner-style-one">
+                        <div class="banner-thumb bg-cover shadow dark"
+                             style="background: url({{ asset('storage/' . $slider->image) }});"></div>
+                        <div class="container">
+                            <div class="row align-center">
+                                <div class="col-xl-7">
+                                    <div class="content">
+                                        <h2>{{$slider->title}}</h2>
+                                        <p>
+                                            {{$slider->description}}
+                                        </p>
+                                        <div class="button">
+                                            <a class="btn btn-theme secondary btn-md radius animation"
+                                               href="about-us.html">Discover
+                                                More</a>
+                                        </div>
                                     </div>
+
+
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+
+                @endforeach
                 <!-- End Single Item -->
 
-                <!-- Single Item -->
-                <div class="swiper-slide banner-style-one">
-                    <div class="banner-thumb bg-cover shadow dark"
-                         style="background: url({{ asset('assets/img/banner/2.jpg') }});"></div>
-                    <div class="container">
-                        <div class="row align-center">
-                            <div class="col-xl-7">
-                                <div class="content">
-                                    <h4>Handmade Products</h4>
-                                    <h2><strong>Agriculture Matter</strong> Good production</h2>
-                                    <p>
-                                        Dissuade ecstatic and properly saw entirely sir why laughter endeavor. In on my
-                                        jointure horrible margaret suitable he speedily.
-                                    </p>
-                                    <div class="button">
-                                        <a class="btn btn-theme secondary btn-md radius animation" href="about-us.html">Discover
-                                            More</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Item -->
 
             </div>
 
@@ -71,6 +55,13 @@
 
         </div>
     </div>
+
+
+
+
+
+
+
     <!-- End Main -->
 
     <!-- Start About
@@ -87,38 +78,39 @@
             <div class="row align-center">
                 <div class="col-xl-5 col-lg-6 about-style-one pr-50 pr-md-15 pr-xs-15">
                     <div class="thumb">
-                        <img src="{{ asset('assets/img/about/5.jpg') }}" alt="Image Not Found">
+                        <img src="{{ asset('assets/img/about/5.png') }}" alt="Image Not Found">
                         <div class="sub-item">
-                            <img src="{{ asset('assets/img/about/1.jpg') }}" alt="Image Not Found">
+                            <img src="{{ asset('assets/img/about/1.png') }}" alt="Image Not Found">
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-7 col-lg-6 about-style-one">
                     <div class="row align-center">
+
+                        @foreach($abouts as $about) @endforeach
                         <div class="col-xl-7 col-lg-12">
-                            <h2 class="heading">Agriculture For <br> Future Development</h2>
+                            <h2 class="heading">{{$about->title}}</h2>
                             <p>
-                                There are many variations of passages of ipsum available but the majority have suffered
-                                alteration in some form by injected humor or random word which don’t look even.
-                                Comparison
-                                new ham melancholy son themselves.
+                                {{$about->description}}
                             </p>
-                            <ul class="check-solid-list mt-20">
-                                <li>Organic food contains more vitamins</li>
-                                <li>Eat organic because supply meets demand</li>
-                                <li>Organic food is never irradiated</li>
-                            </ul>
+                            {{--                            <ul class="check-solid-list mt-20">--}}
+                            {{--                                <li>Organic food contains more vitamins</li>--}}
+                            {{--                                <li>Eat organic because supply meets demand</li>--}}
+                            {{--                                <li>Organic food is never irradiated</li>--}}
+                            {{--                            </ul>--}}
                         </div>
+
+
                         <div class="col-xl-5 col-lg-12 pl-50 pl-md-15 pl-xs-15">
                             <div class="top-product-item">
-                                <img src="{{ asset('assets/img/icon/1.svg') }}" alt="Icon">
+{{--                                <img src="{{ asset('assets/img/icon/1.svg') }}" alt="Icon">--}}
                                 <h5><a href="#">Natural Farming</a></h5>
                                 <p>
                                     Resolve parties but trying she shewing of moment.
                                 </p>
                             </div>
                             <div class="top-product-item">
-                                <img src="{{ asset('assets/img/icon/2.svg') }}" alt="Icon">
+{{--                                <img src="{{ asset('assets/img/icon/2.svg') }}" alt="Icon">--}}
                                 <h5><a href="#">Quality Products</a></h5>
                                 <p>
                                     Always parties but trying she shewing of moment.
@@ -127,198 +119,131 @@
                         </div>
                     </div>
                 </div>
+
+
             </div>
         </div>
     </div>
     <!-- End About -->
 
-    <!-- Start Services
+    <!-- Start Why Choose Us
     ============================================= -->
-    <div class="services-style-one-area default-padding bg-gray half-bg-theme">
-        <div class="shape-extra">
-            <img src="{{ asset('assets/img/shape/18.png') }}" alt="Image Not Found">
-        </div>
+    <div class="choose-us-style-three-area default-padding" id="service"  >
         <div class="container">
-            <div class="heading-left">
-                <div class="row">
-                    <div class="col-lg-5">
-                        <div class="left-info">
-                            <h5 class="sub-title">What we do</h5>
-                            <h2 class="title">Currently we are <br> selling organic food</h2>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 offset-lg-1">
-                        <div class="right-info">
-                            <p>
-                                Everything melancholy uncommonly but solicitude inhabiting projection off. Connection
-                                stimulated estimating excellence an to impression. ladies she basket season age her
-                                uneasy
-                                saw. Discourse unwilling am no described.
-                            </p>
-                            <a class="btn btn-theme btn-md radius animation" href="services.html">Discover More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="services-style-one-carousel swiper">
-                        <!-- Additional required wrapper -->
-                        <div class="swiper-wrapper">
-                            <!-- Single Item -->
-                            <div class="swiper-slide">
-                                <div class="services-style-one">
-                                    <div class="thumb">
-                                        <img src="{{ asset('assets/img/thumb/1.png') }}" alt="Image Not Found">
-                                    </div>
-                                    <h5><a href="services-details.html">Fresh Vegetables</a></h5>
-                                    <p>
-                                        Continue indulged speaking technical out horrible domestic position. Seeing
-                                        rather
-                                        you.
-                                    </p>
 
-                                </div>
-                            </div>
-                            <!-- End Single Item -->
-                            <!-- Single Item -->
-                            <div class="swiper-slide">
-                                <div class="services-style-one">
-                                    <div class="thumb">
-                                        <img src="{{ asset('assets/img/thumb/2.png') }}" alt="Image Not Found">
-                                    </div>
-                                    <h5><a href="services-details.html">Agricultural Products</a></h5>
-                                    <p>
-                                        Continue indulged speaking technical out horrible domestic position. Seeing
-                                        rather
-                                        you.
-                                    </p>
-                                </div>
-                            </div>
-                            <!-- End Single Item -->
-                            <!-- Single Item -->
-                            <div class="swiper-slide">
-                                <div class="services-style-one">
-                                    <div class="thumb">
-                                        <img src="{{ asset('assets/img/thumb/3.png') }}" alt="Image Not Found">
-                                    </div>
-                                    <h5><a href="services-details.html">Organic Products</a></h5>
-                                    <p>
-                                        Continue indulged speaking technical out horrible domestic position. Seeing
-                                        rather
-                                        you.
-                                    </p>
-                                </div>
-                            </div>
-                            <!-- End Single Item -->
-                            <!-- Single Item -->
-                            <div class="swiper-slide">
-                                <div class="services-style-one">
-                                    <div class="thumb">
-                                        <img src="{{ asset('assets/img/thumb/4.png') }}" alt="Image Not Found">
-                                    </div>
-                                    <h5><a href="services-details.html">Dairy Production</a></h5>
-                                    <p>
-                                        Continue indulged speaking technical out horrible domestic position. Seeing
-                                        rather
-                                        you.
-                                    </p>
-                                </div>
-                            </div>
-                            <!-- End Single Item -->
-                            <!-- Single Item -->
-                            <div class="swiper-slide">
-                                <div class="services-style-one">
-                                    <div class="thumb">
-                                        <img src="{{ asset('assets/img/thumb/6.png') }}" alt="Image Not Found">
-                                    </div>
-                                    <h5><a href="services-details.html">Sweet Exotic Fruits</a></h5>
-                                    <p>
-                                        Continue indulged speaking technical out horrible domestic position. Seeing
-                                        rather
-                                        you.
-                                    </p>
-                                </div>
-                            </div>
-                            <!-- End Single Item -->
-                        </div>
+
+            <div class="row align-center">
+                <div class="col-lg-6 choose-us-style-three-thumb">
+                    <img src="assets/img/about/6.jpg" alt="Image Not Found">
+                    <div class="video">
+                        <img src="assets/img/about/9.jpg" alt="Image Not Found">
 
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Services -->
+                <div class="col-lg-5 offset-lg-1 choose-us-style-three-info">
+                    <h4 class="sub-title">Why Choose Us</h4>
+                    <h2 class="title">Product & Services</h2>
+                    <p>
+                        New had happen unable uneasy. Drawings can followed improved out sociable not. Earnestly so do
+                        instantly pretended. See general few civilly amiable pleased account carried. Excellence
+                        projecting.
+                    </p>
 
-    <!-- Start Product
-    ============================================= -->
-    <div class="product-list-area default-padding-bottom bottom-less bg-dark text-center text-light">
-        <div class="shape-bottom-right">
-{{--            <img src="{{ asset('assets/img/shape/21.png') }}" alt="Image Not Found">--}}
+                    @foreach($services as $service)
+                        <ul class="list-heading-title">
+                            <li>
+                                <div class="icon">
+                                    <i class=""><img src="{{ asset('storage/' . $service->image) }}" alt
+                                        /></i>
+                                </div>
+                                <div class="info">
+                                    <h4>{{$service->title}} </h4>
+{{--                                    <p>--}}
+{{--                                        Our farms deliver to us daily, ensuring you only eat the best of what's in--}}
+{{--                                        season vegetables from FreshDirect.--}}
+{{--                                    </p>--}}
+                                </div>
+                            </li>
+
+                        </ul>
+                    @endforeach
+
+
+                </div>
+            </div>
+
+
         </div>
-{{--        <div class="container">--}}
-{{--            <div class="row">--}}
-{{--                <div class="col-xl-10 offset-xl-1 mb-50 mb-xs-30">--}}
-{{--                    <h2 class="mask-text" style="background-image: url(assets/img/banner/3.jpg);">Healthy life with--}}
-{{--                        fresh--}}
-{{--                        products</h2>--}}
-{{--                </div>--}}
-{{--                <div class="product-list-box">--}}
-{{--                    <!-- Single Item -->--}}
-{{--                    <div class="product-list-item">--}}
-{{--                        <a href="services-details.html">--}}
-{{--                            <img src="{{ asset('assets/img/icon/1.png') }}" alt="Icon">--}}
-{{--                            <h5>Blueberry</h5>--}}
-{{--                        </a>--}}
-{{--                    </div>--}}
-{{--                    <!-- End Single Item -->--}}
-{{--                    <!-- Single Item -->--}}
-{{--                    <div class="product-list-item">--}}
-{{--                        <a href="services-details.html">--}}
-{{--                            <img src="{{ asset('assets/img/icon/2.png') }}" alt="Icon">--}}
-{{--                            <h5>Strawberry</h5>--}}
-{{--                        </a>--}}
-{{--                    </div>--}}
-{{--                    <!-- End Single Item -->--}}
-{{--                    <!-- Single Item -->--}}
-{{--                    <div class="product-list-item">--}}
-{{--                        <a href="services-details.html">--}}
-{{--                            <img src="{{ asset('assets/img/icon/3.png') }}" alt="Icon">--}}
-{{--                            <h5>Cabbage</h5>--}}
-{{--                        </a>--}}
-{{--                    </div>--}}
-{{--                    <!-- End Single Item -->--}}
-{{--                    <!-- Single Item -->--}}
-{{--                    <div class="product-list-item">--}}
-{{--                        <a href="services-details.html">--}}
-{{--                            <img src="{{ asset('assets/img/icon/4.png') }}" alt="Icon">--}}
-{{--                            <h5>Eggplant</h5>--}}
-{{--                        </a>--}}
-{{--                    </div>--}}
-{{--                    <!-- End Single Item -->--}}
-{{--                    <!-- Single Item -->--}}
-{{--                    <div class="product-list-item">--}}
-{{--                        <a href="services-details.html">--}}
-{{--                            <img src="{{ asset('assets/img/icon/5.png') }}" alt="Icon">--}}
-{{--                            <h5>Orange</h5>--}}
-{{--                        </a>--}}
-{{--                    </div>--}}
-{{--                    <!-- End Single Item -->--}}
-{{--                    <!-- Single Item -->--}}
-{{--                    <div class="product-list-item">--}}
-{{--                        <a href="services-details.html">--}}
-{{--                            <img src="{{ asset('assets/img/icon/6.png') }}" alt="Icon">--}}
-{{--                            <h5>Apples</h5>--}}
-{{--                        </a>--}}
-{{--                    </div>--}}
-{{--                    <!-- End Single Item -->--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
     </div>
-    <!-- End Product Area -->
+    <!-- End Why Choose Us -->
+
+    {{--    <!-- Start Product--}}
+    {{--    ============================================= -->--}}
+    {{--    <div class="product-list-area default-padding-bottom bottom-less bg-dark text-center text-light">--}}
+    {{--        <div class="shape-bottom-right">--}}
+    {{--            <img src="{{ asset('assets/img/shape/21.png') }}" alt="Image Not Found">--}}
+    {{--        </div>--}}
+    {{--        <div class="container">--}}
+    {{--            <div class="row">--}}
+    {{--                <div class="col-xl-10 offset-xl-1 mb-50 mb-xs-30">--}}
+    {{--                    <h2 class="mask-text" style="background-image: url(assets/img/banner/3.jpg);">Healthy life with--}}
+    {{--                        fresh--}}
+    {{--                        products</h2>--}}
+    {{--                </div>--}}
+    {{--                <div class="product-list-box">--}}
+    {{--                    <!-- Single Item -->--}}
+    {{--                    <div class="product-list-item">--}}
+    {{--                        <a href="services-details.html">--}}
+    {{--                            <img src="{{ asset('assets/img/icon/1.png') }}" alt="Icon">--}}
+    {{--                            <h5>Blueberry</h5>--}}
+    {{--                        </a>--}}
+    {{--                    </div>--}}
+    {{--                    <!-- End Single Item -->--}}
+    {{--                    <!-- Single Item -->--}}
+    {{--                    <div class="product-list-item">--}}
+    {{--                        <a href="services-details.html">--}}
+    {{--                            <img src="{{ asset('assets/img/icon/2.png') }}" alt="Icon">--}}
+    {{--                            <h5>Strawberry</h5>--}}
+    {{--                        </a>--}}
+    {{--                    </div>--}}
+    {{--                    <!-- End Single Item -->--}}
+    {{--                    <!-- Single Item -->--}}
+    {{--                    <div class="product-list-item">--}}
+    {{--                        <a href="services-details.html">--}}
+    {{--                            <img src="{{ asset('assets/img/icon/3.png') }}" alt="Icon">--}}
+    {{--                            <h5>Cabbage</h5>--}}
+    {{--                        </a>--}}
+    {{--                    </div>--}}
+    {{--                    <!-- End Single Item -->--}}
+    {{--                    <!-- Single Item -->--}}
+    {{--                    <div class="product-list-item">--}}
+    {{--                        <a href="services-details.html">--}}
+    {{--                            <img src="{{ asset('assets/img/icon/4.png') }}" alt="Icon">--}}
+    {{--                            <h5>Eggplant</h5>--}}
+    {{--                        </a>--}}
+    {{--                    </div>--}}
+    {{--                    <!-- End Single Item -->--}}
+    {{--                    <!-- Single Item -->--}}
+    {{--                    <div class="product-list-item">--}}
+    {{--                        <a href="services-details.html">--}}
+    {{--                            <img src="{{ asset('assets/img/icon/5.png') }}" alt="Icon">--}}
+    {{--                            <h5>Orange</h5>--}}
+    {{--                        </a>--}}
+    {{--                    </div>--}}
+    {{--                    <!-- End Single Item -->--}}
+    {{--                    <!-- Single Item -->--}}
+    {{--                    <div class="product-list-item">--}}
+    {{--                        <a href="services-details.html">--}}
+    {{--                            <img src="{{ asset('assets/img/icon/6.png') }}" alt="Icon">--}}
+    {{--                            <h5>Apples</h5>--}}
+    {{--                        </a>--}}
+    {{--                    </div>--}}
+    {{--                    <!-- End Single Item -->--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
+    {{--        </div>--}}
+    {{--    </div>--}}
+    {{--    <!-- End Product Area -->--}}
 
     <!-- Start Why Choose Us
     ============================================= -->
@@ -327,22 +252,22 @@
             <div class="row align-center">
                 <div class="col-lg-6 choose-us-style-one">
                     <div class="thumb">
-                        <img src="{{ asset('assets/img/about/1.jpg') }}" alt="Image Not Found">
+                        <img src="{{ asset('assets/img/about/1.png') }}" alt="Image Not Found">
                         <div class="shape">
                             <img class="wow fadeInDown" src="{{ asset('assets/img/shape/22.png') }}"
                                  alt="Image not found">
                         </div>
                         <div class="product-produce">
-                            <div class="icon">
-                                <i class="flaticon-farmer"></i>
-                            </div>
-                            <div class="fun-fact">
-                                <div class="counter">
-                                    <div class="timer" data-to="258" data-speed="2000">258</div>
-                                    <div class="operator">K</div>
-                                </div>
-                                <span class="medium">Agriculture, Organic Products</span>
-                            </div>
+{{--                            <div class="icon">--}}
+{{--                                <i class="flaticon-farmer"></i>--}}
+{{--                            </div>--}}
+{{--                            <div class="fun-fact">--}}
+{{--                                <div class="counter">--}}
+{{--                                    <div class="timer" data-to="258" data-speed="2000">258</div>--}}
+{{--                                    <div class="operator">K</div>--}}
+{{--                                </div>--}}
+{{--                                <span class="medium">Agriculture, Organic Products</span>--}}
+{{--                            </div>--}}
                         </div>
                     </div>
                 </div>
@@ -415,21 +340,85 @@
     </div>
     <!-- End Why Choose us -->
 
+    <div class="farmer-area default-padding bottom-less bg-gray" style="background-image: url({{asset('assets/img/shape/36.png')}});">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="site-heading text-center">
+                        <h5 class="sub-title">Our Teams</h5>
+                        <h2 class="title">Meet Our Team</h2>
+                        <div class="devider"></div>
+                        <p>
+                            Everything melancholy uncommonly but solicitude inhabiting <br> projection off. Connection stimulated estimating.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" id="team">
+            <div class="row justify-content-center"> <!-- Center the content within the row -->
+                <div class="col-lg-12"> <!-- span the entire width -->
+                    <div class="row">
+                        @foreach($teams as $team)
+                            <div class="col-lg-2 col-md-3 farmer-stye-one" style="margin-left:80px"  > <!-- Adjust column width as per your preference -->
+                                <div class="farmer-style-one-item">
+                                    <div class="thumb">
+                                        <img src="{{ asset('storage/' . $team->image) }}" alt=""/>
+                                        <div class="social">
+                                            <i class="fas fa-share-alt"></i>
+                                            <ul>
+                                                <li class="facebook">
+                                                    <a href="#">
+                                                        <i class="fab fa-facebook-f"></i>
+                                                    </a>
+                                                </li>
+                                                <li class="twitter">
+                                                    <a href="#">
+                                                        <i class="fab fa-twitter"></i>
+                                                    </a>
+                                                </li>
+                                                <li class="linkedin">
+                                                    <a href="#">
+                                                        <i class="fab fa-linkedin-in"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="info">
+                                        <h4><a href="">{{$team->title}}</a></h4>
+                                        <span>{{$team->description}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
     <!-- Start Testimonials
     ============================================= -->
     <div class="testimonials-area default-padding bg-gray"
-         style="background-image: url({{ asset('assets/img/shape/23.png') }});">
+         style="background-image: url({{ asset('assets/img/shape/23.png') }});"  id="testimonial">
         <div class="container">
             <div class="row align-center">
                 <div class="col-lg-5">
                     <div class="testimonial-info text-center">
                         <h4>Testimonial</h4>
+
                         <div class="thumb">
-                            <img src="{{ asset('assets/img/farmers/1.jpg') }}" alt="Image Not Found">
-                            <img src="{{ asset('assets/img/farmers/4.jpg') }}" alt="Image Not Found">
-                            <img src="{{ asset('assets/img/farmers/2.jpg') }}" alt="Image Not Found">
-                            <img src="{{ asset('assets/img/farmers/3.jpg') }}" alt="Image Not Found">
+                            <img src="{{ asset('assets/img/farmers/1.png') }}">
+                            <img src="{{ asset('assets/img/farmers/2.png') }}">
+                            <img src="{{ asset('assets/img/farmers/3.png') }}">
+                            <img src="{{ asset('assets/img/farmers/4.png') }}">
+
                         </div>
+
                     </div>
                 </div>
                 <div class="col-lg-6 offset-lg-1">
@@ -437,78 +426,33 @@
                         <!-- Additional required wrapper -->
                         <div class="swiper-wrapper">
                             <!-- Single item -->
-                            <div class="swiper-slide">
-                                <div class="testimonial-style-two">
+                            @foreach($testimonials as $testimonial)
+                                <div class="swiper-slide">
+                                    <div class="testimonial-style-two">
 
-                                    <div class="item">
-                                        <div class="content">
-                                            <p>
-                                                “Targetingconsultation discover apartments. ndulgence off under folly
-                                                death
-                                                wrote cause her way spite. Plan upon yet way get cold spot its week.
-                                                Almost
-                                                do am or limits hearts. Resolve parties but why she shewing. She sang
-                                                know
-                                                now always remembering to the point.”
-                                            </p>
-                                        </div>
-                                        <div class="provider">
-                                            <div class="info">
-                                                <h4>Matthew J. Wyman</h4>
-                                                <span>Senior Consultant</span>
+                                        <div class="item">
+                                            <div class="content">
+                                                <p>
+                                                    {{$testimonial->description}}
+
+                                                </p>
+                                            </div>
+                                            <div class="provider">
+                                                <div class="info">
+                                                    <h4>{{$testimonial->title}}</h4>
+                                                    {{--                                                <span>Senior Consultant</span>--}}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endforeach
+
+
+
+
                             <!-- End Single item -->
-                            <!-- Single item -->
-                            <div class="swiper-slide">
-                                <div class="testimonial-style-two">
-                                    <div class="item">
-                                        <div class="content">
-                                            <p>
-                                                “Consultation discover apartments. ndulgence off under folly death wrote
-                                                cause her way spite. Plan upon yet way get cold spot its week. Almost do
-                                                am
-                                                or limits hearts. Resolve parties but why she shewing. She sang know now
-                                                always remembering to the point.”
-                                            </p>
-                                        </div>
-                                        <div class="provider">
-                                            <div class="info">
-                                                <h4>Anthom Bu Spar</h4>
-                                                <span>Marketing Manager</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single item -->
-                            <!-- Single item -->
-                            <div class="swiper-slide">
-                                <div class="testimonial-style-two">
-                                    <div class="item">
-                                        <div class="content">
-                                            <p>
-                                                “Business discover apartments. ndulgence off under folly death wrote
-                                                cause
-                                                her way spite. Plan upon yet way get cold spot its week. Almost do am or
-                                                limits hearts. Resolve parties but why she shewing. She sang know now
-                                                always
-                                                remembering to the point.”
-                                            </p>
-                                        </div>
-                                        <div class="provider">
-                                            <div class="info">
-                                                <h4>Metho k. Partho</h4>
-                                                <span>Senior Developer</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single item -->
+
                         </div>
 
                     </div>
@@ -520,7 +464,7 @@
 
     <!-- Start Gallery
     ============================================= -->
-    <div class="gallery-style-one-area default-padding-top">
+    <div class="gallery-area default-padding"  id="gallery" >
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
@@ -532,72 +476,33 @@
                 </div>
             </div>
         </div>
-        <div class="container container-stage">
+        <div class="container">
             <div class="row">
-                <div class="col-xl-12">
-                    <div class="carousel-stage-right carousel-style-one swiper">
-                        <!-- Additional required wrapper -->
-                        <div class="swiper-wrapper">
-                            <!-- Single Item -->
-                            <div class="swiper-slide">
-                                <div class="gallery-style-one">
-                                    <img src="{{ asset('assets/img/gallery/2.jpg') }}" alt="Thumb">
-                                    <div class="overlay">
-                                        <span>Fruit</span>
-                                        <h4><a href="project-details.html">Healthy Food</a></h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Item -->
-                            <!-- Single Item -->
-                            <div class="swiper-slide">
-                                <div class="gallery-style-one">
-                                    <img src="{{ asset('assets/img/gallery/7.jpg') }}" alt="Thumb">
-                                    <div class="overlay">
-                                        <span>Organic</span>
-                                        <h4><a href="project-details.html">Cow Milk</a></h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Item -->
-                            <!-- Single Item -->
-                            <div class="swiper-slide">
-                                <div class="gallery-style-one">
-                                    <img src="{{ asset('assets/img/gallery/3.jpg') }}" alt="Thumb">
-                                    <div class="overlay">
-                                        <span>Vegetables</span>
-                                        <h4><a href="project-details.html">Organic Vegetables</a></h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Item -->
-                            <!-- Single Item -->
-                            <div class="swiper-slide">
-                                <div class="gallery-style-one">
-                                    <img src="{{ asset('assets/img/gallery/5.jpg') }}" alt="Thumb">
-                                    <div class="overlay">
-                                        <span>Cereals</span>
-                                        <h4><a href="project-details.html">Fresh Mandrains</a></h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End Single Item -->
+                <div class="col-md-12 gallery-content">
+                    <div class="magnific-mix-gallery masonary">
+                        <div id="portfolio-grid" class="gallery-items colums-2">
 
-                            <!-- Single Item -->
-                            <div class="swiper-slide">
-                                <div class="gallery-style-one">
-                                    <img src="{{ asset('assets/img/gallery/10.jpg') }}" alt="Thumb">
-                                    <div class="overlay">
-                                        <span>Havest</span>
-                                        <h4><a href="project-details.html">Crispy Cucumber</a></h4>
+                            @foreach($galleries as $gallerie)
+                                <!-- Single Item -->
+                                <div class="pf-item">
+
+                                    <div class="gallery-style-two">
+                                        <img src="{{ asset('storage/' . $gallerie->image) }}" alt
+                                        />
+                                        <div class="overlay">
+                                            <span>{{$gallerie->title}}</span>
+                                            <h4><a href="">{{$gallerie->description}}</a></h4>
+                                        </div>
+                                        <a class="link" href=""><i class="fas fa-arrow-right"></i></a>
                                     </div>
+
                                 </div>
-                            </div>
-                            <!-- End Single Item -->
+                                <!-- End Single Item -->
+
+                            @endforeach
+
+
                         </div>
-
-                        <!-- Pagination -->
-                        <div class="swiper-pagination"></div>
 
                     </div>
                 </div>
@@ -606,68 +511,55 @@
     </div>
     <!-- End Gallery -->
 
-    <!-- Start Fun Factor Area
-    ============================================= -->
-    <div class="fun-facts-area default-padding">
-        <div class="shape-left">
-            <img src="{{ asset('assets/img/shape/27.png') }}" alt="Image Not Found">
+    <!-- Start achievement
+     ============================================= -->
+    <div class="gallery-area default-padding"  id="gallery" >
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="site-heading text-center">
+{{--                        <h5 class="sub-title">Awesome Gallery</h5>--}}
+                        <h2 class="title">Our Achievement</h2>
+                        <div class="devider"></div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="container">
-            <div class="item-inner">
-                <div class="shape-right">
-                    <img src="{{ asset('assets/img/shape/26.png') }}" alt="Image Not Found">
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 fun-fact-style-one">
-                        <div class="heading">
-                            <div class="sub-title">Achivements</div>
-                            <h2 class="title">Delivering value <br> since 1956</h2>
-                        </div>
-                    </div>
-                    <div class="col-lg-8 fun-fact-style-one text-end">
-                        <div class="row">
-                            <!-- Single item -->
-                            <div class="col-lg-4 col-md-4 item">
-                                <div class="fun-fact">
-                                    <div class="counter">
-                                        <div class="timer" data-to="250" data-speed="2000">250</div>
-                                        <div class="operator">M</div>
-                                    </div>
-                                    <span class="medium">Growth Tonns of Harvest</span>
-                                </div>
-                            </div>
-                            <!-- End Single item -->
+            <div class="row">
+                <div class="col-md-12 gallery-content">
+                    <div class="magnific-mix-gallery masonary">
+                        <div id="portfolio-grid" class="gallery-items colums-2">
 
-                            <!-- Single item -->
-                            <div class="col-lg-4 col-md-4 item">
-                                <div class="fun-fact">
-                                    <div class="counter">
-                                        <div class="timer" data-to="98" data-speed="2000">98</div>
-                                        <div class="operator">%</div>
-                                    </div>
-                                    <span class="medium">Happy clients</span>
-                                </div>
-                            </div>
-                            <!-- End Single item -->
+                            @foreach($achievements as $achievement)
+                                <!-- Single Item -->
+                                <div class="pf-item">
 
-                            <!-- Single item -->
-                            <div class="col-lg-4 col-md-4 item">
-                                <div class="fun-fact">
-                                    <div class="counter">
-                                        <div class="timer" data-to="688" data-speed="2000">688</div>
-                                        <div class="operator">K</div>
+                                    <div class="gallery-style-two">
+                                        <img src="{{ asset('storage/' .$achievement->image) }}" alt
+                                        />
+                                        <div class="overlay">
+                                            <span>{{$achievement->title}}</span>
+                                            <h4><a href="">{{$achievement->description}}</a></h4>
+                                        </div>
+{{--                                        <a class="link" href=""><i class="fas fa-arrow-right"></i></a>--}}
                                     </div>
-                                    <span class="medium">Sales of our Products</span>
+
                                 </div>
-                            </div>
-                            <!-- End Single item -->
+                                <!-- End Single Item -->
+
+                            @endforeach
+
+
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- End Fun Factor Area -->
+    <!-- End achievement -->
+
 
     <!-- Start Contact Us
     ============================================= -->
@@ -753,7 +645,7 @@
                                 </div>
                                 <div class="content">
                                     <h5 class="title">Hotline</h5>
-                                    <a href="">+4733378901</a>
+                                    <a href="">+880 1755-680807</a>
                                 </div>
                             </li>
                             <li class="wow fadeInUp" data-wow-delay="300ms">
@@ -763,7 +655,7 @@
                                 <div class="info">
                                     <h5 class="title">Our Location</h5>
                                     <p>
-                                        55 Main Street, The Grand Avenue 2nd Block, <br> New York City
+                                        Mansurabad , Adabar , Road: 07 , House : 8
                                     </p>
                                 </div>
                             </li>
@@ -773,7 +665,7 @@
                                 </div>
                                 <div class="info">
                                     <h5 class="title">Official Email</h5>
-                                    <a href="mailto:info@agrul.com.com">info@agrul.com</a>
+                                    <a href="">info@insurecow.com</a>
                                 </div>
                             </li>
                         </ul>
@@ -790,79 +682,36 @@
     <div class="blog-area home-blog blog-grid default-padding bottom-less">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-12 mb-30">
-                    <div class="blog-style-one">
-                        <div class="thumb">
-                            <a href="blog-single-with-sidebar.html"><img src="{{ asset('assets/img/blog/v1.jpg') }}"
-                                                                         alt="Image Not Found"></a>
-                            <div class="date"><strong>18</strong> <span>Apr, 22</span></div>
-                        </div>
-                        <div class="info">
-                            <div class="meta">
-                                <ul>
-                                    <li>
-                                        <a href="#"><i class="fas fa-user-circle"></i> Admin</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fas fa-comments"></i> 26 Comments</a>
-                                    </li>
-                                </ul>
+
+                @foreach($blogs as $blog)
+                    <div class="col-lg-6 col-md-12 mb-30">
+                        <div class="blog-style-one">
+                            <div class="thumb">
+                                <a href=""> <img
+                                        src="{{ asset('storage/' . $blog->image) }}" alt
+                                    /> </a>
+                                <div class="date"><span>{{$blog->created_at}}</span></div>
                             </div>
-                            <h4 class="title">
-                                <a href="blog-single-with-sidebar.html">Announcing if attachment resolution sentiments
-                                    Possession ye no mr unaffected remarkably</a>
-                            </h4>
+                            <div class="info">
+                                <div class="meta">
+                                    <ul>
+                                        <li>
+                                            <a href="#"><i class="fas fa-user-circle"></i> Admin</a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fas fa-comments"></i> 26 Comments</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <h4 class="title">
+                                    <a href="blog-single-with-sidebar.html">{{$blog->title}}</a>
+                                </h4>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-30">
-                    <div class="blog-style-one">
-                        <div class="thumb">
-                            <a href="blog-single-with-sidebar.html"><img src="{{ asset('assets/img/blog/v2.jpg') }}"
-                                                                         alt="Image Not Found"></a>
-                            <div class="date"><strong>15</strong> <span>Jul, 22</span></div>
-                        </div>
-                        <div class="info">
-                            <div class="meta">
-                                <ul>
-                                    <li>
-                                        <a href="#"><i class="fas fa-user-circle"></i> User</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fas fa-comments"></i> 35 Comments</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <h4 class="title">
-                                <a href="blog-single-with-sidebar.html">Considered imprudence of he friendship day</a>
-                            </h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-30">
-                    <div class="blog-style-one">
-                        <div class="thumb">
-                            <a href="blog-single-with-sidebar.html"><img src="{{ asset('assets/img/blog/v3.jpg') }}"
-                                                                         alt="Image Not Found"></a>
-                            <div class="date"><strong>24</strong> <span>Feb, 22</span></div>
-                        </div>
-                        <div class="info">
-                            <div class="meta">
-                                <ul>
-                                    <li>
-                                        <a href="#"><i class="fas fa-user-circle"></i> User</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"><i class="fas fa-comments"></i> 12 Comments</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <h4 class="title">
-                                <a href="blog-single-with-sidebar.html">Overcame breeding or concerns removing past</a>
-                            </h4>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+
+
             </div>
         </div>
     </div>

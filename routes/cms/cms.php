@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 // -------------------------------------------------------------------- Front Page Routes --------------------------------------------------------------------
 
 
-Route::get('test_front_page', [\App\Http\Controllers\Cms\FrontPageController::class,'index']);
+Route::get('test_front_page', [\App\Http\Controllers\Cms\FrontPageController::class,'front']);
 
 
 // -------------------------------------------------------------------- Front Page Routes --------------------------------------------------------------------
