@@ -32,7 +32,7 @@
                                         </p>
                                         <div class="button">
                                             <a class="btn btn-theme secondary btn-md radius animation"
-                                               href="about-us.html">Discover
+                                               href="#service">Discover
                                                 More</a>
                                         </div>
                                     </div>
@@ -335,65 +335,74 @@
     </div>
     <!-- End Why Choose us -->
 
-    <div class="farmer-area default-padding bottom-less bg-gray" style="background-image: url({{asset('assets/img/shape/36.png')}});">
+
+
+
+
+    <div class="farmer-area default-padding bottom-less bg-gray" id="team" style="background-image: url(assets/img/shape/36.png);">
         <div class="container">
             <div class="row">
+
                 <div class="col-lg-8 offset-lg-2">
                     <div class="site-heading text-center">
-                        <h5 class="sub-title">Our Teams</h5>
-                        <h2 class="title">Meet Our Team</h2>
+                        <h5 class="sub-title">Our Farmers</h5>
+                        <h2 class="title">Meet Our Farm Experts</h2>
                         <div class="devider"></div>
-{{--                        <p>--}}
-{{--                            Everything melancholy uncommonly but solicitude inhabiting <br> projection off. Connection stimulated estimating.--}}
-{{--                        </p>--}}
+                        <p>
+                            Everything melancholy uncommonly but solicitude inhabiting <br> projection off. Connection stimulated estimating.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
-
-        <div class="container" id="team">
-            <div class="row justify-content-center"> <!-- Center the content within the row -->
-                <div class="col-lg-12"> <!-- span the entire width -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
                     <div class="row">
                         @foreach($teams as $team)
-                            <div class="col-lg-2 col-md-3 farmer-stye-one" style="margin-left:80px"  > <!-- Adjust column width as per your preference -->
-                                <div class="farmer-style-one-item">
-                                    <div class="thumb">
-                                        <img src="{{ asset('storage/' . $team->image) }}" alt=""/>
-{{--                                        <div class="social">--}}
-{{--                                            <i class="fas fa-share-alt"></i>--}}
-{{--                                            <ul>--}}
-{{--                                                <li class="facebook">--}}
-{{--                                                    <a href="#">--}}
-{{--                                                        <i class="fab fa-facebook-f"></i>--}}
-{{--                                                    </a>--}}
-{{--                                                </li>--}}
-{{--                                                <li class="twitter">--}}
-{{--                                                    <a href="#">--}}
-{{--                                                        <i class="fab fa-twitter"></i>--}}
-{{--                                                    </a>--}}
-{{--                                                </li>--}}
-{{--                                                <li class="linkedin">--}}
-{{--                                                    <a href="#">--}}
-{{--                                                        <i class="fab fa-linkedin-in"></i>--}}
-{{--                                                    </a>--}}
-{{--                                                </li>--}}
-{{--                                            </ul>--}}
-{{--                                        </div>--}}
-                                    </div>
-                                    <div class="info">
-                                        <h4><a href="">{{$team->title}}</a></h4>
-                                        <span>{{$team->description}}</span>
+                        <!-- Single Item -->
+                        <div class="col-lg-4 col-md-6 farmer-stye-one">
+                            <div class="farmer-style-one-item">
+                                <div class="thumb">
+                                    <img src="{{ asset('storage/' . $team->image) }}" alt=""/>
+                                    <div class="social">
+                                        <i class="fas fa-share-alt"></i>
+                                        <ul>
+                                            <li class="facebook">
+                                                <a href="#">
+                                                    <i class="fab fa-facebook-f"></i>
+                                                </a>
+                                            </li>
+                                            <li class="twitter">
+                                                <a href="#">
+                                                    <i class="fab fa-twitter"></i>
+                                                </a>
+                                            </li>
+                                            <li class="linkedin">
+                                                <a href="#">
+                                                    <i class="fab fa-linkedin-in"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </div>
+                                <div class="info">
+                                    <h4><a href="">{{$team->title}}</a></h4>
+                                    <span>{{$team->description}}</span>
+                                </div>
                             </div>
+                        </div>
+                        <!-- End Single Item -->
+
+
                         @endforeach
+
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 
 
     <!-- Start Testimonials
