@@ -368,16 +368,7 @@
                                     <div class="social">
                                         <i class="fas fa-share-alt"></i>
                                         <ul>
-                                            <li class="facebook">
-                                                <a href="#">
-                                                    <i class="fab fa-facebook-f"></i>
-                                                </a>
-                                            </li>
-                                            <li class="twitter">
-                                                <a href="#">
-                                                    <i class="fab fa-twitter"></i>
-                                                </a>
-                                            </li>
+
                                             <li class="linkedin">
                                                 <a href="#">
                                                     <i class="fab fa-linkedin-in"></i>
