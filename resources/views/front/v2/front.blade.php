@@ -104,16 +104,16 @@
                         <div class="col-xl-5 col-lg-12 pl-50 pl-md-15 pl-xs-15">
                             <div class="top-product-item">
 {{--                                <img src="{{ asset('assets/img/icon/1.svg') }}" alt="Icon">--}}
-                                <h5><a href="#">Natural Farming</a></h5>
+                                <h5><a href="#">Insurance claim</a></h5>
                                 <p>
-                                    Resolve parties but trying she shewing of moment.
+                                    easy to get insurance packages
                                 </p>
                             </div>
                             <div class="top-product-item">
 {{--                                <img src="{{ asset('assets/img/icon/2.svg') }}" alt="Icon">--}}
-                                <h5><a href="#">Quality Products</a></h5>
+                                <h5><a href="#">Cattle verify</a></h5>
                                 <p>
-                                    Always parties but trying she shewing of moment.
+                                    By using InsureCow get to know your cattle
                                 </p>
                             </div>
                         </div>
@@ -273,23 +273,21 @@
                 </div>
                 <div class="col-lg-6 choose-us-style-one">
                     <h5 class="sub-title">Get to know us</h5>
-                    <h2 class="title">Agriculture matters to <br> the future of development</h2>
+                    <h2 class="title">InsureCow  share to <br>some knowledge</h2>
                     <div class="accordion accordion-regular mt-35" id="faqAccordion">
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingOne">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    What do you add to the soil before you plant a crop?
+                                    What is insurance management ?
                                 </button>
                             </h2>
                             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
                                  data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
                                     <p>
-                                        Bennings appetite disposed me an at subjects an. To no indulgence diminution so
-                                        discovered mr apartments. Are off under folly death wrote cause her way spite.
-                                        Plan
-                                        upon yet way get cold spot its week.
+
+                                        Insurance management involves assessing, mitigating, and transferring risks through insurance policies. It includes selecting appropriate coverage, negotiating premiums, filing claims, and optimizing insurance portfolios to protect assets and mitigate financial losses.
                                     </p>
                                 </div>
                             </div>
@@ -298,17 +296,15 @@
                             <h2 class="accordion-header" id="headingTwo">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Do you use herbicides?
+                                    What benefits will get from insurecow farm management ?
                                 </button>
                             </h2>
                             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                                  data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
                                     <p>
-                                        Cennings appetite disposed me an at subjects an. To no indulgence diminution so
-                                        discovered mr apartments. Are off under folly death wrote cause her way spite.
-                                        Plan
-                                        upon yet way get cold spot its week.
+
+                                        InsureCow farm management provides benefits such as financial protection against cow-related risks like mortality, theft, and health issues, ensuring stability, peace of mind, and continuity of operations for farmers.
                                     </p>
                                 </div>
                             </div>
@@ -318,17 +314,16 @@
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapseThree" aria-expanded="false"
                                         aria-controls="collapseThree">
-                                    Where does the water come from that you use on your crops?
+                                    How to insurance company varify their cow by using insurecow ?
                                 </button>
                             </h2>
                             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                                  data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
                                     <p>
-                                        Tennings appetite disposed me an at subjects an. To no indulgence diminution so
-                                        discovered mr apartments. Are off under folly death wrote cause her way spite.
-                                        Plan
-                                        upon yet way get cold spot its week.
+                                        A dataset containing information about individual cows, such as breed, age, weight, health history, and any identifying features.
+                                        Clean the dataset by handling missing values, normalizing numerical features, and encoding categorical variables.
+
                                     </p>
                                 </div>
                             </div>
@@ -348,9 +343,9 @@
                         <h5 class="sub-title">Our Teams</h5>
                         <h2 class="title">Meet Our Team</h2>
                         <div class="devider"></div>
-                        <p>
-                            Everything melancholy uncommonly but solicitude inhabiting <br> projection off. Connection stimulated estimating.
-                        </p>
+{{--                        <p>--}}
+{{--                            Everything melancholy uncommonly but solicitude inhabiting <br> projection off. Connection stimulated estimating.--}}
+{{--                        </p>--}}
                     </div>
                 </div>
             </div>
@@ -365,26 +360,26 @@
                                 <div class="farmer-style-one-item">
                                     <div class="thumb">
                                         <img src="{{ asset('storage/' . $team->image) }}" alt=""/>
-                                        <div class="social">
-                                            <i class="fas fa-share-alt"></i>
-                                            <ul>
-                                                <li class="facebook">
-                                                    <a href="#">
-                                                        <i class="fab fa-facebook-f"></i>
-                                                    </a>
-                                                </li>
-                                                <li class="twitter">
-                                                    <a href="#">
-                                                        <i class="fab fa-twitter"></i>
-                                                    </a>
-                                                </li>
-                                                <li class="linkedin">
-                                                    <a href="#">
-                                                        <i class="fab fa-linkedin-in"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
+{{--                                        <div class="social">--}}
+{{--                                            <i class="fas fa-share-alt"></i>--}}
+{{--                                            <ul>--}}
+{{--                                                <li class="facebook">--}}
+{{--                                                    <a href="#">--}}
+{{--                                                        <i class="fab fa-facebook-f"></i>--}}
+{{--                                                    </a>--}}
+{{--                                                </li>--}}
+{{--                                                <li class="twitter">--}}
+{{--                                                    <a href="#">--}}
+{{--                                                        <i class="fab fa-twitter"></i>--}}
+{{--                                                    </a>--}}
+{{--                                                </li>--}}
+{{--                                                <li class="linkedin">--}}
+{{--                                                    <a href="#">--}}
+{{--                                                        <i class="fab fa-linkedin-in"></i>--}}
+{{--                                                    </a>--}}
+{{--                                                </li>--}}
+{{--                                            </ul>--}}
+{{--                                        </div>--}}
                                     </div>
                                     <div class="info">
                                         <h4><a href="">{{$team->title}}</a></h4>
@@ -513,7 +508,7 @@
 
     <!-- Start achievement
      ============================================= -->
-    <div class="gallery-area default-padding"  id="gallery" >
+    <div class="gallery-area default-padding"  id="achievement" >
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
@@ -633,11 +628,11 @@
                                         style="animation-play-state: running;"></path></svg>
                             </span>
                         </h2>
-                        <p>
-                            Plan upon yet way get cold spot its week. Almost do am or limits hearts. Resolve parties but
-                            why
-                            she shewing.
-                        </p>
+{{--                        <p>--}}
+{{--                            Plan upon yet way get cold spot its week. Almost do am or limits hearts. Resolve parties but--}}
+{{--                            why--}}
+{{--                            she shewing.--}}
+{{--                        </p>--}}
                         <ul>
                             <li class="wow fadeInUp">
                                 <div class="icon">
@@ -687,7 +682,7 @@
                     <div class="col-lg-6 col-md-12 mb-30">
                         <div class="blog-style-one">
                             <div class="thumb">
-                                <a href=""> <img
+                                <a href="{{route('singleblog',['id'=>$blog->id])}}"> <img
                                         src="{{ asset('storage/' . $blog->image) }}" alt
                                     /> </a>
                                 <div class="date"><span>{{$blog->created_at}}</span></div>
@@ -704,7 +699,7 @@
                                     </ul>
                                 </div>
                                 <h4 class="title">
-                                    <a href="blog-single-with-sidebar.html">{{$blog->title}}</a>
+                                    <a href="{{route('singleblog',['id'=>$blog->id])}}">{{$blog->title}}</a>
                                 </h4>
                             </div>
                         </div>

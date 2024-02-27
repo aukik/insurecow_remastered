@@ -10,13 +10,12 @@
                     <div class="footer-item about">
                         <img class="logo" src="{{ asset('assets/img/logo.png') }}" alt="Logo">
                         <p>
-                            Happen active county. Winding morning ambition shyness evident to poor. Because elderly new
-                            to the point to main success.
+                            InsureCow integrates insurance and farm management, offering financial protection and operational efficiency for farmers through comprehensive services.
                         </p>
-                        <form action="#">
-                            <input type="email" placeholder="Your Email" class="form-control" name="email">
-                            <button type="submit"> Go</button>
-                        </form>
+{{--                        <form action="#">--}}
+{{--                            <input type="email" placeholder="Your Email" class="form-control" name="email">--}}
+{{--                            <button type="submit"> Go</button>--}}
+{{--                        </form>--}}
                     </div>
                 </div>
                 <!-- End Single Itme -->
@@ -60,8 +59,7 @@
                                     <div class="meta-title">
                                         <span class="post-date">12 Sep, 2022</span>
                                     </div>
-                                    <h5><a href="l">Meant widow equal an share least
-                                            part. </a></h5>
+                                    <h5><a href="l">Start up Event</a></h5>
                                 </div>
                             </li>
                             <li>
@@ -74,8 +72,7 @@
                                     <div class="meta-title">
                                         <span class="post-date">18 Jul, 2022</span>
                                     </div>
-                                    <h5><a href="blog-single-with-sidebar.html">Future Plan & Strategy for
-                                            Consutruction </a></h5>
+                                    <h5><a href="blog-single-with-sidebar.html">First Prize</a></h5>
                                 </div>
                             </li>
                         </ul>
@@ -126,7 +123,7 @@
         <div class="footer-bottom">
             <div class="row">
                 <div class="col-lg-6">
-                    <p>&copy; Copyright 2022. All Rights Reserved by Insurecow</p>
+                    <p>&copy; Copyright 2022. All Rights Reserved by InsureCow</p>
                 </div>
 
             </div>

@@ -22,22 +22,14 @@
                 <div class="social">
                     <ul>
                         <li>
-                            <a href="#">
+                            <a href="https://www.facebook.com/InsureCow/">
                                 <i class="fab fa-facebook-f"></i>
                             </a>
                         </li>
+
+
                         <li>
-                            <a href="#">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fab fa-youtube"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
+                            <a href="https://www.linkedin.com/company/insurecow/?originalSubdomain=bd">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
                         </li>
@@ -75,7 +67,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="">
                     <img src="{{ asset('assets/img/logo.png') }}" class="logo" alt="Logo">
                 </a>
             </div>
@@ -104,7 +96,7 @@
 
                         </li>
                         <li class="dropdown">
-                            <a href="#" >Our Achievements</a>
+                            <a href="#achievement" >Our Achievements</a>
 
                         </li>
                         <li class="dropdown">
