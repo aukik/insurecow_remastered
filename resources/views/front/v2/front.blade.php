@@ -126,125 +126,57 @@
     </div>
     <!-- End About -->
 
-    <!-- Start Why Choose Us
-    ============================================= -->
-    <div class="choose-us-style-three-area default-padding" id="service"  >
+
+
+    <!-- Start Services
+       ============================================= -->
+    <div class="services-style-one-area default-padding bg-gray half-bg-theme">
+        <div class="shape-extra">
+            <img src="assets/img/shape/18.png" alt="Image Not Found">
+        </div>
         <div class="container">
-
-
-            <div class="row align-center">
-                <div class="col-lg-6 choose-us-style-three-thumb">
-                    <img src="assets/img/about/6.jpg" alt="Image Not Found">
-                    <div class="video">
-                        <img src="assets/img/about/9.jpg" alt="Image Not Found">
-
+            <div class="heading-left">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="left-info">
+                            <h5 class="sub-title">Why choose us</h5>
+                            <h2 class="title">Product & services</h2>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-5 offset-lg-1 choose-us-style-three-info">
-                    <h4 class="sub-title">Why Choose Us</h4>
-                    <h2 class="title">Product & Services</h2>
-                    <p>
-                        New had happen unable uneasy. Drawings can followed improved out sociable not. Earnestly so do
-                        instantly pretended. See general few civilly amiable pleased account carried. Excellence
-                        projecting.
-                    </p>
-
-                    @foreach($services as $service)
-                        <ul class="list-heading-title">
-                            <li>
-                                <div class="icon">
-                                    <i class=""><img src="{{ asset('storage/' . $service->image) }}" alt
-                                        /></i>
-                                </div>
-                                <div class="info">
-                                    <h4>{{$service->title}} </h4>
-{{--                                    <p>--}}
-{{--                                        Our farms deliver to us daily, ensuring you only eat the best of what's in--}}
-{{--                                        season vegetables from FreshDirect.--}}
-{{--                                    </p>--}}
-                                </div>
-                            </li>
-
-                        </ul>
-                    @endforeach
-
 
                 </div>
             </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="services-style-one-carousel swiper">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
+                            <!-- Single Item -->
+                            @foreach($services as $service)
+                                <div class="swiper-slide">
+                                    <div class="services-style-one" style="width: 250px; height: 300px; border: 1px solid #ccc; box-sizing: border-box; text-align: center;">
+                                        <div class="thumb">
+                                            <img src="{{ asset('storage/' . $service->image) }}" alt="" style="max-width: 100%; max-height: 100%;">
+                                        </div>
+                                        <h5><a href="services-details.html">{{$service->title}}</a></h5>
+                                        <br>
+                                        {{-- <p>Continue indulged speaking technical out horrible domestic position. Seeing rather you.</p> --}}
+                                    </div>
+                                </div>
 
+                            @endforeach
+                            <!-- End Single Item -->
 
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <!-- End Why Choose Us -->
-
-    {{--    <!-- Start Product--}}
-    {{--    ============================================= -->--}}
-    {{--    <div class="product-list-area default-padding-bottom bottom-less bg-dark text-center text-light">--}}
-    {{--        <div class="shape-bottom-right">--}}
-    {{--            <img src="{{ asset('assets/img/shape/21.png') }}" alt="Image Not Found">--}}
-    {{--        </div>--}}
-    {{--        <div class="container">--}}
-    {{--            <div class="row">--}}
-    {{--                <div class="col-xl-10 offset-xl-1 mb-50 mb-xs-30">--}}
-    {{--                    <h2 class="mask-text" style="background-image: url(assets/img/banner/3.jpg);">Healthy life with--}}
-    {{--                        fresh--}}
-    {{--                        products</h2>--}}
-    {{--                </div>--}}
-    {{--                <div class="product-list-box">--}}
-    {{--                    <!-- Single Item -->--}}
-    {{--                    <div class="product-list-item">--}}
-    {{--                        <a href="services-details.html">--}}
-    {{--                            <img src="{{ asset('assets/img/icon/1.png') }}" alt="Icon">--}}
-    {{--                            <h5>Blueberry</h5>--}}
-    {{--                        </a>--}}
-    {{--                    </div>--}}
-    {{--                    <!-- End Single Item -->--}}
-    {{--                    <!-- Single Item -->--}}
-    {{--                    <div class="product-list-item">--}}
-    {{--                        <a href="services-details.html">--}}
-    {{--                            <img src="{{ asset('assets/img/icon/2.png') }}" alt="Icon">--}}
-    {{--                            <h5>Strawberry</h5>--}}
-    {{--                        </a>--}}
-    {{--                    </div>--}}
-    {{--                    <!-- End Single Item -->--}}
-    {{--                    <!-- Single Item -->--}}
-    {{--                    <div class="product-list-item">--}}
-    {{--                        <a href="services-details.html">--}}
-    {{--                            <img src="{{ asset('assets/img/icon/3.png') }}" alt="Icon">--}}
-    {{--                            <h5>Cabbage</h5>--}}
-    {{--                        </a>--}}
-    {{--                    </div>--}}
-    {{--                    <!-- End Single Item -->--}}
-    {{--                    <!-- Single Item -->--}}
-    {{--                    <div class="product-list-item">--}}
-    {{--                        <a href="services-details.html">--}}
-    {{--                            <img src="{{ asset('assets/img/icon/4.png') }}" alt="Icon">--}}
-    {{--                            <h5>Eggplant</h5>--}}
-    {{--                        </a>--}}
-    {{--                    </div>--}}
-    {{--                    <!-- End Single Item -->--}}
-    {{--                    <!-- Single Item -->--}}
-    {{--                    <div class="product-list-item">--}}
-    {{--                        <a href="services-details.html">--}}
-    {{--                            <img src="{{ asset('assets/img/icon/5.png') }}" alt="Icon">--}}
-    {{--                            <h5>Orange</h5>--}}
-    {{--                        </a>--}}
-    {{--                    </div>--}}
-    {{--                    <!-- End Single Item -->--}}
-    {{--                    <!-- Single Item -->--}}
-    {{--                    <div class="product-list-item">--}}
-    {{--                        <a href="services-details.html">--}}
-    {{--                            <img src="{{ asset('assets/img/icon/6.png') }}" alt="Icon">--}}
-    {{--                            <h5>Apples</h5>--}}
-    {{--                        </a>--}}
-    {{--                    </div>--}}
-    {{--                    <!-- End Single Item -->--}}
-    {{--                </div>--}}
-    {{--            </div>--}}
-    {{--        </div>--}}
-    {{--    </div>--}}
-    {{--    <!-- End Product Area -->--}}
-
+    <!-- End Services -->
     <!-- Start Why Choose Us
     ============================================= -->
     <div class="choose-us-style-one-area overflow-hidden default-padding">
@@ -506,6 +438,91 @@
     </div>
     <!-- End Gallery -->
 
+
+
+    <!-- Start Why Choose Us
+============================================= -->
+    <div class="choose-us-style-three-area default-padding" id="service"  >
+        <div class="container">
+
+
+            <div class="row align-center">
+                <div class="col-lg-6 choose-us-style-three-thumb">
+                    <img src="assets/img/about/6.jpg" alt="Image Not Found">
+                    <div class="video">
+                        <img src="assets/img/about/9.jpg" alt="Image Not Found">
+
+                    </div>
+                </div>
+                <div class="col-lg-5 offset-lg-1 choose-us-style-three-info">
+                    <h4 class="sub-title">Our plan</h4>
+                    <h2 class="title">Upcoming products</h2>
+                    <ul class="list-heading-title">
+                            <li>
+{{--                                <div class="icon">--}}
+{{--                                    <i class=""><img src="{{ asset('storage/' . $service->image) }}" alt--}}
+{{--                                        /></i>--}}
+{{--                                </div>--}}
+                                <div class="info">
+                                    <h4>Cow Caller</h4>
+                                                                        <p>
+                                                                            A cow caller is a device used to emit sound or vibration signals to attract cows, aiding in their management and control.
+                                                                        </p>
+                                </div>
+                            </li>
+                        <li>
+                            {{--                                <div class="icon">--}}
+                            {{--                                    <i class=""><img src="{{ asset('storage/' . $service->image) }}" alt--}}
+                            {{--                                        /></i>--}}
+                            {{--                                </div>--}}
+                            <div class="info">
+                                <h4>Dairy Machinery</h4>
+                                <p>
+                                    An essential dairy equipment for extracting milk from cows efficiently.
+                                </p>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            {{--                                <div class="icon">--}}
+                            {{--                                    <i class=""><img src="{{ asset('storage/' . $service->image) }}" alt--}}
+                            {{--                                        /></i>--}}
+                            {{--                                </div>--}}
+                            <div class="info">
+                                <h4>Training</h4>
+                                <p>
+                                    Comprehensive training programs designed to enhance skills and knowledge in specific fields.
+                                </p>
+                            </div>
+                        </li>
+
+
+                        <li>
+                            {{--                                <div class="icon">--}}
+                            {{--                                    <i class=""><img src="{{ asset('storage/' . $service->image) }}" alt--}}
+                            {{--                                        /></i>--}}
+                            {{--                                </div>--}}
+                            <div class="info">
+                                <h4>Vet Service</h4>
+                                <p>
+                                    Professional veterinary care providing medical assistance and support for animals' health and well-being.
+                                </p>
+                            </div>
+                        </li>
+
+                        </ul>
+
+
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <!-- End Why Choose Us -->
+
     <!-- Start achievement
      ============================================= -->
     <div class="gallery-area default-padding"  id="achievement" >
@@ -554,6 +571,60 @@
         </div>
     </div>
     <!-- End achievement -->
+    <!-- Start Services
+        ============================================= -->
+    <div class="services-style-two-area bottom-less text-center default-padding-top">
+        <div class="shape-leaf">
+            <img src="assets/img/shape/30.png" alt="Image Not Found">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="site-heading text-center">
+{{--                        <h5 class="sub-title">What we do</h5>--}}
+                        <h2 class="title">Our Partner</h2>
+                        <div class="devider"></div>
+{{--                        <p>--}}
+{{--                            Everything melancholy uncommonly but solicitude inhabiting <br> projection off. Connection stimulated estimating.--}}
+{{--                        </p>--}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="services-style-two-box relative">
+                <div class="shape-box-right-top-animated">
+                    <img src="assets/img/shape/leaf-4.png" alt="Image not found">
+                </div>
+                <div class="row">
+
+
+
+                    <!-- Single Item -->
+                    @foreach($partners as $partner)
+                    <div class="services-style-two col-xl-3 col-md-6">
+                        <div class="" style="display: flex; justify-content: space-between;">
+                            <div class="info">
+                                <div class="">
+                                    <img src="{{ asset('storage/' .$partner->image) }}" alt=""/>
+                                </div>
+{{--                                <p>{{$partner->title}}</p>--}}
+                            </div>
+                            {{-- <h5 class="title">
+                                <a href="services-details.html"><i class="flaticon-cow-3"></i> Dairy Production</a>
+                            </h5> --}}
+                        </div>
+
+                    </div>
+                    @endforeach
+                    <!-- End Single Item -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- End Services -->
 
 
     <!-- Start Contact Us
