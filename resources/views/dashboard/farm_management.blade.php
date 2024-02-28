@@ -16,7 +16,16 @@
                                 </div>
                                 Farm Management Dashboard
                             </h1>
+
+{{--                            <h4 class="page-header-title" style="font-size: 22px; margin-top: 10px">--}}
+{{--                                <div class="page-header-icon">--}}
+{{--                                    <i data-feather="activity"></i>--}}
+{{--                                </div>--}}
+{{--                                Farmer : {{ auth()->user()->name ?? null }}--}}
+{{--                            </h4>--}}
                         </div>
+
+
                     </div>
                 </div>
             </div>
