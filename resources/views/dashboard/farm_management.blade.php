@@ -36,7 +36,7 @@
 
             <div class="row">
 
-                <h3>Report - Economy Format</h3>
+{{--                <h3>Report - Economy Format</h3>--}}
 
                 <div class="col-lg-4 mb-4">
                     <div class="card h-100 border-start-lg border-start-success">
@@ -89,7 +89,9 @@
 
             </div>
 
-            <h3>Report - List Format</h3>
+{{--            <h3>Report - List Format</h3>--}}
+
+            <hr>
 
 
             <div class="row">
@@ -138,7 +140,9 @@
 
             </div>
 
-            <h3>Report - Export Data</h3>
+{{--            <h3>Report - Export Data</h3>--}}
+
+            <hr>
 
             <div class="row">
 
