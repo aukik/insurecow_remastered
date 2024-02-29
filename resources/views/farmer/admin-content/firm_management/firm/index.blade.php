@@ -31,7 +31,7 @@
                 <div class="col-xl-12">
                     <!-- Account details card-->
                     <div class="card mb-4">
-                        <div class="card-header">Farm Management - Create / view farms</div>
+                        <div class="card-header">Farm Management - No of farms</div>
                         <div class="card-body">
 
                             @if(session('success'))
@@ -42,9 +42,6 @@
 
                             {{-- ---------------------------------------- Farm List ---------------------------------------- --}}
 
-                            <hr style="color: #0a3622; font-weight: bold">
-
-                            <div style="color: #0a3622; font-weight: bold">Number Of Firms</div>
 
                             <div class="card-body">
                                 <table id="datatablesSimple">
