@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('test_front_page', [\App\Http\Controllers\Cms\FrontPageController::class,'front']);
 
+Route::get('singleblog/{id}',[\App\Http\Controllers\Cms\BlogController::class,'singleblog'])->name('singleblog');
+
 
 // -------------------------------------------------------------------- Front Page Routes --------------------------------------------------------------------
 

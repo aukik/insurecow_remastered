@@ -117,4 +117,18 @@ class BlogController extends Controller
 
         return back();
     }
+
+
+    public function singleblog($id)
+    {
+
+        $blog =Blog::find($id);
+        return view("front.v2.single-blog", compact('blog'));
+
+
+    }
+
+
+
+
 }
