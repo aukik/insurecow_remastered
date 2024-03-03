@@ -22,7 +22,7 @@ class DashboardController extends Controller
         $company_count = User::where('role', 'c')->count();
         $total_user_count = User::count();
         $total_farmers_count = User::where('role', 'f')->count();
-        return view("dashboard.super_admin", compact('company_count', 'total_user_count', 'total_farmers_count', 'firm_count', 'animal_count'));
+        return view("dashboard.super_admin_modified", compact('company_count', 'total_user_count', 'total_farmers_count', 'firm_count', 'animal_count'));
     }
 
     public function company()
