@@ -745,9 +745,20 @@
 
     <!-- Start Blog Area
     ============================================= -->
-    <div class="blog-area home-blog blog-grid default-padding bottom-less">
+    <div class="blog-area home-blog blog-grid default-padding bottom-less" id="blogs"  >
         <div class="container">
             <div class="row">
+
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="site-heading text-center">
+                        {{--                        <h5 class="sub-title">What we do</h5>--}}
+                        <h2 class="title">Blogs</h2>
+                        <div class="devider"></div>
+                        {{--                        <p>--}}
+                        {{--                            Everything melancholy uncommonly but solicitude inhabiting <br> projection off. Connection stimulated estimating.--}}
+                        {{--                        </p>--}}
+                    </div>
+                </div>
 
                 @foreach($blogs as $blog)
                     <div class="col-lg-6 col-md-12 mb-30">

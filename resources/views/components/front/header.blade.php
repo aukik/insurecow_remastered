@@ -101,6 +101,13 @@
                             <a href="#achievement" >Our Achievements</a>
 
                         </li>
+
+
+                        <li class="dropdown">
+                            <a href="#blogs" >Blog</a>
+
+                        </li>
+
                         <li class="dropdown">
                             <a href="{{ route('login') }}">PORTAL</a>
 
