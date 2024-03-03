@@ -407,14 +407,15 @@
                 {{--                    </div>--}}
                 {{--                </div>--}}
                 <div class="col-lg-6 col-xl-3 mb-4">
-                    <div class="card bg-success text-white h-100">
+                    <div class="card bg-indigo text-white h-100">
                         <div class="card-body">
                             <div
                                 class="d-flex justify-content-between align-items-center"
                             >
                                 <div class="me-3">
                                     <div class="text-white-75 small">Number Of Companies</div>
-                                    <div class="text-lg fw-bold">{{ $company_count }}</div>
+                                    {{--                                    <div class="text-lg fw-bold">{{ $company_count }}</div>--}}
+                                    <div class="text-lg fw-bold">15</div>
                                     {{--                                    <div class="text-lg fw-bold">4</div>--}}
                                 </div>
                                 <i
@@ -437,6 +438,8 @@
                 </div>
 
 
+                {{--             extra   --}}
+
                 <div class="col-lg-6 col-xl-3 mb-4">
                     <div class="card bg-indigo text-white h-100">
                         <div class="card-body">
@@ -444,7 +447,156 @@
                                 class="d-flex justify-content-between align-items-center"
                             >
                                 <div class="me-3">
-                                    <div class="text-white-75 small">Enlisted users with permission mode</div>
+                                    <div class="text-white-75 small">Number Of Insurance Companies</div>
+                                    {{--                                    <div class="text-lg fw-bold">{{ $company_count }}</div>--}}
+                                    <div class="text-lg fw-bold">2</div>
+                                    {{--                                    <div class="text-lg fw-bold">4</div>--}}
+                                </div>
+                                <i
+                                    class="feather-xl text-white-50"
+                                    data-feather="check-square"
+                                ></i>
+                            </div>
+                        </div>
+                        <div
+                            class="card-footer d-flex align-items-center justify-content-between small"
+                        >
+                            <a class="text-white stretched-link" href=""
+                            >View Information</a
+                            >
+                            <div class="text-white">
+                                <i class="fas fa-angle-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+{{--                <div class="col-lg-6 col-xl-3 mb-4">--}}
+{{--                    <div class="card bg-pink text-white h-100">--}}
+{{--                        <div class="card-body">--}}
+{{--                            <div--}}
+{{--                                class="d-flex justify-content-between align-items-center"--}}
+{{--                            >--}}
+{{--                                <div class="me-3">--}}
+{{--                                    <div class="text-white-75 small">Registered Farmers</div>--}}
+{{--                                    --}}{{--                                    <div class="text-lg fw-bold">{{ $total_farmers_count }}</div>--}}
+{{--                                    <div class="text-lg fw-bold">2163</div>--}}
+{{--                                </div>--}}
+{{--                                <i--}}
+{{--                                    class="feather-xl text-white-50"--}}
+{{--                                    data-feather="check-square"--}}
+{{--                                ></i>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div--}}
+{{--                            class="card-footer d-flex align-items-center justify-content-between small"--}}
+{{--                        >--}}
+{{--                            <a class="text-white stretched-link" href="{{ route('sp.all_registered_farmers') }}"--}}
+{{--                            >View Information</a--}}
+{{--                            >--}}
+{{--                            <div class="text-white">--}}
+{{--                                <i class="fas fa-angle-right"></i>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+
+
+                <div class="col-lg-6 col-xl-3 mb-4">
+                    <div class="card bg-indigo text-white h-100">
+                        <div class="card-body">
+                            <div
+                                class="d-flex justify-content-between align-items-center"
+                            >
+                                <div class="me-3">
+                                    <div class="text-white-75 small">Registered Farmers</div>
+                                    {{--                                    <div class="text-lg fw-bold">{{ $animal_count }}</div>--}}
+                                    <div class="text-lg fw-bold">2163</div>
+                                </div>
+
+                                <i
+                                    class="feather-xl text-white-50"
+                                    data-feather="check-square"
+                                ></i>
+                            </div>
+
+
+                            <div
+                                class="d-flex justify-content-between align-items-center"
+                            >
+                                <div class="me-3">
+                                    <div class="text-white-75 small">Female Farmers</div>
+                                    {{--                                    <div class="text-lg fw-bold">{{ $animal_count }}</div>--}}
+                                    <div class="text-lg fw-bold">61%</div>
+                                </div>
+
+                                <div class="me-3">
+                                    <div class="text-white-75 small">Male Farmers</div>
+                                    {{--                                    <div class="text-lg fw-bold">{{ $animal_count }}</div>--}}
+                                    <div class="text-lg fw-bold">31%</div>
+                                </div>
+
+                                {{--                                <i--}}
+                                {{--                                    class="feather-xl text-white-50"--}}
+                                {{--                                    data-feather="check-square"--}}
+                                {{--                                ></i>--}}
+                            </div>
+
+                        </div>
+                        <div
+                            class="card-footer d-flex align-items-center justify-content-between small"
+                        >
+                            <a class="text-white stretched-link" href="{{ route('sp.all_registered_animals') }}"
+                            >View Information</a
+                            >
+                            <div class="text-white">
+                                <i class="fas fa-angle-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-lg-6 col-xl-3 mb-4">
+                    <div class="card bg-indigo text-white h-100">
+                        <div class="card-body">
+                            <div
+                                class="d-flex justify-content-between align-items-center"
+                            >
+                                <div class="me-3">
+                                    <div class="text-white-75 small">No of Farms</div>
+                                    {{--                                    <div class="text-lg fw-bold">{{ $firm_count }}</div>--}}
+                                    <div class="text-lg fw-bold">70</div>
+                                </div>
+                                <i
+                                    class="feather-xl text-white-50"
+                                    data-feather="check-square"
+                                ></i>
+                            </div>
+                        </div>
+                        <div
+                            class="card-footer d-flex align-items-center justify-content-between small"
+                        >
+                            <a class="text-white stretched-link" href="{{ route('farm_super_admin.index') }}"
+                            >View Information</a
+                            >
+                            <div class="text-white">
+                                <i class="fas fa-angle-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-6 col-xl-3 mb-4">
+                    <div class="card bg-indigo text-white h-100">
+                        <div class="card-body">
+                            <div
+                                class="d-flex justify-content-between align-items-center"
+                            >
+                                <div class="me-3">
+                                    <div class="text-white-75 small">Users permission mode</div>
                                     <div class="text-lg fw-bold">{{ $total_user_count }}</div>
                                     {{--                                    <div class="text-lg fw-bold">1492</div>--}}
                                 </div>
@@ -466,6 +618,519 @@
                         </div>
                     </div>
                 </div>
+
+
+                <div class="col-lg-6 col-xl-3 mb-4">
+                    <div class="card bg-indigo text-white h-100">
+                        <div class="card-body">
+                            <div
+                                class="d-flex justify-content-between align-items-center"
+                            >
+                                <div class="me-3">
+                                    <div class="text-white-75 small">Total Animals</div>
+                                    {{--                                    <div class="text-lg fw-bold">{{ $animal_count }}</div>--}}
+                                    <div class="text-lg fw-bold">13365</div>
+                                </div>
+
+                                <i
+                                    class="feather-xl text-white-50"
+                                    data-feather="check-square"
+                                ></i>
+                            </div>
+
+
+                            <div
+                                class="d-flex justify-content-between align-items-center"
+                            >
+                                <div class="me-3">
+                                    <div class="text-white-75 small">Milch Cow</div>
+                                    {{--                                    <div class="text-lg fw-bold">{{ $animal_count }}</div>--}}
+                                    <div class="text-lg fw-bold">3080</div>
+                                </div>
+
+                                <div class="me-3">
+                                    <div class="text-white-75 small">Beef Fattening</div>
+                                    {{--                                    <div class="text-lg fw-bold">{{ $animal_count }}</div>--}}
+                                    <div class="text-lg fw-bold">10285</div>
+                                </div>
+
+                                {{--                                <i--}}
+                                {{--                                    class="feather-xl text-white-50"--}}
+                                {{--                                    data-feather="check-square"--}}
+                                {{--                                ></i>--}}
+                            </div>
+
+                        </div>
+                        <div
+                            class="card-footer d-flex align-items-center justify-content-between small"
+                        >
+                            <a class="text-white stretched-link" href="{{ route('sp.all_registered_animals') }}"
+                            >View Information</a
+                            >
+                            <div class="text-white">
+                                <i class="fas fa-angle-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-6 col-xl-3 mb-4">
+                    <div class="card bg-indigo text-white h-100">
+                        <div class="card-body">
+                            <div
+                                class="d-flex justify-content-between align-items-center"
+                            >
+                                <div class="me-3">
+                                    <div class="text-white-75 small">Total Insured Animal</div>
+                                    {{--                                    <div class="text-lg fw-bold">{{ $animal_count }}</div>--}}
+                                    <div class="text-lg fw-bold">850</div>
+                                </div>
+
+                                <i
+                                    class="feather-xl text-white-50"
+                                    data-feather="check-square"
+                                ></i>
+                            </div>
+
+
+                            <div
+                                class="d-flex justify-content-between align-items-center"
+                            >
+                                <div class="me-3">
+                                    <div class="text-white-75 small">Milch Cow</div>
+                                    {{--                                    <div class="text-lg fw-bold">{{ $animal_count }}</div>--}}
+                                    <div class="text-lg fw-bold">487</div>
+                                </div>
+
+                                <div class="me-3">
+                                    <div class="text-white-75 small">Beef Fattening</div>
+                                    {{--                                    <div class="text-lg fw-bold">{{ $animal_count }}</div>--}}
+                                    <div class="text-lg fw-bold">367</div>
+                                </div>
+
+                                {{--                                <i--}}
+                                {{--                                    class="feather-xl text-white-50"--}}
+                                {{--                                    data-feather="check-square"--}}
+                                {{--                                ></i>--}}
+                            </div>
+
+                        </div>
+                        <div
+                            class="card-footer d-flex align-items-center justify-content-between small"
+                        >
+                            <a class="text-white stretched-link" href="{{ route('sp.all_registered_animals') }}"
+                            >View Information</a
+                            >
+                            <div class="text-white">
+                                <i class="fas fa-angle-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-6 col-xl-3 mb-4">
+                    <div class="card bg-indigo text-white h-100">
+                        <div class="card-body">
+                            <div
+                                class="d-flex justify-content-between align-items-center"
+                            >
+                                <div class="me-3">
+                                    <div class="text-white-75 small">Farm Management</div>
+                                    {{--                                    <div class="text-lg fw-bold">{{ $animal_count }}</div>--}}
+                                    <div class="text-lg fw-bold">12515</div>
+                                </div>
+
+                                <i
+                                    class="feather-xl text-white-50"
+                                    data-feather="check-square"
+                                ></i>
+                            </div>
+
+
+                            <div
+                                class="d-flex justify-content-between align-items-center"
+                            >
+                                <div class="me-3">
+                                    <div class="text-white-75 small">Milch Cow</div>
+                                    {{--                                    <div class="text-lg fw-bold">{{ $animal_count }}</div>--}}
+                                    <div class="text-lg fw-bold">2593</div>
+                                </div>
+
+                                <div class="me-3">
+                                    <div class="text-white-75 small">Beef Fattening</div>
+                                    {{--                                    <div class="text-lg fw-bold">{{ $animal_count }}</div>--}}
+                                    <div class="text-lg fw-bold">9918</div>
+                                </div>
+
+                                {{--                                <i--}}
+                                {{--                                    class="feather-xl text-white-50"--}}
+                                {{--                                    data-feather="check-square"--}}
+                                {{--                                ></i>--}}
+                            </div>
+
+                        </div>
+                        <div
+                            class="card-footer d-flex align-items-center justify-content-between small"
+                        >
+                            <a class="text-white stretched-link" href="{{ route('sp.all_registered_animals') }}"
+                            >View Information</a
+                            >
+                            <div class="text-white">
+                                <i class="fas fa-angle-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <hr>
+
+
+                <div class="col-lg-6 col-xl-3 mb-4">
+                    <div class="card bg-indigo text-white h-100">
+                        <div class="card-body">
+                            <div
+                                class="d-flex justify-content-between align-items-center"
+                            >
+                                <div class="me-3">
+                                    <div class="text-white-75 small">Total Revenue</div>
+                                    {{--                                    <div class="text-lg fw-bold">{{ $total_user_count }}</div>--}}
+                                    <div class="text-lg fw-bold">19653936/-</div>
+                                </div>
+{{--                                <i--}}
+{{--                                    class="feather-xl text-white-50"--}}
+{{--                                    data-feather="check-square"--}}
+{{--                                ></i>--}}
+                            </div>
+                        </div>
+                        <div
+                            class="card-footer d-flex align-items-center justify-content-between small"
+                        >
+                            <a class="text-white stretched-link" href=""
+                            >View Information</a
+                            >
+                            <div class="text-white">
+                                <i class="fas fa-angle-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-xl-3 mb-4">
+                    <div class="card bg-indigo text-white h-100">
+                        <div class="card-body">
+                            <div
+                                class="d-flex justify-content-between align-items-center"
+                            >
+                                <div class="me-3">
+                                    <div class="text-white-75 small">Insurance Paid Amount</div>
+                                    {{--                                    <div class="text-lg fw-bold">{{ $total_user_count }}</div>--}}
+                                    <div class="text-lg fw-bold">1343000/-</div>
+                                </div>
+                                {{--                                <i--}}
+                                {{--                                    class="feather-xl text-white-50"--}}
+                                {{--                                    data-feather="check-square"--}}
+                                {{--                                ></i>--}}
+                            </div>
+                        </div>
+                        <div
+                            class="card-footer d-flex align-items-center justify-content-between small"
+                        >
+                            <a class="text-white stretched-link" href=""
+                            >View Information</a
+                            >
+                            <div class="text-white">
+                                <i class="fas fa-angle-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-xl-3 mb-4">
+                    <div class="card bg-indigo text-white h-100">
+                        <div class="card-body">
+                            <div
+                                class="d-flex justify-content-between align-items-center"
+                            >
+                                <div class="me-3">
+                                    <div class="text-white-75 small">Total Investment</div>
+                                    {{--                                    <div class="text-lg fw-bold">{{ $animal_count }}</div>--}}
+                                    <div class="text-lg fw-bold">285000000/-</div>
+                                </div>
+
+{{--                                <i--}}
+{{--                                    class="feather-xl text-white-50"--}}
+{{--                                    data-feather="check-square"--}}
+{{--                                ></i>--}}
+                            </div>
+
+
+                            <div
+                                class="d-flex justify-content-between align-items-center"
+                            >
+                                <div class="me-3">
+                                    <div class="text-white-75 small">Beef Fattening</div>
+                                    {{--                                    <div class="text-lg fw-bold">{{ $animal_count }}</div>--}}
+                                    <div class="text-lg fw-bold">67%</div>
+                                </div>
+
+                                <div class="me-3">
+                                    <div class="text-white-75 small">Dairy</div>
+                                    {{--                                    <div class="text-lg fw-bold">{{ $animal_count }}</div>--}}
+                                    <div class="text-lg fw-bold">23%</div>
+                                </div>
+
+                                {{--                                <i--}}
+                                {{--                                    class="feather-xl text-white-50"--}}
+                                {{--                                    data-feather="check-square"--}}
+                                {{--                                ></i>--}}
+                            </div>
+
+                        </div>
+                        <div
+                            class="card-footer d-flex align-items-center justify-content-between small"
+                        >
+                            <a class="text-white stretched-link" href="{{ route('sp.all_registered_animals') }}"
+                            >View Information</a
+                            >
+                            <div class="text-white">
+                                <i class="fas fa-angle-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <hr>
+
+                <div class="col-lg-6 col-xl-3 mb-4">
+                    <div class="card bg-indigo text-white h-100">
+                        <div class="card-body">
+                            <div
+                                class="d-flex justify-content-between align-items-center"
+                            >
+                                <div class="me-3">
+                                    <div class="text-white-75 small">No of location</div>
+                                    {{--                                    <div class="text-lg fw-bold">{{ $total_user_count }}</div>--}}
+                                    <div class="text-lg fw-bold">17</div>
+                                </div>
+                                {{--                                <i--}}
+                                {{--                                    class="feather-xl text-white-50"--}}
+                                {{--                                    data-feather="check-square"--}}
+                                {{--                                ></i>--}}
+                            </div>
+                        </div>
+                        <div
+                            class="card-footer d-flex align-items-center justify-content-between small"
+                        >
+                            <a class="text-white stretched-link" href=""
+                            >View Information</a
+                            >
+                            <div class="text-white">
+                                <i class="fas fa-angle-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-xl-3 mb-4">
+                    <div class="card bg-indigo text-white h-100">
+                        <div class="card-body">
+                            <div
+                                class="d-flex justify-content-between align-items-center"
+                            >
+                                <div class="me-3">
+                                    <div class="text-white-75 small">Total cattle sold</div>
+                                    {{--                                    <div class="text-lg fw-bold">{{ $animal_count }}</div>--}}
+                                    <div class="text-lg fw-bold">425</div>
+                                </div>
+
+                                {{--                                <i--}}
+                                {{--                                    class="feather-xl text-white-50"--}}
+                                {{--                                    data-feather="check-square"--}}
+                                {{--                                ></i>--}}
+                            </div>
+
+
+                            <div
+                                class="d-flex justify-content-between align-items-center"
+                            >
+                                <div class="me-3">
+                                    <div class="text-white-75 small">Total value</div>
+                                    {{--                                    <div class="text-lg fw-bold">{{ $animal_count }}</div>--}}
+                                    <div class="text-lg fw-bold">49536289/-</div>
+                                </div>
+
+
+                                {{--                                <i--}}
+                                {{--                                    class="feather-xl text-white-50"--}}
+                                {{--                                    data-feather="check-square"--}}
+                                {{--                                ></i>--}}
+                            </div>
+
+                        </div>
+                        <div
+                            class="card-footer d-flex align-items-center justify-content-between small"
+                        >
+                            <a class="text-white stretched-link" href="{{ route('sp.all_registered_animals') }}"
+                            >View Information</a
+                            >
+                            <div class="text-white">
+                                <i class="fas fa-angle-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-xl-3 mb-4">
+                    <div class="card bg-indigo text-white h-100">
+                        <div class="card-body">
+                            <div
+                                class="d-flex justify-content-between align-items-center"
+                            >
+                                <div class="me-3">
+                                    <div class="text-white-75 small">Total milk sell</div>
+                                    {{--                                    <div class="text-lg fw-bold">{{ $animal_count }}</div>--}}
+                                    <div class="text-lg fw-bold">589350L</div>
+                                </div>
+
+                                {{--                                <i--}}
+                                {{--                                    class="feather-xl text-white-50"--}}
+                                {{--                                    data-feather="check-square"--}}
+                                {{--                                ></i>--}}
+                            </div>
+
+
+                            <div
+                                class="d-flex justify-content-between align-items-center"
+                            >
+                                <div class="me-3">
+                                    <div class="text-white-75 small">Total value</div>
+                                    {{--                                    <div class="text-lg fw-bold">{{ $animal_count }}</div>--}}
+                                    <div class="text-lg fw-bold">47148000/-</div>
+                                </div>
+
+
+                                {{--                                <i--}}
+                                {{--                                    class="feather-xl text-white-50"--}}
+                                {{--                                    data-feather="check-square"--}}
+                                {{--                                ></i>--}}
+                            </div>
+
+                        </div>
+                        <div
+                            class="card-footer d-flex align-items-center justify-content-between small"
+                        >
+                            <a class="text-white stretched-link" href="{{ route('sp.all_registered_animals') }}"
+                            >View Information</a
+                            >
+                            <div class="text-white">
+                                <i class="fas fa-angle-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <hr>
+
+
+                <div class="col-lg-6 col-xl-3 mb-4">
+                    <div class="card bg-indigo text-white h-100">
+                        <div class="card-body">
+                            <div
+                                class="d-flex justify-content-between align-items-center"
+                            >
+                                <div class="me-3">
+                                    <div class="text-white-75 small">No of dead animal</div>
+                                    {{--                                    <div class="text-lg fw-bold">{{ $total_user_count }}</div>--}}
+                                    <div class="text-lg fw-bold">8</div>
+                                </div>
+                                {{--                                <i--}}
+                                {{--                                    class="feather-xl text-white-50"--}}
+                                {{--                                    data-feather="check-square"--}}
+                                {{--                                ></i>--}}
+                            </div>
+                        </div>
+                        <div
+                            class="card-footer d-flex align-items-center justify-content-between small"
+                        >
+                            <a class="text-white stretched-link" href=""
+                            >View Information</a
+                            >
+                            <div class="text-white">
+                                <i class="fas fa-angle-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-xl-3 mb-4">
+                    <div class="card bg-indigo text-white h-100">
+                        <div class="card-body">
+                            <div
+                                class="d-flex justify-content-between align-items-center"
+                            >
+                                <div class="me-3">
+                                    <div class="text-white-75 small">No of disability animal</div>
+                                    {{--                                    <div class="text-lg fw-bold">{{ $total_user_count }}</div>--}}
+                                    <div class="text-lg fw-bold">5</div>
+                                </div>
+                                {{--                                <i--}}
+                                {{--                                    class="feather-xl text-white-50"--}}
+                                {{--                                    data-feather="check-square"--}}
+                                {{--                                ></i>--}}
+                            </div>
+                        </div>
+                        <div
+                            class="card-footer d-flex align-items-center justify-content-between small"
+                        >
+                            <a class="text-white stretched-link" href=""
+                            >View Information</a
+                            >
+                            <div class="text-white">
+                                <i class="fas fa-angle-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 col-xl-3 mb-4">
+                    <div class="card bg-indigo text-white h-100">
+                        <div class="card-body">
+                            <div
+                                class="d-flex justify-content-between align-items-center"
+                            >
+                                <div class="me-3">
+                                    <div class="text-white-75 small">No of Sick Animal</div>
+                                    {{--                                    <div class="text-lg fw-bold">{{ $total_user_count }}</div>--}}
+                                    <div class="text-lg fw-bold">13</div>
+                                </div>
+                                {{--                                <i--}}
+                                {{--                                    class="feather-xl text-white-50"--}}
+                                {{--                                    data-feather="check-square"--}}
+                                {{--                                ></i>--}}
+                            </div>
+                        </div>
+                        <div
+                            class="card-footer d-flex align-items-center justify-content-between small"
+                        >
+                            <a class="text-white stretched-link" href=""
+                            >View Information</a
+                            >
+                            <div class="text-white">
+                                <i class="fas fa-angle-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                {{--             extra   --}}
+
+
 
                 {{-- <div class="col-lg-6 col-xl-3 mb-4">
                     <div class="card bg-primary text-white h-100">
@@ -496,95 +1161,37 @@
                     </div>
                 </div> --}}
 
-                <div class="col-lg-6 col-xl-3 mb-4">
-                    <div class="card bg-pink text-white h-100">
-                        <div class="card-body">
-                            <div
-                                class="d-flex justify-content-between align-items-center"
-                            >
-                                <div class="me-3">
-                                    <div class="text-white-75 small">All Registered Farmers</div>
-                                    <div class="text-lg fw-bold">{{ $total_farmers_count }}</div>
-                                    {{--                                    <div class="text-lg fw-bold">1487</div>--}}
-                                </div>
-                                <i
-                                    class="feather-xl text-white-50"
-                                    data-feather="check-square"
-                                ></i>
-                            </div>
-                        </div>
-                        <div
-                            class="card-footer d-flex align-items-center justify-content-between small"
-                        >
-                            <a class="text-white stretched-link" href="{{ route('sp.all_registered_farmers') }}"
-                            >View Information</a
-                            >
-                            <div class="text-white">
-                                <i class="fas fa-angle-right"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {{--                <div class="col-lg-6 col-xl-3 mb-4">--}}
+                {{--                    <div class="card bg-pink text-white h-100">--}}
+                {{--                        <div class="card-body">--}}
+                {{--                            <div--}}
+                {{--                                class="d-flex justify-content-between align-items-center"--}}
+                {{--                            >--}}
+                {{--                                <div class="me-3">--}}
+                {{--                                    <div class="text-white-75 small">Registered Farmers</div>--}}
+                {{--                                    <div class="text-lg fw-bold">{{ $total_farmers_count }}</div>--}}
+                {{--                                    --}}{{--                                    <div class="text-lg fw-bold">1487</div>--}}
+                {{--                                </div>--}}
+                {{--                                <i--}}
+                {{--                                    class="feather-xl text-white-50"--}}
+                {{--                                    data-feather="check-square"--}}
+                {{--                                ></i>--}}
+                {{--                            </div>--}}
+                {{--                        </div>--}}
+                {{--                        <div--}}
+                {{--                            class="card-footer d-flex align-items-center justify-content-between small"--}}
+                {{--                        >--}}
+                {{--                            <a class="text-white stretched-link" href="{{ route('sp.all_registered_farmers') }}"--}}
+                {{--                            >View Information</a--}}
+                {{--                            >--}}
+                {{--                            <div class="text-white">--}}
+                {{--                                <i class="fas fa-angle-right"></i>--}}
+                {{--                            </div>--}}
+                {{--                        </div>--}}
+                {{--                    </div>--}}
+                {{--                </div>--}}
 
-                <div class="col-lg-6 col-xl-3 mb-4">
-                    <div class="card bg-green text-white h-100">
-                        <div class="card-body">
-                            <div
-                                class="d-flex justify-content-between align-items-center"
-                            >
-                                <div class="me-3">
-                                    <div class="text-white-75 small">Total Farms</div>
-                                    <div class="text-lg fw-bold">{{ $firm_count }}</div>
-                                    {{--                                    <div class="text-lg fw-bold">25</div>--}}
-                                </div>
-                                <i
-                                    class="feather-xl text-white-50"
-                                    data-feather="check-square"
-                                ></i>
-                            </div>
-                        </div>
-                        <div
-                            class="card-footer d-flex align-items-center justify-content-between small"
-                        >
-                            <a class="text-white stretched-link" href="{{ route('farm_super_admin.index') }}"
-                            >View Information</a
-                            >
-                            <div class="text-white">
-                                <i class="fas fa-angle-right"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="col-lg-6 col-xl-3 mb-4">
-                    <div class="card bg-indigo text-white h-100">
-                        <div class="card-body">
-                            <div
-                                class="d-flex justify-content-between align-items-center"
-                            >
-                                <div class="me-3">
-                                    <div class="text-white-75 small">Total Animals</div>
-                                    <div class="text-lg fw-bold">{{ $animal_count }}</div>
-                                    {{--                                    <div class="text-lg fw-bold">11865</div>--}}
-                                </div>
-                                <i
-                                    class="feather-xl text-white-50"
-                                    data-feather="check-square"
-                                ></i>
-                            </div>
-                        </div>
-                        <div
-                            class="card-footer d-flex align-items-center justify-content-between small"
-                        >
-                            <a class="text-white stretched-link" href="{{ route('sp.all_registered_animals') }}"
-                            >View Information</a
-                            >
-                            <div class="text-white">
-                                <i class="fas fa-angle-right"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
 
                 {{--                <div class="col-lg-6 col-xl-3 mb-4">--}}

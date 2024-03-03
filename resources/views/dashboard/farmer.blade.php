@@ -27,9 +27,54 @@
         <!-- Main page content-->
         <div class="container-xl px-4" style="margin-top: 2%">
 
+
+            {{-- ------------------- Farmer information ------------------- --}}
+
             <div class="row">
 
+                <div class="col-xl-12 col-xl-12 mb-4">
+                    <div class="card card-header-actions h-100">
+                        <div class="card-header">
+                            Farmer Information
+                        </div>
+                        <div class="card-body">
 
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="timeline timeline-xs">
+
+
+                                        <p>Farmer Name: <strong>{{ auth()->user()->name ?? null }}</strong></p>
+                                        <p>Farmer Contact: <strong>{{ auth()->user()->phone ?? null }}</strong></p>
+                                        <p>Registration Date:
+                                            <strong>{{ auth()->user()->created_at->format('d-M-Y') ?? null }}</strong>
+                                        </p>
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="timeline timeline-xs">
+
+                                        <p>Animal Insurance: <strong>{{ auth()->user()->permission->f_cattle_reg == 1 ? "Yes" : "No" }}</strong></p>
+                                        <p>Farm Management: <strong>{{ auth()->user()->permission->f_farm_management == 1 ? "Yes" : "No" }}</strong></p>
+                                        <p>Cattle Registration and verification: <strong>{{ auth()->user()->permission->cattle == 1 ? "Yes" : "No" }}</strong></p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            {{-- ------------------- Farmer information ------------------- --}}
+
+            <div class="row">
                 <div class="col-lg-4 mb-4">
                     <!-- Billing card 1-->
                     <div class="card h-100 border-start-lg border-start-info">
@@ -156,44 +201,7 @@
                     </div>
                 </div>
 
-                {{--                <div class="col-xl-6 mb-4">--}}
-                {{--                    <div class="card card-header-actions h-100">--}}
-                {{--                        <div class="card-header">--}}
-                {{--                            Monthly Revenue--}}
-                {{--                            <div class="dropdown no-caret">--}}
-                {{--                                <button--}}
-                {{--                                    class="btn btn-transparent-dark btn-icon dropdown-toggle"--}}
-                {{--                                    id="areaChartDropdownExample"--}}
-                {{--                                    type="button"--}}
-                {{--                                    data-bs-toggle="dropdown"--}}
-                {{--                                    aria-haspopup="true"--}}
-                {{--                                    aria-expanded="false"--}}
-                {{--                                >--}}
-                {{--                                    <i--}}
-                {{--                                        class="text-gray-500"--}}
-                {{--                                        data-feather="more-vertical"--}}
-                {{--                                    ></i>--}}
-                {{--                                </button>--}}
-                {{--                                <div--}}
-                {{--                                    class="dropdown-menu dropdown-menu-end animated--fade-in-up"--}}
-                {{--                                    aria-labelledby="areaChartDropdownExample"--}}
-                {{--                                >--}}
-                {{--                                    <a class="dropdown-item" href="#!">Last 12 Months</a>--}}
-                {{--                                    <a class="dropdown-item" href="#!">Last 30 Days</a>--}}
-                {{--                                    <a class="dropdown-item" href="#!">Last 7 Days</a>--}}
-                {{--                                    <a class="dropdown-item" href="#!">This Month</a>--}}
-                {{--                                    <div class="dropdown-divider"></div>--}}
-                {{--                                    <a class="dropdown-item" href="#!">Custom Range</a>--}}
-                {{--                                </div>--}}
-                {{--                            </div>--}}
-                {{--                        </div>--}}
-                {{--                        <div class="card-body">--}}
-                {{--                            <div class="chart-bar">--}}
-                {{--                                <canvas id="myBarChart" width="100%" height="30"></canvas>--}}
-                {{--                            </div>--}}
-                {{--                        </div>--}}
-                {{--                    </div>--}}
-                {{--                </div>--}}
+
             </div>
             <!-- Example DataTable for Dashboard Demo-->
             {{--            <div class="card mb-4">--}}

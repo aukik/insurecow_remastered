@@ -16,7 +16,16 @@
                                 </div>
                                 Farm Management Dashboard
                             </h1>
+
+{{--                            <h4 class="page-header-title" style="font-size: 22px; margin-top: 10px">--}}
+{{--                                <div class="page-header-icon">--}}
+{{--                                    <i data-feather="activity"></i>--}}
+{{--                                </div>--}}
+{{--                                Farmer : {{ auth()->user()->name ?? null }}--}}
+{{--                            </h4>--}}
                         </div>
+
+
                     </div>
                 </div>
             </div>
@@ -27,7 +36,7 @@
 
             <div class="row">
 
-                <h3>Report - Economy Format</h3>
+{{--                <h3>Report - Economy Format</h3>--}}
 
                 <div class="col-lg-4 mb-4">
                     <div class="card h-100 border-start-lg border-start-success">
@@ -80,7 +89,9 @@
 
             </div>
 
-            <h3>Report - List Format</h3>
+{{--            <h3>Report - List Format</h3>--}}
+
+            <hr>
 
 
             <div class="row">
@@ -129,7 +140,9 @@
 
             </div>
 
-            <h3>Report - Export Data</h3>
+{{--            <h3>Report - Export Data</h3>--}}
+
+            <hr>
 
             <div class="row">
 
