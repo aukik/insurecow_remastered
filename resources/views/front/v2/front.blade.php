@@ -131,7 +131,7 @@
 
     <!-- Start Services
        ============================================= -->
-    <div class="services-style-one-area default-padding bg-gray half-bg-theme">
+    <div class="services-style-one-area default-padding bg-gray half-bg-theme"  id="service">
         <div class="shape-extra">
             <img src="assets/img/shape/18.png" alt="Image Not Found">
         </div>
@@ -453,7 +453,7 @@
 
     <!-- Start Why Choose Us
 ============================================= -->
-    <div class="choose-us-style-three-area default-padding" id="service">
+    <div class="choose-us-style-three-area default-padding">
         <div class="container">
 
 
