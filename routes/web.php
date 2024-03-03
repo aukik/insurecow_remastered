@@ -88,6 +88,12 @@ Route::middleware(['auth', 'farmer'])->prefix('farmer')->group(function () {
         Route::get("registration_verification_reports", [FarmerController::class, 'cattle_reg_ver_reports'])->name('registration_verification_reports');
 
         //    ----------------------- Cattle registration verification reports -----------------------
+
+        //    ----------------------- sell cattle for farmer -----------------------
+
+        Route::get('farmers_animal_sell_page/{id}', [\App\Http\Controllers\Farmer\SellController::class, 'sell_page_view'])->name('farmer_sell_page_view');
+
+        //    ----------------------- sell cattle for farmer -----------------------
     });
 
     //    ----------------------------- Cattle Registration Middleware Block ----------------------------------

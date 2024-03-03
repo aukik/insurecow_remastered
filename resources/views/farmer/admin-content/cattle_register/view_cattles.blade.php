@@ -51,7 +51,12 @@
                                         <th>Expense</th>
                                         <th>Total</th>
                                         <th>Status</th>
-                                        <th>Action</th>
+
+                                        @if(auth()->user()->role == "f")
+
+                                            <th>Action</th>
+
+                                        @endif
 
                                     </tr>
                                     </thead>
@@ -143,12 +148,17 @@
 
                                             {{-- --------------------------- Selling animal --------------------------- --}}
 
-                                            <th>
-                                                <a href="" class="btn btn-danger sell-animal-button"
-                                                   data-cattle-id="{{ $cattle->id }}">Sell</a>
+                                            @if(auth()->user()->role == "f")
+
+                                                <th>
+                                                    <a href="{{ route('farmer_sell_page_view',$cattle->id ) }}"
+                                                       class="btn btn-danger sell-animal-button"
+                                                       data-cattle-id="">Sell</a>
 
 
-                                            </th>
+                                                </th>
+
+                                            @endif
 
                                             {{-- --------------------------- Selling animal --------------------------- --}}
 
