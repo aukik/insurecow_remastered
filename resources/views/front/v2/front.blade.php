@@ -450,7 +450,7 @@
                 <div class="col-lg-6 choose-us-style-three-thumb">
                     <img src="assets/img/about/6.jpg" alt="Image Not Found">
                     <div class="video">
-                        <img src="assets/img/about/9.jpg" alt="Image Not Found">
+                        <img src="{{ asset('assets/img/about/9.jpg') }}" alt="Image Not Found">
 
                     </div>
                 </div>

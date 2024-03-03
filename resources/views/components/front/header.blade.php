@@ -87,12 +87,14 @@
 {{--                        <li class="dropdown">--}}
 {{--                            <a href="{{route('home')}}" >Home</a>--}}
 {{--                        </li>--}}
-                        <li class="dropdown">
-                            <a href="#service" >Product & Services</a>
 
-                        </li>
                         <li class="dropdown">
                             <a href="#team">Our Team</a>
+
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="#service" >Product & Services</a>
 
                         </li>
                         <li class="dropdown">
