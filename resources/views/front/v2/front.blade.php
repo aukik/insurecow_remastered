@@ -87,30 +87,31 @@
                 <div class="col-xl-7 col-lg-6 about-style-one">
                     <div class="row align-center">
 
-                        @foreach($abouts as $about) @endforeach
-                        <div class="col-xl-7 col-lg-12">
-                            <h2 class="heading">{{$about->title}}</h2>
-                            <p>
-                                {{$about->description}}
-                            </p>
-                            {{--                            <ul class="check-solid-list mt-20">--}}
-                            {{--                                <li>Organic food contains more vitamins</li>--}}
-                            {{--                                <li>Eat organic because supply meets demand</li>--}}
-                            {{--                                <li>Organic food is never irradiated</li>--}}
-                            {{--                            </ul>--}}
-                        </div>
+                        @foreach($abouts as $about)
+                            <div class="col-xl-7 col-lg-12">
+                                <h2 class="heading">{{$about->title}}</h2>
+                                <p>
+                                    {{$about->description}}
+                                </p>
+                                {{--                            <ul class="check-solid-list mt-20">--}}
+                                {{--                                <li>Organic food contains more vitamins</li>--}}
+                                {{--                                <li>Eat organic because supply meets demand</li>--}}
+                                {{--                                <li>Organic food is never irradiated</li>--}}
+                                {{--                            </ul>--}}
+                            </div>
 
+                        @endforeach
 
                         <div class="col-xl-5 col-lg-12 pl-50 pl-md-15 pl-xs-15">
                             <div class="top-product-item">
-{{--                                <img src="{{ asset('assets/img/icon/1.svg') }}" alt="Icon">--}}
+                                {{--                                <img src="{{ asset('assets/img/icon/1.svg') }}" alt="Icon">--}}
                                 <h5><a href="#">Insurance claim</a></h5>
                                 <p>
                                     easy to get insurance packages
                                 </p>
                             </div>
                             <div class="top-product-item">
-{{--                                <img src="{{ asset('assets/img/icon/2.svg') }}" alt="Icon">--}}
+                                {{--                                <img src="{{ asset('assets/img/icon/2.svg') }}" alt="Icon">--}}
                                 <h5><a href="#">Cattle verify</a></h5>
                                 <p>
                                     By using InsureCow get to know your cattle
@@ -156,9 +157,11 @@
                             <!-- Single Item -->
                             @foreach($services as $service)
                                 <div class="swiper-slide">
-                                    <div class="services-style-one" style="width: 250px; height: 300px; border: 1px solid #ccc; box-sizing: border-box; text-align: center;">
+                                    <div class="services-style-one"
+                                         style="width: 250px; height: 300px; border: 1px solid #ccc; box-sizing: border-box; text-align: center;">
                                         <div class="thumb">
-                                            <img src="{{ asset('storage/' . $service->image) }}" alt="" style="max-width: 100%; max-height: 100%;">
+                                            <img src="{{ asset('storage/' . $service->image) }}" alt=""
+                                                 style="max-width: 100%; max-height: 100%;">
                                         </div>
                                         <h5><a href="services-details.html">{{$service->title}}</a></h5>
                                         <br>
@@ -190,22 +193,22 @@
                                  alt="Image not found">
                         </div>
                         <div class="product-produce">
-{{--                            <div class="icon">--}}
-{{--                                <i class="flaticon-farmer"></i>--}}
-{{--                            </div>--}}
-{{--                            <div class="fun-fact">--}}
-{{--                                <div class="counter">--}}
-{{--                                    <div class="timer" data-to="258" data-speed="2000">258</div>--}}
-{{--                                    <div class="operator">K</div>--}}
-{{--                                </div>--}}
-{{--                                <span class="medium">Agriculture, Organic Products</span>--}}
-{{--                            </div>--}}
+                            {{--                            <div class="icon">--}}
+                            {{--                                <i class="flaticon-farmer"></i>--}}
+                            {{--                            </div>--}}
+                            {{--                            <div class="fun-fact">--}}
+                            {{--                                <div class="counter">--}}
+                            {{--                                    <div class="timer" data-to="258" data-speed="2000">258</div>--}}
+                            {{--                                    <div class="operator">K</div>--}}
+                            {{--                                </div>--}}
+                            {{--                                <span class="medium">Agriculture, Organic Products</span>--}}
+                            {{--                            </div>--}}
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 choose-us-style-one">
                     <h5 class="sub-title">Get to know us</h5>
-                    <h2 class="title">InsureCow  share to <br>some knowledge</h2>
+                    <h2 class="title">InsureCow share to <br>some knowledge</h2>
                     <div class="accordion accordion-regular mt-35" id="faqAccordion">
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingOne">
@@ -219,7 +222,10 @@
                                 <div class="accordion-body">
                                     <p>
 
-                                        Insurance management involves assessing, mitigating, and transferring risks through insurance policies. It includes selecting appropriate coverage, negotiating premiums, filing claims, and optimizing insurance portfolios to protect assets and mitigate financial losses.
+                                        Insurance management involves assessing, mitigating, and transferring risks
+                                        through insurance policies. It includes selecting appropriate coverage,
+                                        negotiating premiums, filing claims, and optimizing insurance portfolios to
+                                        protect assets and mitigate financial losses.
                                     </p>
                                 </div>
                             </div>
@@ -236,7 +242,9 @@
                                 <div class="accordion-body">
                                     <p>
 
-                                        InsureCow farm management provides benefits such as financial protection against cow-related risks like mortality, theft, and health issues, ensuring stability, peace of mind, and continuity of operations for farmers.
+                                        InsureCow farm management provides benefits such as financial protection against
+                                        cow-related risks like mortality, theft, and health issues, ensuring stability,
+                                        peace of mind, and continuity of operations for farmers.
                                     </p>
                                 </div>
                             </div>
@@ -253,8 +261,10 @@
                                  data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
                                     <p>
-                                        A dataset containing information about individual cows, such as breed, age, weight, health history, and any identifying features.
-                                        Clean the dataset by handling missing values, normalizing numerical features, and encoding categorical variables.
+                                        A dataset containing information about individual cows, such as breed, age,
+                                        weight, health history, and any identifying features.
+                                        Clean the dataset by handling missing values, normalizing numerical features,
+                                        and encoding categorical variables.
 
                                     </p>
                                 </div>
@@ -271,7 +281,8 @@
 
 
 
-    <div class="farmer-area default-padding bottom-less bg-gray" id="team" style="background-image: url(assets/img/shape/36.png);">
+    <div class="farmer-area default-padding bottom-less bg-gray" id="team"
+         style="background-image: url(assets/img/shape/36.png);">
         <div class="container">
             <div class="row">
 
@@ -281,7 +292,8 @@
                         <h2 class="title">Meet Our Farm Experts</h2>
                         <div class="devider"></div>
                         <p>
-                            Everything melancholy uncommonly but solicitude inhabiting <br> projection off. Connection stimulated estimating.
+                            Everything melancholy uncommonly but solicitude inhabiting <br> projection off. Connection
+                            stimulated estimating.
                         </p>
                     </div>
                 </div>
@@ -292,31 +304,30 @@
                 <div class="col-lg-10 offset-lg-1">
                     <div class="row">
                         @foreach($teams as $team)
-                        <!-- Single Item -->
-                        <div class="col-lg-4 col-md-6 farmer-stye-one">
-                            <div class="farmer-style-one-item">
-                                <div class="thumb">
-                                    <img src="{{ asset('storage/' . $team->image) }}" alt=""/>
-                                    <div class="social">
-                                        <i class="fas fa-share-alt"></i>
-                                        <ul>
+                            <!-- Single Item -->
+                            <div class="col-lg-4 col-md-6 farmer-stye-one">
+                                <div class="farmer-style-one-item">
+                                    <div class="thumb">
+                                        <img src="{{ asset('storage/' . $team->image) }}" alt=""/>
+                                        <div class="social">
+                                            <i class="fas fa-share-alt"></i>
+                                            <ul>
 
-                                            <li class="linkedin">
-                                                <a href="#">
-                                                    <i class="fab fa-linkedin-in"></i>
-                                                </a>
-                                            </li>
-                                        </ul>
+                                                <li class="linkedin">
+                                                    <a href="#">
+                                                        <i class="fab fa-linkedin-in"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="info">
+                                        <h4><a href="">{{$team->title}}</a></h4>
+                                        <span>{{$team->description}}</span>
                                     </div>
                                 </div>
-                                <div class="info">
-                                    <h4><a href="">{{$team->title}}</a></h4>
-                                    <span>{{$team->description}}</span>
-                                </div>
                             </div>
-                        </div>
-                        <!-- End Single Item -->
-
+                            <!-- End Single Item -->
 
                         @endforeach
 
@@ -331,7 +342,7 @@
     <!-- Start Testimonials
     ============================================= -->
     <div class="testimonials-area default-padding bg-gray"
-         style="background-image: url({{ asset('assets/img/shape/23.png') }});"  id="testimonial">
+         style="background-image: url({{ asset('assets/img/shape/23.png') }});" id="testimonial">
         <div class="container">
             <div class="row align-center">
                 <div class="col-lg-5">
@@ -391,7 +402,7 @@
 
     <!-- Start Gallery
     ============================================= -->
-    <div class="gallery-area default-padding"  id="gallery" >
+    <div class="gallery-area default-padding" id="gallery">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
@@ -442,7 +453,7 @@
 
     <!-- Start Why Choose Us
 ============================================= -->
-    <div class="choose-us-style-three-area default-padding" id="service"  >
+    <div class="choose-us-style-three-area default-padding" id="service">
         <div class="container">
 
 
@@ -458,18 +469,19 @@
                     <h4 class="sub-title">Our plan</h4>
                     <h2 class="title">Upcoming products</h2>
                     <ul class="list-heading-title">
-                            <li>
-{{--                                <div class="icon">--}}
-{{--                                    <i class=""><img src="{{ asset('storage/' . $service->image) }}" alt--}}
-{{--                                        /></i>--}}
-{{--                                </div>--}}
-                                <div class="info">
-                                    <h4>Cow Caller</h4>
-                                                                        <p>
-                                                                            A cow caller is a device used to emit sound or vibration signals to attract cows, aiding in their management and control.
-                                                                        </p>
-                                </div>
-                            </li>
+                        <li>
+                            {{--                                <div class="icon">--}}
+                            {{--                                    <i class=""><img src="{{ asset('storage/' . $service->image) }}" alt--}}
+                            {{--                                        /></i>--}}
+                            {{--                                </div>--}}
+                            <div class="info">
+                                <h4>Cow Caller</h4>
+                                <p>
+                                    A cow caller is a device used to emit sound or vibration signals to attract cows,
+                                    aiding in their management and control.
+                                </p>
+                            </div>
+                        </li>
                         <li>
                             {{--                                <div class="icon">--}}
                             {{--                                    <i class=""><img src="{{ asset('storage/' . $service->image) }}" alt--}}
@@ -492,7 +504,8 @@
                             <div class="info">
                                 <h4>Training</h4>
                                 <p>
-                                    Comprehensive training programs designed to enhance skills and knowledge in specific fields.
+                                    Comprehensive training programs designed to enhance skills and knowledge in specific
+                                    fields.
                                 </p>
                             </div>
                         </li>
@@ -506,13 +519,13 @@
                             <div class="info">
                                 <h4>Vet Service</h4>
                                 <p>
-                                    Professional veterinary care providing medical assistance and support for animals' health and well-being.
+                                    Professional veterinary care providing medical assistance and support for animals'
+                                    health and well-being.
                                 </p>
                             </div>
                         </li>
 
-                        </ul>
-
+                    </ul>
 
 
                 </div>
@@ -525,12 +538,12 @@
 
     <!-- Start achievement
      ============================================= -->
-    <div class="gallery-area default-padding"  id="achievement" >
+    <div class="gallery-area default-padding" id="achievement">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
                     <div class="site-heading text-center">
-{{--                        <h5 class="sub-title">Awesome Gallery</h5>--}}
+                        {{--                        <h5 class="sub-title">Awesome Gallery</h5>--}}
                         <h2 class="title">Our Achievement</h2>
                         <div class="devider"></div>
                     </div>
@@ -554,7 +567,7 @@
                                             <span>{{$achievement->title}}</span>
                                             <h4><a href="">{{$achievement->description}}</a></h4>
                                         </div>
-{{--                                        <a class="link" href=""><i class="fas fa-arrow-right"></i></a>--}}
+                                        {{--                                        <a class="link" href=""><i class="fas fa-arrow-right"></i></a>--}}
                                     </div>
 
                                 </div>
@@ -581,12 +594,12 @@
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
                     <div class="site-heading text-center">
-{{--                        <h5 class="sub-title">What we do</h5>--}}
+                        {{--                        <h5 class="sub-title">What we do</h5>--}}
                         <h2 class="title">Our Partner</h2>
                         <div class="devider"></div>
-{{--                        <p>--}}
-{{--                            Everything melancholy uncommonly but solicitude inhabiting <br> projection off. Connection stimulated estimating.--}}
-{{--                        </p>--}}
+                        {{--                        <p>--}}
+                        {{--                            Everything melancholy uncommonly but solicitude inhabiting <br> projection off. Connection stimulated estimating.--}}
+                        {{--                        </p>--}}
                     </div>
                 </div>
             </div>
@@ -600,23 +613,22 @@
                 <div class="row">
 
 
-
                     <!-- Single Item -->
                     @foreach($partners as $partner)
-                    <div class="services-style-two col-xl-3 col-md-6">
-                        <div class="" style="display: flex; justify-content: space-between;">
-                            <div class="info">
-                                <div class="">
-                                    <img src="{{ asset('storage/' .$partner->image) }}" alt=""/>
+                        <div class="services-style-two col-xl-3 col-md-6">
+                            <div class="" style="display: flex; justify-content: space-between;">
+                                <div class="info">
+                                    <div class="">
+                                        <img src="{{ asset('storage/' .$partner->image) }}" alt=""/>
+                                    </div>
+                                    {{--                                <p>{{$partner->title}}</p>--}}
                                 </div>
-{{--                                <p>{{$partner->title}}</p>--}}
+                                {{-- <h5 class="title">
+                                    <a href="services-details.html"><i class="flaticon-cow-3"></i> Dairy Production</a>
+                                </h5> --}}
                             </div>
-                            {{-- <h5 class="title">
-                                <a href="services-details.html"><i class="flaticon-cow-3"></i> Dairy Production</a>
-                            </h5> --}}
-                        </div>
 
-                    </div>
+                        </div>
                     @endforeach
                     <!-- End Single Item -->
                 </div>
@@ -699,11 +711,11 @@
                                         style="animation-play-state: running;"></path></svg>
                             </span>
                         </h2>
-{{--                        <p>--}}
-{{--                            Plan upon yet way get cold spot its week. Almost do am or limits hearts. Resolve parties but--}}
-{{--                            why--}}
-{{--                            she shewing.--}}
-{{--                        </p>--}}
+                        {{--                        <p>--}}
+                        {{--                            Plan upon yet way get cold spot its week. Almost do am or limits hearts. Resolve parties but--}}
+                        {{--                            why--}}
+                        {{--                            she shewing.--}}
+                        {{--                        </p>--}}
                         <ul>
                             <li class="wow fadeInUp">
                                 <div class="icon">
