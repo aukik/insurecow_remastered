@@ -89,14 +89,16 @@
 {{--                        </li>--}}
 
                         <li class="dropdown">
-                            <a href="#team">Our Team</a>
+                            <a href="#service" >Product & Services</a>
 
                         </li>
 
                         <li class="dropdown">
-                            <a href="#service" >Product & Services</a>
+                            <a href="#team">Our Team</a>
 
                         </li>
+
+
                         <li class="dropdown">
                             <a href="#achievement" >Our Achievements</a>
 

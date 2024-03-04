@@ -131,7 +131,7 @@
 
     <!-- Start Services
        ============================================= -->
-    <div class="services-style-one-area default-padding bg-gray half-bg-theme">
+    <div class="services-style-one-area default-padding bg-gray half-bg-theme"  id="service">
         <div class="shape-extra">
             <img src="assets/img/shape/18.png" alt="Image Not Found">
         </div>
@@ -288,13 +288,10 @@
 
                 <div class="col-lg-8 offset-lg-2">
                     <div class="site-heading text-center">
-                        <h5 class="sub-title">Our Farmers</h5>
-                        <h2 class="title">Meet Our Farm Experts</h2>
+                        <h5 class="sub-title">Team</h5>
+                        <h2 class="title">Meet Our Team Members</h2>
                         <div class="devider"></div>
-                        <p>
-                            Everything melancholy uncommonly but solicitude inhabiting <br> projection off. Connection
-                            stimulated estimating.
-                        </p>
+
                     </div>
                 </div>
             </div>
@@ -453,7 +450,7 @@
 
     <!-- Start Why Choose Us
 ============================================= -->
-    <div class="choose-us-style-three-area default-padding" id="service">
+    <div class="choose-us-style-three-area default-padding">
         <div class="container">
 
 
@@ -475,9 +472,9 @@
                             {{--                                        /></i>--}}
                             {{--                                </div>--}}
                             <div class="info">
-                                <h4>Cow Caller</h4>
+                                <h4>Cow Collar</h4>
                                 <p>
-                                    A cow caller is a device used to emit sound or vibration signals to attract cows,
+                                    A cow collar is a device used to emit sound or vibration signals to attract cows,
                                     aiding in their management and control.
                                 </p>
                             </div>
