@@ -144,7 +144,7 @@
                                                 /-
                                             </th>
 
-                                            <th>On Farm</th>
+                                            <th>{{ \App\Models\Farm_management\sell\Sell_animal_information::where('cattle_id',$cattle->id)->orderBy('id','desc')->first()->status ?? "On Farm" }}</th>
 
                                             {{-- --------------------------- Selling animal --------------------------- --}}
 

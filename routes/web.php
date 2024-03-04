@@ -92,6 +92,8 @@ Route::middleware(['auth', 'farmer'])->prefix('farmer')->group(function () {
         //    ----------------------- sell cattle for farmer -----------------------
 
         Route::get('farmers_animal_sell_page/{id}', [\App\Http\Controllers\Farmer\SellController::class, 'sell_page_view'])->name('farmer_sell_page_view');
+        Route::post('farmers_animal_sell', [\App\Http\Controllers\Farmer\SellController::class, 'animal_sell'])->name('farmer_animal_sell');
+
 
         //    ----------------------- sell cattle for farmer -----------------------
     });
