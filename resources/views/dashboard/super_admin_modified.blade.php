@@ -857,7 +857,7 @@
                                 <div class="me-3">
                                     <div class="text-white-75 small">Total Investment</div>
                                     {{--                                    <div class="text-lg fw-bold">{{ $animal_count }}</div>--}}
-                                    <div class="text-lg fw-bold">285000000/-</div>
+                                    <div class="text-lg fw-bold">28500000/-</div>
                                 </div>
 
 {{--                                <i--}}

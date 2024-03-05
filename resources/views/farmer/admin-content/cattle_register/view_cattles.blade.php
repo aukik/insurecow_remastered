@@ -34,6 +34,11 @@
                         <div class="card-header">Registered Cattle</div>
                         <div class="card-body">
 
+                            @if(session('success'))
+                                <div class="alert alert-success">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
 
                             <div class="card-body">
                                 <table id="datatablesSimple">
@@ -51,7 +56,12 @@
                                         <th>Expense</th>
                                         <th>Total</th>
                                         <th>Status</th>
-                                        <th>Action</th>
+
+                                        @if(auth()->user()->role == "f")
+
+                                            <th>Action</th>
+
+                                        @endif
 
                                     </tr>
                                     </thead>
@@ -139,16 +149,24 @@
                                                 /-
                                             </th>
 
-                                            <th>On Farm</th>
+                                            <th>{{ \App\Models\Farm_management\sell\Sell_animal_information::where('cattle_id',$cattle->id)->orderBy('id','desc')->first()->status ?? "On Farm" }}</th>
 
                                             {{-- --------------------------- Selling animal --------------------------- --}}
 
-                                            <th>
-                                                <a href="" class="btn btn-danger sell-animal-button"
-                                                   data-cattle-id="{{ $cattle->id }}">Sell</a>
+                                            @if(auth()->user()->role == "f")
 
+                                                @if(\App\Models\Farm_management\sell\Sell_animal_information::where('cattle_id',$cattle->id)->count() > 0)
+                                                    <th>-</th>
 
-                                            </th>
+                                                @else
+                                                    <th>
+                                                        <a href="{{ route('farmer_sell_page_view',$cattle->id ) }}"
+                                                           class="btn btn-danger sell-animal-button"
+                                                           data-cattle-id="">Sell</a>
+                                                    </th>
+                                                @endif
+
+                                            @endif
 
                                             {{-- --------------------------- Selling animal --------------------------- --}}
 
