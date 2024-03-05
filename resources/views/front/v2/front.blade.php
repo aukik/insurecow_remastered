@@ -105,14 +105,14 @@
                         <div class="col-xl-5 col-lg-12 pl-50 pl-md-15 pl-xs-15">
                             <div class="top-product-item">
                                 {{--                                <img src="{{ asset('assets/img/icon/1.svg') }}" alt="Icon">--}}
-                                <h5><a href="#">Insurance claim</a></h5>
+                                <h5><a href="#">Insurance Claim</a></h5>
                                 <p>
-                                    easy to get insurance packages
+                                    Easy to get Insurance packages
                                 </p>
                             </div>
                             <div class="top-product-item">
                                 {{--                                <img src="{{ asset('assets/img/icon/2.svg') }}" alt="Icon">--}}
-                                <h5><a href="#">Cattle verify</a></h5>
+                                <h5><a href="#">Cattle Verify</a></h5>
                                 <p>
                                     By using InsureCow get to know your cattle
                                 </p>
@@ -399,51 +399,51 @@
 
     <!-- Start Gallery
     ============================================= -->
-    <div class="gallery-area default-padding" id="gallery">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2">
-                    <div class="site-heading text-center">
-                        <h5 class="sub-title">Awesome Gallery</h5>
-                        <h2 class="title">Gallery Of Our Products</h2>
-                        <div class="devider"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 gallery-content">
-                    <div class="magnific-mix-gallery masonary">
-                        <div id="portfolio-grid" class="gallery-items colums-2">
+{{--    <div class="gallery-area default-padding" id="gallery">--}}
+{{--        <div class="container">--}}
+{{--            <div class="row">--}}
+{{--                <div class="col-lg-8 offset-lg-2">--}}
+{{--                    <div class="site-heading text-center">--}}
+{{--                        <h5 class="sub-title">Awesome Gallery</h5>--}}
+{{--                        <h2 class="title">Gallery Of Our Products</h2>--}}
+{{--                        <div class="devider"></div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <div class="container">--}}
+{{--            <div class="row">--}}
+{{--                <div class="col-md-12 gallery-content">--}}
+{{--                    <div class="magnific-mix-gallery masonary">--}}
+{{--                        <div id="portfolio-grid" class="gallery-items colums-2">--}}
 
-                            @foreach($galleries as $gallerie)
-                                <!-- Single Item -->
-                                <div class="pf-item">
+{{--                            @foreach($galleries as $gallerie)--}}
+{{--                                <!-- Single Item -->--}}
+{{--                                <div class="pf-item">--}}
 
-                                    <div class="gallery-style-two">
-                                        <img src="{{ asset('storage/' . $gallerie->image) }}" alt
-                                        />
-                                        <div class="overlay">
-                                            <span>{{$gallerie->title}}</span>
-                                            <h4><a href="">{{$gallerie->description}}</a></h4>
-                                        </div>
-                                        <a class="link" href=""><i class="fas fa-arrow-right"></i></a>
-                                    </div>
+{{--                                    <div class="gallery-style-two">--}}
+{{--                                        <img src="{{ asset('storage/' . $gallerie->image) }}" alt--}}
+{{--                                        />--}}
+{{--                                        <div class="overlay">--}}
+{{--                                            <span>{{$gallerie->title}}</span>--}}
+{{--                                            <h4><a href="">{{$gallerie->description}}</a></h4>--}}
+{{--                                        </div>--}}
+{{--                                        <a class="link" href=""><i class="fas fa-arrow-right"></i></a>--}}
+{{--                                    </div>--}}
 
-                                </div>
-                                <!-- End Single Item -->
+{{--                                </div>--}}
+{{--                                <!-- End Single Item -->--}}
 
-                            @endforeach
+{{--                            @endforeach--}}
 
 
-                        </div>
+{{--                        </div>--}}
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
     <!-- End Gallery -->
 
 
@@ -514,7 +514,7 @@
                             {{--                                        /></i>--}}
                             {{--                                </div>--}}
                             <div class="info">
-                                <h4>Vet Service</h4>
+                                <h4>Veterinary Service</h4>
                                 <p>
                                     Professional veterinary care providing medical assistance and support for animals'
                                     health and well-being.
@@ -612,7 +612,7 @@
 
                     <!-- Single Item -->
                     @foreach($partners as $partner)
-                        <div class="services-style-two col-xl-3 col-md-6">
+                        <div class="services-style-two col-xl-2 col-md-6">
                             <div class="" style="display: flex; justify-content: space-between;">
                                 <div class="info">
                                     <div class="">

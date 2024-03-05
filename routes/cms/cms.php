@@ -68,6 +68,24 @@ Route::middleware(['auth', 'super.admin'])->prefix('cms')->group(function () {
     Route::resource('testimonial',\App\Http\Controllers\Cms\TestimonialController::class);
 
 
+    //    -----------------------------  advisor -----------------------------
+
+    Route::resource('advisor',\App\Http\Controllers\Cms\AdvisorController::class);
+
+    //    -----------------------------  investment -----------------------------
+
+    Route::resource('investment',\App\Http\Controllers\Cms\InvestmentController::class);
+
+    //    -----------------------------  impact -----------------------------
+
+    Route::resource('impact',\App\Http\Controllers\Cms\Impactcontroller::class);
+
+
+    //    -----------------------------  project -----------------------------
+
+    Route::resource('project',\App\Http\Controllers\Cms\ProjectController::class);
+
+
 });
 
 

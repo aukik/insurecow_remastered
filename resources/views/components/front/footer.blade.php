@@ -51,7 +51,7 @@
                         <ul>
                             <li>
                                 <div class="thumb">
-                                    <a href="blog-single-with-sidebar.html">
+                                    <a href="">
                                         <img src="{{ asset('assets/img/thumbs/3.jpeg') }}" alt="Thumb">
                                     </a>
                                 </div>
@@ -59,7 +59,7 @@
                                     <div class="meta-title">
                                         <span class="post-date">12 Sep, 2022</span>
                                     </div>
-                                    <h5><a href="l">Start up Event</a></h5>
+                                    <h5><a href="">Start up Event</a></h5>
                                 </div>
                             </li>
                             <li>

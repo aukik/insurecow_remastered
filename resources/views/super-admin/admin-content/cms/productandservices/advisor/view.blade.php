@@ -26,7 +26,7 @@
                                 <div class="page-header-icon">
                                     <i data-feather="user"></i>
                                 </div>
-                                View Team- Super Admin
+                                View Slider- Super Admin
                             </h1>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                 <div class="col-xl-12">
                     <!-- Account details card-->
                     <div class="card mb-4">
-                        <div class="card-header">View Team- Super Admin</div>
+                        <div class="card-header">View Slider- Super Admin</div>
                         <div class="card-body">
 
 

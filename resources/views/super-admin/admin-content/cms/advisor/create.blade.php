@@ -16,7 +16,7 @@
                                 <div class="page-header-icon">
                                     <i data-feather="user"></i>
                                 </div>
-                                Create Team Data - Super Admin
+                                Create advisor Data - Super Admin
                             </h1>
                         </div>
                     </div>
@@ -32,7 +32,7 @@
                 <div class="col-xl-12">
                     <!-- Account details card-->
                     <div class="card mb-4">
-                        <div class="card-header">Create Team Data - Super Admin</div>
+                        <div class="card-header">Create advisor Data - Super Admin</div>
                         <div class="card-body">
 
 
@@ -42,7 +42,7 @@
                                 </div>
                             @endif
 
-                            <form action="{{route('team.store')}}" method="post"
+                            <form action="{{route('advisor.store')}}" method="post"
                                   enctype="multipart/form-data">
                                 {{ csrf_field() }}
 
@@ -104,7 +104,7 @@
 
                                         <!-- Add other fields similarly -->
                                         <div class="col-md-12">
-                                            <input type="submit" value="Add Team" class="btn btn-success">
+                                            <input type="submit" value="Add advisor" class="btn btn-success">
                                         </div>
 
 

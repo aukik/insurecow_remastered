@@ -26,7 +26,7 @@
                                 <div class="page-header-icon">
                                     <i data-feather="user"></i>
                                 </div>
-                                View Team- Super Admin
+                                View invesment- Super Admin
                             </h1>
                         </div>
                     </div>
@@ -42,7 +42,7 @@
                 <div class="col-xl-12">
                     <!-- Account details card-->
                     <div class="card mb-4">
-                        <div class="card-header">View Team- Super Admin</div>
+                        <div class="card-header">View invesment- Super Admin</div>
                         <div class="card-body">
 
 
@@ -70,17 +70,17 @@
                                 <tbody>
 
                                 <?php $id = 0 ?>
-                                        @foreach($teams as $team)
+                                        @foreach($investments as $invesment)
                                             <tr>
                                                 <td>{{ $id += 1 }}</td>
-                                                <td>{!!$team->title !!}</td>
-                                                <td>{!!$team->description !!}</td>
-                                                <td><img src="{{ asset('storage/'.$team->image) }}" alt="" style="width: 100px"></td>
+                                                <td>{!!$invesment->title !!}</td>
+                                                <td>{!!$invesment->description !!}</td>
+                                                <td><img src="{{ asset('storage/'.$invesment->image) }}" alt="" style="width: 100px"></td>
 
 
-                                                <td><a href="{{ route('team.edit',$team->id) }}" class="btn btn-info">Update</a></td>
+                                                <td><a href="{{ route('investment.edit',$invesment->id) }}" class="btn btn-info">Update</a></td>
                                                 <td>
-                                                    <form action="{{ route('team.destroy',$team->id) }}" method="post">
+                                                    <form action="{{ route('investment.destroy',$invesment->id) }}" method="post">
                                                         {{ csrf_field() }}
                                                         @method('delete')
                                                         <input type="submit" value="Delete" class="btn btn-danger">

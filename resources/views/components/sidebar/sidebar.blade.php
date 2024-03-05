@@ -332,6 +332,87 @@
                 {{-- ------------ Contact Us ------------ --}}
 
 
+
+                {{-- ------------ Advisor ------------ --}}
+
+                <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+                   data-bs-target="#pagesCollapseadvisor" aria-expanded="false"
+                   aria-controls="pagesCollapseadvisor">
+                   Advisor
+                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="pagesCollapseadvisor" data-bs-parent="#accordionSidenavPagesMenu">
+                    <nav class="sidenav-menu-nested nav">
+                        <a class="nav-link" href="{{route("advisor.create")}}">Add Info</a>
+                        <a class="nav-link" href="{{route("advisor.index")}}">View All info</a>
+                    </nav>
+                </div>
+
+                {{-- ------------ Advisor ------------ --}}
+
+
+
+
+                {{-- ------------ Investment ------------ --}}
+
+                <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+                   data-bs-target="#pagesCollapseinvestment" aria-expanded="false"
+                   aria-controls="pagesCollapseinvestment">
+                    Investment
+                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="pagesCollapseinvestment" data-bs-parent="#accordionSidenavPagesMenu">
+                    <nav class="sidenav-menu-nested nav">
+                        <a class="nav-link" href="{{route("investment.create")}}">Add Info</a>
+                        <a class="nav-link" href="{{route("investment.index")}}">View All info</a>
+                    </nav>
+                </div>
+
+                {{-- ------------ Investment ------------ --}}
+
+
+
+                {{-- ------------ Impact ------------ --}}
+
+                <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+                   data-bs-target="#pagesCollapseimpact" aria-expanded="false"
+                   aria-controls="pagesCollapseimpact">
+                    Impacts
+                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="pagesCollapseimpact" data-bs-parent="#accordionSidenavPagesMenu">
+                    <nav class="sidenav-menu-nested nav">
+                        <a class="nav-link" href="{{route("impact.create")}}">Add Info</a>
+                        <a class="nav-link" href="{{route("impact.index")}}">View All info</a>
+                    </nav>
+                </div>
+
+                {{-- ------------ Impact ------------ --}}
+
+
+
+
+                {{-- ------------ Project ------------ --}}
+
+                <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+                   data-bs-target="#pagesCollapseproject" aria-expanded="false"
+                   aria-controls="pagesCollapseprpject">
+                    Projects
+                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="pagesCollapseproject" data-bs-parent="#accordionSidenavPagesMenu">
+                    <nav class="sidenav-menu-nested nav">
+                        <a class="nav-link" href="{{route("project.create")}}">Add Info</a>
+                        <a class="nav-link" href="{{route("project.index")}}">View All info</a>
+                    </nav>
+                </div>
+
+                {{-- ------------ Project ------------ --}}
+
+
+
+
+
             </nav>
         </div>
 
