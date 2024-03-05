@@ -81,6 +81,11 @@ Route::middleware(['auth', 'super.admin'])->prefix('cms')->group(function () {
     Route::resource('impact',\App\Http\Controllers\Cms\Impactcontroller::class);
 
 
+    //    -----------------------------  project -----------------------------
+
+    Route::resource('project',\App\Http\Controllers\Cms\ProjectController::class);
+
+
 });
 
 

@@ -377,7 +377,7 @@
                 <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
                    data-bs-target="#pagesCollapseimpact" aria-expanded="false"
                    aria-controls="pagesCollapseimpact">
-                    Impact
+                    Impacts
                     <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                 </a>
                 <div class="collapse" id="pagesCollapseimpact" data-bs-parent="#accordionSidenavPagesMenu">
@@ -388,6 +388,29 @@
                 </div>
 
                 {{-- ------------ Impact ------------ --}}
+
+
+
+
+                {{-- ------------ Project ------------ --}}
+
+                <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse"
+                   data-bs-target="#pagesCollapseproject" aria-expanded="false"
+                   aria-controls="pagesCollapseprpject">
+                    Projects
+                    <div class="sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                </a>
+                <div class="collapse" id="pagesCollapseproject" data-bs-parent="#accordionSidenavPagesMenu">
+                    <nav class="sidenav-menu-nested nav">
+                        <a class="nav-link" href="{{route("project.create")}}">Add Info</a>
+                        <a class="nav-link" href="{{route("project.index")}}">View All info</a>
+                    </nav>
+                </div>
+
+                {{-- ------------ Project ------------ --}}
+
+
+
 
 
             </nav>

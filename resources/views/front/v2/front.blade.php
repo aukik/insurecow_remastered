@@ -105,14 +105,14 @@
                         <div class="col-xl-5 col-lg-12 pl-50 pl-md-15 pl-xs-15">
                             <div class="top-product-item">
                                 {{--                                <img src="{{ asset('assets/img/icon/1.svg') }}" alt="Icon">--}}
-                                <h5><a href="#">Insurance claim</a></h5>
+                                <h5><a href="#">Insurance Claim</a></h5>
                                 <p>
-                                    easy to get insurance packages
+                                    Easy to get Insurance packages
                                 </p>
                             </div>
                             <div class="top-product-item">
                                 {{--                                <img src="{{ asset('assets/img/icon/2.svg') }}" alt="Icon">--}}
-                                <h5><a href="#">Cattle verify</a></h5>
+                                <h5><a href="#">Cattle Verify</a></h5>
                                 <p>
                                     By using InsureCow get to know your cattle
                                 </p>
