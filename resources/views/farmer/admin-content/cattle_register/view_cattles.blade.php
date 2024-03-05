@@ -34,6 +34,11 @@
                         <div class="card-header">Registered Cattle</div>
                         <div class="card-body">
 
+                            @if(session('success'))
+                                <div class="alert alert-success">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
 
                             <div class="card-body">
                                 <table id="datatablesSimple">
@@ -150,13 +155,16 @@
 
                                             @if(auth()->user()->role == "f")
 
-                                                <th>
-                                                    <a href="{{ route('farmer_sell_page_view',$cattle->id ) }}"
-                                                       class="btn btn-danger sell-animal-button"
-                                                       data-cattle-id="">Sell</a>
+                                                @if(\App\Models\Farm_management\sell\Sell_animal_information::where('cattle_id',$cattle->id)->count() > 0)
+                                                    <th>-</th>
 
-
-                                                </th>
+                                                @else
+                                                    <th>
+                                                        <a href="{{ route('farmer_sell_page_view',$cattle->id ) }}"
+                                                           class="btn btn-danger sell-animal-button"
+                                                           data-cattle-id="">Sell</a>
+                                                    </th>
+                                                @endif
 
                                             @endif
 

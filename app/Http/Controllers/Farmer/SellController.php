@@ -45,11 +45,11 @@ class SellController extends Controller
 
         $animal = CattleRegistration::find($inputs['cattle_id']);
 
-        if (!$animal){
+        if (!$animal) {
             return "Animal information not found";
         }
 
-        if ($animal->user_id != auth()->id()){
+        if ($animal->user_id != auth()->id()) {
             return "Animal does not belongs to farmer";
         }
 
@@ -63,9 +63,9 @@ class SellController extends Controller
 
         $percentage_calculation = $animal->sum_insured + ($animal->sum_insured * ($percentage / 100));
 
-        if ($percentage_calculation != $selling_cost){
-            return "Bypassing value is unappropriated";
-        }
+//        if ($percentage_calculation != $selling_cost){
+//            return "Bypassing value is unappropriated";
+//        }
 
         // ---------- Animal percentage identification ----------
 
@@ -74,11 +74,16 @@ class SellController extends Controller
         $inputs['status'] = "sold";
 
         Sell_animal_information::create($inputs);
-        session()->flash("success","Animal sold successfully");
-        return redirect()->route("farm.index");
+        session()->flash("success", "Animal sold successfully");
+
+// ----------------------- After processing, redirect in the exact farm -----------------------
+
+
+        return redirect()->route("cattle.list.with_farm",$animal->farm);
 
 
 
+// ----------------------- After processing, redirect in the exact farm -----------------------
 
 
     }
