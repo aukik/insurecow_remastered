@@ -142,6 +142,15 @@ Route::middleware(['auth', 'farmer'])->prefix('farmer')->group(function () {
 
         //    ----------------------- Claim Insurance -----------------------
 
+        //    -------------------------------------- Instant Animal Checking ----------------------------------------------
+
+
+        Route::get("animal_info_checking", [\App\Http\Controllers\ml\InstantCheckingAnimalController::class, 'index'])->name('instant_animal_info_checking.index');
+        Route::post("animal_info_checking", [\App\Http\Controllers\ml\InstantCheckingAnimalController::class, 'store'])->name('instant_animal_info_checking.store');
+
+
+        //    -------------------------------------- Instant Animal Checking ----------------------------------------------
+
         //    ----------------------- Insurance History -----------------------
 
         Route::get("insurance_history", [FarmerController::class, 'insurance_history'])->name('insurance.history.index');

@@ -78,9 +78,9 @@
             {{-- --------------------------------------- Claim action --------------------------------------- --}}
 
 
-            <a class="nav-link" href="{{ route('claim.test') }}">
+            <a class="nav-link" href="{{ route('instant_animal_info_checking.index') }}">
                 <div class="nav-link-icon"><i data-feather="filter"></i></div>
-                Claim Insurance
+                Animal Info Checking
             </a>
 
 

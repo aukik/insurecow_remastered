@@ -55,6 +55,7 @@ class ClaimController extends Controller
 
         $basename_with_cattle_r_id = pathinfo($basename, PATHINFO_FILENAME);
 
+
 //        ---------------------------- Path Info without extension , the cattle_r_id ----------------------------
 
 
