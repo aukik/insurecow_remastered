@@ -22,7 +22,7 @@ class FarmerController extends Controller
     public function view_registered_cattle()
     {
         $cattle_list = auth()->user()->cattleRegister()->get();
-        return view('farmer.admin-content.cattle_register.view_cattles', compact('cattle_list'));
+        return view('farmer.admin-content.cattle_register.view_cattles_normal', compact('cattle_list'));
     }
 
 //    --------------- view registered Cattle ---------------
