@@ -14,7 +14,7 @@ class InstantCheckingAnimalController extends Controller
 
     public function index()
     {
-        return view("farmer.admin-content.animal_checking.index_claim_demo");
+        return view("farmer.admin-content.animal_checking.animal_checking");
     }
 
 

@@ -97,7 +97,7 @@
                                 </div>
 
                                 <button class="btn btn-primary cattle_register_button" type="submit">
-                                    Claim Insurance
+                                    Animal Information Check
                                 </button>
 
                             </form>
@@ -118,12 +118,36 @@
 
 
                             <br>
+
                             @if(session('data'))
 
                                 <div style="color: #0a3622; font-weight: bold">Claim Report - Success</div>
                                 <hr style="color: #0a3622; font-weight: bold">
 
                                 <div class="row">
+
+                                    <div class="col-md-4">
+                                        <p style="font-weight: bold">
+                                            <span
+                                                style="color: #0a3622">Farmer Name :</span> {{ \App\Models\User::find(session('data')->user_id)->name ?? "Name not found" }}
+                                        </p>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <p style="font-weight: bold">
+                                            <span
+                                                style="color: #0a3622">Farmer Address :</span> {{ \App\Models\User::find(session('data')->user_id)->address ?? "Address not found" }}
+                                        </p>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <p style="font-weight: bold">
+                                            <span
+                                                style="color: #0a3622">Farmer Phone No :</span> {{ \App\Models\User::find(session('data')->user_id)->phone ?? "Number not found" }}
+                                        </p>
+                                    </div>
+
+
                                     <div class="col-md-4">
                                         <p style="font-weight: bold">
                                             <span
@@ -159,32 +183,43 @@
                                     </div>
 
                                     <div class="col-md-4">
-
-                                    </div>
-
-                                    <div class="col-md-4">
                                         <p style="font-weight: bold">
-                                            <span style="color: #0a3622">Cattle with Owner :</span>
+                                            <span
+                                                style="color: #0a3622">Animal Unique ID :</span> {{ pathinfo(session('data')->muzzle_of_cow,PATHINFO_FILENAME) }}
                                         </p>
-                                        <img src="{{ asset('storage/'.session('data')->cow_with_owner) }}" alt=""
-                                             style="width: 100px">
                                     </div>
 
-                                    <div class="col-md-4">
-                                        <p style="font-weight: bold">
-                                            <span style="color: #0a3622">Cattle Left Side :</span>
-                                        </p>
-                                        <img src="{{ asset('storage/'.session('data')->left_side) }}" alt=""
-                                             style="width: 100px">
+
+                                    {{--                                    <p>{{ pathinfo($cattle->muzzle_of_cow, PATHINFO_FILENAME)  }}</p>--}}
+
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <p style="font-weight: bold">
+                                                <span style="color: #0a3622">Cattle with Owner :</span>
+                                            </p>
+                                            <img src="{{ asset('storage/'.session('data')->cow_with_owner) }}" alt=""
+                                                 style="width: 100px">
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <p style="font-weight: bold">
+                                                <span style="color: #0a3622">Cattle Left Side :</span>
+                                            </p>
+                                            <img src="{{ asset('storage/'.session('data')->left_side) }}" alt=""
+                                                 style="width: 100px">
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <p style="font-weight: bold">
+                                                <span style="color: #0a3622">Cattle Right Side :</span>
+                                            </p>
+                                            <img src="{{ asset('storage/'.session('data')->right_side) }}" alt=""
+                                                 style="width: 100px">
+                                        </div>
                                     </div>
 
-                                    <div class="col-md-4">
-                                        <p style="font-weight: bold">
-                                            <span style="color: #0a3622">Cattle Right Side :</span>
-                                        </p>
-                                        <img src="{{ asset('storage/'.session('data')->right_side) }}" alt=""
-                                             style="width: 100px">
-                                    </div>
+
                                 </div>
 
                             @endif
