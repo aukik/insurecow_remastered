@@ -60,7 +60,12 @@ class ClaimController extends Controller
 
         $cattle_id = $inputs['cattle_id'];
 
-        $cattle_data = CattleRegistration::findOrFail($cattle_id);
+        $cattle_data = CattleRegistration::find($cattle_id);
+
+
+        if ($cattle_data){
+            return "Cattle data not found";
+        }
 
         try {
             $response = Http::attach(

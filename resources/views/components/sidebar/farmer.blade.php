@@ -74,6 +74,19 @@
             </div>
 
 
+
+            {{-- --------------------------------------- Claim action --------------------------------------- --}}
+
+
+            <a class="nav-link" href="{{ route('claim.test') }}">
+                <div class="nav-link-icon"><i data-feather="filter"></i></div>
+                Claim Insurance
+            </a>
+
+
+            {{-- --------------------------------------- Claim action --------------------------------------- --}}
+
+
             @if(auth()->user()->permission->f_insurance == 1)
 
                 <a class="nav-link" href="{{ route('insurance.packages') }}">
@@ -81,11 +94,6 @@
                     Apply For Insurance
                 </a>
 
-
-                {{--                <a class="nav-link" href="{{ route('claim.test') }}">--}}
-                {{--                    <div class="nav-link-icon"><i data-feather="filter"></i></div>--}}
-                {{--                    Claim Insurance--}}
-                {{--                </a>--}}
 
                 <a class="nav-link" href="{{ route('farmer_view_insurance_history') }}">
                     <div class="nav-link-icon"><i data-feather="filter"></i></div>
