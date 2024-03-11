@@ -306,17 +306,17 @@
                                 <div class="farmer-style-one-item">
                                     <div class="thumb">
                                         <img src="{{ asset('storage/' . $team->image) }}" alt=""/>
-                                        <div class="social">
-                                            <i class="fas fa-share-alt"></i>
-                                            <ul>
+{{--                                        <div class="social">--}}
+{{--                                            <i class="fas fa-share-alt"></i>--}}
+{{--                                            <ul>--}}
 
-                                                <li class="linkedin">
-                                                    <a href="#">
-                                                        <i class="fab fa-linkedin-in"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
+{{--                                                <li class="linkedin">--}}
+{{--                                                    <a href="#">--}}
+{{--                                                        <i class="fab fa-linkedin-in"></i>--}}
+{{--                                                    </a>--}}
+{{--                                                </li>--}}
+{{--                                            </ul>--}}
+{{--                                        </div>--}}
                                     </div>
                                     <div class="info">
                                         <h4><a href="">{{$team->title}}</a></h4>
