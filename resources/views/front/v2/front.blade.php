@@ -302,7 +302,7 @@
                     <div class="row">
                         @foreach($teams as $team)
                             <!-- Single Item -->
-                            <div class="col-lg-4 col-md-6 farmer-stye-one">
+                            <div class="col-lg-3 col-md-6 farmer-stye-one">
                                 <div class="farmer-style-one-item">
                                     <div class="thumb">
                                         <img src="{{ asset('storage/' . $team->image) }}" alt=""/>
