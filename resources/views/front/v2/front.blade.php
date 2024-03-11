@@ -302,7 +302,7 @@
                     <div class="row">
                         @foreach($teams as $team)
                             <!-- Single Item -->
-                            <div class="col-lg-4 col-md-6 farmer-stye-one">
+                            <div class="col-lg-3 col-md-6 farmer-stye-one">
                                 <div class="farmer-style-one-item">
                                     <div class="thumb">
                                         <img src="{{ asset('storage/' . $team->image) }}" alt=""/>
@@ -720,7 +720,7 @@
                                 </div>
                                 <div class="content">
                                     <h5 class="title">Hotline</h5>
-                                    <a href="">+880 1755-680807</a>
+                                    <a href="">+880 1870761283</a>
                                 </div>
                             </li>
                             <li class="wow fadeInUp" data-wow-delay="300ms">
