@@ -131,7 +131,7 @@
 
     <!-- Start Services
        ============================================= -->
-    <div class="services-style-one-area default-padding bg-gray half-bg-theme"  id="service">
+    <div class="services-style-one-area default-padding bg-gray half-bg-theme" id="service">
         <div class="shape-extra">
             <img src="assets/img/shape/18.png" alt="Image Not Found">
         </div>
@@ -399,51 +399,51 @@
 
     <!-- Start Gallery
     ============================================= -->
-{{--    <div class="gallery-area default-padding" id="gallery">--}}
-{{--        <div class="container">--}}
-{{--            <div class="row">--}}
-{{--                <div class="col-lg-8 offset-lg-2">--}}
-{{--                    <div class="site-heading text-center">--}}
-{{--                        <h5 class="sub-title">Awesome Gallery</h5>--}}
-{{--                        <h2 class="title">Gallery Of Our Products</h2>--}}
-{{--                        <div class="devider"></div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        <div class="container">--}}
-{{--            <div class="row">--}}
-{{--                <div class="col-md-12 gallery-content">--}}
-{{--                    <div class="magnific-mix-gallery masonary">--}}
-{{--                        <div id="portfolio-grid" class="gallery-items colums-2">--}}
+    {{--    <div class="gallery-area default-padding" id="gallery">--}}
+    {{--        <div class="container">--}}
+    {{--            <div class="row">--}}
+    {{--                <div class="col-lg-8 offset-lg-2">--}}
+    {{--                    <div class="site-heading text-center">--}}
+    {{--                        <h5 class="sub-title">Awesome Gallery</h5>--}}
+    {{--                        <h2 class="title">Gallery Of Our Products</h2>--}}
+    {{--                        <div class="devider"></div>--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
+    {{--        </div>--}}
+    {{--        <div class="container">--}}
+    {{--            <div class="row">--}}
+    {{--                <div class="col-md-12 gallery-content">--}}
+    {{--                    <div class="magnific-mix-gallery masonary">--}}
+    {{--                        <div id="portfolio-grid" class="gallery-items colums-2">--}}
 
-{{--                            @foreach($galleries as $gallerie)--}}
-{{--                                <!-- Single Item -->--}}
-{{--                                <div class="pf-item">--}}
+    {{--                            @foreach($galleries as $gallerie)--}}
+    {{--                                <!-- Single Item -->--}}
+    {{--                                <div class="pf-item">--}}
 
-{{--                                    <div class="gallery-style-two">--}}
-{{--                                        <img src="{{ asset('storage/' . $gallerie->image) }}" alt--}}
-{{--                                        />--}}
-{{--                                        <div class="overlay">--}}
-{{--                                            <span>{{$gallerie->title}}</span>--}}
-{{--                                            <h4><a href="">{{$gallerie->description}}</a></h4>--}}
-{{--                                        </div>--}}
-{{--                                        <a class="link" href=""><i class="fas fa-arrow-right"></i></a>--}}
-{{--                                    </div>--}}
+    {{--                                    <div class="gallery-style-two">--}}
+    {{--                                        <img src="{{ asset('storage/' . $gallerie->image) }}" alt--}}
+    {{--                                        />--}}
+    {{--                                        <div class="overlay">--}}
+    {{--                                            <span>{{$gallerie->title}}</span>--}}
+    {{--                                            <h4><a href="">{{$gallerie->description}}</a></h4>--}}
+    {{--                                        </div>--}}
+    {{--                                        <a class="link" href=""><i class="fas fa-arrow-right"></i></a>--}}
+    {{--                                    </div>--}}
 
-{{--                                </div>--}}
-{{--                                <!-- End Single Item -->--}}
+    {{--                                </div>--}}
+    {{--                                <!-- End Single Item -->--}}
 
-{{--                            @endforeach--}}
+    {{--                            @endforeach--}}
 
 
-{{--                        </div>--}}
+    {{--                        </div>--}}
 
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
+    {{--        </div>--}}
+    {{--    </div>--}}
     <!-- End Gallery -->
 
 
@@ -547,38 +547,82 @@
                 </div>
             </div>
         </div>
-        <div class="container">
+
+
+        {{-- ------------------------------ Achievement code update ------------------------------  --}}
+
+{{--        <div class="container">--}}
+{{--            <div class="row">--}}
+{{--                <div class="col-md-12 gallery-content">--}}
+{{--                    <div class="magnific-mix-gallery masonary">--}}
+{{--                        <div id="portfolio-grid" class="gallery-items colums-2">--}}
+
+{{--                            @foreach($achievements as $achievement)--}}
+{{--                                <!-- Single Item -->--}}
+{{--                                <div class="pf-item">--}}
+
+{{--                                    <div class="gallery-style-two">--}}
+{{--                                        <img src="{{ asset('storage/' .$achievement->image) }}" alt--}}
+{{--                                        />--}}
+{{--                                        <div class="overlay">--}}
+{{--                                            <span>{{$achievement->title}}</span>--}}
+{{--                                            <h4><a href="">{{$achievement->description}}</a></h4>--}}
+{{--                                        </div>--}}
+{{--                                        --}}{{--                                        <a class="link" href=""><i class="fas fa-arrow-right"></i></a>--}}
+{{--                                    </div>--}}
+
+{{--                                </div>--}}
+{{--                                <!-- End Single Item -->--}}
+
+{{--                            @endforeach--}}
+
+
+{{--                        </div>--}}
+
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+
+
+        <div class="container container-stage">
             <div class="row">
-                <div class="col-md-12 gallery-content">
-                    <div class="magnific-mix-gallery masonary">
-                        <div id="portfolio-grid" class="gallery-items colums-2">
+                <div class="col-xl-12">
+                    <div class="carousel-stage-right carousel-style-one swiper">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
+                            <!-- Single Item -->
+
 
                             @foreach($achievements as $achievement)
-                                <!-- Single Item -->
-                                <div class="pf-item">
 
-                                    <div class="gallery-style-two">
-                                        <img src="{{ asset('storage/' .$achievement->image) }}" alt
-                                        />
+                                <div class="swiper-slide">
+                                    <div class="gallery-style-one">
+                                        <img src="{{ asset('storage/' .$achievement->image) }}" alt="Thumb">
                                         <div class="overlay">
                                             <span>{{$achievement->title}}</span>
-                                            <h4><a href="">{{$achievement->description}}</a></h4>
+                                            <h4><a href="javascript:;">{{$achievement->description}}</a></h4>
                                         </div>
-                                        {{--                                        <a class="link" href=""><i class="fas fa-arrow-right"></i></a>--}}
                                     </div>
-
                                 </div>
-                                <!-- End Single Item -->
 
                             @endforeach
 
 
                         </div>
 
+                        <!-- Pagination -->
+                        <div class="swiper-pagination"></div>
+
                     </div>
                 </div>
             </div>
         </div>
+
+
+        {{-- ------------------------------ Achievement code update ------------------------------  --}}
+
+
     </div>
     <!-- End achievement -->
     <!-- Start Services
@@ -754,7 +798,7 @@
 
     <!-- Start Blog Area
     ============================================= -->
-    <div class="blog-area home-blog blog-grid default-padding bottom-less" id="blogs"  >
+    <div class="blog-area home-blog blog-grid default-padding bottom-less" id="blogs">
         <div class="container">
             <div class="row">
 
