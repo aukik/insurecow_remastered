@@ -55,12 +55,18 @@ class ClaimController extends Controller
 
         $basename_with_cattle_r_id = pathinfo($basename, PATHINFO_FILENAME);
 
+
 //        ---------------------------- Path Info without extension , the cattle_r_id ----------------------------
 
 
         $cattle_id = $inputs['cattle_id'];
 
-        $cattle_data = CattleRegistration::findOrFail($cattle_id);
+        $cattle_data = CattleRegistration::find($cattle_id);
+
+
+        if ($cattle_data){
+            return "Cattle data not found";
+        }
 
         try {
             $response = Http::attach(

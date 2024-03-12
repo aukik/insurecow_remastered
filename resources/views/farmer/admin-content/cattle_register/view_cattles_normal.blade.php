@@ -50,18 +50,20 @@
                                         {{--                                        <th>Farm Name</th>--}}
                                         <th>Animal Price</th>
                                         <th>View</th>
+                                        <th>Action</th>
+
                                         {{--                                        <th>Animal Claim</th>--}}
 
-                                        <th>Income</th>
-                                        <th>Expense</th>
-                                        <th>Total</th>
-                                        <th>Status</th>
+{{--                                        <th>Income</th>--}}
+{{--                                        <th>Expense</th>--}}
+{{--                                        <th>Total</th>--}}
+{{--                                        <th>Status</th>--}}
 
-                                        @if(auth()->user()->role == "f")
+{{--                                        @if(auth()->user()->role == "f")--}}
 
-                                            <th>Action</th>
+{{--                                            <th>Action</th>--}}
 
-                                        @endif
+{{--                                        @endif--}}
 
                                     </tr>
                                     </thead>
@@ -113,60 +115,60 @@
 
                                             {{--  ------------------------------------------ Both insurance payment and claim status check ------------------------------------------ --}}
 
-                                            {{--                                            @if($cattle->animal_type == "goat")--}}
+                                            @if($cattle->animal_type == "goat")
 
-                                            {{--                                                <td>Not applicable for type goat</td>--}}
+                                                <td>Not applicable for type goat</td>
 
-                                            {{--                                            @else--}}
-                                            {{--                                                @if(\App\Http\Controllers\Farmer\FarmerCattleListLogicController::insurance_detection($cattle->id) == true)--}}
-                                            {{--                                                    @if(\App\Http\Controllers\Farmer\FarmerCattleListLogicController::claim_detection($cattle->id) == true)--}}
-                                            {{--                                                        <td>--}}
-                                            {{--                                                            <a href="{{ route('claim.index', $cattle->id) }}"--}}
-                                            {{--                                                               class="btn btn-success">Claim</a>--}}
+                                            @else
+                                                @if(\App\Http\Controllers\Farmer\FarmerCattleListLogicController::insurance_detection($cattle->id) == true)
+                                                    @if(\App\Http\Controllers\Farmer\FarmerCattleListLogicController::claim_detection($cattle->id) == true)
+                                                        <td>
+                                                            <a href="{{ route('claim.index', $cattle->id) }}"
+                                                               class="btn btn-success">Claim</a>
 
-                                            {{--                                                        </td>--}}
+                                                        </td>
 
-                                            {{--                                                    @else--}}
-                                            {{--                                                        <td>Claimed</td>--}}
-                                            {{--                                                    @endif--}}
-                                            {{--                                                @else--}}
-                                            {{--                                                    <td>Not insured</td>--}}
-                                            {{--                                                @endif--}}
+                                                    @else
+                                                        <td>Claimed</td>
+                                                    @endif
+                                                @else
+                                                    <td>Not insured</td>
+                                                @endif
 
-                                            {{--                                            @endif--}}
+                                            @endif
 
                                             {{--  ------------------------------------------ Both insurance payment and claim status check ------------------------------------------ --}}
 
 
-                                            <th class="text-success">{{ round(\App\Models\Farm_management\financial\IncomeAndSell::where('cattle_id',$cattle->id)->sum('amount')) }}
-                                                /-
-                                            </th>
-                                            <th class="text-danger">{{ round(\App\Models\Farm_management\financial\Expense::where('cattle_id',$cattle->id)->sum('amount')) }}
-                                                /-
-                                            </th>
-                                            <th class="{{ round(\App\Models\Farm_management\financial\IncomeAndSell::where('cattle_id',$cattle->id)->sum('amount')) - round(\App\Models\Farm_management\financial\Expense::where('cattle_id',$cattle->id)->sum('amount')) < 0 ? 'text-danger' : 'text-success' }}">
-                                                {{ round(\App\Models\Farm_management\financial\IncomeAndSell::where('cattle_id',$cattle->id)->sum('amount')) - round(\App\Models\Farm_management\financial\Expense::where('cattle_id',$cattle->id)->sum('amount')) }}
-                                                /-
-                                            </th>
+{{--                                            <th class="text-success">{{ round(\App\Models\Farm_management\financial\IncomeAndSell::where('cattle_id',$cattle->id)->sum('amount')) }}--}}
+{{--                                                /---}}
+{{--                                            </th>--}}
+{{--                                            <th class="text-danger">{{ round(\App\Models\Farm_management\financial\Expense::where('cattle_id',$cattle->id)->sum('amount')) }}--}}
+{{--                                                /---}}
+{{--                                            </th>--}}
+{{--                                            <th class="{{ round(\App\Models\Farm_management\financial\IncomeAndSell::where('cattle_id',$cattle->id)->sum('amount')) - round(\App\Models\Farm_management\financial\Expense::where('cattle_id',$cattle->id)->sum('amount')) < 0 ? 'text-danger' : 'text-success' }}">--}}
+{{--                                                {{ round(\App\Models\Farm_management\financial\IncomeAndSell::where('cattle_id',$cattle->id)->sum('amount')) - round(\App\Models\Farm_management\financial\Expense::where('cattle_id',$cattle->id)->sum('amount')) }}--}}
+{{--                                                /---}}
+{{--                                            </th>--}}
 
-                                            <th>{{ \App\Models\Farm_management\sell\Sell_animal_information::where('cattle_id',$cattle->id)->orderBy('id','desc')->first()->status ?? "On Farm" }}</th>
+{{--                                            <th>{{ \App\Models\Farm_management\sell\Sell_animal_information::where('cattle_id',$cattle->id)->orderBy('id','desc')->first()->status ?? "On Farm" }}</th>--}}
 
                                             {{-- --------------------------- Selling animal --------------------------- --}}
 
-                                            @if(auth()->user()->role == "f")
+{{--                                            @if(auth()->user()->role == "f")--}}
 
-                                                @if(\App\Models\Farm_management\sell\Sell_animal_information::where('cattle_id',$cattle->id)->count() > 0)
-                                                    <th>-</th>
+{{--                                                @if(\App\Models\Farm_management\sell\Sell_animal_information::where('cattle_id',$cattle->id)->count() > 0)--}}
+{{--                                                    <th>-</th>--}}
 
-                                                @else
-                                                    <th>
-                                                        <a href="{{ route('farmer_sell_page_view',$cattle->id ) }}"
-                                                           class="btn btn-danger sell-animal-button"
-                                                           data-cattle-id="">Sell</a>
-                                                    </th>
-                                                @endif
+{{--                                                @else--}}
+{{--                                                    <th>--}}
+{{--                                                        <a href="{{ route('farmer_sell_page_view',$cattle->id ) }}"--}}
+{{--                                                           class="btn btn-danger sell-animal-button"--}}
+{{--                                                           data-cattle-id="">Sell</a>--}}
+{{--                                                    </th>--}}
+{{--                                                @endif--}}
 
-                                            @endif
+{{--                                            @endif--}}
 
                                             {{-- --------------------------- Selling animal --------------------------- --}}
 

@@ -47,11 +47,11 @@
                 <!-- Single Itme -->
                 <div class="col-lg-3 col-md-6 item">
                     <div class="footer-item recent-post">
-                        <h4 class="widget-title">Recent Posts</h4>
+                        <h4 class="widget-title">Achievements</h4>
                         <ul>
                             <li>
                                 <div class="thumb">
-                                    <a href="">
+                                    <a href="#achievement">
                                         <img src="{{ asset('assets/img/thumbs/3.jpeg') }}" alt="Thumb">
                                     </a>
                                 </div>
@@ -59,12 +59,12 @@
                                     <div class="meta-title">
                                         <span class="post-date">12 Sep, 2022</span>
                                     </div>
-                                    <h5><a href="">Start up Event</a></h5>
+                                    <h5><a href="#achievement">Start up Event</a></h5>
                                 </div>
                             </li>
                             <li>
                                 <div class="thumb">
-                                    <a href="">
+                                    <a href="#achievement">
                                         <img src="{{ asset('assets/img/thumbs/5.jpeg') }}" alt="Thumb">
                                     </a>
                                 </div>
@@ -72,7 +72,7 @@
                                     <div class="meta-title">
                                         <span class="post-date">18 Jul, 2022</span>
                                     </div>
-                                    <h5><a href="blog-single-with-sidebar.html">First Prize</a></h5>
+                                    <h5><a href="#achievement">First Prize</a></h5>
                                 </div>
                             </li>
                         </ul>
@@ -91,7 +91,7 @@
                                 </div>
                                 <div class="content">
                                     <strong>Address:</strong>
-                                    Mansurabad , Adabar , Road: 07 , House : 88
+                                    Mansurabad, Adabar, Road: 07, House : 88
                                 </div>
                             </li>
                             <li>

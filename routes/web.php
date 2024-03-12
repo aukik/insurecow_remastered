@@ -88,6 +88,14 @@ Route::middleware(['auth', 'farmer'])->prefix('farmer')->group(function () {
         Route::get("registration_verification_reports", [FarmerController::class, 'cattle_reg_ver_reports'])->name('registration_verification_reports');
 
         //    ----------------------- Cattle registration verification reports -----------------------
+
+        //    ----------------------- sell cattle for farmer -----------------------
+
+        Route::get('farmers_animal_sell_page/{id}', [\App\Http\Controllers\Farmer\SellController::class, 'sell_page_view'])->name('farmer_sell_page_view');
+        Route::post('farmers_animal_sell', [\App\Http\Controllers\Farmer\SellController::class, 'animal_sell'])->name('farmer_animal_sell');
+
+
+        //    ----------------------- sell cattle for farmer -----------------------
     });
 
     //    ----------------------------- Cattle Registration Middleware Block ----------------------------------
@@ -133,6 +141,15 @@ Route::middleware(['auth', 'farmer'])->prefix('farmer')->group(function () {
         Route::post("claim_insurance_test", [ClaimController::class, 'store'])->name('claim.store');
 
         //    ----------------------- Claim Insurance -----------------------
+
+        //    -------------------------------------- Instant Animal Checking ----------------------------------------------
+
+
+        Route::get("animal_info_checking", [\App\Http\Controllers\ml\InstantCheckingAnimalController::class, 'index'])->name('instant_animal_info_checking.index');
+        Route::post("animal_info_checking", [\App\Http\Controllers\ml\InstantCheckingAnimalController::class, 'store'])->name('instant_animal_info_checking.store');
+
+
+        //    -------------------------------------- Instant Animal Checking ----------------------------------------------
 
         //    ----------------------- Insurance History -----------------------
 

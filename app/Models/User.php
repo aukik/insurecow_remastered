@@ -10,6 +10,7 @@ use App\Models\Farm_management\financial\BudgetingAndForecasting;
 use App\Models\Farm_management\financial\Expense;
 use App\Models\Farm_management\financial\IncomeAndSell;
 use App\Models\Farm_management\ReproductionAndBreeding;
+use App\Models\Farm_management\sell\Sell_animal_information;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -258,6 +259,15 @@ class User extends Authenticatable
     }
 
 //    --------------------- Farm management : Daily Expense Management ---------------------
+
+//    --------------------- Farm management : Sell Animal Information ---------------------
+
+    public function sell_animal_info(){
+        return $this->hasOne(Sell_animal_information::class);
+    }
+
+
+//    --------------------- Farm management : Sell Animal Information ---------------------
 
 
 }
