@@ -66,7 +66,7 @@
 
     <!-- Start About
     ============================================= -->
-    <div class="about-style-one-area default-padding">
+    <div class="about-style-one-area default-padding" id="about">
 
         <!-- Shape -->
         <div class="shape-right-top">
@@ -208,7 +208,7 @@
                 </div>
                 <div class="col-lg-6 choose-us-style-one">
                     <h5 class="sub-title">Get to know us</h5>
-                    <h2 class="title">InsureCow share to <br>some knowledge</h2>
+                    <h2 class="title">Share some information about InsureCow.</h2>
                     <div class="accordion accordion-regular mt-35" id="faqAccordion">
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingOne">
@@ -636,7 +636,7 @@
                 <div class="col-lg-8 offset-lg-2">
                     <div class="site-heading text-center">
                         {{--                        <h5 class="sub-title">What we do</h5>--}}
-                        <h2 class="title">Our Partner</h2>
+                        <h2 class="title">Our Partners</h2>
                         <div class="devider"></div>
                         {{--                        <p>--}}
                         {{--                            Everything melancholy uncommonly but solicitude inhabiting <br> projection off. Connection stimulated estimating.--}}
@@ -683,7 +683,7 @@
     <!-- Start Contact Us
     ============================================= -->
     <div class="contact-area bg-gray default-padding"
-         style="background-image: url({{ asset('assets/img/shape/28.png') }});">
+         style="background-image: url({{ asset('assets/img/shape/28.png') }});" id="contact" >
         <div class="container">
             <div class="row align-center">
 
