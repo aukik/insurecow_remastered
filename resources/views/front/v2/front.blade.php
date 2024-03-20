@@ -306,17 +306,17 @@
                                 <div class="farmer-style-one-item">
                                     <div class="thumb">
                                         <img src="{{ asset('storage/' . $team->image) }}" alt=""/>
-{{--                                        <div class="social">--}}
-{{--                                            <i class="fas fa-share-alt"></i>--}}
-{{--                                            <ul>--}}
+                                        {{--                                        <div class="social">--}}
+                                        {{--                                            <i class="fas fa-share-alt"></i>--}}
+                                        {{--                                            <ul>--}}
 
-{{--                                                <li class="linkedin">--}}
-{{--                                                    <a href="#">--}}
-{{--                                                        <i class="fab fa-linkedin-in"></i>--}}
-{{--                                                    </a>--}}
-{{--                                                </li>--}}
-{{--                                            </ul>--}}
-{{--                                        </div>--}}
+                                        {{--                                                <li class="linkedin">--}}
+                                        {{--                                                    <a href="#">--}}
+                                        {{--                                                        <i class="fab fa-linkedin-in"></i>--}}
+                                        {{--                                                    </a>--}}
+                                        {{--                                                </li>--}}
+                                        {{--                                            </ul>--}}
+                                        {{--                                        </div>--}}
                                     </div>
                                     <div class="info">
                                         <h4><a href="">{{$team->title}}</a></h4>
@@ -551,38 +551,38 @@
 
         {{-- ------------------------------ Achievement code update ------------------------------  --}}
 
-{{--        <div class="container">--}}
-{{--            <div class="row">--}}
-{{--                <div class="col-md-12 gallery-content">--}}
-{{--                    <div class="magnific-mix-gallery masonary">--}}
-{{--                        <div id="portfolio-grid" class="gallery-items colums-2">--}}
+        {{--        <div class="container">--}}
+        {{--            <div class="row">--}}
+        {{--                <div class="col-md-12 gallery-content">--}}
+        {{--                    <div class="magnific-mix-gallery masonary">--}}
+        {{--                        <div id="portfolio-grid" class="gallery-items colums-2">--}}
 
-{{--                            @foreach($achievements as $achievement)--}}
-{{--                                <!-- Single Item -->--}}
-{{--                                <div class="pf-item">--}}
+        {{--                            @foreach($achievements as $achievement)--}}
+        {{--                                <!-- Single Item -->--}}
+        {{--                                <div class="pf-item">--}}
 
-{{--                                    <div class="gallery-style-two">--}}
-{{--                                        <img src="{{ asset('storage/' .$achievement->image) }}" alt--}}
-{{--                                        />--}}
-{{--                                        <div class="overlay">--}}
-{{--                                            <span>{{$achievement->title}}</span>--}}
-{{--                                            <h4><a href="">{{$achievement->description}}</a></h4>--}}
-{{--                                        </div>--}}
-{{--                                        --}}{{--                                        <a class="link" href=""><i class="fas fa-arrow-right"></i></a>--}}
-{{--                                    </div>--}}
+        {{--                                    <div class="gallery-style-two">--}}
+        {{--                                        <img src="{{ asset('storage/' .$achievement->image) }}" alt--}}
+        {{--                                        />--}}
+        {{--                                        <div class="overlay">--}}
+        {{--                                            <span>{{$achievement->title}}</span>--}}
+        {{--                                            <h4><a href="">{{$achievement->description}}</a></h4>--}}
+        {{--                                        </div>--}}
+        {{--                                        --}}{{--                                        <a class="link" href=""><i class="fas fa-arrow-right"></i></a>--}}
+        {{--                                    </div>--}}
 
-{{--                                </div>--}}
-{{--                                <!-- End Single Item -->--}}
+        {{--                                </div>--}}
+        {{--                                <!-- End Single Item -->--}}
 
-{{--                            @endforeach--}}
+        {{--                            @endforeach--}}
 
 
-{{--                        </div>--}}
+        {{--                        </div>--}}
 
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
+        {{--                    </div>--}}
+        {{--                </div>--}}
+        {{--            </div>--}}
+        {{--        </div>--}}
 
 
         <div class="container container-stage">
@@ -598,7 +598,7 @@
 
                                 <div class="swiper-slide">
                                     <div class="gallery-style-one">
-                                        <img src="{{ asset('storage/' .$achievement->image) }}" alt="Thumb">
+                                        <img src="{{ asset('storage/' .$achievement->image) }}" alt="Thumb" style="height: 310px; width: 100%; object-fit: cover;">
                                         <div class="overlay">
                                             <span>{{$achievement->title}}</span>
                                             <h4><a href="javascript:;">{{$achievement->description}}</a></h4>
