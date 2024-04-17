@@ -1853,8 +1853,7 @@
                                     <i class="fa-solid fa-location-dot"></i>
                                 </div>
                                 <h3>Address</h3>
-                                <p>3rd Floor, YB Hassan Uddin Tower GA-25/4, Shahjadpur, PragaC Sharani, Gulshan Dhaka-
-                                    1212.</p>
+                                <p>Mansurabad , Adabar , Road: 07 , House : 88</p>
                                 {{--                            <p>Bangladesh</p> --}}
                             </div>
                             <!--CONTACT-->
