@@ -476,6 +476,8 @@
 
     <!------------------------ OUR TEAM SECTION----------------------->
 
+    <div></div>
+
     <section id="team">
         <div class="container">
             <div class="row">
